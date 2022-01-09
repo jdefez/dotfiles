@@ -1,0 +1,23 @@
+########50 characters############################
+#feat(what): add a new feature to the codebase
+#docs(what): changes that update documentation only
+#fix(what): fix a bug
+#perf(what): changes that improve performance
+#refactor(what): changes that refactor the code without changing public API
+#style(what): changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc.)
+#test(what): adding missing tests or fixing failing existing tests
+#build(what): changes that affect the build system or external dependencies (webpack, npm, ..etc)
+#ci(what): changes to our CI configuration files and scripts (example scopes: config.yml, CircleCI, ..etc)
+
+# Problem
+########72 characters##################################################
+
+# Solution
+# Solution or List of Changes
+
+# Note
+# Special instructions, testing steps, rake, etc
+
+# About this commit template
+# found@: https://alex-wasik.medium.com/create-a-custom-git-commit-template-84468232a459
+# initial settup: git config --global commit.template ~/.gitmessage
