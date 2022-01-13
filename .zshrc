@@ -2,13 +2,18 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/jean/.oh-my-zsh"
+export ZSH="/Users/jean-francois/.oh-my-zsh"
+
+export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+# Open tmux on startup, requires tmux plugin
+ZSH_TMUX_AUTOSTART=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -45,8 +50,6 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -70,10 +73,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-autosuggestions
-)
+plugins=(git composer brew zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,26 +103,58 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Paths
-cdpath=(~/Code)
+# shortcuts to the frequently use directories
+cdpath=(~/Projects ~/Documents ~/Documents/Code ~/Desktop/tmp)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# artisan
+alias pa="php artisan"
 
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+# php artisan test
+pat() {
+  if [ -n "$1" ]
+  then
+    clear && php artisan test --filter "$1"
+  else
+    clear && php artisan test
+  fi
+}
 
-# nvim sessions
+# php artisan dusk
+pad() {
+  if [ -n "$1" ]
+  then
+    clear && php artisan dusk --testdox --colors --filter "$1"
+  else
+    clear && php artisan dusk --testdox --colors
+  fi
+}
+
+pu () {
+  if [ -n "$1" ]
+  then
+    clear && ./vendor/bin/phpunit tests --testdox --colors always --filter "$1"
+  else
+    clear && ./vendor/bin/phpunit tests --testdox --colors always "$1"
+  fi
+}
+
+sphp () {
+  if [ -n "$1" ]
+  then
+    brew unlink php && brew link --overwrite --force php@$1
+  else
+    echo 'nop !'
+  fi
+}
+
 export vim_sessions=$HOME/.config/nvim/sessions
 
 compdef '_files -W ${vim_sessions}' vs
-
-alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-alias pa='php artisan'
-
 vs() {
   mkdir -p ${vim_sessions}
 
+  # use session.vim if no param given
   if [ "$#" -ne 1 ]; then
-    # use session.vim if no param given
     SESSION_NAME=session.vim
   else
     SESSION_NAME=$1
@@ -139,40 +171,13 @@ vs() {
   fi
 }
 
-pu() {
-  if [ -n "$1" ]; then
-    clear && php ./vendor/bin/phpunit $1
-  else
-    clear && php ./vendor/bin/phpunit
-  fi
-}
+# giving some more memory to node process
+export NODE_OPTIONS=--max_old_space_size=4096
 
-puc() {
-  clear && php ./vendor/bin/phpunit --coverage-text
-}
-
-puf() {
-  if [ -n "$1" ]; then
-    clear && php ./vendor/bin/phpunit --filter="$1"
-  else
-    clear && php ./vendor/bin/phpunit
-  fi
-}
-
-# build new laravel project
-
-lan () {
-  if [ -n "$1" ]; then
-    curl -s https://laravel.build/$1 | bash && cd $1
-  else
-    echo 'You must provide a project name'
-  fi
-}
-
-# tilix same session when opening a new split
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte-2.91.sh
-fi
-
-alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
-alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="~/.composer/vendor/bin:$PATH"
+export PATH="usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/bin/php:$PATH"
+export PATH="/usr/local/opt/libiconv/bin:$PATH"
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
