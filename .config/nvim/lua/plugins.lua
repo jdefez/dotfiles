@@ -12,14 +12,6 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
-  -- Todo test:
-  --  https://github.com/aserowy/tmux.nvim
-  --
-  --  or
-  --
-  --  https://github.com/numToStr/Navigator.nvim (with:
-  --  https://github.com/jabirali/tmux-tilish)
-
   use {
     'quangnguyen30192/cmp-nvim-ultisnips',
     'williamboman/nvim-lsp-installer',
@@ -194,6 +186,16 @@ return require('packer').startup(function(use)
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
         colors = {hint = 'orange', error = '#ff0000'}
       })
+    end
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require("indent_blankline").setup {
+        show_current_context = true,
+        show_current_context_start = true,
+      }
     end
   }
 
