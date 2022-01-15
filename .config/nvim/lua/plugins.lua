@@ -180,7 +180,7 @@ return require('packer').startup(function(use)
     'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
-        -- dark, dark_default, dimmed, light
+        -- dark, dimmed, light
         theme_style = 'dark',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
