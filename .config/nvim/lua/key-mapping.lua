@@ -6,7 +6,7 @@ nnoremap('Y', 'yy$')
 -- custom escape
 
 inoremap('jj', '<ESC>')
-  
+
 -- splits navigation
 
 -- map('<C-j>', '<C-W>j')
@@ -68,10 +68,10 @@ vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion'
 
 -- php
 m.nname('<leader>p', 'Php')
-nnoremap('<leader>pm', ':PhpactorContextMenu<CR>', 'Show phpactor context menu')
+nnoremap('<leader>pp', ':PhpactorContextMenu<CR>', 'Show phpactor context menu')
 nnoremap('<leader>pt', ':PhpactorTransform<CR>', 'Show phpactor transform menu')
-vnoremap('<leader>pem', ':<C-U>PhpactorExtractMethod<CR>', 'Phpactor extract method')
-vnoremap('<leader>pee', ':<C-U>PhpactorExtractExpression<CR>', 'Phpactor extract expression')
+vnoremap('<leader>pm', ':<C-U>PhpactorExtractMethod<CR>', 'Phpactor extract method')
+vnoremap('<leader>pe', ':<C-U>PhpactorExtractExpression<CR>', 'Phpactor extract expression')
 
 -- test runner
 
