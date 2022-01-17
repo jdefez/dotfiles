@@ -59,3 +59,11 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_li
 vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
 vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
 vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
+
+-- plugin: indent-whiteline
+
+vim.api.nvim_command [[ highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine ]]
+
+-- plugin: gina
+
+vim.opt.diffopt = 'vertical'

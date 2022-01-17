@@ -188,12 +188,22 @@ return require('packer').startup(function(use)
     'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
-        -- dark, dark_default, dimmed, light
+        -- dark, dimmed, light
         theme_style = 'dark',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
         colors = {hint = 'orange', error = '#ff0000'}
       })
+    end
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require("indent_blankline").setup {
+        show_current_context = true,
+        show_current_context_start = true,
+      }
     end
   }
 
