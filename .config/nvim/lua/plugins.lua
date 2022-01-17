@@ -71,13 +71,13 @@ return require('packer').startup(function(use)
       require('gitsigns').setup()
     end
   }
-  use {
-    'sindrets/diffview.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'kyazdani42/nvim-web-devicons'
-    }
-  }
+  -- use {
+  --   'sindrets/diffview.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'kyazdani42/nvim-web-devicons'
+  --   }
+  -- }
 
   -- navigation relative plugins
 

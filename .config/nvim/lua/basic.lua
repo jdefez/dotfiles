@@ -67,3 +67,6 @@ vim.api.nvim_command [[ highlight IndentBlanklineChar guifg=#00FF00 gui=nocombin
 -- plugin: gina
 
 vim.opt.diffopt = 'vertical'
+
+-- plugin: vim-test
+vim.g['test#php#phpunit#executable'] = './vendor/bin/phpunit'
