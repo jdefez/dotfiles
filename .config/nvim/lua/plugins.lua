@@ -3,7 +3,7 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
-  packer_bootstrap = fn.system({
+  Packer_bootstrap = fn.system({
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
   })
 end
@@ -31,6 +31,17 @@ return require('packer').startup(function(use)
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-calc',
     'b0o/mapx.nvim',
+  }
+
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    require("null-ls").setup({
+      sources = {
+        require("null-ls").builtins.formatting.phpcsfixer,
+        require("null-ls").builtins.diagnostics.eslint,
+        require("null-ls").builtins.completion.spell,
+      },
+    })
   }
 
   use {
@@ -63,6 +74,7 @@ return require('packer').startup(function(use)
       require('gitsigns').setup()
     end
   }
+
   use {
     'sindrets/diffview.nvim',
     requires = {
@@ -79,6 +91,7 @@ return require('packer').startup(function(use)
   }
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
@@ -107,8 +120,8 @@ return require('packer').startup(function(use)
   use {
     'SirVer/ultisnips',
     requires = {{'honza/vim-snippets', rtp = '.'}},
-    config = function()      
-      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
       vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
       vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
       vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
@@ -162,12 +175,11 @@ return require('packer').startup(function(use)
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      -- deactivating default mappings to avoid conflicting 'gc' mapping
-      vim.g.kommentary_create_default_mappings = false
+      vim.g.kommentary_create_default_mappings = false,
 
-      require('kommentary.config').configure_language('default', {
-        prefer_single_line_comments = true,
-      })
+      require('kommentary.config').configure_language({
+        prefer_single_line_comments = true
+      }, 'default')
     end
   }
 
@@ -215,7 +227,7 @@ return require('packer').startup(function(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if packer_bootstrap then
+  if Packer_bootstrap then
     require('packer').sync()
   end
 end)
