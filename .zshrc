@@ -10,8 +10,8 @@ export ZSH="/Users/jean-francois/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="gentoo"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="gentoo"
 
 # Open tmux on startup, requires tmux plugin
 ZSH_TMUX_AUTOSTART=true
@@ -82,6 +82,7 @@ plugins=(
   thefuck
   aliases
   composer
+  git-prompt
   colored-man-pages
   command-not-found
   zsh-interactive-cd
