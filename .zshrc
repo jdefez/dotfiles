@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jean-francois/.oh-my-zsh"
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,7 +74,19 @@ ZSH_TMUX_AUTOSTART=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git composer brew zsh-autosuggestions)
+plugins=(
+  git
+  brew
+  tmux
+  httpie
+  thefuck
+  aliases
+  composer
+  colored-man-pages
+  command-not-found
+  zsh-interactive-cd
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -171,6 +183,15 @@ vs() {
     nvim -S $SESSION_PATH
   fi
 }
+
+# thefuck
+eval $(thefuck --alias)
+
+# homebrew-command-not-found
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+source "$HB_CNF_HANDLER";
+fi
 
 # giving some more memory to node process
 export NODE_OPTIONS=--max_old_space_size=4096
