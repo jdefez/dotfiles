@@ -46,7 +46,6 @@ vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
 vim.opt.tabstop = 2
 vim.opt.undolevels = 10000
-
 vim.opt.termguicolors = true
 
 -- plugin: lualine
