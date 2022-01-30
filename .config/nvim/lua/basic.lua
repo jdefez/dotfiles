@@ -4,18 +4,43 @@ vim.g['python3_host_prog'] = '/usr/bin/python3'
 
 -- lsp: phpactor
 -- vim.g['phpactor_executable'] = '/usr/local/bin/phpactor'
+
 vim.g['phpactorCompletionIgnoreCase'] = true
 
--- vim-test:
-vim.g['test#neovim#start_normal'] = true
-vim.g['test#basic#start_normal'] = true
+
+-- plugin: vim-test
+
+vim.g['test#php#phpunit#executable'] = './vendor/bin/phpunit'
 vim.g['test#echo_command'] = false
-vim.g['test#neovim#term_position'] = "topright"
+vim.g['test#strategy'] = 'vimux'
+
+-- plugin: lualine
+
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
+-- plugin: nvim-lightbulb
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+-- plugin: illuminate
+
+vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
+
+-- plugin: indent-whiteline
+
+vim.api.nvim_command [[ highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine ]]
+
+-- plugin: gina
+
+vim.opt.diffopt = 'vertical'
+
+-- basics
 
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
 vim.wo.number = true
-
 vim.opt.cmdheight = 3
 vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true
@@ -47,25 +72,3 @@ vim.opt.splitbelow = true
 vim.opt.tabstop = 2
 vim.opt.undolevels = 10000
 vim.opt.termguicolors = true
-
--- plugin: lualine
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-
--- plugin: nvim-lightbulb
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
--- plugin: illuminate
-vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
-
--- plugin: indent-whiteline
-
-vim.api.nvim_command [[ highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine ]]
-
--- plugin: gina
-
-vim.opt.diffopt = 'vertical'
-
--- plugin: vim-test
-vim.g['test#php#phpunit#executable'] = './vendor/bin/phpunit'

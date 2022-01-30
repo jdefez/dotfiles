@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-calc',
+    'preservim/vimux',
     'b0o/mapx.nvim',
   }
 
