@@ -8,7 +8,13 @@ export ZSH="/home/jean/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="gentoo"
+
+
+# Open tmux on startup, requires tmux plugin
+ZSH_TMUX_AUTOSTART=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,7 +77,16 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  ag
   git
+  tmux
+  httpie
+  thefuck
+  aliases
+  composer
+  git-prompt
+  command-not-found
+  colored-man-pages
   zsh-autosuggestions
 )
 
@@ -176,3 +191,5 @@ fi
 
 alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
 alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
+
+eval $(thefuck --alias)
