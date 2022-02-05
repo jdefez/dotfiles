@@ -10,9 +10,9 @@ module.exports = {
         // default font size in pixels for all tabs
         fontSize: 12,
         // font family with optional fallbacks
-        fontFamily: 'JetBrainsMono Nerd Font, monospace',
+        fontFamily: 'JetBrainsMono Nerd Font',
         // default font weight: 'normal' or 'bold'
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         // font weight for bold characters: 'normal' or 'bold'
         fontWeightBold: 'bold',
         // line height as a relative unit
@@ -50,7 +50,7 @@ module.exports = {
         // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
         showWindowControls: '',
         // custom padding (CSS format, i.e.: `top right bottom left`)
-        padding: '5px 5px',
+        padding: '2px 2px',
         // the full list. if you're going to provide the full color palette,
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
