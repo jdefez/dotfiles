@@ -2,20 +2,15 @@ require('basic')
 
 require('plugins')
 
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]]
-
 require('key-mapping')
 
 require('lsp-servers')
 
-require('nvim-cmp')
-
 require('lualine-bubble')
+
+vim.cmd[[colorscheme dracula]]
+
+-- vim.cmd[[colorscheme catppuccin]]
 
 vim.cmd [[
   " Specific syntax settings

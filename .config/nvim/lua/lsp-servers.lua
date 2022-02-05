@@ -73,20 +73,16 @@ local on_attach = function(client, bufnr)
   nnoremap('<M-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 
   require 'illuminate'.on_attach(client)
-
 end
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
 
 local lspconfig = require('lspconfig')
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    flags = { debounce_text_changes = 150 },
-    capabilities = capabilities,
-  }
+  lspconfig[lsp].setup(
+    require('coq').lsp_ensure_capabilities({
+      on_attach = on_attach,
+      flags = { debounce_text_changes = 150 },
+      capabilities = capabilities,
+    })
+  )
 end

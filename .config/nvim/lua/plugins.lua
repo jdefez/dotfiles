@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'quangnguyen30192/cmp-nvim-ultisnips',
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
     'kosayoda/nvim-lightbulb',
@@ -21,16 +20,20 @@ return require('packer').startup(function(use)
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
     'tami5/lspsaga.nvim',
-    'hrsh7th/cmp-buffer',
     'phpactor/phpactor',
     'vim-test/vim-test',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-calc',
+    'preservim/vimux',
     'b0o/mapx.nvim',
+  }
+
+  use {
+    'ms-jpq/coq_nvim',
+    branch = 'coq'
+  }
+
+  use {
+    'ms-jpq/coq.artifacts', branch = 'artifacts'
   }
 
   use {
@@ -93,8 +96,8 @@ return require('packer').startup(function(use)
   -- Highlight, edit, and navigate code using a fast incremental parsing library
 
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+   'nvim-treesitter/nvim-treesitter',
+   run = ':TSUpdate'
   }
 
   use {
@@ -117,17 +120,17 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'SirVer/ultisnips',
-    requires = {{'honza/vim-snippets', rtp = '.'}},
-    config = function()
-      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-      vim.g.UltiSnipsRemoveSelectModeMappings = 0
-    end
-  }
+  -- use {
+  --   'SirVer/ultisnips',
+  --   requires = {{'honza/vim-snippets', rtp = '.'}},
+  --   config = function()
+  --     vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+  --     vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+  --     vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+  --     vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+  --     vim.g.UltiSnipsRemoveSelectModeMappings = 0
+  --   end
+  -- }
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -175,20 +178,30 @@ return require('packer').startup(function(use)
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      vim.g.kommentary_create_default_mappings = false,
-
       require('kommentary.config').configure_language({
-        prefer_single_line_comments = true
+        kommentary_create_default_mappings = false,
+        prefer_single_line_comments = true,
       }, 'default')
     end
   }
 
-  use {
-    'mg979/vim-visual-multi',
-    { branch = 'master' }
-  }
+  -- color schemes
 
   use {
+    'dracula/vim',
+    as = 'dracula'
+  }
+
+  --[[ use {
+    'catppuccin/nvim',
+    config = function()
+      require('catppuccin').setup({
+      })
+    end,
+    as = 'catppuccin'
+  } ]]
+
+  --[[ use {
     'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
@@ -196,12 +209,22 @@ return require('packer').startup(function(use)
         theme_style = 'dark',
         function_style = 'italic',
         sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
-        colors = {hint = 'orange', error = '#ff0000'}
+        colors = {hint = 'orange', error = '#ff0000'},
+        comment_style = 'italic',
+        keyword_style = 'italic',
+        variable_style = 'italic'
       })
-    end
-  }
+    end,
+    as = 'github'
+  } ]]
+
 
   use {
+    'mg979/vim-visual-multi',
+    { branch = 'master' }
+  }
+
+  --[[ use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require("indent_blankline").setup {
@@ -209,7 +232,7 @@ return require('packer').startup(function(use)
         show_current_context_start = true,
       }
     end
-  }
+  } ]]
 
   use {
     'folke/zen-mode.nvim',

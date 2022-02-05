@@ -80,7 +80,7 @@ nnoremap('<leader>tn', ':TestNearest<CR>', 'Run nearest test')
 nnoremap('<leader>tT', ':TestFile<CR>', 'Run test file')
 nnoremap('<leader>ta', ':TestSuite<CR>', 'Run test suite')
 nnoremap('<leader>tl', ':TestLast<CR>', 'Run latest test')
-nnoremap('<leader>tg', ':TestVisit<CR>', 'Visit test')
+nnoremap('<leader>tv', ':TestVisit<CR>', 'Visit test')
 
 -- zen mode
 nnoremap('<leader>z', ':ZenMode<CR>', 'Toggle zen mode')
