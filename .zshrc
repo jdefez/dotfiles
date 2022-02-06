@@ -189,7 +189,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte-2.91.sh
 fi
 
+alias tmux='TERM=screen-256color tmux'
 alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
 alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
+alias vimdiff='nvim -d'
 
 eval $(thefuck --alias)

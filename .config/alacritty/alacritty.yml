@@ -20,6 +20,7 @@ font:
     style: Italic
   bold_italic:
     family: JetBrainsMono Nerd Font
+    style: Bold Italic
   size: 11.0
 colors:
   primary:
