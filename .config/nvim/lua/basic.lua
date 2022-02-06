@@ -10,15 +10,12 @@ vim.g['phpactorCompletionIgnoreCase'] = true
 
 vim.g['test#strategy'] = 'vimux'
 vim.g['test#echo_command'] = false
--- vim.g['test#neovim#start_normal'] = true
--- vim.g['test#basic#start_normal'] = true
--- vim.g['test#neovim#term_position'] = "topright"
 
 -- plugin: coq
 
 vim.g.coq_settings = {
   ['auto_start'] = true,
-  ['keymap.jump_to_mark'] = '<S-h>',
+  ['keymap.jump_to_mark'] = '<tab>',
   ['keymap.eval_snips'] = '<leader>e',
 }
 
@@ -36,10 +33,6 @@ vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
 vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
 vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
 
--- plugin: indent-whiteline
-
-vim.api.nvim_command [[ highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine ]]
-
 -- plugin: gina
 
 vim.opt.diffopt = 'vertical'
@@ -49,6 +42,7 @@ vim.opt.diffopt = 'vertical'
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
 vim.wo.number = true
+
 vim.opt.cmdheight = 3
 vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true

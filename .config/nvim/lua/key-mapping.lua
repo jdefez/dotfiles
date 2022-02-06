@@ -28,6 +28,31 @@ nnoremap('<leader>bc', ':BDelete this<CR>', 'Delete current buffer')
 nnoremap('<leader>bh', ':BDelete hidden<CR>', 'Delete hidden buffers')
 nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
 
+-- dap
+
+m.nname('<leader>D', 'Diagnostics')
+nnoremap('<silent> <F5>', ':lua require"dap".continue()<CR>', 'Dap Continue')
+nnoremap('<silent> <F10>', ':lua require"dap".step_over()<CR>', 'Dap Step over')
+nnoremap('<silent> <F11>', ':lua require"dap".step_into()<CR>', 'Dap Step in')
+nnoremap('<silent> <F12>', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+nnoremap(
+  '<leader>Db',
+  ':lua require"dap".toggle_breakpoint()<CR>',
+  'Dap Toggle breakpoint'
+)
+nnoremap(
+  '<leader>Dt',
+  ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+  'Dap Set breakpoint condition'
+)
+nnoremap(
+  '<leader>Dl',
+  ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+  'Dap Set breakpoint log message'
+)
+nnoremap('<leader>Drl', ':lua require"dap".run_last()<CR>', 'Dap run last')
+nnoremap('<leader>Dr', ':lua require"dap".repl.open()<CR>', 'Dap open REPL')
+
 -- diagnostics
 
 m.nname('<leader>d', 'Diagnostics')
@@ -67,6 +92,7 @@ nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion'
 vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
 -- php
+
 m.nname('<leader>p', 'Php')
 nnoremap('<leader>pp', ':PhpactorContextMenu<CR>', 'Show phpactor context menu')
 nnoremap('<leader>pt', ':PhpactorTransform<CR>', 'Show phpactor transform menu')

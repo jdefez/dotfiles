@@ -8,9 +8,9 @@ require('lsp-servers')
 
 require('lualine-bubble')
 
-vim.cmd[[colorscheme dracula]]
+require('dap-xdebug-adapter')
 
--- vim.cmd[[colorscheme catppuccin]]
+vim.cmd('colorscheme catppuccin')
 
 vim.cmd [[
   " Specific syntax settings
@@ -23,7 +23,4 @@ vim.cmd [[
   " avoiding phpactor to create variables with 2 $ sign
   autocmd FileType phpset iskeyword+=$
   autocmd FileType php setlocal omnifunc=phpactor#Complete
-
-  " abbreviations
-  autocmd FileType php iabbrev <buffer> t@ /** @test */<CR>
 ]]

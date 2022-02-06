@@ -4,7 +4,8 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
   Packer_bootstrap = fn.system({
-    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path
   })
 end
 
@@ -21,10 +22,15 @@ return require('packer').startup(function(use)
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
     'tami5/lspsaga.nvim',
+    'tpope/vim-fugitive',
     'phpactor/phpactor',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
+  }
+
+  use {
+    'mfussenegger/nvim-dap',
   }
 
   use {
@@ -33,7 +39,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'ms-jpq/coq.artifacts', branch = 'artifacts'
+    'ms-jpq/coq.artifacts',
+    branch = 'artifacts'
   }
 
   use {
@@ -78,14 +85,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'sindrets/diffview.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'kyazdani42/nvim-web-devicons'
-    }
-  }
-
   -- navigation relative plugins
 
   use {
@@ -93,11 +92,9 @@ return require('packer').startup(function(use)
     requires = {'nvim-lua/plenary.nvim'}
   }
 
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
-
   use {
-   'nvim-treesitter/nvim-treesitter',
-   run = ':TSUpdate'
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 
   use {
@@ -119,18 +116,6 @@ return require('packer').startup(function(use)
       require('trouble').setup {}
     end
   }
-
-  -- use {
-  --   'SirVer/ultisnips',
-  --   requires = {{'honza/vim-snippets', rtp = '.'}},
-  --   config = function()
-  --     vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-  --     vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-  --     vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-  --     vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-  --     vim.g.UltiSnipsRemoveSelectModeMappings = 0
-  --   end
-  -- }
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -187,19 +172,18 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  use {
-    'dracula/vim',
-    as = 'dracula'
-  }
+  -- use {
+  --   'dracula/vim',
+  --   as = 'dracula'
+  -- }
 
-  --[[ use {
+  use {
     'catppuccin/nvim',
     config = function()
-      require('catppuccin').setup({
-      })
+      require('catppuccin').setup({})
     end,
     as = 'catppuccin'
-  } ]]
+  }
 
   --[[ use {
     'projekt0n/github-nvim-theme',
@@ -218,21 +202,10 @@ return require('packer').startup(function(use)
     as = 'github'
   } ]]
 
-
   use {
     'mg979/vim-visual-multi',
     { branch = 'master' }
   }
-
-  --[[ use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require("indent_blankline").setup {
-        show_current_context = true,
-        show_current_context_start = true,
-      }
-    end
-  } ]]
 
   use {
     'folke/zen-mode.nvim',
