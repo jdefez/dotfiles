@@ -31,10 +31,10 @@ nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
 -- dap
 
 m.nname('<leader>D', 'Diagnostics')
-nnoremap('<silent> <F5>', ':lua require"dap".continue()<CR>', 'Dap Continue')
-nnoremap('<silent> <F10>', ':lua require"dap".step_over()<CR>', 'Dap Step over')
-nnoremap('<silent> <F11>', ':lua require"dap".step_into()<CR>', 'Dap Step in')
-nnoremap('<silent> <F12>', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
+nnoremap('<leader>Do', ':lua require"dap".step_over()<CR>', 'Dap Step over')
+nnoremap('<leader>Di', ':lua require"dap".step_into()<CR>', 'Dap Step in')
+nnoremap('<leader>Du', ':lua require"dap".step_out()<CR>', 'Dap Step out')
 nnoremap(
   '<leader>Db',
   ':lua require"dap".toggle_breakpoint()<CR>',
@@ -51,7 +51,11 @@ nnoremap(
   'Dap Set breakpoint log message'
 )
 nnoremap('<leader>Drl', ':lua require"dap".run_last()<CR>', 'Dap run last')
-nnoremap('<leader>Dr', ':lua require"dap".repl.open()<CR>', 'Dap open REPL')
+nnoremap(
+  '<leader>Dr',
+  ':lua require"dap".repl.open({}, "vsplit")<CR>',
+  'Dap open REPL'
+)
 
 -- diagnostics
 
