@@ -10,6 +10,7 @@ vim.g['phpactorCompletionIgnoreCase'] = true
 
 vim.g['test#strategy'] = 'vimux'
 vim.g['test#echo_command'] = false
+vim.g['test#php#phpunit#options'] = '--testdox'
 
 -- plugin: coq
 

@@ -72,6 +72,7 @@ nnoremap('<leader>dR', ':TroubleToggle lsp_references<CR>', 'Toggle lsp referenc
 m.nname('<leader>f', 'Files')
 nnoremap('<leader>ff', ':Telescope find_files<CR>', 'Find file')
 nnoremap('<leader>fg', ':Telescope live_grep<CR>', 'Live grep')
+nnoremap('<leader>fG', ':Telescope grep_string<CR>', 'Grep string')
 nnoremap('<leader>fb', ':Telescope buffers<CR>', 'List Buffers')
 nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
 nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
