@@ -1,6 +1,8 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
+-- https://neovimcraft.com/plugin/anuvyklack/pretty-fold.nvim
+
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
   packer_bootstrap = fn.system({
@@ -149,7 +151,7 @@ return require('packer').startup(function(use)
       -- deactivating default mappings to avoid conflicting 'gc' mapping
       vim.g.kommentary_create_default_mappings = false
 
-      require('kommentary.config').configure_language('default', {
+      require('kommentary.config').configure_language('php', {
         prefer_single_line_comments = true,
       })
     end
