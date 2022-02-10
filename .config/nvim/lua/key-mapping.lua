@@ -77,6 +77,13 @@ nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
 nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
 nnoremap('<leader>fs', ':Telescope git_status<CR>', 'Show git status')
 
+-- fugitive
+nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
+nnoremap('dgh', ':diffget //2<CR>', 'Fugitive get local')
+nnoremap('dgl', ':diffget //3<CR>', 'Fugitive get remote')
+nnoremap('dp', ':diffput<CR>', 'Fugitive put')
+nnoremap('dg', ':diffget<CR>', 'Fugitive get')
+
 -- hunks
 
 m.nname('<leader>h', 'Hunks')
