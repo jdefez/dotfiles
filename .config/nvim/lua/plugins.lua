@@ -163,10 +163,20 @@ return require('packer').startup(function(use)
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      require('kommentary.config').configure_language({
-        kommentary_create_default_mappings = false,
+      -- deactivating default mappings to avoid conflicting 'gc' mapping
+      vim.g.kommentary_create_default_mappings = false
+
+      require('kommentary.config').configure_language('php', {
         prefer_single_line_comments = true,
-      }, 'default')
+      })
+    end
+  }
+
+  use{
+    'anuvyklack/pretty-fold.nvim',
+    config = function()
+      require('pretty-fold').setup{}
+      require('pretty-fold.preview').setup()
     end
   }
 
