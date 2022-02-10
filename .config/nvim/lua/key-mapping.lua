@@ -28,6 +28,35 @@ nnoremap('<leader>bc', ':BDelete this<CR>', 'Delete current buffer')
 nnoremap('<leader>bh', ':BDelete hidden<CR>', 'Delete hidden buffers')
 nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
 
+-- dap
+
+m.nname('<leader>D', 'Diagnostics')
+nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
+nnoremap('<leader>Do', ':lua require"dap".step_over()<CR>', 'Dap Step over')
+nnoremap('<leader>Di', ':lua require"dap".step_into()<CR>', 'Dap Step in')
+nnoremap('<leader>Du', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+nnoremap(
+  '<leader>Db',
+  ':lua require"dap".toggle_breakpoint()<CR>',
+  'Dap Toggle breakpoint'
+)
+nnoremap(
+  '<leader>Dt',
+  ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+  'Dap Set breakpoint condition'
+)
+nnoremap(
+  '<leader>Dl',
+  ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+  'Dap Set breakpoint log message'
+)
+nnoremap('<leader>Drl', ':lua require"dap".run_last()<CR>', 'Dap run last')
+nnoremap(
+  '<leader>Dr',
+  ':lua require"dap".repl.open({}, "vsplit")<CR>',
+  'Dap open REPL'
+)
+
 -- diagnostics
 
 m.nname('<leader>d', 'Diagnostics')

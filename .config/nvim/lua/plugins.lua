@@ -12,34 +12,27 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
-  -- Todo test:
-  --  https://github.com/aserowy/tmux.nvim
-  --
-  --  or
-  --
-  --  https://github.com/numToStr/Navigator.nvim (with:
-  --  https://github.com/jabirali/tmux-tilish)
-
   use {
-    'quangnguyen30192/cmp-nvim-ultisnips',
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
     'kosayoda/nvim-lightbulb',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
+    'mfussenegger/nvim-dap',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
     'tami5/lspsaga.nvim',
-    'hrsh7th/cmp-buffer',
+    'tpope/vim-fugitive',
     'phpactor/phpactor',
     'vim-test/vim-test',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-calc',
     'preservim/vimux',
     'b0o/mapx.nvim',
+    'jparise/vim-graphql',
+  }
+
+  use {
+    'ms-jpq/coq_nvim',
+    branch = 'coq'
   }
 
   use {
@@ -72,13 +65,6 @@ return require('packer').startup(function(use)
       require('gitsigns').setup()
     end
   }
-  -- use {
-  --   'sindrets/diffview.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim',
-  --     'kyazdani42/nvim-web-devicons'
-  --   }
-  -- }
 
   -- navigation relative plugins
 
@@ -88,6 +74,7 @@ return require('packer').startup(function(use)
   }
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
@@ -110,18 +97,6 @@ return require('packer').startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
       require('trouble').setup {}
-    end
-  }
-
-  use {
-    'SirVer/ultisnips',
-    requires = {{'honza/vim-snippets', rtp = '.'}},
-    config = function()
-      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-      vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end
   }
 
@@ -185,6 +160,16 @@ return require('packer').startup(function(use)
     { branch = 'master' }
   }
 
+  -- color schemes
+
+  -- use {
+  --   'catppuccin/nvim',
+  --   config = function()
+  --     require('catppuccin').setup({})
+  --   end,
+  --   as = 'catppuccin'
+  -- }
+
   use {
     'projekt0n/github-nvim-theme',
     config = function()
@@ -192,19 +177,8 @@ return require('packer').startup(function(use)
         -- dark, dimmed, light
         theme_style = 'dark',
         function_style = 'italic',
-        sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
         colors = {hint = 'orange', error = '#ff0000'}
       })
-    end
-  }
-
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require("indent_blankline").setup {
-        show_current_context = true,
-        show_current_context_start = true,
-      }
     end
   }
 
@@ -224,6 +198,7 @@ return require('packer').startup(function(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
+
   if packer_bootstrap then
     require('packer').sync()
   end

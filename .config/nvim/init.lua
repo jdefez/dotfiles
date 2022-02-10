@@ -13,9 +13,11 @@ require('key-mapping')
 
 require('lsp-servers')
 
-require('nvim-cmp')
-
 require('lualine-bubble')
+
+require('dap-xdebug-adapter')
+
+-- vim.cmd('colorscheme catppuccin')
 
 vim.cmd [[
   " Specific syntax settings

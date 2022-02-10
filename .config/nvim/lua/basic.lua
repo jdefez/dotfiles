@@ -13,6 +13,7 @@ vim.g['phpactorCompletionIgnoreCase'] = true
 vim.g['test#php#phpunit#executable'] = './vendor/bin/phpunit'
 vim.g['test#echo_command'] = false
 vim.g['test#strategy'] = 'vimux'
+vim.g['test#php#phpunit#options'] = '--colors --testdox'
 
 -- plugin: lualine
 
@@ -28,13 +29,17 @@ vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
 vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
 vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
 
--- plugin: indent-whiteline
-
-vim.api.nvim_command [[ highlight IndentBlanklineChar guifg=#00FF00 gui=nocombine ]]
-
 -- plugin: gina
 
 vim.opt.diffopt = 'vertical'
+
+-- plugin: coq
+
+vim.g.coq_settings = {
+  ['auto_start'] = true,
+  ['keymap.jump_to_mark'] = '<tab>',
+  ['keymap.eval_snips'] = '<leader>e',
+}
 
 -- basics
 

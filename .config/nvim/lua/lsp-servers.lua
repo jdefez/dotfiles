@@ -9,8 +9,8 @@
 -- /lua/lspconfig/language-server-name.lua
 
 local servers = {
-  'intelephense', 'sumneko_lua', 'phpactor', 'dockerls', 'jsonls', 'eslint',
-  'yamlls', 'graphql', 'emmet_ls'
+  'intelephense', 'sumneko_lua', 'dockerls', 'jsonls', 'eslint',
+  'yamlls', 'graphql', 'emmet_ls', 'phpactor'
   -- , 'psalm'
 }
 
@@ -39,7 +39,6 @@ require'lspconfig'.eslint.setup{}
 require'lspconfig'.yamlls.setup{}
 
 local on_attach = function(client, bufnr)
-
   local m = require('mapx').setup({ global = false, whichkey = true })
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -74,20 +73,17 @@ local on_attach = function(client, bufnr)
   nnoremap('<M-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 
   require 'illuminate'.on_attach(client)
-
 end
 
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
-
 local lspconfig = require('lspconfig')
+local coq = require('coq')
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    flags = { debounce_text_changes = 150 },
-    capabilities = capabilities,
-  }
+  lspconfig[lsp].setup(
+    coq.lsp_ensure_capabilities({
+      on_attach = on_attach,
+      flags = { debounce_text_changes = 150 },
+      capabilities = capabilities,
+    })
+  )
 end
