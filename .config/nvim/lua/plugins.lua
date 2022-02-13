@@ -34,6 +34,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'rcarriga/nvim-dap-ui',
+    requires = {'mfussenegger/nvim-dap'},
+  }
+
+  use {
     'ms-jpq/coq_nvim',
     branch = 'coq'
   }
@@ -85,11 +90,16 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- navigation relative plugins
-
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {'nvim-lua/plenary.nvim'}
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-dap.nvim'
+    },
+    config = function()
+      require('telescope').setup({})
+      require('telescope').load_extension('dap')
+    end
   }
 
   use {
@@ -182,18 +192,21 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
+  use { 'folke/tokyonight.nvim',
+  }
+
   -- use {
   --   'dracula/vim',
   --   as = 'dracula'
   -- }
 
-  use {
+  --[[ use {
     'catppuccin/nvim',
     config = function()
       require('catppuccin').setup({})
     end,
     as = 'catppuccin'
-  }
+  } ]]
 
   --[[ use {
     'projekt0n/github-nvim-theme',
