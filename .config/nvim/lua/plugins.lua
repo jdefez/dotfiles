@@ -23,13 +23,13 @@ return require('packer').startup(function(use)
     'mfussenegger/nvim-dap',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
+    'jparise/vim-graphql',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
     'phpactor/phpactor',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
-    'jparise/vim-graphql',
   }
 
   use {
@@ -68,14 +68,17 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- navigation relative plugins
-
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {'nvim-lua/plenary.nvim'}
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-dap.nvim'
+    },
+    config = function()
+      require('telescope').setup({})
+      require('telescope').load_extension('dap')
+    end
   }
-
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -107,12 +110,13 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
   }
 
-  -- toggle on/off using :ASToggle
   use {
     'Pocco81/AutoSave.nvim',
     config = function()
       require('autosave').setup{
         {
+          -- toggle on/off using :ASToggle
+
           enabled = true,
           execution_message = 'AutoSave: saved at ' .. vim.fn.strftime('%H:%M:%S'),
           events = {'InsertLeave', 'TextChanged'},
@@ -162,27 +166,37 @@ return require('packer').startup(function(use)
     { branch = 'master' }
   }
 
+  use {
+    'anuvyklack/pretty-fold.nvim',
+    config = function()
+      require('pretty-fold').setup()
+      -- require('pretty-fold.preview').setup()
+    end
+  }
+
   -- color schemes
 
-  -- use {
-  --   'catppuccin/nvim',
-  --   config = function()
-  --     require('catppuccin').setup({})
-  --   end,
-  --   as = 'catppuccin'
-  -- }
+  use { 'folke/tokyonight.nvim' }
 
-  use {
+  --[[ use {
+    'catppuccin/nvim',
+    config = function()
+      require('catppuccin').setup({})
+    end,
+    as = 'catppuccin'
+  } ]]
+
+  --[[ use {
     'projekt0n/github-nvim-theme',
     config = function()
       require('github-theme').setup({
         -- dark, dimmed, light
         theme_style = 'dark',
         function_style = 'italic',
-        colors = {hint = 'orange', error = '#ff0000'}
+        colors = { hint = 'orange', error = '#ff0000' }
       })
     end
-  }
+  } ]]
 
   use {
     'folke/zen-mode.nvim',

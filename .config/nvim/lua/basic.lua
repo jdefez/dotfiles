@@ -13,7 +13,7 @@ vim.g['phpactorCompletionIgnoreCase'] = true
 vim.g['test#php#phpunit#executable'] = './vendor/bin/phpunit'
 vim.g['test#echo_command'] = false
 vim.g['test#strategy'] = 'vimux'
-vim.g['test#php#phpunit#options'] = '--colors --testdox'
+vim.g['test#php#phpunit#options'] = '--testdox'
 
 -- plugin: lualine
 

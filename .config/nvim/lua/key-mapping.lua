@@ -32,14 +32,11 @@ nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
 
 m.nname('<leader>D', 'Diagnostics')
 nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
-nnoremap('<leader>Do', ':lua require"dap".step_over()<CR>', 'Dap Step over')
-nnoremap('<leader>Di', ':lua require"dap".step_into()<CR>', 'Dap Step in')
-nnoremap('<leader>Du', ':lua require"dap".step_out()<CR>', 'Dap Step out')
-nnoremap(
-  '<leader>Db',
-  ':lua require"dap".toggle_breakpoint()<CR>',
-  'Dap Toggle breakpoint'
-)
+nnoremap('<C-Right>', ':lua require"dap".step_over()<CR>', 'Dap Step over')
+nnoremap('<C-Down>', ':lua require"dap".step_into()<CR>', 'Dap Step in')
+nnoremap('<C-Left>', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+
+nnoremap('<C-b>', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
 nnoremap(
   '<leader>Dt',
   ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
@@ -67,15 +64,25 @@ nnoremap('<leader>dq', ':TroubleToggle quickfix<CR>', 'Toggle quickfix')
 nnoremap('<leader>dl', ':TroubleToggle loclist<CR>', 'Toggle loclist')
 nnoremap('<leader>dR', ':TroubleToggle lsp_references<CR>', 'Toggle lsp references')
 
--- files
+-- telescope
 
 m.nname('<leader>f', 'Files')
 nnoremap('<leader>ff', ':Telescope find_files<CR>', 'Find file')
 nnoremap('<leader>fg', ':Telescope live_grep<CR>', 'Live grep')
+nnoremap('<leader>fG', ':Telescope grep_string<CR>', 'Grep string')
 nnoremap('<leader>fb', ':Telescope buffers<CR>', 'List Buffers')
 nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
 nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
 nnoremap('<leader>fs', ':Telescope git_status<CR>', 'Show git status')
+
+-- telescope dap extension
+
+m.nname('<leader>fd', 'Dap')
+nnoremap('<leader>fdc', ':Telescope dap commands<CR>', 'List Dap commands')
+nnoremap('<leader>fdC', ':Telescope dap configurations<CR>', 'List Dap configurations')
+nnoremap('<leader>fdb', ':Telescope dap list_breakpoints<CR>', 'List breakpoints')
+nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
+nnoremap('<leader>fdv', ':Telescope dap frames<CR>', 'Dap frames')
 
 -- fugitive
 nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')

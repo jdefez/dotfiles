@@ -19,7 +19,13 @@ require('dap-xdebug-adapter')
 
 -- vim.cmd('colorscheme catppuccin')
 
+vim.g.tokyonight_style = 'night'
+vim.cmd('colorscheme tokyonight')
+
 vim.cmd [[
+  " colorcolumn
+  highlight ColorColumn guibg=#000000
+
   " Specific syntax settings
   au BufRead,BufNewFile *.blade.php set ft=html
 
