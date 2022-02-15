@@ -6,16 +6,14 @@ require('key-mapping')
 
 require('lsp-servers')
 
-require('lualine-bubble')
-
 require('dap-xdebug-adapter')
 
 -- vim.cmd('colorscheme catppuccin')
 
-vim.g.tokyonight_style = 'storm'
+vim.g.tokyonight_style = 'night'
 vim.cmd('colorscheme tokyonight')
 
-vim.cmd [[
+vim.cmd[[
   " Specific syntax settings
   au BufRead,BufNewFile *.blade.php set ft=html
 
@@ -31,4 +29,7 @@ vim.cmd [[
   " dap: enabling autocompletion
 
   au FileType dap-repl lua require("dap.ext.autocompl").attach()
+
+  " set colorcolum color
+  highlight ColorColumn ctermbg=black guibg=black
 ]]

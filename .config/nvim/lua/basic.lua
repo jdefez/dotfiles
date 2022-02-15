@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.termguicolors = true
 
 vim.g['python3_host_prog'] = '/usr/bin/python3'
 
@@ -20,19 +21,15 @@ vim.g.coq_settings = {
   ['keymap.eval_snips'] = '<leader>e',
 }
 
--- plugin: lualine
-
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-
 -- plugin: nvim-lightbulb
 
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+vim.cmd[[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- plugin: illuminate
 
-vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
+vim.api.nvim_command[[ hi def link LspReferenceText CursorLine ]]
+vim.api.nvim_command[[ hi def link LspReferenceWrite CursorLine ]]
+vim.api.nvim_command[[ hi def link LspReferenceRead CursorLine ]]
 
 -- plugin: gina
 

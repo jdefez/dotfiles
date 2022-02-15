@@ -30,6 +30,21 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('bufferline').setup{}
+    end
+  }
+
+  use {
+    'feline-nvim/feline.nvim',
+    config = function()
+      require('feline').setup()
+    end
+  }
+
+  use {
     'mfussenegger/nvim-dap',
   }
 
@@ -127,11 +142,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-  }
-
   -- toggle on/off using :ASToggle
   use {
     'Pocco81/AutoSave.nvim',
@@ -182,7 +192,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  use{
+  use {
     'anuvyklack/pretty-fold.nvim',
     config = function()
       require('pretty-fold').setup{}
@@ -192,8 +202,7 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  use { 'folke/tokyonight.nvim',
-  }
+  use { 'folke/tokyonight.nvim' }
 
   -- use {
   --   'dracula/vim',
