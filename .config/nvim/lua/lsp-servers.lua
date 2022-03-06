@@ -9,14 +9,15 @@
 -- /lua/lspconfig/language-server-name.lua
 
 local servers = {
-  'intelephense', 'sumneko_lua', 'phpactor', 'dockerls', 'jsonls', 'eslint',
-  'yamlls', 'graphql', 'psalm', 'emmet_ls'
+  'intelephense', 'sumneko_lua', 'dockerls', 'jsonls', 'eslint',
+  'yamlls', 'graphql', 'psalm', 'emmet_ls', 'phpactor'
 }
 
 require'lspconfig'.intelephense.setup{}
 
 -- install instruction can be found here:
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
+
 require'lspconfig'.sumneko_lua.setup{}
 
 require'lspconfig'.phpactor.setup{}
@@ -44,10 +45,10 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  m.nname('<leader>l', 'lsp: workspace')
-  nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add workspace folder')
+  -- m.nname('<leader>l', 'lsp: workspace')
+  --[[ nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add workspace folder')
   nnoremap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove workspace folder')
-  nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List workspcase folder')
+  nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List workspcase folder') ]]
 
   m.nname('g', 'lsp: navigation')
   nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Lsp: declaration')

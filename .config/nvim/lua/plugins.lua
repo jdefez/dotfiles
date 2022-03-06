@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     'folke/which-key.nvim',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
+    'preservim/nerdtree',
     'phpactor/phpactor',
     'vim-test/vim-test',
     'preservim/vimux',
@@ -46,6 +47,7 @@ return require('packer').startup(function(use)
 
   use {
     'mfussenegger/nvim-dap',
+    'theHamsta/nvim-dap-virtual-text'
   }
 
   use {

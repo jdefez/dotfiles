@@ -23,6 +23,10 @@ vim.fn.sign_define('DapBreakpoint', {
   numhl = ''
 })
 
+-- nvim-dap-virtual-text config
+
+require("nvim-dap-virtual-text").setup()
+
 -- dapui config
 
 dapui.setup({
@@ -41,24 +45,24 @@ dapui.setup({
       -- Provide as ID strings or tables with "id" and "size" keys
       {
         id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
+        size = 0.5,
       },
-      { id = "breakpoints", size = 0.25 },
-      { id = "stacks", size = 0.25 },
-      { id = "watches", size = 00.25 },
+      { id = "breakpoints", size = 0.1 },
+      { id = "stacks", size = 0.2 },
+      { id = "watches", size = 0.2 },
     },
-    size = 40,
-    position = "left", -- Can be "left", "right", "top", "bottom"
+    size = 45,
+    position = "right",
   },
   tray = {
     elements = { "repl" },
-    size = 10,
+    size = 15,
     position = "bottom", -- Can be "left", "right", "top", "bottom"
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
+    max_height = nil,
+    max_width = nil,
+    border = "single",
     mappings = {
       close = { "q", "<Esc>" },
     },

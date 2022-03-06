@@ -41,7 +41,16 @@ npm install -g intelephense
         intelephense = {
           files = {
             maxSize = 1000000;
+            licenceKey = /home/jean/intelephense/licence.txt
           };
+          completion = {
+            insertUseDeclaration = true;
+            fullyQualifyGlobalConstantsAndFunctions = true;
+            triggerParameterHints = true;
+            maxItems = 100;
+          };
+          stubs = { 'yaml' }
+          format = { enabled = true }
         };
         -- See https://github.com/bmewburn/intelephense-docs
       }]],

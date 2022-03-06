@@ -43,8 +43,6 @@ nnoremap(
   ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
   'Dap Set breakpoint log message'
 )
--- nnoremap('<leader>Drl', ':lua require"dap".run_last()<CR>', 'Dap run last')
--- nnoremap('<leader>Dr', ':lua require"dap".repl.open({}, "vsplit")<CR>', 'Dap open REPL')
 
 -- diagnostics
 
@@ -63,16 +61,6 @@ nnoremap('b]', ':BufferLineMovePrev<CR>', 'Previous buffer')
 nnoremap('bn', ':BufferLineCycleNext<CR>', 'Cycle next buffer')
 nnoremap('bp', ':BufferLineCyclePrev<CR>', 'Cycle previous buffer')
 nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
-
---[[ nnoremap('<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>', 'Go to buffer 1')
-nnoremap('<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>', 'Go to buffer 2')
-nnoremap('<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>', 'Go to buffer 3')
-nnoremap('<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>', 'Go to buffer 4')
-nnoremap('<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>', 'Go to buffer 5')
-nnoremap('<leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>', 'Go to buffer 6')
-nnoremap('<leader>7', '<Cmd>BufferLineGoToBuffer 7<CR>', 'Go to buffer 7')
-nnoremap('<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>', 'Go to buffer 8')
-nnoremap('<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>', 'Go to buffer 9') ]]
 
 -- telescope
 
