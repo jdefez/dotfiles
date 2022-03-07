@@ -6,7 +6,7 @@ nnoremap('Y', 'yy$')
 -- custom escape
 
 inoremap('jj', '<ESC>')
-  
+
 -- splits navigation
 
 -- map('<C-j>', '<C-W>j')
@@ -28,15 +28,23 @@ nnoremap('<leader>bc', ':BDelete this<CR>', 'Delete current buffer')
 nnoremap('<leader>bh', ':BDelete hidden<CR>', 'Delete hidden buffers')
 nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
 
+-- bufferline
+
+nnoremap('[b', ':BufferLineMoveNext<CR>', 'Next buffer')
+nnoremap('b]', ':BufferLineMovePrev<CR>', 'Previous buffer')
+nnoremap('bn', ':BufferLineCycleNext<CR>', 'Cycle next buffer')
+nnoremap('bp', ':BufferLineCyclePrev<CR>', 'Cycle previous buffer')
+nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
+
 -- dap
 
 m.nname('<leader>D', 'Diagnostics')
 nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
-nnoremap('<C-Right>', ':lua require"dap".step_over()<CR>', 'Dap Step over')
-nnoremap('<C-Down>', ':lua require"dap".step_into()<CR>', 'Dap Step in')
-nnoremap('<C-Left>', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+nnoremap('dal', ':lua require"dap".step_over()<CR>', 'Dap Step over')
+nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')
+nnoremap('dah', ':lua require"dap".step_out()<CR>', 'Dap Step out')
 
-nnoremap('<C-b>', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
+nnoremap('<leader>Db', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
 nnoremap(
   '<leader>Dt',
   ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
@@ -85,11 +93,11 @@ nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
 nnoremap('<leader>fdv', ':Telescope dap frames<CR>', 'Dap frames')
 
 -- fugitive
-nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
+m.nname('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
 nnoremap('dgh', ':diffget //2<CR>', 'Fugitive get local')
 nnoremap('dgl', ':diffget //3<CR>', 'Fugitive get remote')
-nnoremap('dp', ':diffput<CR>', 'Fugitive put')
-nnoremap('dg', ':diffget<CR>', 'Fugitive get')
+--[[ nnoremap('dp', ':diffput<CR>', 'Fugitive put')
+nnoremap('dg', ':diffget<CR>', 'Fugitive get') ]]
 
 -- hunks
 
@@ -108,6 +116,12 @@ m.nname('<leader>c', 'Comment')
 nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
 nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
 vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
+
+-- nvim-tree
+m.nname('t', 'Nvim Tree')
+nnoremap('tt', ':NvimTreeToggle<CR>', 'Toggle tree')
+nnoremap('tr', ':NvimTreeRefresh<CR>', 'Refresh tree')
+nnoremap('tn', ':NvimTreeFindFile<CR>', 'Find file')
 
 -- php
 m.nname('<leader>p', 'Php')

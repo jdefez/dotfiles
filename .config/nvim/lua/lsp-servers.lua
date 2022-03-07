@@ -10,7 +10,8 @@
 
 local servers = {
   'intelephense', 'sumneko_lua', 'dockerls', 'jsonls', 'eslint',
-  'yamlls', 'graphql', 'emmet_ls', 'phpactor'
+  'yamlls', 'graphql', 'emmet_ls'
+  -- , 'phpactor'
   -- , 'psalm'
 }
 
@@ -20,7 +21,7 @@ require'lspconfig'.intelephense.setup{}
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
 require'lspconfig'.sumneko_lua.setup{}
 
-require'lspconfig'.phpactor.setup{}
+-- require'lspconfig'.phpactor.setup{}
 
 require'lspconfig'.emmet_ls.setup{}
 

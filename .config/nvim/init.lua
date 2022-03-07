@@ -13,8 +13,6 @@ require('key-mapping')
 
 require('lsp-servers')
 
-require('lualine-bubble')
-
 require('dap-xdebug-adapter')
 
 -- vim.cmd('colorscheme catppuccin')

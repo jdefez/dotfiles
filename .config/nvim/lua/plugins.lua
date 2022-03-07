@@ -5,7 +5,7 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
-  packer_bootstrap = fn.system({
+  local packer_bootstrap = fn.system({
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
   })
 end
@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
     'kosayoda/nvim-lightbulb',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
-    'mfussenegger/nvim-dap',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
     'jparise/vim-graphql',
@@ -28,8 +27,31 @@ return require('packer').startup(function(use)
     'tpope/vim-fugitive',
     'phpactor/phpactor',
     'vim-test/vim-test',
+    -- 'tpope/vim-vinegar',
     'preservim/vimux',
     'b0o/mapx.nvim',
+  }
+
+  use {
+    'feline-nvim/feline.nvim',
+    config = function()
+      require('feline').setup()
+    end
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup{}
+    end
+  }
+
+  use { 'mfussenegger/nvim-dap' }
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {'mfussenegger/nvim-dap'},
   }
 
   use {
@@ -106,17 +128,11 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-  }
-
-  use {
     'Pocco81/AutoSave.nvim',
     config = function()
       require('autosave').setup{
         {
           -- toggle on/off using :ASToggle
-
           enabled = true,
           execution_message = 'AutoSave: saved at ' .. vim.fn.strftime('%H:%M:%S'),
           events = {'InsertLeave', 'TextChanged'},
@@ -178,25 +194,11 @@ return require('packer').startup(function(use)
 
   use { 'folke/tokyonight.nvim' }
 
-  --[[ use {
-    'catppuccin/nvim',
-    config = function()
-      require('catppuccin').setup({})
-    end,
-    as = 'catppuccin'
-  } ]]
-
-  --[[ use {
-    'projekt0n/github-nvim-theme',
-    config = function()
-      require('github-theme').setup({
-        -- dark, dimmed, light
-        theme_style = 'dark',
-        function_style = 'italic',
-        colors = { hint = 'orange', error = '#ff0000' }
-      })
-    end
-  } ]]
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function() require'nvim-tree'.setup {} end
+  }
 
   use {
     'folke/zen-mode.nvim',
