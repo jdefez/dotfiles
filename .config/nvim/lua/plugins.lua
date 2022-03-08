@@ -25,9 +25,9 @@ return require('packer').startup(function(use)
     'jparise/vim-graphql',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
+    'preservim/nerdtree',
     'phpactor/phpactor',
     'vim-test/vim-test',
-    -- 'tpope/vim-vinegar',
     'preservim/vimux',
     'b0o/mapx.nvim',
   }
@@ -193,12 +193,6 @@ return require('packer').startup(function(use)
   -- color schemes
 
   use { 'folke/tokyonight.nvim' }
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function() require'nvim-tree'.setup {} end
-  }
 
   use {
     'folke/zen-mode.nvim',

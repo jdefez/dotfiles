@@ -96,8 +96,6 @@ nnoremap('<leader>fdv', ':Telescope dap frames<CR>', 'Dap frames')
 m.nname('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
 nnoremap('dgh', ':diffget //2<CR>', 'Fugitive get local')
 nnoremap('dgl', ':diffget //3<CR>', 'Fugitive get remote')
---[[ nnoremap('dp', ':diffput<CR>', 'Fugitive put')
-nnoremap('dg', ':diffget<CR>', 'Fugitive get') ]]
 
 -- hunks
 
@@ -118,10 +116,9 @@ nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion'
 vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
 -- nvim-tree
-m.nname('t', 'Nvim Tree')
-nnoremap('tt', ':NvimTreeToggle<CR>', 'Toggle tree')
-nnoremap('tr', ':NvimTreeRefresh<CR>', 'Refresh tree')
-nnoremap('tn', ':NvimTreeFindFile<CR>', 'Find file')
+m.nname('<leader>n', 'Nvim Tree')
+nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'Toggle nerdtree');
+
 
 -- php
 m.nname('<leader>p', 'Php')
