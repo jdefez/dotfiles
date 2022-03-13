@@ -195,3 +195,5 @@ alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jea
 alias vimdiff='nvim -d'
 
 eval $(thefuck --alias)
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

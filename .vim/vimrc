@@ -11,27 +11,43 @@ let mapleader = " "
 " plugins
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+  Plug 'arithran/vim-delete-hidden-buffers'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'lourenci/github-colors', { 'branch': 'main' }
+  Plug 'vim-airline/vim-airline'
+  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+  Plug 'tpope/vim-commentary'
+  Plug 'lambdalisue/gina.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-fugitive'
+  Plug 'ap/vim-buftabline'
+  Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " tmux plugin
 call plug#end()
 
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd Filetype vim setlocal tabstop=2 shiftwidth=2 expandtab
 
-" colorscheme slate
+colorscheme slate
 " colorscheme morning
-colorscheme delek
+" colorscheme zellner
+" colorscheme delek
 
-"colorscheme zellner
+" set background=light
+" colorscheme github-colors
 
-" highlight CursorLine ctermbg=black guibg=#222222
-" highlight CursorColumn ctermbg=black guibg=#222222
+" https://github.com/vim-airline/vim-airline/wiki/Screenshots
+
+" airline
+
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+
+highlight CursorLine ctermbg=black guibg=#111111
+highlight CursorColumn ctermbg=black guibg=#111111
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
@@ -39,6 +55,5 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType vim setlocal shiftwidth=2 tabstop=2
 
 so ~/.vim/settings.vim
-so ~/.vim/mappings.vim
 so ~/.vim/coc.vim
-so ~/.vim/fzf.vim
+so ~/.vim/mappings.vim
