@@ -93,7 +93,8 @@ nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
 nnoremap('<leader>fdv', ':Telescope dap frames<CR>', 'Dap frames')
 
 -- fugitive
-m.nname('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
+m.nname('<leader>g', ':Gvdiffsplit!<CR>', 'Fugitive')
+nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
 nnoremap('dgh', ':diffget //2<CR>', 'Fugitive get local')
 nnoremap('dgl', ':diffget //3<CR>', 'Fugitive get remote')
 
@@ -115,7 +116,8 @@ nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
 nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
 vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
--- nvim-tree
+-- nerdtree
+
 m.nname('<leader>n', 'Nvim Tree')
 nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'Toggle nerdtree');
 
