@@ -5,7 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
   Packer_bootstrap = fn.system({
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-    install_path
+  install_path
   })
 end
 
@@ -65,16 +65,16 @@ return require('packer').startup(function(use)
     branch = 'artifacts'
   }
 
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    require("null-ls").setup({
-      sources = {
-        require("null-ls").builtins.formatting.phpcsfixer,
-        require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.completion.spell,
-      },
-    })
-  }
+  -- use {
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   require("null-ls").setup({
+  --     sources = {
+  --       require("null-ls").builtins.formatting.phpcsfixer,
+  --       require("null-ls").builtins.diagnostics.eslint,
+  --       require("null-ls").builtins.completion.spell,
+  --     },
+  --   })
+  -- }
 
   use {
     "aserowy/tmux.nvim",
@@ -144,7 +144,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- toggle on/off using :ASToggle
+  -- -- toggle on/off using :ASToggle
   use {
     'Pocco81/AutoSave.nvim',
     config = function()

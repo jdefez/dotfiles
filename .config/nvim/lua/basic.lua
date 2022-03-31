@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.termguicolors = true
 
-vim.g['python3_host_prog'] = '/usr/bin/python3'
+vim.g.python3_host_prog = '/usr/bin/python3'
 
 -- lsp: phpactor
 
@@ -30,8 +30,6 @@ vim.cmd[[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lig
 vim.api.nvim_command[[ hi def link LspReferenceText CursorLine ]]
 vim.api.nvim_command[[ hi def link LspReferenceWrite CursorLine ]]
 vim.api.nvim_command[[ hi def link LspReferenceRead CursorLine ]]
-
--- plugin: gina
 
 vim.opt.diffopt = 'vertical'
 

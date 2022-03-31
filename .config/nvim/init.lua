@@ -1,5 +1,10 @@
 require('basic')
 
+vim.cmd[[
+  set t_ZH=^[[3m
+  set t_ZR=^[[23m
+]]
+
 require('plugins')
 
 require('key-mapping')
@@ -8,9 +13,10 @@ require('lsp-servers')
 
 require('dap-xdebug-adapter')
 
--- vim.cmd('colorscheme catppuccin')
-
 vim.g.tokyonight_style = 'night'
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_italic_comments = true
+vim.g.tokyonight_italic_keywords = true
 vim.cmd('colorscheme tokyonight')
 
 vim.cmd[[
@@ -32,4 +38,7 @@ vim.cmd[[
 
   " set colorcolum color
   highlight ColorColumn ctermbg=black guibg=black
+
+  " enable italic
+  " highlight Comment cterm=italic
 ]]

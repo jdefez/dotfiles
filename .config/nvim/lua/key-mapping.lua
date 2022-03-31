@@ -21,6 +21,14 @@ nnoremap('<leader>bc', ':BDelete this<CR>', 'Delete current buffer')
 nnoremap('<leader>bh', ':BDelete hidden<CR>', 'Delete hidden buffers')
 nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
 
+-- bufferline
+
+nnoremap('[b', ':BufferLineMoveNext<CR>', 'Next buffer')
+nnoremap('b]', ':BufferLineMovePrev<CR>', 'Previous buffer')
+nnoremap('bn', ':BufferLineCycleNext<CR>', 'Cycle next buffer')
+nnoremap('bp', ':BufferLineCyclePrev<CR>', 'Cycle previous buffer')
+nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
+
 -- dap
 
 m.nname('<leader>D', 'Diagnostics')
@@ -54,13 +62,29 @@ nnoremap('<leader>dq', ':TroubleToggle quickfix<CR>', 'Toggle quickfix')
 nnoremap('<leader>dl', ':TroubleToggle loclist<CR>', 'Toggle loclist')
 nnoremap('<leader>dR', ':TroubleToggle lsp_references<CR>', 'Toggle lsp references')
 
--- bufferline
+-- kommentary
 
-nnoremap('[b', ':BufferLineMoveNext<CR>', 'Next buffer')
-nnoremap('b]', ':BufferLineMovePrev<CR>', 'Previous buffer')
-nnoremap('bn', ':BufferLineCycleNext<CR>', 'Cycle next buffer')
-nnoremap('bp', ':BufferLineCyclePrev<CR>', 'Cycle previous buffer')
-nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
+m.nname('<leader>c', 'Comment')
+nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
+-- nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
+vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
+
+-- hunks
+
+m.nname('<leader>h', 'Hunks')
+nnoremap('<leader>hs', ':Gitsigns stage_hunk<CR>', 'Stage hunk')
+nnoremap('<leader>hu', ':Gitsigns undo_stage_hunk<CR>', 'Undo stage hunk')
+nnoremap('<leader>hU', ':Gitsigns reset_buffer_index<CR>', 'Reset buffer index')
+nnoremap('<leader>hr', ':Gitsigns reset_hunk<CR>', 'Reset hunk')
+nnoremap('<leader>hR', ':Gitsigns reset_buffer<CR>', 'Reset buffer')
+nnoremap('<leader>hS', ':Gitsigns stage_buffer<CR>', 'Stage buffer')
+nnoremap('<leader>hp', ':Gitsigns preview_hunk<CR>', 'Preview hunk')
+
+-- nerdtree
+
+m.nname('<leader>n', 'nerdtree')
+nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'toggle nerdtree')
+
 
 -- telescope
 
@@ -81,24 +105,6 @@ nnoremap('<leader>fdC', ':Telescope dap configurations<CR>', 'List Dap configura
 nnoremap('<leader>fdb', ':Telescope dap list_breakpoints<CR>', 'List breakpoints')
 nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
 nnoremap('<leader>fdf', ':Telescope dap frames<CR>', 'Dap frames')
-
--- hunks
-
-m.nname('<leader>h', 'Hunks')
-nnoremap('<leader>hs', ':Gitsigns stage_hunk<CR>', 'Stage hunk')
-nnoremap('<leader>hu', ':Gitsigns undo_stage_hunk<CR>', 'Undo stage hunk')
-nnoremap('<leader>hU', ':Gitsigns reset_buffer_index<CR>', 'Reset buffer index')
-nnoremap('<leader>hr', ':Gitsigns reset_hunk<CR>', 'Reset hunk')
-nnoremap('<leader>hR', ':Gitsigns reset_buffer<CR>', 'Reset buffer')
-nnoremap('<leader>hS', ':Gitsigns stage_buffer<CR>', 'Stage buffer')
-nnoremap('<leader>hp', ':Gitsigns preview_hunk<CR>', 'Preview hunk')
-
--- kommentary
-
-m.nname('<leader>c', 'Comment')
-nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
--- nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
-vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
 -- php
 
