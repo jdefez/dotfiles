@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
     'kosayoda/nvim-lightbulb',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
-    'lambdalisue/gina.vim',
     'folke/which-key.nvim',
     'jparise/vim-graphql',
     'tami5/lspsaga.nvim',
@@ -193,6 +192,9 @@ return require('packer').startup(function(use)
   -- color schemes
 
   use { 'folke/tokyonight.nvim' }
+  use { 'bluz71/vim-nightfly-guicolors' }
+
+  -- use { 'wuelnerdotexe/vim-enfocado' }
 
   use {
     'folke/zen-mode.nvim',
