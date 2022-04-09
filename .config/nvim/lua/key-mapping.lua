@@ -17,6 +17,7 @@ vnoremap('<S-Down>', ":m '>+1<CR>gv=gv")
 -- buffers
 
 m.nname('<leader>b', 'Buffers')
+nnoremap('<leader>ba', ':%bd<CR>', 'Delete all buffers')
 nnoremap('<leader>bc', ':BDelete this<CR>', 'Delete current buffer')
 nnoremap('<leader>bh', ':BDelete hidden<CR>', 'Delete hidden buffers')
 nnoremap('<leader>bn', ':BDelete nameless<CR>', 'Delete nameless buffers')
@@ -52,15 +53,11 @@ nnoremap(
   'Dap Set breakpoint log message'
 )
 
--- diagnostics
+-- illuminate
 
-m.nname('<leader>d', 'Diagnostics')
-nnoremap('<leader>dt', ':TroubleToggle<CR>', 'Toggle diagnostics')
-nnoremap('<leader>dw', ':TroubleToggle workspace_diagnostics<CR>', 'Toggle workspace diagnostics')
-nnoremap('<leader>dd', ':TroubleToggle document_diagnostics<CR>', 'Toggle document diagnostics')
-nnoremap('<leader>dq', ':TroubleToggle quickfix<CR>', 'Toggle quickfix')
-nnoremap('<leader>dl', ':TroubleToggle loclist<CR>', 'Toggle loclist')
-nnoremap('<leader>dR', ':TroubleToggle lsp_references<CR>', 'Toggle lsp references')
+m.nname('', 'Illuminate')
+nnoremap('<A-n>', 'lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
+nnoremap('<A-p>', 'lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 
 -- kommentary
 
@@ -89,13 +86,19 @@ nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'toggle nerdtree')
 -- telescope
 
 m.nname('<leader>f', 'Files')
+nnoremap('<leader>fa', ':Telescope lsp_code_actions<CR>', 'Lsp code actions')
+vnoremap('<leader>fA', ':Telescope lsp_range_code_actions<CR>', 'Lsp range code actions')
+nnoremap('<leader>fb', ':Telescope buffers<CR>', 'List Buffers')
+nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
+nnoremap('<leader>fD', ':Telescope diagnostics<CR>', 'List diagnostics')
+nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
 nnoremap('<leader>ff', ':Telescope find_files<CR>', 'Find file')
 nnoremap('<leader>fg', ':Telescope live_grep<CR>', 'Live grep')
 nnoremap('<leader>fG', ':Telescope grep_string<CR>', 'Grep string')
-nnoremap('<leader>fb', ':Telescope buffers<CR>', 'List Buffers')
-nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
-nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
+nnoremap('<leader>fl', ':Telescope current_buffer_fuzzy_find<CR>', 'Find in file')
 nnoremap('<leader>fs', ':Telescope git_status<CR>', 'Show git status')
+nnoremap('<leader>fS', ':Telescope lsp_document_symbols<CR>', 'Document symbols in the current buffer')
+-- nnoremap('<leader>fr', ':Telescope lsp_references<CR>', 'Word undercursore lsp references')
 
 -- telescope dap extension
 
