@@ -38,7 +38,7 @@ nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
 
 -- dap
 
-m.nname('<leader>D', 'Diagnostics')
+m.nname('<leader>D', 'Dap debug')
 nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
 nnoremap('dal', ':lua require"dap".step_over()<CR>', 'Dap Step over')
 nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')

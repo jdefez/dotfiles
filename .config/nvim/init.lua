@@ -1,12 +1,5 @@
 require('basic')
 
--- enable italic support
-
-vim.cmd[[
-  set t_ZH=^[[3m
-  set t_ZR=^[[23m
-]]
-
 require('plugins')
 
 vim.cmd [[
@@ -22,7 +15,7 @@ require('lsp-servers')
 
 require('dap-xdebug-adapter')
 
-vim.g.tokyonight_style = 'night'
+vim.g.tokyonight_style = 'day'
 vim.g.tokyonight_italic_comments = true
 vim.g.tokyonight_italic_keywords = true
 vim.cmd('colorscheme tokyonight')
@@ -37,9 +30,7 @@ vim.cmd('colorscheme enfocado') ]]
 
 vim.cmd [[
   " colorcolumn
-  highlight ColorColumn guibg=#000000
-
-  highlight Comment cterm=italic ctermbg=none gui=italic guibg=none
+  highlight ColorColumn guibg=#F3F3F3
 
   " Specific syntax settings
   au BufRead,BufNewFile *.blade.php set ft=html
@@ -51,7 +42,4 @@ vim.cmd [[
   " avoiding phpactor to create variables with 2 $ sign
   autocmd FileType phpset iskeyword+=$
   autocmd FileType php setlocal omnifunc=phpactor#Complete
-
-  " abbreviations
-  autocmd FileType php iabbrev <buffer> t@ /** @test */<CR>
 ]]
