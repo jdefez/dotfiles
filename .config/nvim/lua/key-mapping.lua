@@ -72,6 +72,12 @@ nnoremap('<leader>dq', ':TroubleToggle quickfix<CR>', 'Toggle quickfix')
 nnoremap('<leader>dl', ':TroubleToggle loclist<CR>', 'Toggle loclist')
 nnoremap('<leader>dR', ':TroubleToggle lsp_references<CR>', 'Toggle lsp references')
 
+-- illuminate
+
+m.nname('', 'Illuminate')
+nnoremap('<A-n>', 'lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
+nnoremap('<A-p>', 'lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
+
 -- telescope
 
 m.nname('<leader>f', 'Files')
