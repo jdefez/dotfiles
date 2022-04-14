@@ -32,26 +32,30 @@ nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
 
 -- dap
 
-m.nname('<leader>D', 'Diagnostics')
-nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
+m.nname('da', 'Dap')
+nnoremap('das', ':lua require"dap".continue()<CR>', 'Dap Continue')
 nnoremap('dal', ':lua require"dap".step_over()<CR>', 'Dap Step over')
 nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')
-nnoremap('dah', ':lua require"dap".step_out()<CR>', 'Dap Step out')
-nnoremap(
-  '<leader>Db',
-  ':lua require"dap".toggle_breakpoint()<CR>',
-  'Dap Toggle breakpoint'
-)
-nnoremap(
-  '<leader>Dt',
-  ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
-  'Dap Set breakpoint condition'
-)
-nnoremap(
-  '<leader>Dl',
-  ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
-  'Dap Set breakpoint log message'
-)
+nnoremap('dak', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+
+nnoremap('dab', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
+nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', 'Dap Set breakpoint condition')
+nnoremap('daC', ':lua require"dap".clear_breakpoints()<CR>', 'Dap clear breakpoints')
+nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', 'Dap Set breakpoint log message')
+
+nnoremap('dar', ':lua require"dap".repl.open()<CR>', 'dap repl open')
+--[[ nnoremap('dah', ':lua require"dap.ui.variables".hover()<CR>', 'Dap ui variables hover')
+vnoremap('daH', ':lua require"dap.ui.variables".visual_hover()<CR>', 'Dap ui variables visual hover') ]]
+nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
+nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
+-- nnoremap('daS', ':lua require"dap.ui.variables".scopes()<CR>', 'dap variables scopes')
+
+-- fugitive
+
+m.nname('<leader>g', ':Gvdiffsplit!<CR>', 'Fugitive')
+nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
+nnoremap('dgh', ':diffget //2<CR>', 'Fugitive get local')
+nnoremap('dgl', ':diffget //3<CR>', 'Fugitive get remote')
 
 -- illuminate
 

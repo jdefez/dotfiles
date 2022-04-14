@@ -36,6 +36,14 @@ vim.cmd[[
 
   au FileType dap-repl lua require("dap.ext.autocompl").attach()
 
+  " lsp illuminate
+
+  autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+
+  highlight def link LspReferenceText CursorLine
+  highlight def link LspReferenceWrite CursorLine
+  highlight def link LspReferenceRead CursorLine
+
   " set colorcolum color
   highlight ColorColumn ctermbg=black guibg=black
 

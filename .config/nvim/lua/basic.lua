@@ -7,13 +7,17 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 
 vim.g['phpactorCompletionIgnoreCase'] = true
 
--- vim-test:
+-- vim-test
 
 vim.g['test#strategy'] = 'vimux'
 vim.g['test#echo_command'] = false
 vim.g['test#php#phpunit#options'] = '--testdox'
 
--- plugin: coq
+-- dap-text-ui
+
+vim.g.dap_virtual_text = true
+
+-- coq
 
 vim.g.coq_settings = {
   ['auto_start'] = true,
@@ -21,15 +25,7 @@ vim.g.coq_settings = {
   ['keymap.eval_snips'] = '<leader>e',
 }
 
--- plugin: nvim-lightbulb
-
-vim.cmd[[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
--- plugin: illuminate
-
-vim.api.nvim_command[[ hi def link LspReferenceText CursorLine ]]
-vim.api.nvim_command[[ hi def link LspReferenceWrite CursorLine ]]
-vim.api.nvim_command[[ hi def link LspReferenceRead CursorLine ]]
+-- git
 
 vim.opt.diffopt = 'vertical'
 
