@@ -48,10 +48,25 @@ return require('packer').startup(function(use)
 
   use { 'mfussenegger/nvim-dap' }
 
-  use {
-    'rcarriga/nvim-dap-ui',
-    requires = {'mfussenegger/nvim-dap'},
-  }
+  -- use {
+  --   'theHamsta/nvim-dap-virtual-text',
+  --   config = function()
+  --     require("nvim-dap-virtual-text").setup {
+  --       enabled = true,
+  --       enabled_commands = true,
+  --       highlight_changed_variables = true,
+  --       highlight_new_as_changed = true,
+  --       all_frames = true,
+  --       show_stop_reason = true,
+  --       commented = false,
+  --   }
+  --   end
+  -- }
+
+  -- use {
+  --   'rcarriga/nvim-dap-ui',
+  --   requires = {'mfussenegger/nvim-dap'},
+  -- }
 
   use {
     'ms-jpq/coq_nvim',

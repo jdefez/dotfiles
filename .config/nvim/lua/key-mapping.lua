@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local m = require('mapx').setup({ global = true, whichkey = true })
 
 -- fix copy line
@@ -38,29 +39,18 @@ nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
 
 -- dap
 
-m.nname('<leader>D', 'Dap debug')
-nnoremap('<leader>Ds', ':lua require"dap".continue()<CR>', 'Dap Continue')
+m.nname('da', 'Dap')
+nnoremap('das', ':lua require"dap".continue()<CR>', 'Dap Continue')
 nnoremap('dal', ':lua require"dap".step_over()<CR>', 'Dap Step over')
 nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')
-nnoremap('dah', ':lua require"dap".step_out()<CR>', 'Dap Step out')
-
-nnoremap('<leader>Db', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
-nnoremap(
-  '<leader>Dt',
-  ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
-  'Dap Set breakpoint condition'
-)
-nnoremap(
-  '<leader>Dl',
-  ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
-  'Dap Set breakpoint log message'
-)
-nnoremap('<leader>Drl', ':lua require"dap".run_last()<CR>', 'Dap run last')
-nnoremap(
-  '<leader>Dr',
-  ':lua require"dap".repl.open({}, "vsplit")<CR>',
-  'Dap open REPL'
-)
+nnoremap('dak', ':lua require"dap".step_out()<CR>', 'Dap Step out')
+nnoremap('dab', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
+nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', 'Dap Set breakpoint condition')
+nnoremap('daC', ':lua require"dap".clear_breakpoints()<CR>', 'Dap clear breakpoints')
+nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', 'Dap Set breakpoint log message')
+nnoremap('dar', ':lua require"dap".repl.open()<CR>', 'dap repl open')
+nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
+nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
 
 -- diagnostics
 
@@ -79,15 +69,19 @@ nnoremap('<A-n>', 'lua require"illuminate".next_reference{wrap=true}<cr>', 'Illu
 nnoremap('<A-p>', 'lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 
 -- telescope
-
 m.nname('<leader>f', 'Files')
+nnoremap('<leader>fa', ':Telescope lsp_code_actions<CR>', 'Lsp code actions')
+vnoremap('<leader>fA', ':Telescope lsp_range_code_actions<CR>', 'Lsp range code actions')
+nnoremap('<leader>fb', ':Telescope buffers<CR>', 'List Buffers')
+nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
+nnoremap('<leader>fD', ':Telescope diagnostics<CR>', 'List diagnostics')
+nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
 nnoremap('<leader>ff', ':Telescope find_files<CR>', 'Find file')
 nnoremap('<leader>fg', ':Telescope live_grep<CR>', 'Live grep')
 nnoremap('<leader>fG', ':Telescope grep_string<CR>', 'Grep string')
-nnoremap('<leader>fb', ':Telescope buffers<CR>', 'List Buffers')
-nnoremap('<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
-nnoremap('<leader>fc', ':Telescope git_commits<CR>', 'List commits')
+nnoremap('<leader>fl', ':Telescope current_buffer_fuzzy_find<CR>', 'Find in file')
 nnoremap('<leader>fs', ':Telescope git_status<CR>', 'Show git status')
+nnoremap('<leader>fS', ':Telescope lsp_document_symbols<CR>', 'Document symbols in the current buffer')
 
 -- telescope dap extension
 
