@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
@@ -126,6 +127,28 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  use {
+    'ray-x/lsp_signature.nvim',
+    config = function()
+      require('lsp_signature').setup({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      handler_opts = {
+        border = "rounded"
+      }
+    })
+    end
+  }
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").register_lsp_virtual_lines();
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+    end,
+  })
 
   use {
     'folke/lsp-colors.nvim',
