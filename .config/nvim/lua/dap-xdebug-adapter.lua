@@ -3,10 +3,17 @@ local dap = require('dap')
 
 -- vim.g.dap_virtual_text = true
 
+-- php adapter: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#PHP
+--
+-- install:
+-- git clone https://github.com/xdebug/vscode-php-debug.git
+-- cd vscode-php-debug
+-- npm install && npm run build
+
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  args = { '/Users/jean-francois/vscode-php-debug/out/phpDebug.js' }
+  args = { '/Users/ayctor/vscode-php-debug/out/phpDebug.js' }
 }
 
 dap.configurations.php = {
