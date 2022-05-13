@@ -2,9 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jean-francois/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
-# export TERM="xterm-256color"
+export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -48,7 +48,7 @@ ZSH_TMUX_AUTOSTART=true
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -79,14 +79,10 @@ plugins=(
   brew
   tmux
   httpie
-  thefuck
-  aliases
   composer
-  git-prompt
   colored-man-pages
   command-not-found
   zsh-interactive-cd
-  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # shortcuts to the frequently use directories
-cdpath=(~/Projects ~/Documents ~/Documents/Code ~/Desktop/tmp)
+cdpath=(~/Documents ~/Code)
 
 # artisan
 alias pa="php artisan"
@@ -200,7 +196,18 @@ export NODE_OPTIONS=--max_old_space_size=4096
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="~/.composer/vendor/bin:$PATH"
 export PATH="usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="/usr/local/opt/php@8.0/bin/php:$PATH"
-export PATH="/usr/local/opt/libiconv/bin:$PATH"
+# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/opt/php@8.1/bin/php:$PATH"
+# export PATH="/usr/local/opt/libiconv/bin:$PATH"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+# zstyle :compinstall filename '/Users/ayctor/.zshrc'
+# autoload -Uz compinit
+# compinit
+# End of lines added by compinstall
