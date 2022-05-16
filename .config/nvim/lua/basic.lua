@@ -13,10 +13,6 @@ vim.g['test#strategy'] = 'vimux'
 vim.g['test#echo_command'] = false
 vim.g['test#php#phpunit#options'] = '--testdox'
 
--- dap-text-ui
-
-vim.g.dap_virtual_text = true
-
 -- coq
 
 vim.g.coq_settings = {

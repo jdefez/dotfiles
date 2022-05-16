@@ -70,6 +70,7 @@ local on_attach = function(client, bufnr)
 
   -- illuminate
 
+  m.nname('', 'Illuminate')
   nnoremap('<M-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
   nnoremap('<M-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 

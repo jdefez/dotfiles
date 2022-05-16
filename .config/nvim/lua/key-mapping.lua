@@ -33,7 +33,8 @@ nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
 -- dap
 
 m.nname('da', 'Dap')
-nnoremap('das', ':lua require"dap".continue()<CR>', 'Dap Continue')
+nnoremap('daS', ':lua require"dap".continue()<CR>', 'Dap Continue')
+nnoremap('das', ':lua local widgets=require("dap.ui.widgets");widgets.centered_float(widgets.scopes)<CR>', 'dap scopes')
 nnoremap('dal', ':lua require"dap".step_over()<CR>', 'Dap Step over')
 nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')
 nnoremap('dak', ':lua require"dap".step_out()<CR>', 'Dap Step out')
@@ -43,12 +44,9 @@ nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condi
 nnoremap('daC', ':lua require"dap".clear_breakpoints()<CR>', 'Dap clear breakpoints')
 nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', 'Dap Set breakpoint log message')
 
-nnoremap('dar', ':lua require"dap".repl.open()<CR>', 'dap repl open')
---[[ nnoremap('dah', ':lua require"dap.ui.variables".hover()<CR>', 'Dap ui variables hover')
-vnoremap('daH', ':lua require"dap.ui.variables".visual_hover()<CR>', 'Dap ui variables visual hover') ]]
+nnoremap('dar', ':lua require"dap".repl.open({}, "vsplit")<CR>', 'dap repl open')
 nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
 nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
--- nnoremap('daS', ':lua require"dap.ui.variables".scopes()<CR>', 'dap variables scopes')
 
 -- fugitive
 
@@ -57,17 +55,10 @@ nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
 nnoremap('dgh', ':diffget //2<CR>', 'Fugitive get local')
 nnoremap('dgl', ':diffget //3<CR>', 'Fugitive get remote')
 
--- illuminate
-
-m.nname('', 'Illuminate')
-nnoremap('<A-n>', 'lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
-nnoremap('<A-p>', 'lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
-
 -- kommentary
 
 m.nname('<leader>c', 'Comment')
 nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
--- nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
 vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
 -- hunks
@@ -85,7 +76,6 @@ nnoremap('<leader>hp', ':Gitsigns preview_hunk<CR>', 'Preview hunk')
 
 m.nname('<leader>n', 'nerdtree')
 nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'toggle nerdtree')
-
 
 -- telescope
 
