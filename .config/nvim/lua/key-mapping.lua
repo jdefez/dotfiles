@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local m = require('mapx').setup({ global = true, whichkey = true })
 
 -- fix copy line
@@ -30,6 +31,9 @@ nnoremap('bn', ':BufferLineCycleNext<CR>', 'Cycle next buffer')
 nnoremap('bp', ':BufferLineCyclePrev<CR>', 'Cycle previous buffer')
 nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
 
+-- Fern
+nnoremap('<leader>n', ':Fern -drawer -toggle .<CR>', 'Toggle Fern drawer')
+
 -- dap
 
 m.nname('da', 'Dap')
@@ -47,6 +51,15 @@ nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log po
 nnoremap('dar', ':lua require"dap".repl.open({}, "vsplit")<CR>', 'dap repl open')
 nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
 nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
+
+-- telescope dap extension
+
+m.nname('<leader>fd', 'Dap')
+nnoremap('<leader>fdc', ':Telescope dap commands<CR>', 'List Dap commands')
+nnoremap('<leader>fdC', ':Telescope dap configurations<CR>', 'List Dap configurations')
+nnoremap('<leader>fdb', ':Telescope dap list_breakpoints<CR>', 'List breakpoints')
+nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
+nnoremap('<leader>fdf', ':Telescope dap frames<CR>', 'Dap frames')
 
 -- fugitive
 
@@ -74,8 +87,8 @@ nnoremap('<leader>hp', ':Gitsigns preview_hunk<CR>', 'Preview hunk')
 
 -- nerdtree
 
-m.nname('<leader>n', 'nerdtree')
-nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'toggle nerdtree')
+--[[ m.nname('<leader>n', 'nerdtree')
+nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'toggle nerdtree') ]]
 
 -- telescope
 
@@ -94,14 +107,6 @@ nnoremap('<leader>fs', ':Telescope git_status<CR>', 'Show git status')
 nnoremap('<leader>fS', ':Telescope lsp_document_symbols<CR>', 'Document symbols in the current buffer')
 -- nnoremap('<leader>fr', ':Telescope lsp_references<CR>', 'Word undercursore lsp references')
 
--- telescope dap extension
-
-m.nname('<leader>fd', 'Dap')
-nnoremap('<leader>fdc', ':Telescope dap commands<CR>', 'List Dap commands')
-nnoremap('<leader>fdC', ':Telescope dap configurations<CR>', 'List Dap configurations')
-nnoremap('<leader>fdb', ':Telescope dap list_breakpoints<CR>', 'List breakpoints')
-nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
-nnoremap('<leader>fdf', ':Telescope dap frames<CR>', 'Dap frames')
 
 -- php
 

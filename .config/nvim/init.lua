@@ -13,11 +13,15 @@ require('lsp-servers')
 
 require('dap-xdebug-adapter')
 
-vim.g.tokyonight_style = 'night'
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_comments = true
-vim.g.tokyonight_italic_keywords = true
-vim.cmd('colorscheme tokyonight')
+-- vim.g.tokyonight_style = 'night'
+-- vim.g.tokyonight_italic_functions = true
+-- vim.g.tokyonight_italic_comments = true
+-- vim.g.tokyonight_italic_keywords = true
+-- vim.cmd('colorscheme tokyonight')
+
+-- Lua
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.cmd('colorscheme catppuccin')
 
 vim.cmd[[
   " Specific syntax settings

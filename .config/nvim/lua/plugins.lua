@@ -22,11 +22,17 @@ return require('packer').startup(function(use)
     'folke/which-key.nvim',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
-    'preservim/nerdtree',
+    -- 'preservim/nerdtree',
     'phpactor/phpactor',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
+  }
+
+  use {
+    'lambdalisue/fern.vim',
+    'lambdalisue/nerdfont.vim',
+    'lambdalisue/fern-renderer-nerdfont.vim'
   }
 
   use {
@@ -41,13 +47,14 @@ return require('packer').startup(function(use)
   use {
     'feline-nvim/feline.nvim',
     config = function()
-      require('feline').setup()
+      require('feline').setup({
+        components = require('catppuccin.core.integrations.feline')
+      })
     end
   }
 
   use {
     'mfussenegger/nvim-dap',
-    'theHamsta/nvim-dap-virtual-text'
   }
 
   use {
@@ -192,35 +199,10 @@ return require('packer').startup(function(use)
 
   use { 'folke/tokyonight.nvim' }
 
-  -- use {
-  --   'dracula/vim',
-  --   as = 'dracula'
-  -- }
-
-  --[[ use {
-    'catppuccin/nvim',
-    config = function()
-      require('catppuccin').setup({})
-    end,
-    as = 'catppuccin'
-  } ]]
-
-  --[[ use {
-    'projekt0n/github-nvim-theme',
-    config = function()
-      require('github-theme').setup({
-        -- dark, dimmed, light
-        theme_style = 'dark',
-        function_style = 'italic',
-        sidebars = {'qf', 'vista_kind', 'terminal', 'packer'},
-        colors = {hint = 'orange', error = '#ff0000'},
-        comment_style = 'italic',
-        keyword_style = 'italic',
-        variable_style = 'italic'
-      })
-    end,
-    as = 'github'
-  } ]]
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
 
   use {
     'mg979/vim-visual-multi',

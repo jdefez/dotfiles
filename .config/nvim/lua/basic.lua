@@ -21,6 +21,10 @@ vim.g.coq_settings = {
   ['keymap.eval_snips'] = '<leader>e',
 }
 
+-- Fern
+vim.g.fern = 'disable_default_mappings'
+vim.g['fern#renderer'] = 'nerdfont'
+
 -- git
 
 vim.opt.diffopt = 'vertical'
