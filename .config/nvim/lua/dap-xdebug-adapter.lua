@@ -3,8 +3,7 @@ local dap = require('dap')
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  -- args = { os.getenv('HOME') .. '/vscode-php-debug/out/phpDebug.js' }
-  args = { '/home/jean/vscode-php-debug/out/phpDebug.js' }
+  args = { os.getenv('HOME') .. '/vscode-php-debug/out/phpDebug.js' }
 }
 
 dap.configurations.php = {
@@ -15,8 +14,6 @@ dap.configurations.php = {
     port = 9003
   }
 }
-
-vim.g.dap_virtual_text = true
 
 -- vim.fn.sign_define('DapBreakpoint', {
 --   text = '🛑',
