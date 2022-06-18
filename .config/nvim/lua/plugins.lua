@@ -22,12 +22,13 @@ return require('packer').startup(function(use)
     'folke/which-key.nvim',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
-    -- 'preservim/nerdtree',
     'phpactor/phpactor',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
   }
+
+  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
   use {
     'lambdalisue/fern.vim',
@@ -118,11 +119,6 @@ return require('packer').startup(function(use)
       require('telescope').setup({})
       require('telescope').load_extension('dap')
     end
-  }
-
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
   }
 
   use {
@@ -221,6 +217,11 @@ return require('packer').startup(function(use)
     config = function()
       require('neoscroll').setup()
     end
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

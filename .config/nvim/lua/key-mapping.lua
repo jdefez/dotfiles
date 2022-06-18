@@ -85,11 +85,6 @@ nnoremap('<leader>hR', ':Gitsigns reset_buffer<CR>', 'Reset buffer')
 nnoremap('<leader>hS', ':Gitsigns stage_buffer<CR>', 'Stage buffer')
 nnoremap('<leader>hp', ':Gitsigns preview_hunk<CR>', 'Preview hunk')
 
--- nerdtree
-
---[[ m.nname('<leader>n', 'nerdtree')
-nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'toggle nerdtree') ]]
-
 -- telescope
 
 m.nname('<leader>f', 'Files')
