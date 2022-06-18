@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 require('basic')
 
 require('plugins')
@@ -15,18 +16,13 @@ require('lsp-servers')
 
 require('dap-xdebug-adapter')
 
-vim.g.tokyonight_style = 'day'
-vim.g.tokyonight_italic_comments = true
-vim.g.tokyonight_italic_keywords = true
-vim.cmd('colorscheme tokyonight')
+-- vim.g.tokyonight_style = 'day'
+-- vim.g.tokyonight_italic_comments = true
+-- vim.g.tokyonight_italic_keywords = true
+-- vim.cmd('colorscheme tokyonight')
 
---[[ vim.g.nightflyCursorColor = 1
-vim.g.nightflyItalics = 1
-vim.cmd('colorscheme nightfly') ]]
-
--- Available: `nature` or `neon`.
---[[ vim.g.enfocado_style = 'nature'
-vim.cmd('colorscheme enfocado') ]]
+vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+vim.cmd[[colorscheme catppuccin]]
 
 vim.cmd [[
   " colorcolumn

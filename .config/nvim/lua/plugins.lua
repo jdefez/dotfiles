@@ -25,17 +25,26 @@ return require('packer').startup(function(use)
     'jparise/vim-graphql',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
-    'preservim/nerdtree',
     'phpactor/phpactor',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
   }
 
+  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+
+  use {
+    'lambdalisue/fern.vim',
+    'lambdalisue/fern-renderer-nerdfont.vim',
+    'lambdalisue/nerdfont.vim'
+  }
+
   use {
     'feline-nvim/feline.nvim',
     config = function()
-      require('feline').setup()
+      require('feline').setup({
+        components = require('catppuccin.core.integrations.feline')
+      })
     end
   }
 
@@ -53,27 +62,10 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { 'mfussenegger/nvim-dap' }
-
-  -- use {
-  --   'theHamsta/nvim-dap-virtual-text',
-  --   config = function()
-  --     require("nvim-dap-virtual-text").setup {
-  --       enabled = true,
-  --       enabled_commands = true,
-  --       highlight_changed_variables = true,
-  --       highlight_new_as_changed = true,
-  --       all_frames = true,
-  --       show_stop_reason = true,
-  --       commented = false,
-  --   }
-  --   end
-  -- }
-
-  -- use {
-  --   'rcarriga/nvim-dap-ui',
-  --   requires = {'mfussenegger/nvim-dap'},
-  -- }
+  use {
+    'mfussenegger/nvim-dap',
+    'theHamsta/nvim-dap-virtual-text'
+  }
 
   use {
     'ms-jpq/coq_nvim',
@@ -121,11 +113,6 @@ return require('packer').startup(function(use)
       require('telescope').setup({})
       require('telescope').load_extension('dap')
     end
-  }
-
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
   }
 
   use {
@@ -236,9 +223,7 @@ return require('packer').startup(function(use)
   -- color schemes
 
   use { 'folke/tokyonight.nvim' }
-  use { 'bluz71/vim-nightfly-guicolors' }
-
-  -- use { 'wuelnerdotexe/vim-enfocado' }
+  use({ "catppuccin/nvim", as = "catppuccin" })
 
   use {
     'folke/zen-mode.nvim',
@@ -252,6 +237,11 @@ return require('packer').startup(function(use)
     config = function()
       require('neoscroll').setup()
     end
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

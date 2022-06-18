@@ -1,6 +1,10 @@
 vim.g.mapleader = ' '
 vim.g['termguicolors'] = true
 
+-- Fern
+vim.g.fern = 'disable_default_mappings'
+vim.g['fern#renderer'] = 'nerdfont'
+
 vim.g['python3_host_prog'] = '/usr/bin/python3'
 
 -- lsp: phpactor

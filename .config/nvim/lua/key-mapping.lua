@@ -116,10 +116,10 @@ nnoremap('<leader>cc', '<plug>kommentary_line_default', 'comment line')
 nnoremap('<leader>c', '<plug>kommentary_motion_default', 'comment visual/motion')
 vnoremap('<leader>c', '<plug>kommentary_visual_default', 'comment visual/motion')
 
--- nerdtree
+-- Fern
 
-m.nname('<leader>n', 'Nvim Tree')
-nnoremap('<leader>n', ':NERDTreeToggle<CR>', 'Toggle nerdtree');
+m.nname('<leader>n', 'Fern')
+nnoremap('<leader>n', ':Fern -drawer -toggle .<CR>', 'Toggle Fern drawer')
 
 
 -- php
