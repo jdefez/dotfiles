@@ -21,12 +21,12 @@ require('dap-xdebug-adapter')
 -- vim.g.tokyonight_italic_keywords = true
 -- vim.cmd('colorscheme tokyonight')
 
-vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 vim.cmd[[colorscheme catppuccin]]
 
 vim.cmd [[
   " colorcolumn
-  highlight ColorColumn guibg=#F3F3F3
+  highlight ColorColumn guibg=#222222
 
   " Specific syntax settings
   au BufRead,BufNewFile *.blade.php set ft=html
@@ -36,6 +36,6 @@ vim.cmd [[
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
   " avoiding phpactor to create variables with 2 $ sign
-  autocmd FileType phpset iskeyword+=$
+  autocmd FileType php set iskeyword+=$
   autocmd FileType php setlocal omnifunc=phpactor#Complete
 ]]

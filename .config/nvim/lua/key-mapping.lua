@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
-local m = require('mapx').setup({ global = true, whichkey = true })
+local m = require('mapx').setup({ global = 'skip', whichkey = true })
 
 -- fix copy line
 nnoremap('Y', 'yy$')
@@ -52,23 +52,9 @@ nnoremap('dar', ':lua require"dap".repl.open()<CR>', 'dap repl open')
 nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
 nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
 
--- diagnostics
-
-m.nname('<leader>d', 'Diagnostics')
-nnoremap('<leader>dt', ':TroubleToggle<CR>', 'Toggle diagnostics')
-nnoremap('<leader>dw', ':TroubleToggle workspace_diagnostics<CR>', 'Toggle workspace diagnostics')
-nnoremap('<leader>dd', ':TroubleToggle document_diagnostics<CR>', 'Toggle document diagnostics')
-nnoremap('<leader>dq', ':TroubleToggle quickfix<CR>', 'Toggle quickfix')
-nnoremap('<leader>dl', ':TroubleToggle loclist<CR>', 'Toggle loclist')
-nnoremap('<leader>dR', ':TroubleToggle lsp_references<CR>', 'Toggle lsp references')
-
--- illuminate
-
-m.nname('', 'Illuminate')
-nnoremap('<A-n>', 'lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
-nnoremap('<A-p>', 'lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 
 -- telescope
+
 m.nname('<leader>f', 'Files')
 nnoremap('<leader>fa', ':Telescope lsp_code_actions<CR>', 'Lsp code actions')
 vnoremap('<leader>fA', ':Telescope lsp_range_code_actions<CR>', 'Lsp range code actions')

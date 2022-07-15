@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- lsp servers
 
 -- function: on_attach attaching completion to lsp server
@@ -9,29 +10,29 @@
 -- /lua/lspconfig/language-server-name.lua
 
 local servers = {
-  'intelephense', 'sumneko_lua', 'dockerls', 'jsonls', 'eslint',
-  'yamlls', 'graphql', 'emmet_ls'
-  -- , 'phpactor'
-  -- , 'psalm'
+  'sumneko_lua', 'jsonls', 'yamlls', 'graphql', 'intelephense'
+  -- 'emmet_ls', 'intelephense', 'phpactor', 'psalm', 'dockerls',
 }
 
-require'lspconfig'.intelephense.setup{}
 
 -- install instruction can be found here:
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
+
+require'lspconfig'.intelephense.setup{}
+
 require'lspconfig'.sumneko_lua.setup{}
-
--- require'lspconfig'.phpactor.setup{}
-
-require'lspconfig'.emmet_ls.setup{}
-
-require'lspconfig'.dockerls.setup{}
 
 require'lspconfig'.graphql.setup{}
 
 require'lspconfig'.jsonls.setup{}
 
-require'lspconfig'.eslint.setup{}
+-- require'lspconfig'.eslint.setup{}
+
+-- require'lspconfig'.phpactor.setup{}
+
+-- require'lspconfig'.emmet_ls.setup{}
+
+-- require'lspconfig'.dockerls.setup{}
 
 -- require'lspconfig'.psalm.setup{}
 
@@ -40,15 +41,18 @@ require'lspconfig'.eslint.setup{}
 require'lspconfig'.yamlls.setup{}
 
 local on_attach = function(client, bufnr)
-  local m = require('mapx').setup({ global = false, whichkey = true })
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local m = require('mapx').setup({ global = 'skip', whichkey = true })
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  m.nname('<leader>l', 'lsp: workspace')
-  nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add workspace folder')
-  nnoremap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove workspace folder')
-  nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List workspcase folder')
+  -- illuminate
+
+  m.nname('', 'Illuminate')
+  nnoremap('<A-n>', 'lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
+  nnoremap('<A-p>', 'lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
+
+  -- lsp
 
   m.nname('g', 'lsp: navigation')
   nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Lsp: declaration')
@@ -67,11 +71,6 @@ local on_attach = function(client, bufnr)
   nnoremap('<leader>lx', ':Lspsaga code_action<cr>', 'Show code actions')
   vnoremap('<leader>lx', ':<C-U>Lspsaga range_code_action<cr>', 'Show code actions')
   nnoremap('<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Lsp: format')
-
-  -- illuminate
-
-  nnoremap('<M-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', 'Illuminate next')
-  nnoremap('<M-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', 'Illuminate previous')
 
   require 'illuminate'.on_attach(client)
 end

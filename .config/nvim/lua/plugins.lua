@@ -77,6 +77,18 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'jose-elias-alvarez/null-ls.nvim',
+    require("null-ls").setup({
+      sources = {
+        -- require("null-ls").builtins.formatting.phpcsfixer,
+        require("null-ls").builtins.diagnostics.phpstan,
+        require("null-ls").builtins.completion.spell,
+        require("null-ls").builtins.formatting.pint,
+      },
+    })
+  }
+
+  use {
     "aserowy/tmux.nvim",
     config = function()
       require("tmux").setup({
@@ -153,13 +165,13 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'folke/trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('trouble').setup {}
-    end
-  }
+  -- use {
+  --   'folke/trouble.nvim',
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   config = function()
+  --     require('trouble').setup {}
+  --   end
+  -- }
 
   use {
     'Pocco81/AutoSave.nvim',
@@ -226,7 +238,7 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  use { 'folke/tokyonight.nvim' }
+  -- use { 'folke/tokyonight.nvim' }
   use({ "catppuccin/nvim", as = "catppuccin" })
 
   use {
