@@ -1,11 +1,11 @@
 ---@diagnostic disable: undefined-global
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 -- https://neovimcraft.com/plugin/anuvyklack/pretty-fold.nvim
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
+  vim.api.nvim_echo({ { 'Installing packer.nvim', 'Type' } }, true, {})
   local packer_bootstrap = fn.system({
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
   })
@@ -26,15 +26,16 @@ return require('packer').startup(function(use)
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
     'phpactor/phpactor',
+    'szw/vim-maximizer',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
   }
 
-  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
-  use {'junegunn/fzf', run = function()
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+  use { 'junegunn/fzf', run = function()
     vim.fn['fzf#install']()
-    end
+  end
   }
 
   use {
@@ -47,7 +48,7 @@ return require('packer').startup(function(use)
     'feline-nvim/feline.nvim',
     config = function()
       require('feline').setup({
-        components = require('catppuccin.core.integrations.feline')
+        components = require('catppuccin.groups.integrations.feline').get(),
       })
     end
   }
@@ -56,13 +57,13 @@ return require('packer').startup(function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require("bufferline").setup{
+      require("bufferline").setup({
         options = {
           show_buffer_close_icons = false,
           show_close_icon = false,
           diagnostics = 'nvim_lsp'
         }
-      }
+      })
     end
   }
 
@@ -78,14 +79,18 @@ return require('packer').startup(function(use)
 
   use {
     'jose-elias-alvarez/null-ls.nvim',
-    require("null-ls").setup({
-      sources = {
-        -- require("null-ls").builtins.formatting.phpcsfixer,
-        require("null-ls").builtins.diagnostics.phpstan,
-        require("null-ls").builtins.completion.spell,
-        require("null-ls").builtins.formatting.pint,
-      },
-    })
+    config = function()
+      require('null-ls').setup({
+        sources = {
+          require("null-ls").builtins.code_actions.gitsigns,
+          require("null-ls").builtins.diagnostics.phpstan,
+          require("null-ls").builtins.completion.spell,
+          require("null-ls").builtins.formatting.standardjs,
+          require("null-ls").builtins.formatting.fixjson,
+          require("null-ls").builtins.formatting.pint,
+        },
+      })
+    end
   }
 
   use {
@@ -113,7 +118,7 @@ return require('packer').startup(function(use)
 
   use {
     'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('gitsigns').setup()
     end
@@ -135,11 +140,11 @@ return require('packer').startup(function(use)
     'ray-x/lsp_signature.nvim',
     config = function()
       require('lsp_signature').setup({
-      bind = true, -- This is mandatory, otherwise border config won't get registered.
-      handler_opts = {
-        border = "rounded"
-      }
-    })
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+      })
     end
   }
 
@@ -176,12 +181,12 @@ return require('packer').startup(function(use)
   use {
     'Pocco81/AutoSave.nvim',
     config = function()
-      require('autosave').setup{
+      require('autosave').setup {
         {
           -- toggle on/off using :ASToggle
           enabled = true,
           execution_message = 'AutoSave: saved at ' .. vim.fn.strftime('%H:%M:%S'),
-          events = {'InsertLeave', 'TextChanged'},
+          events = { 'InsertLeave', 'TextChanged' },
           conditions = {
             exists = true,
             filename_is_not = {},
@@ -202,7 +207,7 @@ return require('packer').startup(function(use)
     config = function()
       require('auto-session').setup {
         auto_session_enable_last_session = false,
-        auto_session_root_dir = vim.fn.stdpath('data')..'/sessions/',
+        auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/',
         auto_session_enabled = true,
         auto_save_enabled = true,
         auto_restore_enabled = nil,

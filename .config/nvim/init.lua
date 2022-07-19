@@ -3,6 +3,8 @@ require('basic')
 
 require('plugins')
 
+require('null-ls')
+
 vim.cmd [[
   augroup packer_user_config
     autocmd!
