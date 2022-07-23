@@ -33,9 +33,10 @@ return require('packer').startup(function(use)
   }
 
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
-  use { 'junegunn/fzf', run = function()
-    vim.fn['fzf#install']()
-  end
+  use { 'junegunn/fzf',
+    run = function()
+      vim.fn['fzf#install']()
+    end
   }
 
   use {
@@ -59,6 +60,7 @@ return require('packer').startup(function(use)
     config = function()
       require("bufferline").setup({
         options = {
+          virtual_text = false,
           show_buffer_close_icons = false,
           show_close_icon = false,
           diagnostics = 'nvim_lsp'
@@ -78,19 +80,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require('null-ls').setup({
-        sources = {
-          require("null-ls").builtins.code_actions.gitsigns,
-          require("null-ls").builtins.diagnostics.phpstan,
-          require("null-ls").builtins.completion.spell,
-          require("null-ls").builtins.formatting.standardjs,
-          require("null-ls").builtins.formatting.fixjson,
-          require("null-ls").builtins.formatting.pint,
-        },
-      })
-    end
+    'jose-elias-alvarez/null-ls.nvim'
   }
 
   use {
@@ -243,7 +233,6 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  -- use { 'folke/tokyonight.nvim' }
   use({ "catppuccin/nvim", as = "catppuccin" })
 
   use {

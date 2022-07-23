@@ -3,7 +3,7 @@ require('basic')
 
 require('plugins')
 
-require('null-ls')
+-- require('null-ls')
 
 vim.cmd [[
   augroup packer_user_config
@@ -17,11 +17,6 @@ require('key-mapping')
 require('lsp-servers')
 
 require('dap-xdebug-adapter')
-
--- vim.g.tokyonight_style = 'day'
--- vim.g.tokyonight_italic_comments = true
--- vim.g.tokyonight_italic_keywords = true
--- vim.cmd('colorscheme tokyonight')
 
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 vim.cmd[[colorscheme catppuccin]]
