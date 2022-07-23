@@ -7,6 +7,8 @@ vim.cmd[[
 
 require('plugins')
 
+require('null-ls')
+
 require('key-mapping')
 
 require('lsp-servers')
@@ -54,3 +56,8 @@ vim.cmd[[
   " enable italic
   " highlight Comment cterm=italic
 ]]
+
+-- neovide-qt
+--[[ if exists(':GuiTabline')
+    GuiTabline 0
+endif ]]

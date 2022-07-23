@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
+    'jose-elias-alvarez/null-ls.nvim',
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
     'kosayoda/nvim-lightbulb',
@@ -49,7 +50,7 @@ return require('packer').startup(function(use)
     'feline-nvim/feline.nvim',
     config = function()
       require('feline').setup({
-        components = require('catppuccin.core.integrations.feline')
+        components = require('catppuccin.groups.integrations.feline').get(),
       })
     end
   }
@@ -66,16 +67,6 @@ return require('packer').startup(function(use)
   use {
     'ms-jpq/coq.artifacts',
     branch = 'artifacts'
-  }
-
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    require("null-ls").setup({
-      sources = {
-        require("null-ls").builtins.formatting.phpcsfixer,
-        require("null-ls").builtins.completion.spell
-      },
-    })
   }
 
   use {
