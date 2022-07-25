@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use {
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
+    'ggandor/lightspeed.nvim',
     'kosayoda/nvim-lightbulb',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
