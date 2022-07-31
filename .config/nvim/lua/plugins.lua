@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
     'kosayoda/nvim-lightbulb',
+    'ggandor/lightspeed.nvim',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
@@ -184,8 +185,6 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  use { 'folke/tokyonight.nvim' }
-
   use({
     "catppuccin/nvim",
     as = "catppuccin"
@@ -207,6 +206,13 @@ return require('packer').startup(function(use)
     'karb94/neoscroll.nvim',
     config = function()
       require('neoscroll').setup()
+    end
+  }
+
+  use {
+    "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup()
     end
   }
 

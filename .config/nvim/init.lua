@@ -7,7 +7,7 @@ vim.cmd[[
 
 require('plugins')
 
-require('null-ls')
+require('nullls')
 
 require('key-mapping')
 
