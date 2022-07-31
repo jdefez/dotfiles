@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
+    'numToStr/FTerm.nvim',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
     'phpactor/phpactor',
