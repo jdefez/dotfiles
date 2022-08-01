@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
     'RRethy/vim-illuminate',
     'folke/which-key.nvim',
     'jparise/vim-graphql',
+    'numToStr/FTerm.nvim',
     'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
     'phpactor/phpactor',
@@ -161,18 +162,10 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- use {
-  --   'folke/trouble.nvim',
-  --   requires = 'kyazdani42/nvim-web-devicons',
-  --   config = function()
-  --     require('trouble').setup {}
-  --   end
-  -- }
-
   use {
     'Pocco81/AutoSave.nvim',
     config = function()
-      require('autosave').setup {
+      require('auto-save').setup {
         {
           -- toggle on/off using :ASToggle
           enabled = true,

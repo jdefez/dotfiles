@@ -78,6 +78,11 @@ nnoremap('<leader>fdb', ':Telescope dap list_breakpoints<CR>', 'List breakpoints
 nnoremap('<leader>fdv', ':Telescope dap variables<CR>', 'Dap variables')
 nnoremap('<leader>fdv', ':Telescope dap frames<CR>', 'Dap frames')
 
+-- fterminal
+
+vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+
 -- fugitive
 m.nname('<leader>g', ':Gvdiffsplit!<CR>', 'Fugitive')
 nnoremap('<leader>gd', ':Gvdiffsplit!<CR>', 'Fugitive open diffview')
