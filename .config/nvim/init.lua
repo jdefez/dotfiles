@@ -3,7 +3,7 @@ require('basic')
 
 require('plugins')
 
--- require('null-ls')
+require('nullls')
 
 vim.cmd [[
   augroup packer_user_config
