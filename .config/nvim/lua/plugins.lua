@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
 
   use {
     'williamboman/nvim-lsp-installer',
+    'jose-elias-alvarez/null-ls.nvim',
     'kazhala/close-buffers.nvim',
     'ggandor/lightspeed.nvim',
     'kosayoda/nvim-lightbulb',
@@ -82,10 +83,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'jose-elias-alvarez/null-ls.nvim'
-  }
-
-  use {
     "aserowy/tmux.nvim",
     config = function()
       require("tmux").setup({
@@ -143,7 +140,7 @@ return require('packer').startup(function(use)
   use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
-      require("lsp_lines").register_lsp_virtual_lines();
+      require("lsp_lines").setup();
       vim.diagnostic.config({
         virtual_text = false,
       })
