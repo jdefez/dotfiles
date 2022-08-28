@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
     'kazhala/close-buffers.nvim',
     'kosayoda/nvim-lightbulb',
     'ggandor/lightspeed.nvim',
+    'mfussenegger/nvim-dap',
     'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
@@ -55,10 +56,6 @@ return require('packer').startup(function(use)
         components = require('catppuccin.groups.integrations.feline').get(),
       })
     end
-  }
-
-  use {
-    'mfussenegger/nvim-dap',
   }
 
   use {
@@ -125,6 +122,16 @@ return require('packer').startup(function(use)
       })
     end
   }
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup();
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+    end,
+  })
 
   -- -- toggle on/off using :ASToggle
   use {
