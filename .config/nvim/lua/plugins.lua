@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     'williamboman/nvim-lsp-installer',
     'jose-elias-alvarez/null-ls.nvim',
     'kazhala/close-buffers.nvim',
+    'xiyaowong/virtcolumn.nvim',
     'ggandor/lightspeed.nvim',
     'kosayoda/nvim-lightbulb',
     'neovim/nvim-lspconfig',
@@ -212,6 +213,13 @@ return require('packer').startup(function(use)
   use {
     'mg979/vim-visual-multi',
     { branch = 'master' }
+  }
+
+  use {
+	  'windwp/nvim-autopairs',
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
   }
 
   use {
