@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     'jose-elias-alvarez/null-ls.nvim',
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
+    'xiyaowong/virtcolumn.nvim',
     'kosayoda/nvim-lightbulb',
     'ggandor/lightspeed.nvim',
     'mfussenegger/nvim-dap',
@@ -214,6 +215,13 @@ return require('packer').startup(function(use)
     'karb94/neoscroll.nvim',
     config = function()
       require('neoscroll').setup()
+    end
+  }
+
+  use {
+	  'windwp/nvim-autopairs',
+    config = function()
+      require("nvim-autopairs").setup {}
     end
   }
 
