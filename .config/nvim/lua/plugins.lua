@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'jose-elias-alvarez/null-ls.nvim',
     'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
     'xiyaowong/virtcolumn.nvim',
@@ -32,6 +31,23 @@ return require('packer').startup(function(use)
     'preservim/vimux',
     'b0o/mapx.nvim',
   }
+
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+        require("null-ls").setup({
+          sources = {
+            require('null-ls').builtins.code_actions.gitsigns,
+            require('null-ls').builtins.diagnostics.phpstan,
+            require('null-ls').builtins.completion.spell,
+            require('null-ls').builtins.formatting.standardjs,
+            require('null-ls').builtins.formatting.fixjson,
+            require('null-ls').builtins.formatting.pint,
+          },
+        })
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
@@ -136,25 +152,9 @@ return require('packer').startup(function(use)
 
   -- -- toggle on/off using :ASToggle
   use {
-    'Pocco81/AutoSave.nvim',
+    'pocco81/auto-save.nvim',
     config = function()
-      require('autosave').setup{
-        {
-          enabled = true,
-          execution_message = 'AutoSave: saved at ' .. vim.fn.strftime('%H:%M:%S'),
-          events = {'InsertLeave', 'TextChanged'},
-          conditions = {
-            exists = true,
-            filename_is_not = {},
-            filetype_is_not = {},
-            modifiable = true
-          },
-          write_all_buffers = false,
-          on_off_commands = true,
-          clean_command_line_interval = 0,
-          debounce_delay = 135
-        }
-      }
+      require('autosave').setup()
     end
   }
 

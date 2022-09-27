@@ -80,11 +80,11 @@ end
 local lspconfig = require('lspconfig')
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup(
-    require('coq').lsp_ensure_capabilities({
+  lspconfig[lsp].setup({
+    -- require('coq').lsp_ensure_capabilities({
       on_attach = on_attach,
       flags = { debounce_text_changes = 150 },
       capabilities = capabilities,
-    })
-  )
+    -- })
+  })
 end
