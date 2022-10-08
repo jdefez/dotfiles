@@ -1,54 +1,9 @@
--- lsp servers
-
--- function: on_attach attaching completion to lsp server
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-
--- Create the language server config file. Configs file can be found here:
--- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
--- /lua/lspconfig/language-server-name.lua
-
-local servers = {
-  'intelephense', 'sumneko_lua', 'dockerls', 'jsonls', 'eslint',
-  'yamlls', 'graphql', 'psalm', 'emmet_ls', 'phpactor'
-}
-
-require'lspconfig'.intelephense.setup{}
-
--- install instruction can be found here:
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
-
-require'lspconfig'.sumneko_lua.setup{}
-
-require'lspconfig'.phpactor.setup{}
-
-require'lspconfig'.emmet_ls.setup{}
-
-require'lspconfig'.dockerls.setup{}
-
-require'lspconfig'.graphql.setup{}
-
-require'lspconfig'.jsonls.setup{}
-
-require'lspconfig'.eslint.setup{}
-
-require'lspconfig'.psalm.setup{}
-
--- install info found here:
--- https://github.com/redhat-developer/yaml-language-server#getting-started
-require'lspconfig'.yamlls.setup{}
-
-local on_attach = function(client, bufnr)
-
+local export = {};
+function export.on_attach(client, bufnr)
   local m = require('mapx').setup({ global = false, whichkey = true })
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- m.nname('<leader>l', 'lsp: workspace')
-  --[[ nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add workspace folder')
-  nnoremap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove workspace folder')
-  nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List workspcase folder') ]]
 
   m.nname('g', 'lsp: navigation')
   nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Lsp: declaration')
@@ -77,14 +32,4 @@ local on_attach = function(client, bufnr)
   require 'illuminate'.on_attach(client)
 end
 
-local lspconfig = require('lspconfig')
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    -- require('coq').lsp_ensure_capabilities({
-      on_attach = on_attach,
-      flags = { debounce_text_changes = 150 },
-      capabilities = capabilities,
-    -- })
-  })
-end
+return export

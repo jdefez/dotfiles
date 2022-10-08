@@ -1,25 +1,20 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
+  vim.api.nvim_echo({ { 'Installing packer.nvim', 'Type' } }, true, {})
   Packer_bootstrap = fn.system({
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
   })
 end
 
 return require('packer').startup(function(use)
-
   use 'wbthomason/packer.nvim'
-
   use {
-    'williamboman/nvim-lsp-installer',
     'kazhala/close-buffers.nvim',
     'xiyaowong/virtcolumn.nvim',
     'kosayoda/nvim-lightbulb',
     'ggandor/lightspeed.nvim',
-    'mfussenegger/nvim-dap',
-    'neovim/nvim-lspconfig',
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
@@ -32,24 +27,7 @@ return require('packer').startup(function(use)
     'b0o/mapx.nvim',
   }
 
-  use({
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-        require("null-ls").setup({
-          sources = {
-            require('null-ls').builtins.code_actions.gitsigns,
-            require('null-ls').builtins.diagnostics.phpstan,
-            require('null-ls').builtins.completion.spell,
-            require('null-ls').builtins.formatting.standardjs,
-            require('null-ls').builtins.formatting.fixjson,
-            require('null-ls').builtins.formatting.pint,
-          },
-        })
-    end,
-    requires = { "nvim-lua/plenary.nvim" },
-  })
-
-  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
   use {
     'lambdalisue/fern.vim',
@@ -62,7 +40,7 @@ return require('packer').startup(function(use)
     tag = '*',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('bufferline').setup{}
+      require('bufferline').setup {}
     end
   }
 
@@ -110,7 +88,7 @@ return require('packer').startup(function(use)
 
   use {
     'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('gitsigns').setup()
     end
@@ -163,7 +141,7 @@ return require('packer').startup(function(use)
     config = function()
       require('auto-session').setup {
         auto_session_enable_last_session = false,
-        auto_session_root_dir = vim.fn.stdpath('data')..'/sessions/',
+        auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/',
         auto_session_enabled = true,
         auto_save_enabled = true,
         auto_restore_enabled = nil,
@@ -187,7 +165,7 @@ return require('packer').startup(function(use)
   use {
     'anuvyklack/pretty-fold.nvim',
     config = function()
-      require('pretty-fold').setup{}
+      require('pretty-fold').setup {}
       require('pretty-fold.preview').setup()
     end
   }
@@ -219,7 +197,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-	  'windwp/nvim-autopairs',
+    'windwp/nvim-autopairs',
     config = function()
       require("nvim-autopairs").setup {}
     end
@@ -236,6 +214,51 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'jayp0521/mason-nvim-dap.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
+    'neovim/nvim-lspconfig',
+    'mfussenegger/nvim-dap',
+  }
+  require("mason").setup()
+  local mason_lspconfig = require("mason-lspconfig")
+  mason_lspconfig.setup({
+    ensure_installed = {
+      'graphql',
+      'html',
+      'intelephense',
+      'jsonls',
+      'sumneko_lua',
+      'phpactor',
+      'psalm',
+      'quick_lint_js',
+      'volar',
+      'yamlls',
+    }
+  })
+  local null_ls = require('null-ls')
+  null_ls.setup({
+    sources = {
+      null_ls.builtins.code_actions.gitsigns,
+      null_ls.builtins.diagnostics.phpstan,
+      null_ls.builtins.diagnostics.phpmd,
+      null_ls.builtins.completion.spell,
+      null_ls.builtins.formatting.standardjs,
+      null_ls.builtins.formatting.fixjson,
+      null_ls.builtins.formatting.markdownlint,
+      null_ls.builtins.formatting.pint,
+    }
+  })
+  mason_lspconfig.setup_handlers({
+    function(server_name)
+      require("lspconfig")[server_name].setup {
+        on_attach = require("lsp-servers").on_attach,
+      }
+    end
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
