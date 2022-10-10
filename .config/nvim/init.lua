@@ -1,9 +1,6 @@
 ---@diagnostic disable: undefined-global
 require('basic')
-
 require('plugins')
-
-require('nullls')
 
 vim.cmd [[
   augroup packer_user_config
@@ -14,11 +11,11 @@ vim.cmd [[
 
 require('key-mapping')
 
-require('lsp-servers')
+-- require('lsp-servers')
 
-require('dap-xdebug-adapter')
+-- require('dap-xdebug-adapter')
 
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
 vim.cmd[[colorscheme catppuccin]]
 
 vim.cmd [[
@@ -33,6 +30,6 @@ vim.cmd [[
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
   " avoiding phpactor to create variables with 2 $ sign
-  autocmd FileType php set iskeyword+=$
+  " autocmd FileType php set iskeyword+=$
   autocmd FileType php setlocal omnifunc=phpactor#Complete
 ]]

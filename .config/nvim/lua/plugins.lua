@@ -12,41 +12,44 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-
   use 'wbthomason/packer.nvim'
 
   use {
-    'williamboman/nvim-lsp-installer',
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+  use {
     'kazhala/close-buffers.nvim',
     'xiyaowong/virtcolumn.nvim',
-    'ggandor/lightspeed.nvim',
     'kosayoda/nvim-lightbulb',
-    'neovim/nvim-lspconfig',
+    'ggandor/lightspeed.nvim',
     'RRethy/vim-illuminate',
+    'lambdalisue/gina.vim',
     'folke/which-key.nvim',
-    'jparise/vim-graphql',
     'numToStr/FTerm.nvim',
-    'tami5/lspsaga.nvim',
     'tpope/vim-fugitive',
     'phpactor/phpactor',
-    'szw/vim-maximizer',
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
   }
 
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
-  use { 'junegunn/fzf',
-    run = function()
-      vim.fn['fzf#install']()
-    end
-  }
 
   use {
     'lambdalisue/fern.vim',
-    'lambdalisue/fern-renderer-nerdfont.vim',
-    'lambdalisue/nerdfont.vim'
+    'lambdalisue/nerdfont.vim',
+    'lambdalisue/fern-renderer-nerdfont.vim'
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = '*',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('bufferline').setup {}
+    end
   }
 
   use {
@@ -59,28 +62,13 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup({
-        options = {
-          virtual_text = false,
-          show_buffer_close_icons = false,
-          show_close_icon = false,
-          diagnostics = 'nvim_lsp'
-        }
-      })
-    end
-  }
-
-  use {
-    'mfussenegger/nvim-dap',
-    'theHamsta/nvim-dap-virtual-text'
-  }
-
-  use {
     'ms-jpq/coq_nvim',
     branch = 'coq'
+  }
+
+  use {
+    'ms-jpq/coq.artifacts',
+    branch = 'artifacts'
   }
 
   use {
@@ -127,13 +115,13 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'ray-x/lsp_signature.nvim',
+    'folke/lsp-colors.nvim',
     config = function()
-      require('lsp_signature').setup({
-        bind = true, -- This is mandatory, otherwise border config won't get registered.
-        handler_opts = {
-          border = "rounded"
-        }
+      require('lsp-colors').setup({
+        Error = '#db4b4b',
+        Warning = '#e0af68',
+        Information = '#0db9d7',
+        Hint = '#10B981'
       })
     end
   }
@@ -148,39 +136,11 @@ return require('packer').startup(function(use)
     end,
   })
 
+  -- toggle on/off using :ASToggle
   use {
-    'folke/lsp-colors.nvim',
+    'pocco81/auto-save.nvim',
     config = function()
-      require('lsp-colors').setup({
-        Error = '#db4b4b',
-        Warning = '#e0af68',
-        Information = '#0db9d7',
-        Hint = '#10B981'
-      })
-    end
-  }
-
-  use {
-    'Pocco81/AutoSave.nvim',
-    config = function()
-      require('auto-save').setup {
-        {
-          -- toggle on/off using :ASToggle
-          enabled = true,
-          execution_message = 'AutoSave: saved at ' .. vim.fn.strftime('%H:%M:%S'),
-          events = { 'InsertLeave', 'TextChanged' },
-          conditions = {
-            exists = true,
-            filename_is_not = {},
-            filetype_is_not = {},
-            modifiable = true
-          },
-          write_all_buffers = false,
-          on_off_commands = true,
-          clean_command_line_interval = 0,
-          debounce_delay = 135
-        }
-      }
+      require('auto-save').setup()
     end
   }
 
@@ -211,28 +171,23 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'mg979/vim-visual-multi',
-    { branch = 'master' }
-  }
-
-  use {
-	  'windwp/nvim-autopairs',
-    config = function()
-      require("nvim-autopairs").setup {}
-    end
-  }
-
-  use {
     'anuvyklack/pretty-fold.nvim',
     config = function()
-      require('pretty-fold').setup()
-      -- require('pretty-fold.preview').setup()
+      require('pretty-fold').setup {}
     end
   }
 
   -- color schemes
 
-  use({ "catppuccin/nvim", as = "catppuccin" })
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
+
+  use {
+    'mg979/vim-visual-multi',
+    { branch = 'master' }
+  }
 
   use {
     'folke/zen-mode.nvim',
@@ -249,13 +204,78 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    'windwp/nvim-autopairs',
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
   }
+
+  use {
+    "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup()
+    end
+  }
+
+  -- lsp
+
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require("lspsaga").init_lsp_saga({
+        -- your configuration
+      })
+    end,
+  })
+
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'jayp0521/mason-nvim-dap.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
+    'neovim/nvim-lspconfig',
+    'mfussenegger/nvim-dap',
+  }
+  require("mason").setup()
+  local mason_lspconfig = require("mason-lspconfig")
+  mason_lspconfig.setup({
+    ensure_installed = {
+      'graphql',
+      'html',
+      'intelephense',
+      'jsonls',
+      'sumneko_lua',
+      'phpactor',
+      'psalm',
+      'quick_lint_js',
+      'volar',
+      'yamlls',
+    }
+  })
+  local null_ls = require('null-ls')
+  null_ls.setup({
+    sources = {
+      null_ls.builtins.code_actions.gitsigns,
+      null_ls.builtins.diagnostics.phpstan,
+      null_ls.builtins.diagnostics.phpmd,
+      null_ls.builtins.completion.spell,
+      null_ls.builtins.formatting.standardjs,
+      null_ls.builtins.formatting.fixjson,
+      null_ls.builtins.formatting.markdownlint,
+      null_ls.builtins.formatting.pint,
+    }
+  })
+  mason_lspconfig.setup_handlers({
+    function(server_name)
+      require("lspconfig")[server_name].setup {
+        on_attach = require("lsp-servers").on_attach,
+      }
+    end
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-
   if packer_bootstrap then
     require('packer').sync()
   end
