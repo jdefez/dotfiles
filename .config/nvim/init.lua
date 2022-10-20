@@ -1,22 +1,21 @@
 ---@diagnostic disable: undefined-global
 require('basic')
 require('plugins')
-
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]]
-
 require('key-mapping')
-
--- require('lsp-servers')
-
 -- require('dap-xdebug-adapter')
 
-vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
-vim.cmd[[colorscheme catppuccin]]
+-- colorschemes
+
+-- vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+-- vim.cmd('colorscheme catppuccin')
+
+-- 'palenight', 'ocean', 'lighter', 'darker', 'default-community',
+-- 'palenight-community', 'ocean-community', 'lighter-community', 'darker-community'
+
+vim.g.material_terminal_italics = 1
+vim.g.material_theme_style = 'lighter'
+vim.cmd('colorscheme material')
+vim.cmd('set background=light')
 
 vim.cmd [[
   " colorcolumn
@@ -32,4 +31,10 @@ vim.cmd [[
   " avoiding phpactor to create variables with 2 $ sign
   " autocmd FileType php set iskeyword+=$
   autocmd FileType php setlocal omnifunc=phpactor#Complete
+
+  " packer
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
 ]]

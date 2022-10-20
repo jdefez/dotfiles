@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
+    'jparise/vim-graphql',
     'numToStr/FTerm.nvim',
     'tpope/vim-fugitive',
     'phpactor/phpactor',
@@ -56,7 +57,7 @@ return require('packer').startup(function(use)
     'feline-nvim/feline.nvim',
     config = function()
       require('feline').setup({
-        components = require('catppuccin.groups.integrations.feline').get(),
+        -- components = require('catppuccin.groups.integrations.feline').get(),
       })
     end
   }
@@ -145,20 +146,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'rmagatti/auto-session',
-    config = function()
-      require('auto-session').setup {
-        auto_session_enable_last_session = false,
-        auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/',
-        auto_session_enabled = true,
-        auto_save_enabled = true,
-        auto_restore_enabled = nil,
-        auto_session_suppress_dirs = nil
-      }
-    end
-  }
-
-  use {
     'b3nj5m1n/kommentary',
     config = function()
       -- deactivating default mappings to avoid conflicting 'gc' mapping
@@ -179,10 +166,15 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  use({
+  use {
     "catppuccin/nvim",
     as = "catppuccin"
-  })
+  }
+
+  use {
+    'kaicataldo/material.vim',
+    { branch = 'main' }
+  }
 
   use {
     'mg979/vim-visual-multi',
@@ -215,6 +207,11 @@ return require('packer').startup(function(use)
     config = function()
       require("focus").setup()
     end
+  }
+
+  use {
+    'toppair/peek.nvim',
+     run = 'deno task --quiet build:fast'
   }
 
   -- lsp
@@ -258,7 +255,7 @@ return require('packer').startup(function(use)
     sources = {
       null_ls.builtins.code_actions.gitsigns,
       null_ls.builtins.diagnostics.phpstan,
-      null_ls.builtins.diagnostics.phpmd,
+      -- null_ls.builtins.diagnostics.phpmd,
       null_ls.builtins.completion.spell,
       null_ls.builtins.formatting.standardjs,
       null_ls.builtins.formatting.fixjson,
