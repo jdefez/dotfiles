@@ -45,13 +45,15 @@ nnoremap('dal', ':lua require"dap".step_over()<CR>', 'Dap Step over')
 nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')
 nnoremap('dak', ':lua require"dap".step_out()<CR>', 'Dap Step out')
 nnoremap('dab', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
-nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', 'Dap Set breakpoint condition')
+nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+  'Dap Set breakpoint condition')
 nnoremap('daC', ':lua require"dap".clear_breakpoints()<CR>', 'Dap clear breakpoints')
-nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', 'Dap Set breakpoint log message')
+nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+  'Dap Set breakpoint log message')
 nnoremap('dar', ':lua require"dap".repl.open()<CR>', 'dap repl open')
 nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
-nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
-
+nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
+  'dap widgets hover float')
 
 -- telescope
 
@@ -131,4 +133,3 @@ nnoremap('<leader>tg', ':TestVisit<CR>', 'Visit test')
 
 -- zen mode
 nnoremap('<leader>z', ':ZenMode<CR>', 'Toggle zen mode')
-

@@ -209,11 +209,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'toppair/peek.nvim',
-     run = 'deno task --quiet build:fast'
-  }
-
   -- lsp
 
   use({
