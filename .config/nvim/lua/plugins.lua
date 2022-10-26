@@ -23,7 +23,6 @@ return require('packer').startup(function(use)
     'kazhala/close-buffers.nvim',
     'xiyaowong/virtcolumn.nvim',
     'kosayoda/nvim-lightbulb',
-    'ggandor/lightspeed.nvim',
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
@@ -34,6 +33,43 @@ return require('packer').startup(function(use)
     'vim-test/vim-test',
     'preservim/vimux',
     'b0o/mapx.nvim',
+  }
+
+  -- color schemes
+
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin"
+  }
+
+  use {
+    'kaicataldo/material.vim',
+    { branch = 'main' }
+  }
+
+  -- navigating
+
+  use {
+    "aserowy/tmux.nvim",
+    config = function()
+      require("tmux").setup({
+        -- overwrite default configuration
+        -- here, e.g. to enable default bindings
+        copy_sync = {
+          -- enables copy sync and overwrites all register actions to
+          -- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
+          enable = true,
+        },
+        navigation = {
+          -- enables default keybindings (C-hjkl) for normal mode
+          enable_default_keybindings = true,
+        },
+        resize = {
+          -- enables default keybindings (A-hjkl) for normal mode
+          enable_default_keybindings = true,
+        }
+      })
+    end
   }
 
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
@@ -63,47 +99,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'ms-jpq/coq_nvim',
-    branch = 'coq'
-  }
-
-  use {
-    'ms-jpq/coq.artifacts',
-    branch = 'artifacts'
-  }
-
-  use {
-    "aserowy/tmux.nvim",
-    config = function()
-      require("tmux").setup({
-        -- overwrite default configuration
-        -- here, e.g. to enable default bindings
-        copy_sync = {
-          -- enables copy sync and overwrites all register actions to
-          -- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
-          enable = true,
-        },
-        navigation = {
-          -- enables default keybindings (C-hjkl) for normal mode
-          enable_default_keybindings = true,
-        },
-        resize = {
-          -- enables default keybindings (A-hjkl) for normal mode
-          enable_default_keybindings = true,
-        }
-      })
-    end
-  }
-
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-
-  use {
     'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
@@ -115,29 +110,28 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- editing
+
   use {
-    'folke/lsp-colors.nvim',
+    'ms-jpq/coq_nvim',
+    branch = 'coq'
+  }
+
+  use {
+    'ms-jpq/coq.artifacts',
+    branch = 'artifacts'
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('lsp-colors').setup({
-        Error = '#db4b4b',
-        Warning = '#e0af68',
-        Information = '#0db9d7',
-        Hint = '#10B981'
-      })
+      require('gitsigns').setup()
     end
   }
 
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup();
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-    end,
-  })
-
   -- toggle on/off using :ASToggle
+
   use {
     'pocco81/auto-save.nvim',
     config = function()
@@ -164,21 +158,16 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- color schemes
-
-  use {
-    "catppuccin/nvim",
-    as = "catppuccin"
-  }
-
-  use {
-    'kaicataldo/material.vim',
-    { branch = 'main' }
-  }
-
   use {
     'mg979/vim-visual-multi',
     { branch = 'master' }
+  }
+
+  use {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
   }
 
   use {
@@ -264,6 +253,28 @@ return require('packer').startup(function(use)
         on_attach = require("lsp-servers").on_attach,
       }
     end
+  })
+
+  use {
+    'folke/lsp-colors.nvim',
+    config = function()
+      require('lsp-colors').setup({
+        Error = '#db4b4b',
+        Warning = '#e0af68',
+        Information = '#0db9d7',
+        Hint = '#10B981'
+      })
+    end
+  }
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup();
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+    end,
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
