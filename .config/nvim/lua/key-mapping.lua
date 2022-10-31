@@ -31,9 +31,6 @@ nnoremap('bn', ':BufferLineCycleNext<CR>', 'Cycle next buffer')
 nnoremap('bp', ':BufferLineCyclePrev<CR>', 'Cycle previous buffer')
 nnoremap('bP', ':BufferLinePick<CR>', 'Pick buffer')
 
--- Fern
-nnoremap('<leader>n', ':Fern -drawer -toggle .<CR>', 'Toggle Fern drawer')
-
 -- dap
 
 m.nname('da', 'Dap')
@@ -44,13 +41,19 @@ nnoremap('daj', ':lua require"dap".step_into()<CR>', 'Dap Step in')
 nnoremap('dak', ':lua require"dap".step_out()<CR>', 'Dap Step out')
 
 nnoremap('dab', ':lua require"dap".toggle_breakpoint()<CR>', 'Dap Toggle breakpoint')
-nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', 'Dap Set breakpoint condition')
+nnoremap('dac', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+  'Dap Set breakpoint condition')
 nnoremap('daC', ':lua require"dap".clear_breakpoints()<CR>', 'Dap clear breakpoints')
-nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', 'Dap Set breakpoint log message')
+nnoremap('daL', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+  'Dap Set breakpoint log message')
 
 nnoremap('dar', ':lua require"dap".repl.open({}, "vsplit")<CR>', 'dap repl open')
 nnoremap('daw', ':lua require"dap.ui.widgets".hover()<CR>', 'dap widgets hover')
-nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>", 'dap widgets hover float')
+nnoremap('daW', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
+  'dap widgets hover float')
+
+-- Fern
+nnoremap('<leader>n', ':Fern -drawer -toggle .<CR>', 'Toggle Fern drawer')
 
 -- telescope dap extension
 
@@ -126,4 +129,3 @@ nnoremap('<leader>tv', ':TestVisit<CR>', 'Visit test')
 
 -- zen mode
 nnoremap('<leader>z', ':ZenMode<CR>', 'Toggle zen mode')
-

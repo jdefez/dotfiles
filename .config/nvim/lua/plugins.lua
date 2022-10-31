@@ -10,24 +10,14 @@ end
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+
+  -- navigation
+
   use {
     'kazhala/close-buffers.nvim',
-    'xiyaowong/virtcolumn.nvim',
-    'kosayoda/nvim-lightbulb',
     'ggandor/lightspeed.nvim',
-    'RRethy/vim-illuminate',
-    'lambdalisue/gina.vim',
-    'folke/which-key.nvim',
-    'numToStr/FTerm.nvim',
-    'tami5/lspsaga.nvim',
-    'tpope/vim-fugitive',
-    'phpactor/phpactor',
-    'vim-test/vim-test',
     'preservim/vimux',
-    'b0o/mapx.nvim',
   }
-
-  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
   use {
     'lambdalisue/fern.vim',
@@ -54,16 +44,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'ms-jpq/coq_nvim',
-    branch = 'coq'
-  }
-
-  use {
-    'ms-jpq/coq.artifacts',
-    branch = 'artifacts'
-  }
-
-  use {
     "aserowy/tmux.nvim",
     config = function()
       require("tmux").setup({
@@ -87,14 +67,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-
-  use {
     'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
@@ -107,47 +79,49 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'folke/lsp-colors.nvim',
+    'karb94/neoscroll.nvim',
     config = function()
-      require('lsp-colors').setup({
-        Error = '#db4b4b',
-        Warning = '#e0af68',
-        Information = '#0db9d7',
-        Hint = '#10B981'
-      })
+      require('neoscroll').setup()
     end
   }
 
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup();
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-    end,
-  })
+  -- editing
 
-  -- -- toggle on/off using :ASToggle
   use {
-    'pocco81/auto-save.nvim',
-    config = function()
-      require('autosave').setup()
-    end
+    'xiyaowong/virtcolumn.nvim',
+    'kosayoda/nvim-lightbulb',
+    'RRethy/vim-illuminate',
+    'folke/which-key.nvim',
+    'numToStr/FTerm.nvim',
+    'phpactor/phpactor',
+    'vim-test/vim-test',
   }
 
   use {
-    'rmagatti/auto-session',
-    config = function()
-      require('auto-session').setup {
-        auto_session_enable_last_session = false,
-        auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/',
-        auto_session_enabled = true,
-        auto_save_enabled = true,
-        auto_restore_enabled = nil,
-        auto_session_suppress_dirs = nil
-      }
-    end
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+    'onsails/lspkind-nvim',
+    {
+      'hrsh7th/nvim-cmp',
+      config = function()
+        require 'cmp-config'
+      end
+    },
+  }
+
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+
+  use {
+    'ms-jpq/coq_nvim',
+    branch = 'coq'
+  }
+
+  use {
+    'ms-jpq/coq.artifacts',
+    branch = 'artifacts'
   }
 
   use {
@@ -170,30 +144,9 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- color schemes
-
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
-
   use {
     'mg979/vim-visual-multi',
     { branch = 'master' }
-  }
-
-  use {
-    'folke/zen-mode.nvim',
-    config = function()
-      require('zen-mode').setup()
-    end
-  }
-
-  use {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup()
-    end
   }
 
   use {
@@ -204,11 +157,49 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'folke/zen-mode.nvim',
+    config = function()
+      require('zen-mode').setup()
+    end
+  }
+
+  use {
     "beauwilliams/focus.nvim",
     config = function()
       require("focus").setup()
     end
   }
+
+  -- git
+
+  use {
+    'tpope/vim-fugitive',
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  use {
+    'axkirillov/easypick.nvim',
+    requires = 'nvim-telescope/telescope.nvim'
+  }
+  local easypick = require('easypick')
+  easypick.setup({
+    pickers = {
+      {
+        name = "conflicts",
+        command = "git diff --name-only --diff-filter=U --relative",
+        previewer = easypick.previewers.file_diff()
+      },
+    }
+  })
+
+  -- lsp
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -258,6 +249,62 @@ return require('packer').startup(function(use)
         on_attach = require("lsp-servers").on_attach,
       }
     end
+  })
+
+  use {
+    'tami5/lspsaga.nvim',
+    'b0o/mapx.nvim',
+  }
+
+  use {
+    'folke/lsp-colors.nvim',
+    config = function()
+      require('lsp-colors').setup({
+        Error = '#db4b4b',
+        Warning = '#e0af68',
+        Information = '#0db9d7',
+        Hint = '#10B981'
+      })
+    end
+  }
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup();
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+    end,
+  })
+
+  use {
+    -- toggle on/off using :ASToggle
+    'pocco81/auto-save.nvim',
+    config = function()
+      require('autosave').setup()
+    end
+  }
+
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        auto_session_enable_last_session = false,
+        auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/',
+        auto_session_enabled = true,
+        auto_save_enabled = true,
+        auto_restore_enabled = nil,
+        auto_session_suppress_dirs = nil
+      }
+    end
+  }
+
+  -- color schemes
+
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
