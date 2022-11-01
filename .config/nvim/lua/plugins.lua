@@ -97,21 +97,6 @@ return require('packer').startup(function(use)
     'vim-test/vim-test',
   }
 
-  use {
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
-    'onsails/lspkind-nvim',
-    {
-      'hrsh7th/nvim-cmp',
-      config = function()
-        require 'cmp-config'
-      end
-    },
-  }
-
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
   use {
@@ -140,7 +125,6 @@ return require('packer').startup(function(use)
     'anuvyklack/pretty-fold.nvim',
     config = function()
       require('pretty-fold').setup {}
-      require('pretty-fold.preview').setup()
     end
   }
 
@@ -188,6 +172,7 @@ return require('packer').startup(function(use)
     'axkirillov/easypick.nvim',
     requires = 'nvim-telescope/telescope.nvim'
   }
+
   local easypick = require('easypick')
   easypick.setup({
     pickers = {
