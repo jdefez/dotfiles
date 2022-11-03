@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   use {
     'kazhala/close-buffers.nvim',
     'xiyaowong/virtcolumn.nvim',
+    'ggandor/lightspeed.nvim',
     'kosayoda/nvim-lightbulb',
     'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
@@ -161,13 +162,6 @@ return require('packer').startup(function(use)
   use {
     'mg979/vim-visual-multi',
     { branch = 'master' }
-  }
-
-  use {
-    'ggandor/leap.nvim',
-    config = function()
-      require('leap').add_default_mappings()
-    end
   }
 
   use {

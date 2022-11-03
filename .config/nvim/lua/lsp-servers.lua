@@ -20,7 +20,7 @@ function export.on_attach(client, bufnr)
   nnoremap('<leader>lh', ':Lspsaga lsp_finder<CR>', 'Word definition and reference')
   nnoremap('<leader>lx', ':Lspsaga code_action<cr>', 'Show code actions')
   vnoremap('<leader>lx', ':<C-U>Lspsaga range_code_action<cr>', 'Show code actions')
-  nnoremap('<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Lsp: format')
+  nnoremap('<leader>lf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', 'format')
 
   -- illuminate
 
