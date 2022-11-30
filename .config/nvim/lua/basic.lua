@@ -45,7 +45,7 @@ vim.g['test#php#phpunit#options'] = '--testdox'
 
 -- plugin: lualine
 
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- plugin: nvim-lightbulb
 
