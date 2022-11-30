@@ -23,8 +23,7 @@ return require('packer').startup(function(use)
     'kazhala/close-buffers.nvim',
     'xiyaowong/virtcolumn.nvim',
     'ggandor/lightspeed.nvim',
-    'kosayoda/nvim-lightbulb',
-    'RRethy/vim-illuminate',
+    -- 'RRethy/vim-illuminate',
     'lambdalisue/gina.vim',
     'folke/which-key.nvim',
     'jparise/vim-graphql',
@@ -38,10 +37,33 @@ return require('packer').startup(function(use)
 
   -- color schemes
 
-  use {
-    "catppuccin/nvim",
-    as = "catppuccin"
-  }
+  -- use {
+  --   "catppuccin/nvim",
+  --   as = "catppuccin",
+  --   config = function()
+  --     require("catppuccin").setup({
+  --       -- latte, frappe, macchiato, mocha
+  --       flavour = 'frappe',
+  --       background = {
+  --         light = "latte",
+  --         dark = "mocha",
+  --       }
+  --     })
+  --   end
+  -- }
+
+  use({
+    'projekt0n/github-nvim-theme',
+    config = function()
+      require('github-theme').setup({
+        theme_style = 'dark',
+        dark_float = true,
+        dark_sidebar = true,
+        function_style = 'italic',
+        variable_style = 'bold'
+      })
+    end
+  })
 
   use {
     'kaicataldo/material.vim',
@@ -49,6 +71,26 @@ return require('packer').startup(function(use)
   }
 
   -- navigating
+
+  use {
+    'nyngwang/murmur.lua',
+    config = function()
+      require('murmur').setup({
+        cursor_rgb = 'purple', -- default to '#393939'
+        max_len = 80, -- maximum word-length to highlight
+        -- disable_on_lines = 2000, -- to prevent lagging on large files. Default to 2000 lines.
+        exclude_filetypes = {},
+        callbacks = {
+          -- to trigger the close_events of vim.diagnostic.open_float.
+          function()
+            -- Close floating diag. and make it triggerable again.
+            vim.cmd('doautocmd InsertEnter')
+            vim.w.diag_shown = false
+          end,
+        },
+      })
+    end
+  }
 
   use {
     "aserowy/tmux.nvim",
@@ -77,8 +119,7 @@ return require('packer').startup(function(use)
 
   use {
     'lambdalisue/fern.vim',
-    'lambdalisue/nerdfont.vim',
-    'lambdalisue/fern-renderer-nerdfont.vim'
+    'TheLeoP/fern-renderer-web-devicons.nvim',
   }
 
   use {
@@ -149,6 +190,10 @@ return require('packer').startup(function(use)
       require('kommentary.config').configure_language('php', {
         prefer_single_line_comments = true,
       })
+
+      require('kommentary.config').configure_language('lua', {
+        prefer_single_line_comments = true,
+      })
     end
   }
 
@@ -192,6 +237,23 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- use {
+  --   'rmagatti/auto-session',
+  --   config = function()
+  --     require('auto-session').setup({
+  --       log_level = 'info',
+  --       auto_session_enable_last_session = false,
+  --       auto_session_root_dir = vim.fn.stdpath('data') .. "/sessions/",
+  --       auto_session_enabled = true,
+  --       auto_save_enabled = nil,
+  --       auto_restore_enabled = nil,
+  --       auto_session_suppress_dirs = nil,
+  --       auto_session_use_git_branch = nil,
+  --       bypass_session_save_file_types = nil
+  --     })
+  --   end
+  -- }
+
   -- lsp
 
   use({
@@ -218,7 +280,7 @@ return require('packer').startup(function(use)
     ensure_installed = {
       'graphql',
       'html',
-      'intelephense',
+      -- 'intelephense',
       'jsonls',
       'sumneko_lua',
       'phpactor',

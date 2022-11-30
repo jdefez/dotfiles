@@ -3,15 +3,38 @@ vim.g['termguicolors'] = true
 
 -- Fern
 vim.g.fern = 'disable_default_mappings'
-vim.g['fern#renderer'] = 'nerdfont'
+vim.g["fern#renderer"] = 'nvim-web-devicons'
 
 vim.g['python3_host_prog'] = '/usr/bin/python3'
 
--- lsp: phpactor
--- vim.g['phpactor_executable'] = '/usr/local/bin/phpactor'
-
 vim.g['phpactorCompletionIgnoreCase'] = true
 
+-- murmur
+
+FOO = 'your_augroup_name'
+vim.api.nvim_create_augroup(FOO, { clear = true })
+
+vim.api.nvim_create_autocmd('CursorHold', {
+  group = FOO,
+  pattern = '*',
+  callback = function()
+    -- skip when a float-win already exists.
+    if vim.w.diag_shown then return end
+
+    -- open float-win when hovering on a cursor-word.
+    if vim.w.cursor_word ~= '' then
+      vim.diagnostic.open_float(nil, {
+        focusable = true,
+        close_events = { 'InsertEnter' },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      })
+      vim.w.diag_shown = true
+    end
+  end
+})
 
 -- plugin: vim-test
 
@@ -26,13 +49,13 @@ vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 
 -- plugin: nvim-lightbulb
 
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- plugin: illuminate
 
-vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
+-- vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+-- vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+-- vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
 
 -- plugin: gina
 
