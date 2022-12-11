@@ -199,6 +199,7 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     'mfussenegger/nvim-dap',
   }
+
   require("mason").setup()
   local mason_lspconfig = require("mason-lspconfig")
   mason_lspconfig.setup({
@@ -215,6 +216,7 @@ return require('packer').startup(function(use)
       'yamlls',
     }
   })
+
   local null_ls = require('null-ls')
   null_ls.setup({
     sources = {
@@ -228,6 +230,7 @@ return require('packer').startup(function(use)
       null_ls.builtins.formatting.pint,
     }
   })
+
   mason_lspconfig.setup_handlers({
     function(server_name)
       require("lspconfig")[server_name].setup {
