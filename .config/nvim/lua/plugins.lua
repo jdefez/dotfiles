@@ -345,7 +345,7 @@ return require('packer').startup(function(use)
       'jsonls',
       'sumneko_lua',
       'phpactor',
-      'psalm',
+      -- 'psalm',
       'quick_lint_js',
       'volar',
       'yamlls',
