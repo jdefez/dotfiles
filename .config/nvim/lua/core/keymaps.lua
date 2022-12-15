@@ -1,45 +1,22 @@
+vim.keymap.set('n', 'Y', 'yy$')
+vim.keymap.set('i', 'jj', '<ESC>')
+
+vim.keymap.set('n', '<S-Up>', ':m .-2<CR>==')
+vim.keymap.set('n', '<S-Down>', ':m .+1<CR>==')
+vim.keymap.set('v', '<S-Up>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<S-Down>', ":m '>+1<CR>gv=gv")
+
 vim.g.mapleader = ' '
 vim.g.termguicolors = true
-
-vim.g.python3_host_prog = '/usr/bin/python3'
-
--- lsp: phpactor
-
-vim.g['phpactorCompletionIgnoreCase'] = true
-
--- vim-test
-
-vim.g['test#strategy'] = 'vimux'
-vim.g['test#echo_command'] = false
-vim.g['test#php#phpunit#options'] = '--testdox'
-
--- coq
-
-vim.g.coq_settings = {
-  ['auto_start'] = true,
-  ['keymap.jump_to_mark'] = '<tab>',
-  ['keymap.eval_snips'] = '<leader>e',
-}
-
--- Fbbern
-vim.g.fern = 'disable_default_mappings'
-vim.g['fern#renderer'] = 'nerdfont'
-
--- git
-
-vim.opt.diffopt = 'vertical'
-
--- basics
 
 vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
 vim.wo.number = true
-
 vim.opt.cmdheight = 3
-vim.opt.completeopt = 'menu,menuone,noselect'
+-- vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.foldcolumn = '0'
+-- vim.opt.foldcolumn = '0'
 vim.opt.foldmethod = 'indent'
 vim.opt.formatoptions = vim.opt.formatoptions:append('c') -- Autowrap comments using textwidth
 vim.opt.formatoptions = vim.opt.formatoptions:append('j') -- Delete comment character when joining commented lines
