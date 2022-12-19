@@ -23,7 +23,7 @@ return require("packer").startup(function(use)
   use "beauwilliams/focus.nvim"
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
-  use "rmagatti/auto-session"
+  -- use "rmagatti/auto-session"
   use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use { "phaazon/hop.nvim", branch = "v2" }
@@ -52,16 +52,18 @@ return require("packer").startup(function(use)
 
   -- editing
 
+  use { "ms-jpq/coq_nvim", branch = "coq" }
+  use { "ms-jpq/coq.artifacts", branch = "artifacts" }
+
   use "anuvyklack/pretty-fold.nvim"
+  use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use "pocco81/auto-save.nvim"
+  use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
-  use { "mg979/vim-visual-multi", { branch = "master" } }
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
   use "vim-test/vim-test"
-  use { "ms-jpq/coq_nvim", branch = "coq" }
-  use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
   -- lsp
 
