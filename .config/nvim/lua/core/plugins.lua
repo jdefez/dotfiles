@@ -55,6 +55,10 @@ return require("packer").startup(function(use)
 
   -- editing
 
+  -- todo: test
+  -- use 'shortcuts/no-neck-pain.nvim'
+  -- use "junegunn/goyo.vim"
+
   use { "phaazon/hop.nvim", branch = "v2" }
   -- use "beauwilliams/focus.nvim" -- crashes session manager
   use "numToStr/FTerm.nvim"
