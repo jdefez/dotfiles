@@ -15,6 +15,7 @@ require('mason-lspconfig').setup({
     'graphql',
     'yamlls',
     'jsonls',
+    'gopls',
     'html',
   }
 })
@@ -56,6 +57,12 @@ require('lspconfig').yamlls.setup(
 )
 
 require('lspconfig').jsonls.setup(
+  coq.lsp_ensure_capabilities({
+    on_attach = on_attach
+  })
+)
+
+require('lspconfig').gopls.setup(
   coq.lsp_ensure_capabilities({
     on_attach = on_attach
   })
