@@ -55,23 +55,21 @@ return require("packer").startup(function(use)
 
   -- editing
 
-  -- todo: test
-  -- use 'shortcuts/no-neck-pain.nvim'
-  -- use "junegunn/goyo.vim"
+  use { "ms-jpq/coq_nvim", branch = "coq" }
+  use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
-  use { "phaazon/hop.nvim", branch = "v2" }
+  use "Pocco81/true-zen.nvim"
   -- use "beauwilliams/focus.nvim" -- crashes session manager
-  use "numToStr/FTerm.nvim"
   use "anuvyklack/pretty-fold.nvim"
+  use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use "pocco81/auto-save.nvim"
   use "windwp/nvim-autopairs"
-  use { "mg979/vim-visual-multi", { branch = "master" } }
+  use "numToStr/FTerm.nvim"
   use "b3nj5m1n/kommentary"
+  use { "phaazon/hop.nvim", branch = "v2" }
   use "phpactor/phpactor"
   use "vim-test/vim-test"
-  use { "ms-jpq/coq_nvim", branch = "coq" }
-  use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
   -- lsp
 
