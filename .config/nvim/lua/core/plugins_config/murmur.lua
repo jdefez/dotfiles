@@ -3,7 +3,7 @@ vim.api.nvim_create_augroup(FOO, { clear = true })
 
 require('murmur').setup({
   cursor_rgb = {
-    guibg = '#800080',
+    guibg = '#223249',
   },
   cursor_rgb_always_use_config = true, -- if set to `true`, then always use `cursor_rgb`.
   max_len = 80,
