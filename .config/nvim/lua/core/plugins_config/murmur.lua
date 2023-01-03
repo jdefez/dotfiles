@@ -37,10 +37,10 @@ vim.api.nvim_create_autocmd({ 'CursorHold' }, {
 
 -- To create special cursorword coloring for the colortheme `typewriter-night`.
 -- remember to change it to the name of yours.
-vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
-  group = FOO,
-  pattern = 'kanagawa',
-  callback = function()
-    vim.api.nvim_set_hl(0, "murmur_cursor_rgb", { fg = "#0a100d", bg = "#ffee32" })
-  end
-})
+-- vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
+--   group = FOO,
+--   pattern = 'kanagawa',
+--   callback = function()
+--     vim.api.nvim_set_hl(0, "murmur_cursor_rgb", { fg = "#0a100d", bg = "#ffee32" })
+--   end
+-- })
