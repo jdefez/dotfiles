@@ -16,6 +16,7 @@ return require("packer").startup(function(use)
   -- themes
 
   use "projekt0n/github-nvim-theme"
+  use "rebelot/kanagawa.nvim"
 
   -- navigation
 
