@@ -30,8 +30,8 @@ return require("packer").startup(function(use)
   use "preservim/vimux"
   use {
     "akinsho/bufferline.nvim",
-    tag = "*",
-    requires = "kyazdani42/nvim-web-devicons",
+    tag = "v3.*",
+    requires = "nvim-tree/nvim-web-devicons",
   }
   use {
     "nvim-telescope/telescope.nvim",
@@ -76,7 +76,13 @@ return require("packer").startup(function(use)
 
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "jose-elias-alvarez/null-ls.nvim"
-  use { "glepnir/lspsaga.nvim", branch = "main" }
+  use {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    requires = {
+      { "nvim-tree/nvim-web-devicons" }
+    },
+  }
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
