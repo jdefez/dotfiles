@@ -24,7 +24,7 @@ return require("packer").startup(function(use)
   use "beauwilliams/focus.nvim"
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
-  -- use "rmagatti/auto-session"
+  use "mhinz/vim-startify"
   use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use { "phaazon/hop.nvim", branch = "v2" }

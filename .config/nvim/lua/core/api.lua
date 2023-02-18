@@ -38,6 +38,7 @@ vim.opt.termguicolors = true
 vim.cmd [[
   " Specific syntax settings
   au BufRead,BufNewFile *.blade.php set ft=html
+  au BufRead,BufNewFile *.neon set ft=yaml
 
   autocmd Filetype go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4

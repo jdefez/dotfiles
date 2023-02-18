@@ -1,21 +1,17 @@
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        virtual_text = false,
-        signs = true,
-        update_in_insert = true,
-  }
-)
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+  underline = true,
+  virtual_text = false,
+  signs = true,
+  update_in_insert = true,
+})
 
-local saga = require("lspsaga")
-
-saga.init_lsp_saga({
+require('lspsaga').setup({
   diagnostic_header = { "😡", "😥", "😤", "😐" },
 })
 
 local keymap = vim.keymap.set
 
-saga.init_lsp_saga()
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -24,7 +20,7 @@ saga.init_lsp_saga()
 keymap("n", "<leader>lh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 -- Code action
-keymap({"n","v"}, "<leader>lx", "<cmd>Lspsaga code_action<CR>", { silent = true })
+keymap({ "n", "v" }, "<leader>lx", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
 -- Rename
 keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
@@ -55,7 +51,7 @@ keymap("n", "]E", function()
 end, { silent = true })
 
 -- Outline
-keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })

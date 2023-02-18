@@ -1,0 +1,1 @@
+vim.g.startify_session_persistence = 0
