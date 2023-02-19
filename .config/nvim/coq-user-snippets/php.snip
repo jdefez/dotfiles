@@ -1,20 +1,45 @@
 snippet fn arrow_function
-  fn(${1:type} ${2:name}) => ${0}
+  fn(${1:arg}) => ${0}
 
 snippet pub public_method
-  public function ${1:name}(${2:type}): ${3:type}
+  public function ${1:name}(${2:arg}): ${3:type}
   {
       ${0:target}
   }
 
 snippet pro protected_method
-  protected function ${1:name}(${2:name}): ${3:type}
+  protected function ${1:name}(${2:arg}): ${3:type}
   {
       ${0:target}
   }
 
 snippet pri private_method
-  private function ${1:name}(${2:name}): ${3:type}
+  private function ${1:name}(${2:arg}): ${3:type}
+  {
+      ${0:target}
+  }
+
+snippet con __construct
+  public function __construct(
+      ${1:name}
+  ) {
+      ${0:target}
+  }
+
+snippet inv __invoke
+  public function __invoke(${1:arg}): ${2:type}
+  {
+      ${0:target}
+  }
+
+snippet han handle
+  public static function handle(${1:arg}): ${2:type}
+  {
+      ${0:target}
+  }
+
+snippet mak make
+  public static function make(${1:arg}): ${2:type}
   {
       ${0:target}
   }
