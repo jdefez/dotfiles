@@ -1,5 +1,5 @@
 snippet fn arrow_function
-  fn(${1:arg}) => ${0}
+  fn (${1:arg}) => ${0}
 
 snippet pub public_method
   public function ${1:name}(${2:arg}): ${3:type}
@@ -26,20 +26,27 @@ snippet inv __invoke
   }
 
 snippet con __construct
-  private function __construct(
+  public function __construct(
       ${1:arg}
   ): ${2:type} {
       ${0:target}
   }
 
-snippet han handle
+snippet han static_handle
   public static function handle(${1:arg}): ${2:type}
   {
       ${0:target}
   }
 
-snippet han handle
+snippet mak static_make
   public static function make(${1:arg}): ${2:type}
   {
+      ${0:target}
+  }
+
+snippet try try_catch
+  try {
+      ${1:exception}
+  } catch (${2:exception}) {
       ${0:target}
   }
