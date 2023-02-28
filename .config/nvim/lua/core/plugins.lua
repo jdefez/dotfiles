@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
   -- navigation
 
   use "TheLeoP/fern-renderer-web-devicons.nvim"
-  use "feline-nvim/feline.nvim"
+  use "freddiehaddad/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "rmagatti/auto-session"
   use "lambdalisue/fern.vim"
