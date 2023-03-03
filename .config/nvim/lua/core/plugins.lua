@@ -17,7 +17,8 @@ return require("packer").startup(function(use)
 
   -- use "projekt0n/github-nvim-theme"
   -- use "lourenci/github-colors"
-  use "rebelot/kanagawa.nvim"
+  -- use "rebelot/kanagawa.nvim"
+  use "loctvl842/monokai-pro.nvim"
 
   -- navigation
 

@@ -2,7 +2,9 @@ require("core.plugins_config.treesitter-config")
 require("core.plugins_config.lsp-config")
 
 -- require("core.plugins_config.github-nvim-theme")
-require("core.plugins_config.kanagawa-theme")
+-- require("core.plugins_config.kanagawa-theme")
+require("core.plugins_config.monokai-pro")
+
 require("core.plugins_config.close-buffers")
 -- require("core.plugins_config.auto-session")
 require("core.plugins_config.pretty-fold")
