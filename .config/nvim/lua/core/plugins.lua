@@ -15,7 +15,8 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   -- themes
 
-  use "projekt0n/github-nvim-theme"
+  -- use "projekt0n/github-nvim-theme"
+  -- use "lourenci/github-colors"
   use "rebelot/kanagawa.nvim"
 
   -- navigation
