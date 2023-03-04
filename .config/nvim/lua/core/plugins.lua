@@ -15,16 +15,15 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   -- themes
 
-  use "projekt0n/github-nvim-theme"
   use "rebelot/kanagawa.nvim"
 
   -- navigation
 
   use "TheLeoP/fern-renderer-web-devicons.nvim"
+  use "olimorris/persisted.nvim"
   use "beauwilliams/focus.nvim"
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
-  use "mhinz/vim-startify"
   use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use { "phaazon/hop.nvim", branch = "v2" }
@@ -33,7 +32,7 @@ return require("packer").startup(function(use)
   use {
     "akinsho/bufferline.nvim",
     tag = "*",
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
   }
   use {
     "nvim-telescope/telescope.nvim",
