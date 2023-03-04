@@ -4,6 +4,7 @@ vim.wo.colorcolumn = '81'
 vim.wo.relativenumber = true
 vim.wo.number = true
 vim.opt.expandtab = true
+vim.opt.signcolumn = 'yes'
 vim.opt.foldmethod = 'indent'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
