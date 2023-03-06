@@ -13,19 +13,28 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  -- themes
 
-  -- use "projekt0n/github-nvim-theme"
-  -- use "lourenci/github-colors"
-  -- use "rebelot/kanagawa.nvim"
+  -- utility
+
+  use "TheLeoP/fern-renderer-web-devicons.nvim"
+  use "nvim-tree/nvim-web-devicons"
+  use "jghauser/mkdir.nvim"
+
+  -- themes
+  use "lourenci/github-colors"
+  use "sainnhe/edge"
+  use {
+    "mcchrish/zenbones.nvim",
+    requires = "rktjmp/lush.nvim"
+  }
+  use "ishan9299/modus-theme-vim"
+  use "rebelot/kanagawa.nvim"
   use "loctvl842/monokai-pro.nvim"
 
   -- navigation
 
-  use "TheLeoP/fern-renderer-web-devicons.nvim"
   use "freddiehaddad/feline.nvim"
   use "karb94/neoscroll.nvim"
-  -- use "rmagatti/auto-session"
   use "olimorris/persisted.nvim"
   use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
@@ -40,7 +49,6 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      -- "nvim-telescope/telescope-dap.nvim"
     }
   }
   use "kazhala/close-buffers.nvim"
