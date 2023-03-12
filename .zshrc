@@ -133,27 +133,6 @@ compdef '_files -W ${vim_sessions}' vs
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias pa='php artisan'
 
-vs() {
-  mkdir -p ${vim_sessions}
-
-  if [ "$#" -ne 1 ]; then
-    # use session.vim if no param given
-    SESSION_NAME=session.vim
-  else
-    SESSION_NAME=$1
-  fi
-
-  SESSION_PATH=${vim_sessions}/$SESSION_NAME
-
-  if [[ ! -f $SESSION_PATH ]]; then
-    # make session file if it does not exist
-    nvim -c "Obsession $SESSION_PATH"
-  else
-    # source session file if it exists
-    nvim -S $SESSION_PATH
-  fi
-}
-
 pu() {
   if [ -n "$1" ]; then
     clear && php ./vendor/bin/phpunit $1
