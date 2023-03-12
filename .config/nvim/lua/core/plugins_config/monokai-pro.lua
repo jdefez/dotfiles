@@ -3,4 +3,4 @@ require("monokai-pro").setup({
   filter = "octagon"
 })
 
-vim.cmd("colorscheme monokai-pro")
+-- vim.cmd("colorscheme monokai-pro")

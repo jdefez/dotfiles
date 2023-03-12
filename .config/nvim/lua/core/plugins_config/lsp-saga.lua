@@ -1,17 +1,36 @@
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  virtual_text = false,
-  signs = true,
-  update_in_insert = true,
-})
-
 require('lspsaga').setup({
-  diagnostic_header = { "😡", "😥", "😤", "😐" },
+    diagnostic_header = { "😡", "😥", "😤", "😐" },
+    code_action = {
+        num_shortcut = false,
+        show_server_name = true,
+        extend_gitsigns = true,
+    },
+    lightbulb = {
+        enable = false,
+        virtual_text = false,
+    },
+    diagnostic = {
+        on_insert = true,
+        on_insert_follow = false,
+        insert_winblend = 0,
+        show_virt_line = false,
+        show_code_action = false,
+        show_source = true,
+        jump_num_shortcut = false,
+        max_width = 0.7, --1 is max
+        custom_fix = nil,
+        custom_msg = nil,
+        text_hl_follow = false,
+        border_follow = true,
+        -- keys = {
+        --     exec_action = "o",
+        --     quit = "q",
+        --     go_action = "g"
+        -- },
+    },
 })
 
 local keymap = vim.keymap.set
-
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -44,10 +63,10 @@ keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
 keymap("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+        require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 keymap("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+        require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
 -- Outline
