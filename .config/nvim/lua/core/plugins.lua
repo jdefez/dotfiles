@@ -38,10 +38,6 @@ return require("packer").startup(function(use)
     use "olimorris/persisted.nvim"
     use "beauwilliams/focus.nvim"
     use "feline-nvim/feline.nvim"
-    -- use {
-    --     'nvim-lualine/lualine.nvim',
-    --     requires = { "nvim-tree/nvim-web-devicons", opt = true }
-    -- }
     use "karb94/neoscroll.nvim"
     use "lambdalisue/fern.vim"
     use "nyngwang/murmur.lua"
@@ -77,6 +73,7 @@ return require("packer").startup(function(use)
     use "anuvyklack/pretty-fold.nvim"
     use { "mg979/vim-visual-multi", { branch = "master" } }
     use { "kevinhwang91/nvim-bqf", ft = "qf" }
+    use "ray-x/lsp_signature.nvim"
     use "pocco81/auto-save.nvim"
     use "Pocco81/true-zen.nvim"
     use "windwp/nvim-autopairs"

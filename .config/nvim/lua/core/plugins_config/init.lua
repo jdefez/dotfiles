@@ -10,6 +10,7 @@ require("core.plugins_config.monokai-pro")
 require("core.plugins_config.feline-dharmux")
 -- require("core.plugins_config.lua-line")
 
+require("core.plugins_config.lsp-signature")
 require("core.plugins_config.close-buffers")
 require("core.plugins_config.pretty-fold")
 require("core.plugins_config.kommentary")

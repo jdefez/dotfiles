@@ -22,11 +22,6 @@ require('lspsaga').setup({
         custom_msg = nil,
         text_hl_follow = false,
         border_follow = true,
-        -- keys = {
-        --     exec_action = "o",
-        --     quit = "q",
-        --     go_action = "g"
-        -- },
     },
 })
 
@@ -55,7 +50,7 @@ keymap("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 
 -- Show cursor diagnostics
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+-- keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 
 -- Diagnostic jump can use `<c-o>` to jump back
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })

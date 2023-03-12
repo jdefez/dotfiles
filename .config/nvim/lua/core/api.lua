@@ -37,4 +37,5 @@ vim.cmd [[
   autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype lua setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 ]]
