@@ -1,12 +1,19 @@
 require("core.plugins_config.treesitter-config")
 require("core.plugins_config.lsp-config")
 
--- require("core.plugins_config.github-nvim-theme")
-require("core.plugins_config.kanagawa-theme")
-require("core.plugins_config.monokai-pro")
+-- themes
 
+require("core.plugins_config.catppuccin")
+require("core.plugins_config.monokai-pro")
+require("core.plugins_config.kanagawa-theme")
+
+-- feline themes
+
+require("core.plugins_config.feline-dharmux")
+-- require("core.plugins_config.feline-one-monkai")
+
+require("core.plugins_config.lsp-signature")
 require("core.plugins_config.close-buffers")
--- require("core.plugins_config.auto-session")
 require("core.plugins_config.pretty-fold")
 require("core.plugins_config.kommentary")
 require("core.plugins_config.bufferline")
@@ -22,7 +29,6 @@ require("core.plugins_config.vim-test")
 require("core.plugins_config.lsp-saga")
 require("core.plugins_config.true-zen")
 require("core.plugins_config.nullls")
-require("core.plugins_config.feline")
 require("core.plugins_config.murmur")
 require("core.plugins_config.fterm")
 require("core.plugins_config.fern")

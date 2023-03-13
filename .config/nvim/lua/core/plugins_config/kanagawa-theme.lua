@@ -2,7 +2,7 @@ require('kanagawa').setup({
   compile = false, -- enable compiling the colorscheme
   undercurl = true, -- enable undercurls
   commentStyle = { italic = true },
-  functionStyle = {},
+  functionStyle = { italic = true, bold = true },
   keywordStyle = { italic = true },
   statementStyle = { bold = true },
   typeStyle = {},
@@ -22,6 +22,3 @@ require('kanagawa').setup({
     light = "lotus"
   },
 })
-
--- setup must be called before loading
-vim.cmd("colorscheme kanagawa")

@@ -3,7 +3,8 @@ vim.api.nvim_create_augroup(FOO, { clear = true })
 
 require('murmur').setup({
   cursor_rgb = {
-    guibg = '#223249',
+    guibg = 'yellow',
+    guifg = 'black',
   },
   cursor_rgb_always_use_config = true, -- if set to `true`, then always use `cursor_rgb`.
   max_len = 80,
@@ -17,20 +18,4 @@ require('murmur').setup({
       vim.w.diag_shown = false
     end,
   }
-})
-
--- To create IDE-like no blinking diagnostic message with `cursor` scope. (should be paired with the callback above)
-vim.api.nvim_create_autocmd({ 'CursorHold' }, {
-  group = FOO,
-  pattern = '*',
-  callback = function()
-    -- skip when a float-win already exists.
-    if vim.w.diag_shown then return end
-
-    -- open float-win when hovering on a cursor-word.
-    if vim.w.cursor_word ~= '' then
-      vim.diagnostic.open_float()
-      vim.w.diag_shown = true
-    end
-  end
 })
