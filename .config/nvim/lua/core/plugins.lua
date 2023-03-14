@@ -32,6 +32,7 @@ return require("packer").startup(function(use)
   use "ishan9299/modus-theme-vim"
   use "rebelot/kanagawa.nvim"
   use "loctvl842/monokai-pro.nvim"
+  use "folke/tokyonight.nvim"
 
   -- navigation
 
@@ -89,6 +90,7 @@ return require("packer").startup(function(use)
 
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "jose-elias-alvarez/null-ls.nvim"
+  use 'folke/lsp-colors.nvim'
   use {
     "glepnir/lspsaga.nvim",
     branch = "main",

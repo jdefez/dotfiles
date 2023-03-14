@@ -5,4 +5,5 @@ require("core.plugins_config")
 
 -- vim.cmd("colorscheme kanagawa")
 -- vim.cmd("colorscheme monokai-pro")
-vim.cmd("colorscheme modus-operandi")
+-- vim.cmd("colorscheme catppuccin-latte")
+vim.cmd("colorscheme tokyonight-day")

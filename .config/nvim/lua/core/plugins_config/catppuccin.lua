@@ -1,4 +1,8 @@
 require("catppuccin").setup({
+  background = {
+    light = "latte",
+    dark = "mocha",
+  },
   styles = {
     comments = { "italic" },
     conditionals = { "italic" },
