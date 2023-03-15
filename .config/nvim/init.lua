@@ -5,4 +5,4 @@ require("core.plugins_config")
 
 -- default scheme
 
-vim.cmd('colorscheme modus-operandi')
+vim.cmd('colorscheme monokai-pro')
