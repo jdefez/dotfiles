@@ -125,9 +125,6 @@ cdpath=(~/Code)
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-# nvim sessions
-export vim_sessions=$HOME/.config/nvim/sessions
-
 compdef '_files -W ${vim_sessions}' vs
 
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
