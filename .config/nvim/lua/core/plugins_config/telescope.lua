@@ -1,4 +1,8 @@
-require('telescope').setup({})
+require('telescope').setup({
+  defaults = {
+    borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+  }
+})
 -- require('telescope').load_extension('dap')
 
 vim.keymap.set('n', '<leader>fa', ':Telescope lsp_code_actions<CR>')
