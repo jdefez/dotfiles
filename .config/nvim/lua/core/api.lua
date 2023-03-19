@@ -38,4 +38,6 @@ vim.cmd [[
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype lua setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+  " highlight DiagnosticUnderlineError guifg=#ff00ff gui=undercurl term=undercurl
 ]]

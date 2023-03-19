@@ -4,6 +4,7 @@ require("core.plugins_config.lsp-config")
 -- themes
 require("core.plugins_config.kanagawa-theme")
 require("core.plugins_config.monokai-pro")
+require("core.plugins_config.everforest")
 
 -- feline themes
 -- require("core.plugins_config.feline-one-monokai")

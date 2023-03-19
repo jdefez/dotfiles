@@ -20,17 +20,23 @@ return require("packer").startup(function(use)
 
   -- themes
 
+  -- undercurl okok
+
   use "loctvl842/monokai-pro.nvim"
-  use "lourenci/github-colors"
+  use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
-  use 'folke/tokyonight.nvim'
-  use { "catppuccin/nvim", as = "catppuccin" }
   use "sainnhe/edge"
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
   use {
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim"
   }
-  use "ishan9299/modus-theme-vim"
+  use "neanias/everforest-nvim"
+
+  -- no undercurl
+  -- use "lourenci/github-colors"
+  -- use { "catppuccin/nvim", as = "catppuccin" }
+  -- use "ishan9299/modus-theme-vim"
 
   -- utility
   use "jghauser/mkdir.nvim"

@@ -13,6 +13,3 @@ require('kanagawa').setup({
     globalStatus = false, -- adjust window separators highlight for laststatus=3
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
 })
-
--- setup must be called before loading
--- vim.cmd("colorscheme kanagawa")
