@@ -42,7 +42,6 @@ return require("packer").startup(function(use)
   use "jghauser/mkdir.nvim"
 
   -- navigation
-
   use "olimorris/persisted.nvim"
   use "beauwilliams/focus.nvim"
   use "feline-nvim/feline.nvim"
