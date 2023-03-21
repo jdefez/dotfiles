@@ -1311,9 +1311,4 @@ clipboard_control write-clipboard write-primary no-append
 
 # }}}
 
-# include current-theme.conf
-
-# BEGIN_KITTY_THEME
-# Ayu Light
 include current-theme.conf
-# END_KITTY_THEME
