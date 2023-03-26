@@ -20,7 +20,7 @@ return require("packer").startup(function(use)
 
   -- themes
 
-  -- undercurl okok
+  -- with undercurl support
 
   use "loctvl842/monokai-pro.nvim"
   use "folke/tokyonight.nvim"
@@ -33,7 +33,8 @@ return require("packer").startup(function(use)
   }
   use "neanias/everforest-nvim"
 
-  -- no undercurl
+  -- no undercurl support
+
   -- use "lourenci/github-colors"
   -- use { "catppuccin/nvim", as = "catppuccin" }
   -- use "ishan9299/modus-theme-vim"
@@ -60,11 +61,13 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      -- "nvim-telescope/telescope-dap.nvim"
+      "nvim-telescope/telescope-ui-select.nvim",
+      -- "nvim-telescope/telescope-dap.nvim",
     }
   }
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virtcolumn.nvim"
+  use "chentoast/marks.nvim"
 
   -- git
 
@@ -79,10 +82,9 @@ return require("packer").startup(function(use)
   use { "ms-jpq/coq_nvim", branch = "coq" }
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
-  use "anuvyklack/pretty-fold.nvim"
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
-  use "ray-x/lsp_signature.nvim"
   use "pocco81/auto-save.nvim"
   use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
@@ -92,7 +94,6 @@ return require("packer").startup(function(use)
 
   -- lsp
 
-  -- use 'folke/lsp-colors.nvim'
   use "nvim-treesitter/nvim-treesitter"
   use "jose-elias-alvarez/null-ls.nvim"
   use {
@@ -110,6 +111,19 @@ return require("packer").startup(function(use)
       { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" }
+    }
+  })
+
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        -- add any options here
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
     }
   })
 
