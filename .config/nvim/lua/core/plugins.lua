@@ -33,6 +33,7 @@ return require("packer").startup(function(use)
   use "rebelot/kanagawa.nvim"
   use "loctvl842/monokai-pro.nvim"
   use "folke/tokyonight.nvim"
+  use "neanias/everforest-nvim"
 
   -- navigation
 
@@ -56,6 +57,7 @@ return require("packer").startup(function(use)
   }
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virt-column.nvim"
+  use "chentoast/marks.nvim"
 
   -- git
 
@@ -72,8 +74,9 @@ return require("packer").startup(function(use)
 
   use { "ms-jpq/coq_nvim", branch = "coq" }
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
-  use "anuvyklack/pretty-fold.nvim"
-  use "ray-x/lsp_signature.nvim"
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  -- use "anuvyklack/pretty-fold.nvim"
+  -- use "ray-x/lsp_signature.nvim"
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
@@ -99,10 +102,27 @@ return require("packer").startup(function(use)
     },
   }
   use {
-    "williamboman/mason.nvim",
+      "williamboman/mason.nvim",
+      run = ":MasonUpdate"
+    }
+  use {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
   }
+
+  -- messages
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        -- add any options here
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
