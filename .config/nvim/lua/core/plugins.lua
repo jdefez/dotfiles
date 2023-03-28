@@ -76,7 +76,7 @@ return require("packer").startup(function(use)
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
   -- use "anuvyklack/pretty-fold.nvim"
-  -- use "ray-x/lsp_signature.nvim"
+  use "ray-x/lsp_signature.nvim"
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
@@ -111,18 +111,19 @@ return require("packer").startup(function(use)
   }
 
   -- messages
-  use({
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-        -- add any options here
-      })
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  })
+
+  -- use({
+  --   "folke/noice.nvim",
+  --   config = function()
+  --     require("noice").setup({
+  --       -- add any options here
+  --     })
+  --   end,
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   }
+  -- })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
