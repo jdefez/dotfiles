@@ -3,5 +3,5 @@ require("core.keymaps")
 require("core.plugins")
 require("core.plugins_config")
 
-vim.cmd("colorscheme everforest")
+vim.cmd("colorscheme catppuccin")
 vim.o.background = "light"

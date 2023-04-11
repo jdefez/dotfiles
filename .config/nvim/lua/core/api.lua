@@ -30,7 +30,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '~ ', trail = '.' }
 vim.opt.backup = true
 vim.opt.backupdir:remove('.') -- no backup file in the current dir
-vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+-- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 
 vim.cmd [[
   " Specific syntax settings
@@ -39,7 +39,7 @@ vim.cmd [[
 
   autocmd Filetype python setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype lua setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd Filetype json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 ]]
