@@ -118,7 +118,7 @@ cdpath=(~/Documents ~/Code)
 
 # artisan
 alias pa="php artisan"
-alias psa="./vendor/bin/phpstan analyse --xdebug"
+alias psa="./vendor/bin/phpstan analyse"
 alias pi="./vendor/bin/pint"
 
 # php artisan test
