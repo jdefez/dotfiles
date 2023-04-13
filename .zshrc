@@ -83,6 +83,8 @@ plugins=(
   colored-man-pages
   command-not-found
   zsh-interactive-cd
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
