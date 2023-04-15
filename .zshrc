@@ -10,7 +10,9 @@ export ZSH="/home/jean/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="gentoo"
+# ZSH_THEME="gentoo"
+# ZSH_THEME="bira"
+ZSH_THEME="fino-time"
 
 
 # Open tmux on startup, requires tmux plugin
@@ -85,10 +87,16 @@ plugins=(
   aliases
   composer
   git-prompt
+  chucknorris
   command-not-found
   colored-man-pages
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
+
+# sudo snap install lsd
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
