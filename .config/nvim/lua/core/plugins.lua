@@ -18,9 +18,7 @@ return require("packer").startup(function(use)
   use "nvim-tree/nvim-web-devicons"
   use "TheLeoP/fern-renderer-web-devicons.nvim"
 
-  -- themes
-
-  -- with undercurl support
+  -- themes [with undercurl support]
 
   use "loctvl842/monokai-pro.nvim"
   use "folke/tokyonight.nvim"
@@ -33,7 +31,7 @@ return require("packer").startup(function(use)
   }
   use "neanias/everforest-nvim"
 
-  -- no undercurl support
+  -- themes [no undercurl support]
 
   -- use "lourenci/github-colors"
   -- use { "catppuccin/nvim", as = "catppuccin" }
@@ -68,6 +66,10 @@ return require("packer").startup(function(use)
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virtcolumn.nvim"
   use "chentoast/marks.nvim"
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+  }
 
   -- git
 
@@ -81,8 +83,9 @@ return require("packer").startup(function(use)
 
   use { "ms-jpq/coq_nvim", branch = "coq" }
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
+  use 'ray-x/lsp_signature.nvim'
 
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use "pocco81/auto-save.nvim"
@@ -111,19 +114,6 @@ return require("packer").startup(function(use)
       { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" }
-    }
-  })
-
-  use({
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-        -- add any options here
-      })
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
     }
   })
 
