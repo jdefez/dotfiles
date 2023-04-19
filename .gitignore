@@ -2,3 +2,5 @@
 .DS_Store
 .tmux/
 .phpactor.json
+.phpunit.cache/
+.phpunit.result.cache
