@@ -16,7 +16,7 @@ return require("packer").startup(function(use)
 
   -- icons
   use "nvim-tree/nvim-web-devicons"
-  use "TheLeoP/fern-renderer-web-devicons.nvim"
+  -- use "TheLeoP/fern-renderer-web-devicons.nvim"
 
   -- themes [with undercurl support]
 
@@ -41,11 +41,12 @@ return require("packer").startup(function(use)
   use "jghauser/mkdir.nvim"
 
   -- navigation
+
   use "olimorris/persisted.nvim"
   use "beauwilliams/focus.nvim"
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
-  use "lambdalisue/fern.vim"
+  -- use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use { "phaazon/hop.nvim", branch = "v2" }
   use "aserowy/tmux.nvim"
@@ -69,6 +70,21 @@ return require("packer").startup(function(use)
   use {
     "akinsho/toggleterm.nvim",
     tag = '*',
+  }
+  use {
+    "b0o/incline.nvim",
+    config = function()
+      require('incline').setup()
+    end
+  }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
   }
 
   -- git
