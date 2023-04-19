@@ -41,5 +41,6 @@ vim.cmd [[
   autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype xml setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype lua setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 ]]

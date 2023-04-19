@@ -1,22 +1,39 @@
 require('telescope').setup({
-  -- defaults = {
-  --   borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
-  -- }
+  defaults = {
+    borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+    layout_config = {
+      vertical = { width = 0.7 }
+    },
+  },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    },
+    lsp_references = {
+      theme = "dropdown",
+    },
+    buffers = {
+      theme = "dropdown"
+    },
+    current_buffer_fuzzy_find = {
+      theme = "dropdown"
+    }
+  },
 })
 -- require('telescope').load_extension('dap')
 
-vim.keymap.set('n', '<leader>fa', ':Telescope lsp_code_actions<CR>')
-vim.keymap.set('v', '<leader>fA', ':Telescope lsp_range_code_actions<CR>')
+-- vim.keymap.set('n', '<leader>fa', ':Telescope lsp_code_actions<CR>')
+-- vim.keymap.set('v', '<leader>fA', ':Telescope lsp_range_code_actions<CR>')
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>')
 vim.keymap.set('n', '<leader>fc', ':Telescope git_commits<CR>')
-vim.keymap.set('n', '<leader>fD', ':Telescope diagnostics<CR>')
+-- vim.keymap.set('n', '<leader>fD', ':Telescope diagnostics<CR>')
 vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>')
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>')
 vim.keymap.set('n', '<leader>fG', ':Telescope grep_string<CR>')
 vim.keymap.set('n', '<leader>fl', ':Telescope current_buffer_fuzzy_find<CR>')
 vim.keymap.set('n', '<leader>fs', ':Telescope git_status<CR>')
-vim.keymap.set('n', '<leader>fS', ':Telescope lsp_document_symbols<CR>')
+-- vim.keymap.set('n', '<leader>fS', ':Telescope lsp_document_symbols<CR>')
 
 -- dap extension
 

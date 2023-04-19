@@ -12,6 +12,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'phpactor',
     'graphql',
+    'lemminx',
     'lua_ls',
     'yamlls',
     'jsonls',
@@ -70,6 +71,12 @@ require('lspconfig').jsonls.setup(
 )
 
 require('lspconfig').html.setup(
+  coq.lsp_ensure_capabilities({
+    on_attach = on_attach
+  })
+)
+
+require('lspconfig').lemminx.setup(
   coq.lsp_ensure_capabilities({
     on_attach = on_attach
   })

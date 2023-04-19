@@ -16,11 +16,12 @@ return require("packer").startup(function(use)
 
   -- utility
 
-  use "TheLeoP/fern-renderer-web-devicons.nvim"
+  -- use "TheLeoP/fern-renderer-web-devicons.nvim"
   use "nvim-tree/nvim-web-devicons"
   use "jghauser/mkdir.nvim"
 
   -- themes
+
   use { "catppuccin/nvim", as = "catppuccin" }
   use "olimorris/onedarkpro.nvim"
   use "lourenci/github-colors"
@@ -37,10 +38,11 @@ return require("packer").startup(function(use)
 
   -- navigation
 
+  -- https://dotfyle.com/plugins/rebelot/heirline.nvim
   use "freddiehaddad/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "olimorris/persisted.nvim"
-  use "lambdalisue/fern.vim"
+  -- use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use "aserowy/tmux.nvim"
   use "preservim/vimux"
@@ -56,10 +58,25 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim",
     }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virt-column.nvim"
   use "chentoast/marks.nvim"
+  use {
+    "b0o/incline.nvim",
+    config = function()
+      require('incline').setup()
+    end
+  }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
+  }
 
   -- git
 
@@ -70,13 +87,14 @@ return require("packer").startup(function(use)
   use "tpope/vim-fugitive"
 
   -- language
+
   use "jparise/vim-graphql"
 
   -- editing
 
   use { "ms-jpq/coq_nvim", branch = "coq" }
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   -- use "anuvyklack/pretty-fold.nvim"
   use "ray-x/lsp_signature.nvim"
   use { "mg979/vim-visual-multi", { branch = "master" } }
@@ -104,9 +122,9 @@ return require("packer").startup(function(use)
     },
   }
   use {
-      "williamboman/mason.nvim",
-      run = ":MasonUpdate"
-    }
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate"
+  }
   use {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
@@ -114,6 +132,8 @@ return require("packer").startup(function(use)
 
   -- messages
 
+  -- todo: reinstall with a sound configuration
+  --
   -- use({
   --   "folke/noice.nvim",
   --   config = function()
