@@ -1,5 +1,6 @@
 .dotfiles
 .config/nvim/.php-cs-fixer.cache
+.phpactor.json
 
 .vim/.netrwhist
 .vim/autoload/
