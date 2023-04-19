@@ -10,8 +10,9 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME="gentoo"
+ZSH_THEME="fino-time"
 
 # Open tmux on startup, requires tmux plugin
 ZSH_TMUX_AUTOSTART=true
@@ -183,3 +184,4 @@ bindkey -e
 # autoload -Uz compinit
 # compinit
 # End of lines added by compinstall
+export PATH=/usr/local/opt/php@8.1/bin/php:usr/local/sbin:~/.composer/vendor/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/kitty.app/Contents/MacOS:/Users/ayctor/.composer/vendor/bin
