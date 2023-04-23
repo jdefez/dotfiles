@@ -124,6 +124,9 @@ alias pa="php artisan"
 alias psa="./vendor/bin/phpstan analyse"
 alias pi="./vendor/bin/pint"
 
+# kitty
+alias ssh="kitty +kitten ssh"
+
 # php artisan test
 pat() {
   if [ -n "$1" ]
