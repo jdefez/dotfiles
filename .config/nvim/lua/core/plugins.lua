@@ -16,7 +16,6 @@ return require("packer").startup(function(use)
 
   -- utility
 
-  -- use "TheLeoP/fern-renderer-web-devicons.nvim"
   use "nvim-tree/nvim-web-devicons"
   use "jghauser/mkdir.nvim"
 
@@ -42,7 +41,6 @@ return require("packer").startup(function(use)
   use "freddiehaddad/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "olimorris/persisted.nvim"
-  -- use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use "aserowy/tmux.nvim"
   use "preservim/vimux"
@@ -60,14 +58,14 @@ return require("packer").startup(function(use)
   }
   -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use "kazhala/close-buffers.nvim"
-  use "xiyaowong/virt-column.nvim"
+  use "xiyaowong/virtcolumn.nvim"
   use "chentoast/marks.nvim"
-  use {
-    "b0o/incline.nvim",
-    config = function()
-      require('incline').setup()
-    end
-  }
+  -- use {
+  --   "b0o/incline.nvim",
+  --   config = function()
+  --     require('incline').setup()
+  --   end
+  -- }
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -96,7 +94,7 @@ return require("packer").startup(function(use)
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   -- use "anuvyklack/pretty-fold.nvim"
-  use "ray-x/lsp_signature.nvim"
+  -- use "ray-x/lsp_signature.nvim"
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
@@ -114,13 +112,13 @@ return require("packer").startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "jose-elias-alvarez/null-ls.nvim"
   use 'folke/lsp-colors.nvim'
-  use {
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    requires = {
-      { "nvim-tree/nvim-web-devicons" }
-    },
-  }
+  -- use {
+  --   "glepnir/lspsaga.nvim",
+  --   branch = "main",
+  --   requires = {
+  --     { "nvim-tree/nvim-web-devicons" }
+  --   },
+  -- }
   use {
     "williamboman/mason.nvim",
     run = ":MasonUpdate"
@@ -129,23 +127,20 @@ return require("packer").startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
   }
+  use { 'simrat39/symbols-outline.nvim' }
 
   -- messages
 
-  -- todo: reinstall with a sound configuration
-  --
-  -- use({
-  --   "folke/noice.nvim",
-  --   config = function()
-  --     require("noice").setup({
-  --       -- add any options here
-  --     })
-  --   end,
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   }
-  -- })
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
