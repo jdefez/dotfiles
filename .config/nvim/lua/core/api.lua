@@ -1,9 +1,13 @@
 vim.g.mapleader = ' '
 vim.g.termguicolors = true
-vim.wo.colorcolumn = '81'
-vim.wo.relativenumber = true
+vim.wo.colorcolumn = '80'
+vim.opt.autowrite = true
+vim.wo.relativenumber = false
+vim.opt.completeopt = "menu,menuone,noselect"
 vim.wo.number = true
 vim.opt.expandtab = true
+vim.opt.shiftround = true
+vim.opt.formatoptions = "jcroqlnt"
 vim.opt.signcolumn = 'yes'
 
 vim.opt.foldmethod = 'indent'
@@ -17,12 +21,14 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8 -- number of screen lines to show around the cursor
 vim.opt.sidescrolloff = 8 -- number of screen lines to show around the cursor
 vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.tabstop = 2
 vim.opt.undofile = true
--- vim.opt.undolevels = 10000
+vim.opt.undolevels = 10000
+vim.opt.winminwidth = 5
 vim.opt.termguicolors = true
 vim.opt.wildmode = 'longest:full,full'
 vim.opt.title = true
@@ -32,6 +38,7 @@ vim.opt.listchars = { tab = '~ ', trail = '.' }
 vim.opt.backup = true
 vim.opt.backupdir:remove('.') -- no backup file in the current dir
 -- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+vim.g.markdown_recommended_style = 0
 
 vim.cmd [[
   " Specific syntax settings
@@ -42,6 +49,7 @@ vim.cmd [[
   autocmd Filetype apache setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype json setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype php setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd Filetype lua setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4

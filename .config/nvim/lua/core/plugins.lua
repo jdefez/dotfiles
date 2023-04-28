@@ -15,6 +15,7 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- icons
+
   use "nvim-tree/nvim-web-devicons"
   -- use "TheLeoP/fern-renderer-web-devicons.nvim"
 
@@ -40,6 +41,19 @@ return require("packer").startup(function(use)
   -- utility
   use "jghauser/mkdir.nvim"
 
+  -- ui
+
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({})
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
+
   -- navigation
 
   use "olimorris/persisted.nvim"
@@ -61,7 +75,6 @@ return require("packer").startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
-      -- "nvim-telescope/telescope-dap.nvim",
     }
   }
   use "kazhala/close-buffers.nvim"
@@ -70,12 +83,6 @@ return require("packer").startup(function(use)
   use {
     "akinsho/toggleterm.nvim",
     tag = '*',
-  }
-  use {
-    "b0o/incline.nvim",
-    config = function()
-      require('incline').setup()
-    end
   }
   use {
     "nvim-neo-tree/neo-tree.nvim",
@@ -93,13 +100,19 @@ return require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   }
+  use {
+    'akinsho/git-conflict.nvim',
+    tag = "*",
+    config = function()
+      require('git-conflict').setup()
+    end
+  }
   use "tpope/vim-fugitive"
 
   -- editing
 
   use { "ms-jpq/coq_nvim", branch = "coq" }
   use { "ms-jpq/coq.artifacts", branch = "artifacts" }
-  use 'ray-x/lsp_signature.nvim'
 
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
@@ -113,6 +126,7 @@ return require("packer").startup(function(use)
 
   -- lsp
 
+  use { 'simrat39/symbols-outline.nvim' }
   use "nvim-treesitter/nvim-treesitter"
   use "jose-elias-alvarez/null-ls.nvim"
   use {
@@ -120,18 +134,6 @@ return require("packer").startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
   }
-  use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-      require("lspsaga").setup({})
-    end,
-    requires = {
-      { "nvim-tree/nvim-web-devicons" },
-      --Please make sure you install markdown and markdown_inline parser
-      { "nvim-treesitter/nvim-treesitter" }
-    }
-  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
