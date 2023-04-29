@@ -15,3 +15,5 @@ require("symbols-outline").setup({
     fold_reset = "R",
   },
 })
+
+vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>')

@@ -101,11 +101,8 @@ return require("packer").startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   }
   use {
-    'akinsho/git-conflict.nvim',
-    tag = "*",
-    config = function()
-      require('git-conflict').setup()
-    end
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim'
   }
   use "tpope/vim-fugitive"
 
