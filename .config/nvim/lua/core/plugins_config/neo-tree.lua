@@ -10,27 +10,25 @@ vim.fn.sign_define("DiagnosticSignHint",
   { text = "", texthl = "DiagnosticSignHint" })
 
 require("neo-tree").setup({
-  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+  close_if_last_window = true,
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
-  open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-  sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
-  sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
+  open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+  sort_case_insensitive = false,
+  sort_function = nil,
   default_component_configs = {
     container = {
       enable_character_fade = true
     },
     indent = {
       indent_size = 2,
-      padding = 1, -- extra padding on left hand side
-      -- indent guides
+      padding = 1,
       with_markers = true,
       indent_marker = "│",
       last_indent_marker = "└",
       highlight = "NeoTreeIndentMarker",
-      -- expander config, needed for nesting files
-      with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+      with_expanders = nil,
       expander_collapsed = "",
       expander_expanded = "",
       expander_highlight = "NeoTreeExpander",
@@ -39,8 +37,6 @@ require("neo-tree").setup({
       folder_closed = "",
       folder_open = "",
       folder_empty = "ﰊ",
-      -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-      -- then these will never be used.
       default = "*",
       highlight = "NeoTreeFileIcon"
     },
@@ -172,6 +168,24 @@ require("neo-tree").setup({
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
+        ["h"] = function(state)
+          local node = state.tree:get_node()
+          if node.type == 'directory' and node:is_expanded() then
+            require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
+          else
+            require 'neo-tree.ui.renderer'.focus_node(state, node:get_parent_id())
+          end
+        end,
+        ["l"] = function(state)
+          local node = state.tree:get_node()
+          if node.type == 'directory' then
+            if not node:is_expanded() then
+              require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
+            elseif node:has_children() then
+              require 'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
+            end
+          end
+        end,
         ["/"] = "fuzzy_finder",
         ["D"] = "fuzzy_finder_directory",
         ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
@@ -219,4 +233,3 @@ require("neo-tree").setup({
     }
   }
 })
-
