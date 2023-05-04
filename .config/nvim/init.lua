@@ -11,5 +11,5 @@ vim.cmd("set background=dark")
 -- neotree key mappings
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>')
-vim.keymap.set('', '<leader>b', ':Neotree toggle show buffers right<cr>')
-vim.keymap.set('', '<leader>s', ':Neotree toggle show git_status right<cr>')
+-- vim.keymap.set('', '<leader>b', ':Neotree toggle show buffers right<cr>')
+-- vim.keymap.set('', '<leader>s', ':Neotree toggle show git_status right<cr>')

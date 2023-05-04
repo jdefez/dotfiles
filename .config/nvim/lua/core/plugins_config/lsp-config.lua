@@ -26,13 +26,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.g.coq_settings = {
-  ['auto_start'] = true,
-  ['keymap.jump_to_mark'] = '<tab>',
-  ['keymap.eval_snips'] = '<leader>e',
-}
+-- vim.g.coq_settings = {
+--   ['auto_start'] = true,
+--   ['keymap.jump_to_mark'] = '<tab>',
+--   ['keymap.eval_snips'] = '<leader>e',
+-- }
 
-local coq = require "coq"
+-- local coq = require "coq"
 
 require('mason').setup()
 
@@ -50,30 +50,32 @@ require('mason-lspconfig').setup({
 
 vim.diagnostic.config({ virtual_text = false })
 
-require('lspconfig').lua_ls.setup(
-  coq.lsp_ensure_capabilities({})
-)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig').phpactor.setup(
-  coq.lsp_ensure_capabilities({})
-)
+require('lspconfig').phpactor.setup({
+  capabilities = capabilities
+})
 
-require('lspconfig').graphql.setup(
-  coq.lsp_ensure_capabilities({})
-)
+require('lspconfig').graphql.setup({
+  capabilities = capabilities
+})
 
-require('lspconfig').yamlls.setup(
-  coq.lsp_ensure_capabilities({})
-)
+require('lspconfig').lua_ls.setup({
+  capabilities = capabilities
+})
 
-require('lspconfig').jsonls.setup(
-  coq.lsp_ensure_capabilities({})
-)
+require('lspconfig').yamlls.setup({
+  capabilities = capabilities
+})
 
-require('lspconfig').gopls.setup(
-  coq.lsp_ensure_capabilities({})
-)
+require('lspconfig').jsonls.setup({
+  capabilities = capabilities
+})
 
-require('lspconfig').html.setup(
-  coq.lsp_ensure_capabilities({})
-)
+require('lspconfig').gopls.setup({
+  capabilities = capabilities
+})
+
+require('lspconfig').html.setup({
+  capabilities = capabilities
+})

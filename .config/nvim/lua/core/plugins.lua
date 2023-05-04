@@ -108,8 +108,8 @@ return require("packer").startup(function(use)
 
   -- editing
 
-  use { "ms-jpq/coq_nvim", branch = "coq" }
-  use { "ms-jpq/coq.artifacts", branch = "artifacts" }
+  -- use { "ms-jpq/coq_nvim", branch = "coq" }
+  -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
 
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
@@ -120,6 +120,20 @@ return require("packer").startup(function(use)
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
   use "vim-test/vim-test"
+
+  use {
+    'neovim/nvim-lspconfig',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+    -- snipets
+    'hrsh7th/cmp-vsnip',
+    -- Todo: migrate php snipts @doc is here:
+    --  https://github.com/hrsh7th/vim-vsnip#3-create-your-own-snippet
+    'hrsh7th/vim-vsnip',
+  }
 
   -- lsp
 
