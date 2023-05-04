@@ -51,9 +51,9 @@ return require("packer").startup(function(use)
   }
   use {
     "nvim-telescope/telescope.nvim",
-    tag = '0.1.1',
     requires = {
       "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
     }
   }
   -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -82,6 +82,10 @@ return require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   }
+  use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
   use "tpope/vim-fugitive"
 
   -- language
@@ -90,8 +94,8 @@ return require("packer").startup(function(use)
 
   -- editing
 
-  use { "ms-jpq/coq_nvim", branch = "coq" }
-  use { "ms-jpq/coq.artifacts", branch = "artifacts" }
+  -- use { "ms-jpq/coq_nvim", branch = "coq" }
+  -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   -- use "anuvyklack/pretty-fold.nvim"
   -- use "ray-x/lsp_signature.nvim"
@@ -106,6 +110,22 @@ return require("packer").startup(function(use)
   use { "phaazon/hop.nvim", branch = "v2" }
   use "phpactor/phpactor"
   use "vim-test/vim-test"
+
+  -- completion
+
+  use {
+    'neovim/nvim-lspconfig',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+  }
+
+  use {
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+  }
 
   -- lsp
 
