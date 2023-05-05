@@ -3,8 +3,9 @@ require("core.keymaps")
 require("core.plugins")
 require("core.plugins_config")
 
-vim.cmd("colorscheme monokai-pro")
--- vim.o.background = "light"
+-- vim.cmd("colorscheme monokai-pro")
+vim.cmd("colorscheme nordfox")
+vim.o.background = "dark"
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>')
 vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>')

@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
   use "loctvl842/monokai-pro.nvim"
   use "folke/tokyonight.nvim"
   use "neanias/everforest-nvim"
+  use "EdenEast/nightfox.nvim"
 
   -- navigation
 

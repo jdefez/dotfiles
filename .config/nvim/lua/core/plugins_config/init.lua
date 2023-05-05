@@ -3,11 +3,12 @@ require("core.plugins_config.lsp-config")
 
 -- themes
 
-require("core.plugins_config.catppuccin")
-require("core.plugins_config.monokai-pro")
 require("core.plugins_config.kanagawa-theme")
+require("core.plugins_config.monokai-pro")
+require("core.plugins_config.catppuccin")
 require("core.plugins_config.everforest")
 require("core.plugins_config.onedarkpro")
+require("core.plugins_config.nightfox")
 
 -- feline themes
 
