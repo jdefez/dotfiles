@@ -1,4 +1,5 @@
-local cmp = require 'cmp'
+local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -15,7 +16,15 @@ local kind_icons = {
   Method = "",
   Function = "",
   Constructor = "",
-  -- ... (remaining)
+  Interface = "",
+  Module = "",
+  Unit = "",
+  Enum = "",
+  Snippet = "",
+  Reference = "",
+  EnumMember = "",
+  Struct = "",
+  Event = "",
 }
 
 cmp.setup({
@@ -60,23 +69,17 @@ cmp.setup({
   }),
   formatting = {
     format = function(entry, vim_item)
-      local lspkind_ok, lspkind = pcall(require, "lspkind")
-      if not lspkind_ok then
-        -- From kind_icons array
-        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-        -- Source
-        vim_item.menu = ({
-          buffer = "[Buffer]",
-          nvim_lsp = "[LSP]",
-          luasnip = "[LuaSnip]",
-          nvim_lua = "[Lua]",
-          latex_symbols = "[LaTeX]",
-        })[entry.source.name]
-        return vim_item
-      else
-        -- From lspkind
-        return lspkind.cmp_format()
-      end
+      -- Kind icons
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- Source
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+      })[entry.source.name]
+      return vim_item
     end
   },
   sources = cmp.config.sources({

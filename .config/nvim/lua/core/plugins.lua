@@ -113,13 +113,19 @@ return require("packer").startup(function(use)
 
   -- completion
 
+  use "onsails/lspkind.nvim"
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  }
   use {
     'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
     -- snipets: https://github.com/hrsh7th/vim-vsnip#3-create-your-own-snippet
     -- folder @ echo vsnip_snippet_dir
     'hrsh7th/cmp-vsnip',
