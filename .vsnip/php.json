@@ -75,5 +75,14 @@
       "}"
     ],
     "description": "Handle static method"
+  },
+  "Foreach loop": {
+    "prefix": ["for"],
+    "body": [
+      "foreach (${1:values} as ${2:value}) {",
+      "\t${0:target}",
+      "}"
+    ],
+    "description": "Handle static method"
   }
 }
