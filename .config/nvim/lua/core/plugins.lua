@@ -120,9 +120,8 @@ return require("packer").startup(function(use)
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-cmp',
-  }
-
-  use {
+    -- snipets: https://github.com/hrsh7th/vim-vsnip#3-create-your-own-snippet
+    -- folder @ echo vsnip_snippet_dir
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
   }

@@ -1,0 +1,9 @@
+{
+  "Class": {
+    "prefix": ["fn"],
+    "body": [
+      "fn ($1) => $0"
+    ],
+    "description": "Arrow function"
+  }
+}
