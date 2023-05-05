@@ -37,7 +37,6 @@ return require("packer").startup(function(use)
 
   -- navigation
 
-  -- https://dotfyle.com/plugins/rebelot/heirline.nvim
   use "freddiehaddad/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "olimorris/persisted.nvim"
@@ -56,16 +55,9 @@ return require("packer").startup(function(use)
       "nvim-telescope/telescope-ui-select.nvim",
     }
   }
-  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virtcolumn.nvim"
   use "chentoast/marks.nvim"
-  -- use {
-  --   "b0o/incline.nvim",
-  --   config = function()
-  --     require('incline').setup()
-  --   end
-  -- }
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -94,11 +86,7 @@ return require("packer").startup(function(use)
 
   -- editing
 
-  -- use { "ms-jpq/coq_nvim", branch = "coq" }
-  -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
-  -- use "anuvyklack/pretty-fold.nvim"
-  -- use "ray-x/lsp_signature.nvim"
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
@@ -113,21 +101,13 @@ return require("packer").startup(function(use)
 
   -- completion
 
-  use "onsails/lspkind.nvim"
   use {
     'hrsh7th/nvim-cmp',
-    requires = {
-      "nvim-tree/nvim-web-devicons",
-    },
-  }
-  use {
     'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    -- snipets: https://github.com/hrsh7th/vim-vsnip#3-create-your-own-snippet
-    -- folder @ echo vsnip_snippet_dir
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
   }
@@ -137,13 +117,6 @@ return require("packer").startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "jose-elias-alvarez/null-ls.nvim"
   use 'folke/lsp-colors.nvim'
-  -- use {
-  --   "glepnir/lspsaga.nvim",
-  --   branch = "main",
-  --   requires = {
-  --     { "nvim-tree/nvim-web-devicons" }
-  --   },
-  -- }
   use {
     "williamboman/mason.nvim",
     run = ":MasonUpdate"
@@ -158,9 +131,6 @@ return require("packer").startup(function(use)
 
   use({
     "folke/noice.nvim",
-    config = function()
-      require("noice").setup()
-    end,
     requires = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",

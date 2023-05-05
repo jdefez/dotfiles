@@ -1,5 +1,4 @@
 local cmp = require('cmp')
-local lspkind = require('lspkind')
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -41,12 +40,8 @@ local kind_icons = {
 
 cmp.setup({
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   window = {
@@ -82,7 +77,7 @@ cmp.setup({
   formatting = {
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format('%s %s', (kind_icons[vim_item.kind]  or ''), vim_item.kind) -- This concatonates the icons with the name of the item kind
+      vim_item.kind = string.format('%s %s', (kind_icons[vim_item.kind] or ''), vim_item.kind)
       -- Source
       vim_item.menu = ({
         buffer = "[Buffer]",
@@ -96,10 +91,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'vsnip' },
   }, {
     { name = 'buffer' },
   })
