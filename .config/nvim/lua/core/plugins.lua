@@ -137,7 +137,8 @@ return require("packer").startup(function(use)
 
   -- lsp
 
-  use { 'simrat39/symbols-outline.nvim' }
+  use "onsails/lspkind.nvim"
+  use "simrat39/symbols-outline.nvim"
   use "nvim-treesitter/nvim-treesitter"
   use "jose-elias-alvarez/null-ls.nvim"
   use {
