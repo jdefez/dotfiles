@@ -68,6 +68,10 @@ return require("packer").startup(function(use)
       "MunifTanjim/nui.nvim",
     }
   }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
 
   -- git
 
@@ -98,6 +102,7 @@ return require("packer").startup(function(use)
   use "b3nj5m1n/kommentary"
   use { "phaazon/hop.nvim", branch = "v2" }
   use "phpactor/phpactor"
+
   use "vim-test/vim-test"
 
   -- completion

@@ -1,7 +1,3 @@
--- require("nvim-notify").setup({
---   background_colour = "#000000",
--- })
-
 require("noice").setup({
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**

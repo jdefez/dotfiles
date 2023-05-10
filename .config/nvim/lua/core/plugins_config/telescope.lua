@@ -1,6 +1,6 @@
 require('telescope').setup({
   defaults = {
-    borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+    -- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
     layout_strategy = 'vertical',
     layout_config = { height = 0.95 },
   },
