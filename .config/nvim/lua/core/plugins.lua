@@ -21,6 +21,7 @@ return require("packer").startup(function(use)
 
   -- themes
 
+  use({ 'projekt0n/github-nvim-theme' })
   use { "catppuccin/nvim", as = "catppuccin" }
   use "olimorris/onedarkpro.nvim"
   use "lourenci/github-colors"
@@ -120,6 +121,7 @@ return require("packer").startup(function(use)
 
   -- lsp
 
+  use { 'onsails/lspkind.nvim' }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "jose-elias-alvarez/null-ls.nvim"
   use 'folke/lsp-colors.nvim'
@@ -131,7 +133,8 @@ return require("packer").startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
   }
-  use { 'simrat39/symbols-outline.nvim' }
+  use { "simrat39/symbols-outline.nvim" }
+  use { "lukas-reineke/lsp-format.nvim" }
 
   -- messages
 

@@ -1,4 +1,5 @@
-local cmp = require('cmp')
+local lspkind = require('lspkind')
+local cmp = require 'cmp'
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -10,36 +11,9 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local kind_icons = {
-  Text = '',
-  Method = '',
-  Function = '',
-  Constructor = '',
-  Field = '',
-  Variable = '',
-  Class = '',
-  Interface = '',
-  Module = '',
-  Property = '',
-  Unit = '',
-  Value = '',
-  Enum = '',
-  Keyword = '',
-  Snippet = '',
-  Color = '',
-  File = '',
-  Reference = '',
-  Folder = '',
-  EnumMember = '',
-  Constant = '',
-  Struct = '',
-  Event = '',
-  Operator = '',
-  TypeParameter = '',
-}
-
 cmp.setup({
   snippet = {
+    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
     end,
@@ -69,25 +43,22 @@ cmp.setup({
     end, { "i", "s" }),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.abort(),
-    ['<C-a>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   formatting = {
-    format = function(entry, vim_item)
-      -- Kind icons
-      vim_item.kind = string.format('%s %s', (kind_icons[vim_item.kind] or ''), vim_item.kind)
-      -- Source
-      vim_item.menu = ({
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      menu = ({
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         luasnip = "[LuaSnip]",
         nvim_lua = "[Lua]",
-        latex_symbols = "[LaTeX]",
-      })[entry.source.name]
-      return vim_item
-    end
+        latex_symbols = "[Latex]",
+      })
+    }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },

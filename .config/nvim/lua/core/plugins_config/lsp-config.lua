@@ -1,4 +1,5 @@
 require('mason').setup()
+require("lsp-format").setup()
 
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -8,12 +9,14 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'yamlls',
     'jsonls',
-    'sqlls',
     'html',
   }
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local on_attach = function(client)
+  require("lsp-format").on_attach(client)
+end
 
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -41,33 +44,41 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.diagnostic.config({ virtual_text = false })
 
 require('lspconfig').sqlls.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').lua_ls.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').phpactor.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').graphql.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').yamlls.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').jsonls.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').html.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require('lspconfig').lemminx.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
