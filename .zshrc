@@ -12,7 +12,8 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="gentoo"
-ZSH_THEME="fino-time"
+# ZSH_THEME="fino-time"
+ZSH_THEME="jnrowe"
 
 # Open tmux on startup, requires tmux plugin
 ZSH_TMUX_AUTOSTART=true
