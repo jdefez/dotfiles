@@ -123,8 +123,8 @@ return require("packer").startup(function(use)
 
   use { 'onsails/lspkind.nvim' }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use "jose-elias-alvarez/null-ls.nvim"
-  use 'folke/lsp-colors.nvim'
+  use { "jose-elias-alvarez/null-ls.nvim" }
+  use { "folke/lsp-colors.nvim" }
   use {
     "williamboman/mason.nvim",
     run = ":MasonUpdate"

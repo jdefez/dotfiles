@@ -171,6 +171,24 @@ require("neo-tree").setup({
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
+        ["h"] = function(state)
+          local node = state.tree:get_node()
+          if node.type == 'directory' and node:is_expanded() then
+            require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
+          else
+            require 'neo-tree.ui.renderer'.focus_node(state, node:get_parent_id())
+          end
+        end,
+        ["l"] = function(state)
+          local node = state.tree:get_node()
+          if node.type == 'directory' then
+            if not node:is_expanded() then
+              require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
+            elseif node:has_children() then
+              require 'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
+            end
+          end
+        end,
         ["/"] = "fuzzy_finder",
         ["D"] = "fuzzy_finder_directory",
         ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
