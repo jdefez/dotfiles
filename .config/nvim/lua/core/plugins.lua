@@ -31,6 +31,7 @@ return require("packer").startup(function(use)
     requires = "rktjmp/lush.nvim"
   }
   use "neanias/everforest-nvim"
+  use "EdenEast/nightfox.nvim"
 
   -- themes [no undercurl support]
 
@@ -71,9 +72,9 @@ return require("packer").startup(function(use)
     requires = "nvim-tree/nvim-web-devicons",
   }
   use {
-    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope.nvim", tag = '0.1.1',
     requires = {
-      "nvim-lua/plenary.nvim",
+      -- "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
     }
   }
@@ -129,10 +130,15 @@ return require("packer").startup(function(use)
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-cmp',
     -- snipets
-    'hrsh7th/cmp-vsnip',
-    -- Todo: migrate php snipts @doc is here:
-    --  https://github.com/hrsh7th/vim-vsnip#3-create-your-own-snippet
-    'hrsh7th/vim-vsnip',
+    -- 'hrsh7th/cmp-vsnip',
+    -- 'hrsh7th/vim-vsnip',
+    'saadparwaiz1/cmp_luasnip',
+    use "rafamadriz/friendly-snippets"
+
+  }
+  use {
+    "L3MON4D3/LuaSnip",
+    after = 'nvim-cmp',
   }
 
   -- lsp
@@ -141,10 +147,30 @@ return require("packer").startup(function(use)
   use "simrat39/symbols-outline.nvim"
   use "nvim-treesitter/nvim-treesitter"
   use "jose-elias-alvarez/null-ls.nvim"
+  use 'weilbith/nvim-code-action-menu'
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig"
+  }
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+      { 'neovim/nvim-lspconfig' },
+      {
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' },
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
+    }
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

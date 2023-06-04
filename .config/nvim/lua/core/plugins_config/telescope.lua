@@ -1,7 +1,7 @@
 require('telescope').setup({
-  defaults = {
-    borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
-  }
+  -- defaults = {
+  --   borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+  -- }
 })
 
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').lsp_references, {})
