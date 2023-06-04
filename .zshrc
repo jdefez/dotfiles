@@ -12,7 +12,8 @@ export ZSH="/home/jean/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="gentoo"
 # ZSH_THEME="bira"
-ZSH_THEME="fino-time"
+# ZSH_THEME="fino-time"
+ZSH_THEME="jnrowe"
 
 
 # Open tmux on startup, requires tmux plugin
