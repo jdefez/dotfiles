@@ -1,14 +1,6 @@
 -- https://sbulav.github.io/vim/neovim-setting-up-luasnip/
 local ls = require("luasnip")
 
--- key maps
-
-local opts = { noremap = true, silent = true }
-vim.keymap.set("i", "<c-l>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-vim.keymap.set("s", "<c-l>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-vim.keymap.set("i", "<c-h>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-vim.keymap.set("s", "<c-h>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
 -- some shorthands...
 
 local snip = ls.snippet
