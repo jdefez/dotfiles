@@ -133,7 +133,7 @@ return require("packer").startup(function(use)
     -- 'hrsh7th/cmp-vsnip',
     -- 'hrsh7th/vim-vsnip',
     'saadparwaiz1/cmp_luasnip',
-    use "rafamadriz/friendly-snippets"
+    "rafamadriz/friendly-snippets"
 
   }
   use {
