@@ -13,7 +13,7 @@ vim.opt.smartindent = true
 
 vim.opt.signcolumn = 'yes'
 vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.shortmess:append({ W = true, I = true, c = true })
+vim.opt.shortmess:append({ W = true, I = true, c = true, s = true })
 vim.opt.pumblend = 10
 vim.opt.pumheight = 10
 

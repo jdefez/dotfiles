@@ -96,7 +96,7 @@ return require("packer").startup(function(use)
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
-  use "pocco81/auto-save.nvim"
+  -- use "pocco81/auto-save.nvim"
   use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
   use "numToStr/FTerm.nvim"
@@ -109,40 +109,47 @@ return require("packer").startup(function(use)
   -- completion
 
   use {
-    'hrsh7th/nvim-cmp',
-    'neovim/nvim-lspconfig',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
+    "hrsh7th/nvim-cmp",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    -- "hrsh7th/cmp-vsnip",
+    -- "hrsh7th/vim-vsnip",
+    "saadparwaiz1/cmp_luasnip",
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
   }
 
   -- lsp
 
-  use { 'onsails/lspkind.nvim' }
+  use {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+  }
+  use { "onsails/lspkind.nvim" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use { "jose-elias-alvarez/null-ls.nvim" }
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     requires = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
+      { "neovim/nvim-lspconfig" }, -- Required
       {
         -- Optional
-        'williamboman/mason.nvim',
+        "williamboman/mason.nvim",
         run = function()
-          pcall(vim.cmd, 'MasonUpdate')
+          pcall(vim.cmd, "MasonUpdate")
         end,
       },
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
     }
   }
   use { "folke/lsp-colors.nvim" }
@@ -155,7 +162,6 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
   use { "simrat39/symbols-outline.nvim" }
-  -- use { "lukas-reineke/lsp-format.nvim" }
 
   -- messages
 

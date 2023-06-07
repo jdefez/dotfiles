@@ -21,7 +21,8 @@ lsp_zero.extend_lspconfig({
     local opts = { buffer = bufnr }
 
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<leader>lx', vim.lsp.buf.code_action, opts)
+    -- vim.keymap.set('n', '<leader>lx', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<leader>lx', ':CodeActionMenu<CR>', { buffer = bufnr, silent = true })
     vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)

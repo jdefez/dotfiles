@@ -11,9 +11,9 @@ vim.o.background = "dark"
 -- vim.cmd('colorscheme github_dark')
 -- vim.o.background = "dark"
 
-vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>')
-vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>')
-vim.keymap.set('', '<leader>G', ':Git<cr>')
+vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
+vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })
+vim.keymap.set('', '<leader>G', ':Git<cr>', { silent = true })
 
 -- diffview mappings
 
