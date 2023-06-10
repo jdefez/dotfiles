@@ -8,8 +8,11 @@ require("core.plugins_config")
 -- vim.cmd("colorscheme monokai-pro")
 -- vim.cmd("set background=dark")
 
-vim.cmd("colorscheme nordfox")
-vim.cmd("set background=dark")
+-- vim.cmd("colorscheme nordfox")
+-- vim.cmd("set background=dark")
+
+vim.cmd("colorscheme tokyonight-day")
+vim.cmd("set background=light")
 
 -- neotree key mappings
 

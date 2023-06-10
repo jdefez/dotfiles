@@ -118,6 +118,8 @@ return require("packer").startup(function(use)
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
   use "vim-test/vim-test"
+  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  use { "github/copilot.vim" }
 
   use {
     "neovim/nvim-lspconfig",

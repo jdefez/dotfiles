@@ -4,6 +4,7 @@ require("core.plugins_config.lsp-config")
 -- themes
 require("core.plugins_config.kanagawa-theme")
 require("core.plugins_config.monokai-pro")
+require("core.plugins_config.tokyonight")
 require("core.plugins_config.everforest")
 
 -- feline themes
@@ -28,6 +29,7 @@ require("core.plugins_config.fugitive")
 require("core.plugins_config.nvim-cmp")
 require("core.plugins_config.nightfox")
 require("core.plugins_config.lua-snip")
+-- require("core.plugins_config.tabnine")
 require("core.plugins_config.nullls")
 require("core.plugins_config.murmur")
 require("core.plugins_config.focus")
