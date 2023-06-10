@@ -17,7 +17,7 @@ ZSH_THEME="jnrowe"
 
 
 # Open tmux on startup, requires tmux plugin
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
