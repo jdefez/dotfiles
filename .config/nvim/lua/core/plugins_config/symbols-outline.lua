@@ -16,4 +16,4 @@ require("symbols-outline").setup({
   },
 })
 
-vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>')
+vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })

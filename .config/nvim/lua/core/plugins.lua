@@ -61,11 +61,8 @@ return require("packer").startup(function(use)
   use "beauwilliams/focus.nvim"
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
-  -- use "lambdalisue/fern.vim"
   use "nyngwang/murmur.lua"
   use { "phaazon/hop.nvim", branch = "v2" }
-  use "aserowy/tmux.nvim"
-  use "preservim/vimux"
   use {
     "akinsho/bufferline.nvim",
     tag = "*",
@@ -94,6 +91,9 @@ return require("packer").startup(function(use)
       "MunifTanjim/nui.nvim",
     }
   }
+  use { "mrjones2014/smart-splits.nvim" }
+  -- use "aserowy/tmux.nvim"
+  -- use "preservim/vimux"
 
   -- git
 
@@ -109,9 +109,6 @@ return require("packer").startup(function(use)
 
   -- editing
 
-  -- use { "ms-jpq/coq_nvim", branch = "coq" }
-  -- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
-
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
@@ -123,22 +120,15 @@ return require("packer").startup(function(use)
   use "vim-test/vim-test"
 
   use {
-    'neovim/nvim-lspconfig',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
-    -- snipets
-    -- 'hrsh7th/cmp-vsnip',
-    -- 'hrsh7th/vim-vsnip',
-    'saadparwaiz1/cmp_luasnip',
-    "rafamadriz/friendly-snippets"
-
-  }
-  use {
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
     "L3MON4D3/LuaSnip",
-    after = 'nvim-cmp',
   }
 
   -- lsp

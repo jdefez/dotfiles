@@ -1,3 +1,3 @@
-require("true-zen").setup ({})
+require("true-zen").setup({})
 
-vim.api.nvim_set_keymap("n", "<leader>z", ":TZAtaraxis<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>z", ":TZAtaraxis<CR>", { silent = true })
