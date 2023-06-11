@@ -5,8 +5,11 @@ require("core.plugins_config")
 
 -- vim.cmd("colorscheme monokai-pro")
 
-vim.cmd("colorscheme nordfox")
-vim.o.background = "dark"
+-- vim.cmd("colorscheme nordfox")
+-- vim.o.background = "dark"
+
+vim.cmd("colorscheme tokyonight-day")
+vim.o.background = "light"
 
 -- vim.cmd('colorscheme github_dark')
 -- vim.o.background = "dark"

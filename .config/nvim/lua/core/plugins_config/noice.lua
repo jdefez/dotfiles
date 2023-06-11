@@ -6,24 +6,11 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true,
     },
   },
-  routes = {
-    {
-      -- hide search virtual text
-      filter = {
-        event = "msg_show",
-        kind = "search_count",
-      },
-      opts = { skip = true },
-    },
-    {
-      -- hide written messages
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "written",
-      },
-      opts = { skip = true },
-    },
+  notify = {
+    enabled = false
+  },
+  messages = {
+    enabled = false
   },
   -- you can enable a preset for easier configuration
   presets = {

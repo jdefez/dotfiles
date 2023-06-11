@@ -39,12 +39,17 @@ return require("packer").startup(function(use)
 
   -- navigation
 
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = '*'
+  }
+  use "mrjones2014/smart-splits.nvim"
   use "freddiehaddad/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "olimorris/persisted.nvim"
   use "nyngwang/murmur.lua"
-  use "aserowy/tmux.nvim"
-  use "preservim/vimux"
+  -- use "aserowy/tmux.nvim"
+  -- use "preservim/vimux"
   use {
     "akinsho/bufferline.nvim",
     tag = "v3.*",
@@ -95,11 +100,12 @@ return require("packer").startup(function(use)
   -- use "pocco81/auto-save.nvim"
   use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
-  use "numToStr/FTerm.nvim"
+  -- use "numToStr/FTerm.nvim"
   use "b3nj5m1n/kommentary"
   use { "phaazon/hop.nvim", branch = "v2" }
   use "phpactor/phpactor"
   use "vim-test/vim-test"
+  use "github/copilot.vim"
 
   -- completion
 
@@ -110,8 +116,6 @@ return require("packer").startup(function(use)
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    -- "hrsh7th/cmp-vsnip",
-    -- "hrsh7th/vim-vsnip",
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
