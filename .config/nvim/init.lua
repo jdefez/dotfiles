@@ -3,17 +3,21 @@ require("core.keymaps")
 require("core.plugins")
 require("core.plugins_config")
 
--- default scheme
+-- dark schemes
 
--- vim.cmd("colorscheme monokai-pro")
--- vim.cmd("set background=dark")
+-- require("core.themes.kanagawa-theme")
+-- require("core.themes.monokai-pro")
+-- require("core.themes.spacecamp")
+-- require("core.themes.nightfox")
+-- require("core.themes.ayu")
 
--- vim.cmd("colorscheme nordfox")
--- vim.cmd("set background=dark")
+-- light schemes
 
-vim.cmd("colorscheme tokyonight-day")
-vim.cmd("set background=light")
+require("core.themes.catppuccin-theme")
+-- require("core.themes.tokyonight-day")
+-- require("core.themes.github-colors")
+-- require("core.themes.modus")
+-- require("core.themes.one")
 
--- neotree key mappings
-
-vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
+-- require("core.plugins_config.kanagawa-theme")
+-- require("core.plugins_config.tokyonight")

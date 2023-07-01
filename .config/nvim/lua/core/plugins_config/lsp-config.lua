@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero').preset({})
+local navic = require("nvim-navic")
 
 lsp_zero.set_sign_icons({
   error = '✘',
@@ -33,6 +34,10 @@ lsp_zero.extend_lspconfig({
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+
+    if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+    end
   end
 })
 

@@ -33,3 +33,6 @@ require("tokyonight").setup({
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 })
+
+vim.cmd("colorscheme tokyonight-day")
+vim.cmd("set background=light")

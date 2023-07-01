@@ -5,11 +5,11 @@ require("monokai-pro").setup({
   background_clear = {},
   styles = {
     comment = { italic = true },
-    keyword = { italic = true }, -- any other keyword
-    type = { italic = true }, -- (preferred) int, long, char, etc
+    keyword = { italic = true },      -- any other keyword
+    type = { italic = true },         -- (preferred) int, long, char, etc
     storageclass = { italic = true }, -- static, register, volatile, etc
-    structure = { italic = true }, -- struct, union, enum, etc
-    parameter = { italic = true }, -- parameter pass in function
+    structure = { italic = true },    -- struct, union, enum, etc
+    parameter = { italic = true },    -- parameter pass in function
     annotation = { italic = true },
   },
   plugins = {
@@ -19,3 +19,6 @@ require("monokai-pro").setup({
     },
   },
 })
+
+vim.cmd("colorscheme monokai-pro")
+vim.cmd("set background=dark")

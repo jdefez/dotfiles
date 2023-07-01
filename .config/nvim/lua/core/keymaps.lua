@@ -5,3 +5,7 @@ vim.keymap.set('n', '<S-Down>', ':m .+1<CR>==', { silent = true })
 vim.keymap.set('v', '<S-Down>', ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('n', '<S-Up>', ':m .-2<CR>==', { silent = true })
 vim.keymap.set('v', '<S-Up>', ":m '<-2<CR>gv=gv", { silent = true })
+
+-- neotree key mappings
+
+vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })

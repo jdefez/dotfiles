@@ -18,25 +18,18 @@ return require("packer").startup(function(use)
 
   use "nvim-tree/nvim-web-devicons"
 
-  -- themes [with undercurl support]
+  -- themes
 
-  -- use "loctvl842/monokai-pro.nvim"
+  use "loctvl842/monokai-pro.nvim"
+  use "ishan9299/modus-theme-vim"
+  use "EdenEast/nightfox.nvim"
+  use "lourenci/github-colors"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
-  use "sainnhe/edge"
-  -- use({ 'rose-pine/neovim', as = 'rose-pine' })
-  use {
-    "mcchrish/zenbones.nvim",
-    requires = "rktjmp/lush.nvim"
-  }
-  use "neanias/everforest-nvim"
-  use "EdenEast/nightfox.nvim"
-
-  -- themes [no undercurl support]
-
-  -- use "lourenci/github-colors"
-  -- use { "catppuccin/nvim", as = "catppuccin" }
-  -- use "ishan9299/modus-theme-vim"
+  use "jaredgorski/spacecamp"
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use "Shatur/neovim-ayu"
+  use "rakr/vim-one"
 
   -- utility
   use "jghauser/mkdir.nvim"
@@ -58,7 +51,6 @@ return require("packer").startup(function(use)
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "nyngwang/murmur.lua"
-  -- use { "phaazon/hop.nvim", branch = "v2" }
   use "folke/flash.nvim"
   use {
     "akinsho/bufferline.nvim",
@@ -68,7 +60,6 @@ return require("packer").startup(function(use)
   use {
     "nvim-telescope/telescope.nvim", tag = '0.1.1',
     requires = {
-      -- "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
     }
   }
@@ -99,23 +90,27 @@ return require("packer").startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   }
   use {
-    'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim'
+    "sindrets/diffview.nvim",
+    requires = "nvim-lua/plenary.nvim"
   }
   use "tpope/vim-fugitive"
 
   -- editing
 
-  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+  use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use "pocco81/auto-save.nvim"
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
   use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
   use "vim-test/vim-test"
-  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
   use { "github/copilot.vim" }
 
   use {
