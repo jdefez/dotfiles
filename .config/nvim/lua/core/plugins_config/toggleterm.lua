@@ -1,5 +1,7 @@
+-- doc: https://github.com/akinsho/toggleterm.nvim
+
 require("toggleterm").setup({
-  open_mapping = [[<c-t>]],
+  open_mapping = [[<c-\>]],
   terminal_mappings = true,
   direction = 'vertical', -- 'vertical' | 'horizontal' | 'tab' | 'float',
 })
