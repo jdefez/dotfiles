@@ -14,9 +14,9 @@ require("core.plugins_config")
 
 -- light schemes
 
-require("core.themes.catppuccin-theme")
+-- require("core.themes.catppuccin-theme")
 -- require("core.themes.tokyonight-day")
--- require("core.themes.github-light")
+require("core.themes.github-light")
 -- require("core.themes.modus")
 -- require("core.themes.one")
 
