@@ -7,6 +7,7 @@ require("core.plugins_config")
 
 -- require("core.themes.kanagawa-theme")
 -- require("core.themes.monokai-pro")
+-- require("core.themes.github-dark")
 -- require("core.themes.spacecamp")
 -- require("core.themes.nightfox")
 -- require("core.themes.ayu")
@@ -15,7 +16,7 @@ require("core.plugins_config")
 
 require("core.themes.catppuccin-theme")
 -- require("core.themes.tokyonight-day")
--- require("core.themes.github-colors")
+-- require("core.themes.github-light")
 -- require("core.themes.modus")
 -- require("core.themes.one")
 
