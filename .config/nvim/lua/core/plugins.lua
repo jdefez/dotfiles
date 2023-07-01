@@ -58,7 +58,8 @@ return require("packer").startup(function(use)
   use "feline-nvim/feline.nvim"
   use "karb94/neoscroll.nvim"
   use "nyngwang/murmur.lua"
-  use { "phaazon/hop.nvim", branch = "v2" }
+  -- use { "phaazon/hop.nvim", branch = "v2" }
+  use "folke/flash.nvim"
   use {
     "akinsho/bufferline.nvim",
     tag = "*",
