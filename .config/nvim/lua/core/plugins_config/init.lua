@@ -3,7 +3,7 @@ require("core.plugins_config.lsp-config")
 
 -- themes
 require("core.plugins_config.kanagawa-theme")
-require("core.plugins_config.monokai-pro")
+-- require("core.plugins_config.monokai-pro")
 require("core.plugins_config.tokyonight")
 require("core.plugins_config.everforest")
 
@@ -12,6 +12,7 @@ require("core.plugins_config.everforest")
 require("core.plugins_config.feline-dharmux")
 -- require("core.plugins_config.lua-line")
 require("core.plugins_config.symbols-outline")
+require("core.plugins_config.noice-config")
 require("core.plugins_config.close-buffers")
 require("core.plugins_config.smart-split")
 require("core.plugins_config.kommentary")

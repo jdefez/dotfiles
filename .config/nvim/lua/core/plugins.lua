@@ -17,15 +17,14 @@ return require("packer").startup(function(use)
   -- icons
 
   use "nvim-tree/nvim-web-devicons"
-  -- use "TheLeoP/fern-renderer-web-devicons.nvim"
 
   -- themes [with undercurl support]
 
-  use "loctvl842/monokai-pro.nvim"
+  -- use "loctvl842/monokai-pro.nvim"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "sainnhe/edge"
-  use({ 'rose-pine/neovim', as = 'rose-pine' })
+  -- use({ 'rose-pine/neovim', as = 'rose-pine' })
   use {
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim"
@@ -46,9 +45,6 @@ return require("packer").startup(function(use)
 
   use({
     "folke/noice.nvim",
-    config = function()
-      require("noice").setup({})
-    end,
     requires = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",

@@ -7,7 +7,12 @@ lsp_zero.set_sign_icons({
   info = '»'
 })
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({
+  update_in_insert = false,
+  virtual_text = false,
+  underline = true,
+  signs = true,
+})
 
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
