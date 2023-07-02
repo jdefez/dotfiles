@@ -14,28 +14,23 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
+  -- colorschemes
+
+  use "loctvl842/monokai-pro.nvim"
+  use "ishan9299/modus-theme-vim"
+  use "EdenEast/nightfox.nvim"
+  use "projekt0n/github-nvim-theme"
+  use "folke/tokyonight.nvim"
+  use "rebelot/kanagawa.nvim"
+  use "jaredgorski/spacecamp"
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use "Shatur/neovim-ayu"
+  use "rakr/vim-one"
+
   -- utility
 
   use "nvim-tree/nvim-web-devicons"
   use "jghauser/mkdir.nvim"
-
-  -- themes
-
-  use({ 'projekt0n/github-nvim-theme' })
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use "olimorris/onedarkpro.nvim"
-  use "lourenci/github-colors"
-  use "sainnhe/edge"
-  use {
-    "mcchrish/zenbones.nvim",
-    requires = "rktjmp/lush.nvim"
-  }
-  use "ishan9299/modus-theme-vim"
-  use "rebelot/kanagawa.nvim"
-  use "loctvl842/monokai-pro.nvim"
-  use "folke/tokyonight.nvim"
-  use "neanias/everforest-nvim"
-  use "EdenEast/nightfox.nvim"
 
   -- navigation
 
@@ -48,8 +43,6 @@ return require("packer").startup(function(use)
   use "karb94/neoscroll.nvim"
   use "olimorris/persisted.nvim"
   use "nyngwang/murmur.lua"
-  -- use "aserowy/tmux.nvim"
-  -- use "preservim/vimux"
   use {
     "akinsho/bufferline.nvim",
     tag = "v3.*",
@@ -81,10 +74,7 @@ return require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   }
-  use {
-    'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
+  use "sindrets/diffview.nvim"
   use "tpope/vim-fugitive"
 
   -- language
@@ -93,6 +83,7 @@ return require("packer").startup(function(use)
 
   -- editing
 
+  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
@@ -100,12 +91,11 @@ return require("packer").startup(function(use)
   -- use "pocco81/auto-save.nvim"
   use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
-  -- use "numToStr/FTerm.nvim"
   use "b3nj5m1n/kommentary"
-  use { "phaazon/hop.nvim", branch = "v2" }
   use "phpactor/phpactor"
   use "vim-test/vim-test"
   use "github/copilot.vim"
+  use "folke/flash.nvim"
 
   -- completion
 
@@ -146,8 +136,9 @@ return require("packer").startup(function(use)
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
+
       { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/nvim-cmp" },
       { "L3MON4D3/LuaSnip" },
     }
   }
@@ -156,10 +147,7 @@ return require("packer").startup(function(use)
     "williamboman/mason.nvim",
     run = ":MasonUpdate"
   }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
-  }
+  use { "williamboman/mason-lspconfig.nvim" }
   use { "simrat39/symbols-outline.nvim" }
   use {
     "SmiteshP/nvim-navic",

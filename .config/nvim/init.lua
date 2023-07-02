@@ -3,16 +3,22 @@ require("core.keymaps")
 require("core.plugins")
 require("core.plugins_config")
 
--- vim.cmd("colorscheme monokai-pro")
+-- dark schemes
 
--- vim.cmd("colorscheme nordfox")
--- vim.o.background = "dark"
+-- require("core.themes.kanagawa-theme")
+-- require("core.themes.monokai-pro")
+-- require("core.themes.github-dark")
+require("core.themes.spacecamp")
+-- require("core.themes.nightfox")
+-- require("core.themes.ayu")
 
-vim.cmd("colorscheme tokyonight-day")
-vim.o.background = "light"
+-- light schemes
 
--- vim.cmd('colorscheme github_dark')
--- vim.o.background = "dark"
+-- require("core.themes.catppuccin-theme")
+-- require("core.themes.tokyonight-day")
+-- require("core.themes.github-light")
+-- require("core.themes.modus")
+-- require("core.themes.one")
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
 vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })
@@ -24,5 +30,5 @@ vim.keymap.set('', '<leader>G', ':Git<cr>', { silent = true })
 -- <leader>ct: Choose the THEIRS version of the conflict.
 -- <leader>cb: Choose the BASE version of the conflict.
 -- <leader>ca: Choose all versions of the conflict (effectively
--- just deletes the markers, leaving all the content).
+--    just deletes the markers, leaving all the content).
 -- dx: Choose none of the versions of the conflict (delete the
