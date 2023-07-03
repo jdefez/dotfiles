@@ -113,11 +113,7 @@ return require("packer").startup(function(use)
 
   -- lsp
 
-  use {
-    "weilbith/nvim-code-action-menu",
-    cmd = "CodeActionMenu",
-  }
-  use { "onsails/lspkind.nvim" }
+  use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use { "jose-elias-alvarez/null-ls.nvim" }
   use {
@@ -142,17 +138,20 @@ return require("packer").startup(function(use)
       { "L3MON4D3/LuaSnip" },
     }
   }
-  use { "folke/lsp-colors.nvim" }
-  use {
-    "williamboman/mason.nvim",
-    run = ":MasonUpdate"
-  }
+  use { "williamboman/mason.nvim", run = ":MasonUpdate" }
   use { "williamboman/mason-lspconfig.nvim" }
   use { "simrat39/symbols-outline.nvim" }
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  }
+  use { "folke/lsp-colors.nvim" }
+  use { "onsails/lspkind.nvim" }
+  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+
+  -- use({
+  --   'ray-x/navigator.lua',
+  --   requires = {
+  --     { 'ray-x/guihua.lua',     run = 'cd lua/fzy && make' },
+  --     { 'neovim/nvim-lspconfig' },
+  --   },
+  -- })
 
   -- messages
 

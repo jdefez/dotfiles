@@ -1,5 +1,8 @@
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
+  indent = {
+    enable = true
+  },
   ensure_installed = {
     "markdown",
     "graphql",

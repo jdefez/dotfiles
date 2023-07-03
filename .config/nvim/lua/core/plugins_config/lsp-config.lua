@@ -52,6 +52,7 @@ require('mason-lspconfig').setup({
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_attach = function(client, bufnr)
   lsp_zero.async_autoformat(client, bufnr)
+  -- require('navigator.lspclient.mapping').setup({ bufnr = bufnr, client = client })
 end
 
 require('mason-lspconfig').setup_handlers({

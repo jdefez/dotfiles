@@ -33,3 +33,5 @@ require("core.plugins_config.focus")
 require("core.plugins_config.navic")
 require("core.plugins_config.marks")
 require("core.plugins_config.ufo")
+
+-- require("core.plugins_config.navigator")
