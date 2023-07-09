@@ -9,6 +9,7 @@ vim.opt.expandtab = true
 vim.opt.shiftround = true
 vim.opt.formatoptions = "jcroqlnt"
 vim.opt.signcolumn = 'yes'
+vim.opt.fillchars = { eob = " " }
 
 vim.opt.foldmethod = 'indent'
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -18,7 +19,7 @@ vim.o.foldenable = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wrap = false
-vim.opt.scrolloff = 8 -- number of screen lines to show around the cursor
+vim.opt.scrolloff = 8     -- number of screen lines to show around the cursor
 vim.opt.sidescrolloff = 8 -- number of screen lines to show around the cursor
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
