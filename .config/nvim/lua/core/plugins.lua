@@ -27,6 +27,7 @@ return require("packer").startup(function(use)
   -- use "lourenci/github-colors"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
+  use "Mofiqul/dracula.nvim"
   use "jaredgorski/spacecamp"
   use { "catppuccin/nvim", as = "catppuccin" }
   use "Shatur/neovim-ayu"
