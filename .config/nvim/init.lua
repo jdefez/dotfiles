@@ -8,17 +8,18 @@ require("core.plugins_config")
 -- require("core.themes.kanagawa-theme")
 -- require("core.themes.monokai-pro")
 -- require("core.themes.github-dark")
+-- require("core.themes.one-dark")
 -- require("core.themes.spacecamp")
 -- require("core.themes.nightfox")
 -- require("core.themes.ayu")
 
 -- light schemes
 
-require("core.themes.catppuccin-theme")
+-- require("core.themes.catppuccin-theme")
 -- require("core.themes.tokyonight-day")
 -- require("core.themes.github-light")
+require("core.themes.one-light")
 -- require("core.themes.modus")
--- require("core.themes.one")
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
 vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })
