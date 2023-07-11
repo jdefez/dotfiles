@@ -24,13 +24,13 @@ return require("packer").startup(function(use)
   use "ishan9299/modus-theme-vim"
   use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
-  -- use "lourenci/github-colors"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "Mofiqul/dracula.nvim"
   use "jaredgorski/spacecamp"
   use { "catppuccin/nvim", as = "catppuccin" }
   use "Shatur/neovim-ayu"
+  use "sainnhe/sonokai"
   use "rakr/vim-one"
 
   -- utility

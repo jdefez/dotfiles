@@ -10,9 +10,9 @@ require("core.plugins_config")
 -- require("core.themes.github-dark")
 -- require("core.themes.spacecamp")
 -- require("core.themes.nightfox")
-require("core.themes.ayu-dark")
+-- require("core.themes.ayu-dark")
 -- require("core.themes.one-dark")
-
+require("core.themes.sonokai")
 
 -- light schemes
 
@@ -20,8 +20,8 @@ require("core.themes.ayu-dark")
 -- require("core.themes.tokyonight-day")
 -- require("core.themes.github-light")
 -- require("core.themes.ayu-light")
--- require("core.themes.modus")
 -- require("core.themes.one-light")
+-- require("core.themes.modus")
 
 -- require("core.plugins_config.kanagawa-theme")
 -- require("core.plugins_config.tokyonight")
