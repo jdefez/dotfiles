@@ -11,6 +11,7 @@ require("core.plugins_config")
 -- require("core.themes.one-dark")
 -- require("core.themes.spacecamp")
 -- require("core.themes.nightfox")
+require("core.themes.sonokai")
 -- require("core.themes.ayu")
 
 -- light schemes
@@ -18,7 +19,7 @@ require("core.plugins_config")
 -- require("core.themes.catppuccin-theme")
 -- require("core.themes.tokyonight-day")
 -- require("core.themes.github-light")
-require("core.themes.one-light")
+-- require("core.themes.one-light")
 -- require("core.themes.modus")
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })

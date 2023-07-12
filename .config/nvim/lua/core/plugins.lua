@@ -25,6 +25,7 @@ return require("packer").startup(function(use)
   use "jaredgorski/spacecamp"
   use { "catppuccin/nvim", as = "catppuccin" }
   use "Shatur/neovim-ayu"
+  use "sainnhe/sonokai"
   use "rakr/vim-one"
 
   -- utility
