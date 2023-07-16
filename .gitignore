@@ -1,5 +1,7 @@
 .dotfiles
 .phpactor.json
+.emacs.d/url
+.emacs.d/elpa
 
 .config/nvim/.php-cs-fixer.cache
 .config/kitty/kitty.conf.bak
