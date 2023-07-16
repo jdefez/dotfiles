@@ -7,7 +7,8 @@ require("noice").setup({
     },
   },
   notify = {
-    enabled = false
+    enabled = false,
+    background_color = "#000000",
   },
   messages = {
     enabled = false

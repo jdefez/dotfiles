@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
   use "ishan9299/modus-theme-vim"
   use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
+  use "maxmx03/solarized.nvim"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "Mofiqul/dracula.nvim"
@@ -98,7 +99,7 @@ return require("packer").startup(function(use)
   use "tpope/vim-fugitive"
 
   -- editing
-
+  use "b0o/incline.nvim"
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
   use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
   use { "mg979/vim-visual-multi", { branch = "master" } }

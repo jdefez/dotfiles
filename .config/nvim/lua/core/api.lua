@@ -17,11 +17,10 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.opt.smartcase = false
 vim.opt.wrap = false
 vim.opt.scrolloff = 8     -- number of screen lines to show around the cursor
 vim.opt.sidescrolloff = 8 -- number of screen lines to show around the cursor
-vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
