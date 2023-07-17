@@ -25,6 +25,7 @@ require('solarized').setup({
 vim.cmd("colorscheme solarized")
 vim.cmd("set background=light")
 
+
 -- vim.cmd [[
 --     hi InclineNormal gui=italic
 -- ]]

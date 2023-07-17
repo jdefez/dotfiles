@@ -1,6 +1,3 @@
-local FOO = 'your_augroup_name'
-vim.api.nvim_create_augroup(FOO, { clear = true })
-
 require('murmur').setup({
   -- cursor_rgb = {
   --   guibg = 'white',
@@ -19,6 +16,10 @@ require('murmur').setup({
     end,
   }
 })
+
+-- set murmur highlights
+local FOO = 'mur_mur_hightlights'
+vim.api.nvim_create_augroup(FOO, { clear = true })
 
 vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
   group = FOO,
