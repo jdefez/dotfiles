@@ -16,10 +16,11 @@ return require("packer").startup(function(use)
 
   -- colorschemes
 
+  use "projekt0n/github-nvim-theme"
   use "loctvl842/monokai-pro.nvim"
   use "ishan9299/modus-theme-vim"
+  use "maxmx03/solarized.nvim"
   use "EdenEast/nightfox.nvim"
-  use "projekt0n/github-nvim-theme"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "jaredgorski/spacecamp"

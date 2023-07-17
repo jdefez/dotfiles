@@ -11,12 +11,13 @@ require("core.plugins_config")
 -- require("core.themes.one-dark")
 -- require("core.themes.spacecamp")
 -- require("core.themes.nightfox")
-require("core.themes.sonokai")
+-- require("core.themes.sonokai")
 -- require("core.themes.ayu")
 
 -- light schemes
 
 -- require("core.themes.catppuccin-theme")
+require("core.themes.solarized-light")
 -- require("core.themes.tokyonight-day")
 -- require("core.themes.github-light")
 -- require("core.themes.one-light")
