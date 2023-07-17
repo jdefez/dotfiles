@@ -1,14 +1,14 @@
-FOO = 'your_augroup_name'
+local FOO = 'your_augroup_name'
 vim.api.nvim_create_augroup(FOO, { clear = true })
 
 require('murmur').setup({
-  cursor_rgb = {
-    guibg = 'none',
-    guifg = 'orange',
-  },
-  cursor_rgb_always_use_config = true, -- if set to `true`, then always use `cursor_rgb`.
+  -- cursor_rgb = {
+  --   guibg = 'white',
+  --   guifg = 'orange',
+  -- },
+  -- cursor_rgb_always_use_config = true,
   max_len = 80,
-  min_len = 3,                         -- this is recommended since I prefer no cursorword highlighting on `if`.
+  min_len = 3,
   exclude_filetypes = {},
   callbacks = {
     -- to trigger the close_events of vim.diagnostic.open_float.
@@ -18,4 +18,12 @@ require('murmur').setup({
       vim.w.diag_shown = false
     end,
   }
+})
+
+vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
+  group = FOO,
+  pattern = 'solarized',
+  callback = function()
+    vim.api.nvim_set_hl(0, "murmur_cursor_rgb", { bg = "none", fg = "orange" })
+  end
 })

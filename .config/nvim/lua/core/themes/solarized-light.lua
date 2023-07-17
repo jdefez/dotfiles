@@ -3,12 +3,12 @@ require('solarized').setup({
   theme = "neo",
   styles = {
     comments = { italic = true },
-    functions = { italic = true, bold = true },
-    variables = { bold = true },
+    functions = { bold = true },
+    variables = {},
     numbers = {},
     constants = {},
     parameters = {},
-    keywords = { italic = true },
+    keywords = { italic = false },
     types = {},
   },
   highlights = function(colors, colorhelper)
@@ -25,6 +25,6 @@ require('solarized').setup({
 vim.cmd("colorscheme solarized")
 vim.cmd("set background=light")
 
-vim.cmd [[
-    hi InclineNormal gui=italic
-]]
+-- vim.cmd [[
+--     hi InclineNormal gui=italic
+-- ]]
