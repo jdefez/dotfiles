@@ -1,6 +1,5 @@
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
--- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define("DiagnosticSignError",
   { text = " ", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn",
@@ -11,27 +10,25 @@ vim.fn.sign_define("DiagnosticSignHint",
   { text = "", texthl = "DiagnosticSignHint" })
 
 require("neo-tree").setup({
-  close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+  close_if_last_window = true,
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
-  open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-  sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
-  sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
+  open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+  sort_case_insensitive = false,
+  sort_function = nil,
   default_component_configs = {
     container = {
       enable_character_fade = true
     },
     indent = {
       indent_size = 2,
-      padding = 1, -- extra padding on left hand side
-      -- indent guides
+      padding = 1,
       with_markers = true,
       indent_marker = "│",
       last_indent_marker = "└",
       highlight = "NeoTreeIndentMarker",
-      -- expander config, needed for nesting files
-      with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+      with_expanders = nil,
       expander_collapsed = "",
       expander_expanded = "",
       expander_highlight = "NeoTreeExpander",
@@ -40,8 +37,6 @@ require("neo-tree").setup({
       folder_closed = "",
       folder_open = "",
       folder_empty = "ﰊ",
-      -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-      -- then these will never be used.
       default = "*",
       highlight = "NeoTreeFileIcon"
     },
@@ -82,26 +77,39 @@ require("neo-tree").setup({
       nowait = true,
     },
     mappings = {
-      -- disable `nowait` if you have existing combos starting with this char that you want to use
-      ["<space>"] = { "toggle_node", nowait = false, },
+      ["<space>"] = {
+        "toggle_node",
+        nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+      },
       ["<2-LeftMouse>"] = "open",
       ["<cr>"] = "open",
       ["<esc>"] = "revert_preview",
       ["P"] = { "toggle_preview", config = { use_float = true } },
-      ["l"] = "focus_preview",
+      -- ["l"] = "focus_preview",
+      ["h"] = function(state)
+        local node = state.tree:get_node()
+        if node.type == 'directory' and node:is_expanded() then
+          require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
+        else
+          require 'neo-tree.ui.renderer'.focus_node(state, node:get_parent_id())
+        end
+      end,
+      ["l"] = function(state)
+        local node = state.tree:get_node()
+        if node.type == 'directory' then
+          if not node:is_expanded() then
+            require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
+          elseif node:has_children() then
+            require 'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
+          end
+        end
+      end,
       ["S"] = "open_split",
       ["s"] = "open_vsplit",
-      -- ["S"] = "split_with_window_picker",
-      -- ["s"] = "vsplit_with_window_picker",
       ["t"] = "open_tabnew",
-      -- ["<cr>"] = "open_drop",
-      -- ["t"] = "open_tab_drop",
       ["w"] = "open_with_window_picker",
-      --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
       ["C"] = "close_node",
-      -- ['C'] = 'close_all_subnodes',
       ["z"] = "close_all_nodes",
-      -- ["Z"] = "expand_all_nodes",
       ["a"] = {
         "add",
         -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -117,12 +125,6 @@ require("neo-tree").setup({
       ["x"] = "cut_to_clipboard",
       ["p"] = "paste_from_clipboard",
       ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-      -- ["c"] = {
-      --  "copy",
-      --  config = {
-      --    show_path = "none" -- "none", "relative", "absolute"
-      --  }
-      --}
       ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
       ["q"] = "close_window",
       ["R"] = "refresh",
