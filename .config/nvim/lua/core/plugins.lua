@@ -117,6 +117,7 @@ return require("packer").startup(function(use)
 
   use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  --  TODO: duplicate with lsp-zero ??
   use { "jose-elias-alvarez/null-ls.nvim" }
   use {
     "VonHeikemen/lsp-zero.nvim",
