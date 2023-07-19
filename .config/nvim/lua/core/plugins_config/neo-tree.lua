@@ -1,4 +1,4 @@
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+-- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 vim.fn.sign_define("DiagnosticSignError",
   { text = " ", texthl = "DiagnosticSignError" })
@@ -14,60 +14,10 @@ require("neo-tree").setup({
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
+  enable_normal_mode_for_inputs = false,
   open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
   sort_case_insensitive = false,
   sort_function = nil,
-  default_component_configs = {
-    container = {
-      enable_character_fade = true
-    },
-    indent = {
-      indent_size = 2,
-      padding = 1,
-      with_markers = true,
-      indent_marker = "│",
-      last_indent_marker = "└",
-      highlight = "NeoTreeIndentMarker",
-      with_expanders = nil,
-      expander_collapsed = "",
-      expander_expanded = "",
-      expander_highlight = "NeoTreeExpander",
-    },
-    icon = {
-      folder_closed = "",
-      folder_open = "",
-      folder_empty = "ﰊ",
-      default = "*",
-      highlight = "NeoTreeFileIcon"
-    },
-    modified = {
-      symbol = "[+]",
-      highlight = "NeoTreeModified",
-    },
-    name = {
-      trailing_slash = false,
-      use_git_status_colors = true,
-      highlight = "NeoTreeFileName",
-    },
-    git_status = {
-      symbols = {
-        -- Change type
-        added     = "",  -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified  = "",  -- or "", but this is redundant info if you use git_status_colors on the name
-        deleted   = "✖", -- this can only be used in the git_status source
-        renamed   = "", -- this can only be used in the git_status source
-        -- Status type
-        untracked = "",
-        ignored   = "",
-        unstaged  = "",
-        staged    = "",
-        conflict  = "",
-      }
-    },
-  },
-  -- A list of functions, each representing a global custom command
-  -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
-  -- see `:h neo-tree-global-custom-commands`
   commands = {},
   window = {
     position = "right",
@@ -83,26 +33,9 @@ require("neo-tree").setup({
       },
       ["<2-LeftMouse>"] = "open",
       ["<cr>"] = "open",
-      ["<esc>"] = "revert_preview",
+      ["<esc>"] = "cancel",
       ["P"] = { "toggle_preview", config = { use_float = true } },
-      ["h"] = function(state)
-        local node = state.tree:get_node()
-        if node.type == 'directory' and node:is_expanded() then
-          require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
-        else
-          require 'neo-tree.ui.renderer'.focus_node(state, node:get_parent_id())
-        end
-      end,
-      ["l"] = function(state)
-        local node = state.tree:get_node()
-        if node.type == 'directory' then
-          if not node:is_expanded() then
-            require 'neo-tree.sources.filesystem'.toggle_directory(state, node)
-          elseif node:has_children() then
-            require 'neo-tree.ui.renderer'.focus_node(state, node:get_child_ids()[1])
-          end
-        end
-      end,
+      ["l"] = "focus_preview",
       ["S"] = "open_split",
       ["s"] = "open_vsplit",
       ["t"] = "open_tabnew",
@@ -111,10 +44,8 @@ require("neo-tree").setup({
       ["z"] = "close_all_nodes",
       ["a"] = {
         "add",
-        -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
-        -- some commands may take optional config options, see `:h neo-tree-mappings` for details
         config = {
-          show_path = "none" -- "none", "relative", "absolute"
+          show_path = "none"
         }
       },
       ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
@@ -134,39 +65,10 @@ require("neo-tree").setup({
   },
   nesting_rules = {},
   filesystem = {
-    filtered_items = {
-      visible = false, -- when true, they will just be displayed differently than normal items
-      hide_dotfiles = true,
-      hide_gitignored = true,
-      hide_hidden = true, -- only works on Windows for hidden files/directories
-      hide_by_name = {
-        --"node_modules"
-      },
-      hide_by_pattern = { -- uses glob style patterns
-        --"*.meta",
-        --"*/src/*/tsconfig.json",
-      },
-      always_show = { -- remains visible even if other settings would normally hide it
-        --".gitignored",
-      },
-      never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-        --".DS_Store",
-        --"thumbs.db"
-      },
-      never_show_by_pattern = { -- uses glob style patterns
-        --".null-ls_*",
-      },
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = false,
     },
-    follow_current_file = false,            -- This will find and focus the file in the active buffer every
-    -- time the current file is changed while the tree is open.
-    group_empty_dirs = false,               -- when true, empty folders will be grouped together
-    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-    -- in whatever position is specified in window.position
-    -- "open_current",  -- netrw disabled, opening a directory opens within the
-    -- window like netrw would, regardless of window.position
-    -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-    -- instead of relying on nvim autocmd events.
     window = {
       mappings = {
         ["<bs>"] = "navigate_up",
@@ -181,21 +83,15 @@ require("neo-tree").setup({
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
       },
-      fuzzy_finder_mappings = {
-        -- define keymaps for filter popup window in fuzzy_finder_mode
+      fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
         ["<down>"] = "move_cursor_down",
         ["<C-n>"] = "move_cursor_down",
         ["<up>"] = "move_cursor_up",
         ["<C-p>"] = "move_cursor_up",
       },
     },
-    commands = {} -- Add a custom command or override a global one using the same function name
   },
   buffers = {
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
-    -- time the current file is changed while the tree is open.
-    group_empty_dirs = true,    -- when true, empty folders will be grouped together
-    show_unloaded = true,
     window = {
       mappings = {
         ["bd"] = "buffer_delete",
