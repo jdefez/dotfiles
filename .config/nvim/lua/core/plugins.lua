@@ -133,7 +133,6 @@ return require("packer").startup(function(use)
   use "onsails/lspkind.nvim"
   use "simrat39/symbols-outline.nvim"
   use "nvim-treesitter/nvim-treesitter"
-  use "jose-elias-alvarez/null-ls.nvim"
   use 'weilbith/nvim-code-action-menu'
   use {
     "williamboman/mason.nvim",
