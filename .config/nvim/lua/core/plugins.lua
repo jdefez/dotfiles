@@ -99,7 +99,10 @@ return require("packer").startup(function(use)
   -- use "tpope/vim-fugitive"
   use {
     'NeogitOrg/neogit',
-    requires = 'nvim-lua/plenary.nvim'
+    requires = {
+      "sindrets/diffview.nvim",
+      "nvim-lua/plenary.nvim"
+    }
   }
 
   -- editing
