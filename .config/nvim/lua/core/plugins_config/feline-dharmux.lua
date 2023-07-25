@@ -1,8 +1,5 @@
 local present, feline = pcall(require, "feline")
-
-if not present then
-  return
-end
+if not present then return end
 
 local theme = {
   aqua = "#7AB0DF",
@@ -20,6 +17,8 @@ local theme = {
   red = "#F87070",
   yellow = "#FFE59E"
 }
+
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "#101317", fg = "#7AB0DF" })
 
 local mode_theme = {
   ["NORMAL"] = theme.green,
@@ -39,12 +38,33 @@ local mode_theme = {
   ["COMMAND"] = theme.blue,
 }
 
+local modes = setmetatable({
+  ["n"] = "N",
+  ["no"] = "N",
+  ["v"] = "V",
+  ["V"] = "VL",
+  [""] = "VB",
+  ["s"] = "S",
+  ["S"] = "SL",
+  [""] = "SB",
+  ["i"] = "I",
+  ["ic"] = "I",
+  ["R"] = "R",
+  ["Rv"] = "VR",
+  ["c"] = "C",
+  ["cv"] = "EX",
+  ["ce"] = "X",
+  ["r"] = "P",
+  ["rm"] = "M",
+  ["r?"] = "C",
+  ["!"] = "SH",
+  ["t"] = "T",
+}, { __index = function() return "-" end })
+
 local component = {}
 
 component.vim_mode = {
-  provider = function()
-    return vim.api.nvim_get_mode().mode:upper()
-  end,
+  provider = function() return modes[vim.api.nvim_get_mode().mode] end,
   hl = function()
     return {
       fg = "bg",
@@ -158,7 +178,7 @@ component.lsp = {
         local content = string.format("%%<%s", spinners[frame + 1])
         return content or ""
       else
-        return "לּ LSP"
+        return "לּ LSP"
       end
     end
     return ""
@@ -192,47 +212,20 @@ component.file_type = {
 
 component.scroll_bar = {
   provider = function()
-    local chars = {
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-    }
+    local chars = setmetatable({
+      " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
+      " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
+    }, { __index = function() return " " end })
     local line_ratio = vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0)
     local position = math.floor(line_ratio * 100)
 
+    local icon = chars[math.floor(line_ratio * #chars)] .. position
     if position <= 5 then
-      position = " TOP"
+      icon = " TOP"
     elseif position >= 95 then
-      position = " BOT"
-    else
-      position = chars[math.floor(line_ratio * #chars)] .. position
+      icon = " BOT"
     end
-    return position
+    return icon
   end,
   hl = function()
     local position = math.floor(vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0) * 100)
@@ -251,7 +244,7 @@ component.scroll_bar = {
     end
     return {
       fg = fg,
-      style = "bold",
+      style = style,
       bg = "bg",
     }
   end,
@@ -278,11 +271,7 @@ local right = {
 }
 
 local components = {
-  active = {
-    left,
-    middle,
-    right,
-  },
+  active = { left, middle, right },
 }
 
 feline.setup({
