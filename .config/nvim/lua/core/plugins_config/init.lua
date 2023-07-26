@@ -3,7 +3,7 @@ require("core.plugins_config.lsp-config")
 
 -- feline themes
 
-require("core.plugins_config.feline-dharmux")
+-- require("core.plugins_config.feline-dharmux")
 -- require("core.plugins_config.feline-one-monkai")
 
 require("core.plugins_config.symbols-outline")
@@ -24,6 +24,7 @@ require("core.plugins_config.vim-test")
 require("core.plugins_config.true-zen")
 require("core.plugins_config.nvim-cmp")
 require("core.plugins_config.lua-snip")
+require("core.plugins_config.lualine")
 -- require("core.plugins_config.nullls")
 require("core.plugins_config.murmur")
 require("core.plugins_config.flash")

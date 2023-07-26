@@ -41,7 +41,11 @@ return require("packer").startup(function(use)
     tag = '*'
   }
   use "mrjones2014/smart-splits.nvim"
-  use "freddiehaddad/feline.nvim"
+  -- use "freddiehaddad/feline.nvim"
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  }
   use "karb94/neoscroll.nvim"
   use "olimorris/persisted.nvim"
   use "nyngwang/murmur.lua"
@@ -90,7 +94,12 @@ return require("packer").startup(function(use)
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
-  -- use "pocco81/auto-save.nvim"
+  use({
+    "okuuva/auto-save.nvim",
+    config = function()
+      require("auto-save").setup({})
+    end,
+  })
   use "Pocco81/true-zen.nvim"
   use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
