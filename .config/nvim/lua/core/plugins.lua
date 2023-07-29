@@ -51,7 +51,11 @@ return require("packer").startup(function(use)
 
   use "olimorris/persisted.nvim"
   use "beauwilliams/focus.nvim"
-  use "feline-nvim/feline.nvim"
+  -- use "feline-nvim/feline.nvim"
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use "karb94/neoscroll.nvim"
   use "nyngwang/murmur.lua"
   use "folke/flash.nvim"
@@ -116,7 +120,7 @@ return require("packer").startup(function(use)
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
   }
-  use "Pocco81/true-zen.nvim"
+  use "folke/zen-mode.nvim"
   use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
@@ -144,7 +148,6 @@ return require("packer").startup(function(use)
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
   }
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -160,6 +163,7 @@ return require("packer").startup(function(use)
       { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
+
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'L3MON4D3/LuaSnip' },
