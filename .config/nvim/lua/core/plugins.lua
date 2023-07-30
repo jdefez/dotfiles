@@ -115,7 +115,7 @@ return require("packer").startup(function(use)
   use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
   use { "mg979/vim-visual-multi", { branch = "master" } }
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
-  use "pocco81/auto-save.nvim"
+  use "okuuva/auto-save.nvim"
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
