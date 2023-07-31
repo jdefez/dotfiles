@@ -108,12 +108,19 @@ return require("packer").startup(function(use)
       require("auto-save").setup({})
     end,
   })
-  use "Pocco81/true-zen.nvim"
+  -- use "Pocco81/true-zen.nvim"
+  use "folke/zen-mode.nvim"
   use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
   use "vim-test/vim-test"
   use "github/copilot.vim"
+  use {
+    "b0o/incline.nvim",
+    config = function()
+      require("incline").setup()
+    end,
+  }
   use "folke/flash.nvim"
 
   -- completion
