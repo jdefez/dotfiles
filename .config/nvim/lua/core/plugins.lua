@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "jaredgorski/spacecamp"
+  use "Mofiqul/dracula.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
   use "Shatur/neovim-ayu"
   use "sainnhe/sonokai"
@@ -81,7 +82,14 @@ return require("packer").startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   }
   use "sindrets/diffview.nvim"
-  use "tpope/vim-fugitive"
+  use {
+    'NeogitOrg/neogit',
+    requires = {
+      "sindrets/diffview.nvim",
+      "nvim-lua/plenary.nvim"
+    }
+  }
+  -- use "tpope/vim-fugitive"
 
   -- language
 

@@ -10,6 +10,7 @@ require("core.plugins_config")
 -- require("core.themes.github-dark")
 -- require("core.themes.one-dark")
 -- require("core.themes.spacecamp")
+require("core.themes.dracula")
 -- require("core.themes.nightfox")
 -- require("core.themes.sonokai")
 -- require("core.themes.ayu")
@@ -17,7 +18,7 @@ require("core.plugins_config")
 -- light schemes
 
 -- require("core.themes.catppuccin-theme")
-require("core.themes.solarized-light")
+-- require("core.themes.solarized-light")
 -- require("core.themes.tokyonight-day")
 -- require("core.themes.github-light")
 -- require("core.themes.one-light")
@@ -25,7 +26,8 @@ require("core.themes.solarized-light")
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
 vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })
-vim.keymap.set('', '<leader>G', ':Git<cr>', { silent = true })
+-- vim.keymap.set('', '<leader>G', ':Git<cr>', { silent = true })
+
 
 -- diffview mappings
 
