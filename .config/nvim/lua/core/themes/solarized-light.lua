@@ -3,12 +3,12 @@ require('solarized').setup({
   theme = "neo",
   styles = {
     comments = { italic = true },
-    functions = { italic = true, bold = true },
-    variables = { bold = true },
-    numbers = {},
-    constants = {},
-    parameters = {},
-    keywords = { italic = true },
+    functions = { italic = false, bold = true },
+    variables = { bold = true, italic = false },
+    numbers = { italic = false },
+    constants = { italic = false },
+    parameters = { italic = false },
+    keywords = { italic = false },
     types = {},
   },
   highlights = function(colors, colorhelper)

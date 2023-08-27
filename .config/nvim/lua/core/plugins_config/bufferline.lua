@@ -1,6 +1,12 @@
 require('bufferline').setup({
   options = {
-    separator_style = 'slant'
+    -- mode = 'buffers',
+    -- separator_style = 'slope',
+    show_tab_indicators = true,
+    indicator = {
+      icon = '▎',
+      style = 'icon',
+    },
   }
 })
 

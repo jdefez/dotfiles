@@ -27,8 +27,9 @@ return require("packer").startup(function(use)
   use "maxmx03/solarized.nvim"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
-  use "Mofiqul/dracula.nvim"
   use "jaredgorski/spacecamp"
+  use "Mofiqul/dracula.nvim"
+  -- use 'AlexvZyl/nordic.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use "Shatur/neovim-ayu"
   use "sainnhe/sonokai"
@@ -50,7 +51,9 @@ return require("packer").startup(function(use)
   -- navigation
 
   use "olimorris/persisted.nvim"
-  use "beauwilliams/focus.nvim"
+  use 'nvim-focus/focus.nvim'
+  -- use "beauwilliams/focus.nvim"
+
   -- use "feline-nvim/feline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
@@ -65,21 +68,20 @@ return require("packer").startup(function(use)
     requires = "nvim-tree/nvim-web-devicons",
   }
   use {
-    "nvim-telescope/telescope.nvim", tag = '0.1.1',
-    requires = {
-      "nvim-telescope/telescope-ui-select.nvim",
-    }
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
+
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virtcolumn.nvim"
-  use "chentoast/marks.nvim"
+  -- use "chentoast/marks.nvim"
   use {
     "akinsho/toggleterm.nvim",
     tag = '*',
   }
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
