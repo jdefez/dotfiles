@@ -21,6 +21,7 @@ return require("packer").startup(function(use)
   -- themes
 
   use "loctvl842/monokai-pro.nvim"
+  use "askfiy/visual_studio_code"
   use "ishan9299/modus-theme-vim"
   use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"

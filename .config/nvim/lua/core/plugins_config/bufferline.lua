@@ -1,5 +1,6 @@
 require('bufferline').setup({
   options = {
+    themable = true,
     -- mode = 'buffers',
     -- separator_style = 'slope',
     show_tab_indicators = true,
@@ -7,6 +8,9 @@ require('bufferline').setup({
       icon = '▎',
       style = 'icon',
     },
+    -- custom_areas = {
+    --   right = require("visual_studio_code").get_bufferline_right(),
+    -- },
   }
 })
 

@@ -8,7 +8,8 @@ require("core.plugins_config")
 -- require("core.themes.kanagawa-theme")
 -- require("core.themes.solarized-dark")
 
-require("core.themes.monokai-pro")
+require("core.themes.visual-studio-code")
+-- require("core.themes.monokai-pro")
 
 -- require("core.themes.github-dark")
 -- require("core.themes.spacecamp")
