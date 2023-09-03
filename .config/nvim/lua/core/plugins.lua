@@ -52,8 +52,7 @@ return require("packer").startup(function(use)
   -- navigation
 
   use "olimorris/persisted.nvim"
-  use 'nvim-focus/focus.nvim'
-  -- use "beauwilliams/focus.nvim"
+  use "nvim-focus/focus.nvim"
 
   -- use "feline-nvim/feline.nvim"
   use {
