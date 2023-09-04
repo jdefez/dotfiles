@@ -16,19 +16,20 @@ return require("packer").startup(function(use)
 
   -- colorschemes
 
-  use "projekt0n/github-nvim-theme"
-  use "loctvl842/monokai-pro.nvim"
-  use "ishan9299/modus-theme-vim"
-  use "maxmx03/solarized.nvim"
-  use "EdenEast/nightfox.nvim"
-  use "folke/tokyonight.nvim"
-  use "rebelot/kanagawa.nvim"
-  use "jaredgorski/spacecamp"
-  use "Mofiqul/dracula.nvim"
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use "Shatur/neovim-ayu"
-  use "sainnhe/sonokai"
-  use "rakr/vim-one"
+  -- use "projekt0n/github-nvim-theme"
+  -- use "loctvl842/monokai-pro.nvim"
+  -- use "ishan9299/modus-theme-vim"
+  use "askfiy/visual_studio_code"
+  -- use "maxmx03/solarized.nvim"
+  -- use "EdenEast/nightfox.nvim"
+  -- use "folke/tokyonight.nvim"
+  -- use "rebelot/kanagawa.nvim"
+  -- use "jaredgorski/spacecamp"
+  -- use "Mofiqul/dracula.nvim"
+  -- use { "catppuccin/nvim", as = "catppuccin" }
+  -- use "Shatur/neovim-ayu"
+  -- use "sainnhe/sonokai"
+  -- use "rakr/vim-one"
 
   -- utility
 
@@ -42,7 +43,6 @@ return require("packer").startup(function(use)
     tag = '*'
   }
   use "mrjones2014/smart-splits.nvim"
-  -- use "freddiehaddad/feline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
@@ -91,7 +91,7 @@ return require("packer").startup(function(use)
   }
   -- use "tpope/vim-fugitive"
 
-  -- language
+  -- languages
 
   use "jparise/vim-graphql"
 
@@ -108,7 +108,6 @@ return require("packer").startup(function(use)
       require("auto-save").setup({})
     end,
   })
-  -- use "Pocco81/true-zen.nvim"
   use "folke/zen-mode.nvim"
   use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
