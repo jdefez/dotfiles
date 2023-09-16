@@ -1,12 +1,9 @@
 require("core.plugins_config.treesitter-config")
 require("core.plugins_config.lsp-config")
 
--- feline themes
--- require("core.plugins_config.feline-one-monokai")
--- require("core.plugins_config.feline-dharmux")
-
 -- plugins
 
+require("core.plugins_config.rainbow-delimiters")
 require("core.plugins_config.symbols-outline")
 require("core.plugins_config.close-buffers")
 require("core.plugins_config.todo-comments")
@@ -24,7 +21,6 @@ require("core.plugins_config.gitsigns")
 require("core.plugins_config.vim-test")
 require("core.plugins_config.phpactor")
 require("core.plugins_config.zen-mode")
--- require("core.plugins_config.fugitive")
 require("core.plugins_config.nvim-cmp")
 require("core.plugins_config.lua-snip")
 require("core.plugins_config.incline")
@@ -32,7 +28,6 @@ require("core.plugins_config.lualine")
 require("core.plugins_config.murmur")
 require("core.plugins_config.neogit")
 require("core.plugins_config.focus")
--- require("core.plugins_config.marks")
 require("core.plugins_config.navic")
 require("core.plugins_config.flash")
 require("core.plugins_config.ufo")

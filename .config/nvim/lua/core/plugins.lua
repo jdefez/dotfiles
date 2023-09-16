@@ -20,17 +20,16 @@ return require("packer").startup(function(use)
 
   -- themes
 
+  use "projekt0n/github-nvim-theme"
   use "loctvl842/monokai-pro.nvim"
   use "askfiy/visual_studio_code"
   use "ishan9299/modus-theme-vim"
   use "EdenEast/nightfox.nvim"
-  use "projekt0n/github-nvim-theme"
   use "maxmx03/solarized.nvim"
   use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "jaredgorski/spacecamp"
   use "Mofiqul/dracula.nvim"
-  -- use 'AlexvZyl/nordic.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use "Shatur/neovim-ayu"
   use "sainnhe/sonokai"
@@ -54,7 +53,6 @@ return require("packer").startup(function(use)
   use "olimorris/persisted.nvim"
   use "nvim-focus/focus.nvim"
 
-  -- use "feline-nvim/feline.nvim"
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -74,7 +72,6 @@ return require("packer").startup(function(use)
 
   use "kazhala/close-buffers.nvim"
   use "xiyaowong/virtcolumn.nvim"
-  -- use "chentoast/marks.nvim"
   use {
     "akinsho/toggleterm.nvim",
     tag = '*',
@@ -89,8 +86,6 @@ return require("packer").startup(function(use)
     }
   }
   use { "mrjones2014/smart-splits.nvim" }
-  -- use "aserowy/tmux.nvim"
-  -- use "preservim/vimux"
 
   -- git
 
@@ -112,6 +107,8 @@ return require("packer").startup(function(use)
   }
 
   -- editing
+
+  use "HiPhish/rainbow-delimiters.nvim"
   use "b0o/incline.nvim"
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
   use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
