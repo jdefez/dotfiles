@@ -16,20 +16,20 @@ return require("packer").startup(function(use)
 
   -- colorschemes
 
-  -- use "projekt0n/github-nvim-theme"
-  -- use "loctvl842/monokai-pro.nvim"
-  -- use "ishan9299/modus-theme-vim"
+  use "projekt0n/github-nvim-theme"
+  use "loctvl842/monokai-pro.nvim"
+  use "ishan9299/modus-theme-vim"
   use "askfiy/visual_studio_code"
-  -- use "maxmx03/solarized.nvim"
-  -- use "EdenEast/nightfox.nvim"
-  -- use "folke/tokyonight.nvim"
-  -- use "rebelot/kanagawa.nvim"
-  -- use "jaredgorski/spacecamp"
-  -- use "Mofiqul/dracula.nvim"
-  -- use { "catppuccin/nvim", as = "catppuccin" }
-  -- use "Shatur/neovim-ayu"
-  -- use "sainnhe/sonokai"
-  -- use "rakr/vim-one"
+  use "maxmx03/solarized.nvim"
+  use "EdenEast/nightfox.nvim"
+  use "folke/tokyonight.nvim"
+  use "rebelot/kanagawa.nvim"
+  use "jaredgorski/spacecamp"
+  use "Mofiqul/dracula.nvim"
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use "Shatur/neovim-ayu"
+  use "sainnhe/sonokai"
+  use "rakr/vim-one"
 
   -- utility
 
@@ -38,10 +38,7 @@ return require("packer").startup(function(use)
 
   -- navigation
 
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = '*'
-  }
+  use { "akinsho/toggleterm.nvim", tag = '*' }
   use "mrjones2014/smart-splits.nvim"
   use {
     'nvim-lualine/lualine.nvim',
@@ -97,6 +94,7 @@ return require("packer").startup(function(use)
 
   -- editing
 
+  use "HiPhish/rainbow-delimiters.nvim"
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
@@ -109,7 +107,17 @@ return require("packer").startup(function(use)
     end,
   })
   use "folke/zen-mode.nvim"
-  use "windwp/nvim-autopairs"
+  use {
+    "altermo/ultimate-autopair.nvim",
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    branch = 'v0.6',
+    config = function()
+      require('ultimate-autopair').setup({
+        --Config goes here
+      })
+    end,
+  }
+  -- use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
   use "phpactor/phpactor"
   use "vim-test/vim-test"
@@ -140,8 +148,6 @@ return require("packer").startup(function(use)
 
   use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  --  TODO: duplicate with lsp-zero ??
-  -- use { "jose-elias-alvarez/null-ls.nvim" }
   use {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
