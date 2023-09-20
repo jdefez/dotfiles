@@ -98,7 +98,7 @@ return require("packer").startup(function(use)
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { "mg979/vim-visual-multi", { branch = "master" } }
-  use "beauwilliams/focus.nvim"
+  -- use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use({
     "okuuva/auto-save.nvim",
@@ -149,8 +149,14 @@ return require("packer").startup(function(use)
   use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
+  }
+  use {
     "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     requires = {
       -- LSP Support
       { "neovim/nvim-lspconfig" },
@@ -170,11 +176,9 @@ return require("packer").startup(function(use)
       { "L3MON4D3/LuaSnip" },
     }
   }
-  use { "williamboman/mason.nvim", run = ":MasonUpdate" }
-  use { "williamboman/mason-lspconfig.nvim" }
   use { "simrat39/symbols-outline.nvim" }
   use { "folke/lsp-colors.nvim" }
-  use { "onsails/lspkind.nvim" }
+  -- use { "onsails/lspkind.nvim" }
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
 
   -- use({

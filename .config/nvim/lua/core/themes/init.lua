@@ -12,10 +12,10 @@
 
 -- light schemes
 
--- require("core.themes.visual-studio-code")
+require("core.themes.visual-studio-code")
 -- require("core.themes.catppuccin-theme")
 -- require("core.themes.solarized-light")
 -- require("core.themes.tokyonight-day")
-require("core.themes.github-light")
+-- require("core.themes.github-light")
 -- require("core.themes.one-light")
 -- require("core.themes.modus")

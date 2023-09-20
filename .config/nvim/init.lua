@@ -1,13 +1,10 @@
 require("core.api")
+require("core.themes")
 require("core.keymaps")
 require("core.plugins")
 require("core.plugins_config")
-require("core.themes")
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
-vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })
--- vim.keymap.set('', '<leader>G', ':Git<cr>', { silent = true })
-
 
 -- diffview mappings
 

@@ -1,8 +1,8 @@
 require('murmur').setup({
-  -- cursor_rgb = {
-  --   guibg = 'white',
-  --   guifg = 'orange',
-  -- },
+  cursor_rgb = {
+    guibg = 'white',
+    guifg = 'orange',
+  },
   -- cursor_rgb_always_use_config = true,
   max_len = 80,
   min_len = 3,
@@ -15,16 +15,4 @@ require('murmur').setup({
       vim.w.diag_shown = false
     end,
   }
-})
-
--- set murmur highlights
-local FOO = 'mur_mur_hightlights'
-vim.api.nvim_create_augroup(FOO, { clear = true })
-
-vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
-  group = FOO,
-  pattern = 'solarized',
-  callback = function()
-    vim.api.nvim_set_hl(0, "murmur_cursor_rgb", { bg = "none", fg = "orange" })
-  end
 })
