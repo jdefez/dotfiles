@@ -1,6 +1,7 @@
 local cmp = require 'cmp'
 local luasnip = require("luasnip")
-
+local lsp_zero = require('lsp-zero')
+local cmp_format = lsp_zero.cmp_format()
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -8,6 +9,7 @@ local has_words_before = function()
 end
 
 cmp.setup({
+  formatting = cmp_format,
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)

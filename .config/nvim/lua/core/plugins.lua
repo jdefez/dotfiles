@@ -143,29 +143,31 @@ return require("packer").startup(function(use)
   use "onsails/lspkind.nvim"
   use "simrat39/symbols-outline.nvim"
   use "nvim-treesitter/nvim-treesitter"
-  use 'weilbith/nvim-code-action-menu'
+  use "weilbith/nvim-code-action-menu"
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
   }
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
     requires = {
-      { 'neovim/nvim-lspconfig' },
+      { "neovim/nvim-lspconfig" },
       {
-        'williamboman/mason.nvim',
+        "williamboman/mason.nvim",
         run = function()
-          pcall(vim.cmd, 'MasonUpdate')
+          pcall(vim.cmd, "MasonUpdate")
         end,
       },
-      { 'williamboman/mason-lspconfig.nvim' },
+      { "williamboman/mason-lspconfig.nvim" },
 
       -- Autocompletion
 
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'L3MON4D3/LuaSnip' },
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
     }
   }
 
