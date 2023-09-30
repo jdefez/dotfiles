@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
   use("Shatur/neovim-ayu")
   use("sainnhe/sonokai")
   use("rakr/vim-one")
+  use("roobert/palette.nvim")
 
   -- utility
   use("jghauser/mkdir.nvim")
