@@ -2,14 +2,14 @@
 
 -- require("core.themes.kanagawa-theme")
 -- require("core.themes.solarized-dark")
--- require("core.themes.github-dark")
+require("core.themes.github-dark")
 -- require("core.themes.monokai-pro")
 -- require("core.themes.spacecamp")
 -- require("core.themes.nightfox")
 -- require("core.themes.ayu-dark")
 -- require("core.themes.one-dark")
 -- require("core.themes.sonokai")
-require("core.themes.dracula")
+-- require("core.themes.dracula")
 
 -- light schemes
 

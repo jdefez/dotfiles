@@ -1,8 +1,8 @@
 require("core.api")
+require("core.themes")
 require("core.keymaps")
 require("core.plugins")
 require("core.plugins_config")
-require("core.themes")
 
 -- copilot keymaps
 
