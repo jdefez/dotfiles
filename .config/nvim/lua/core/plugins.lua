@@ -17,19 +17,20 @@ return require("packer").startup(function(use)
   -- colorschemes
 
   use "projekt0n/github-nvim-theme"
-  use "loctvl842/monokai-pro.nvim"
-  use "ishan9299/modus-theme-vim"
+  -- use "loctvl842/monokai-pro.nvim"
+  -- use "ishan9299/modus-theme-vim"
   use "askfiy/visual_studio_code"
-  use "maxmx03/solarized.nvim"
-  use "EdenEast/nightfox.nvim"
-  use "folke/tokyonight.nvim"
-  use "rebelot/kanagawa.nvim"
-  use "jaredgorski/spacecamp"
-  use "Mofiqul/dracula.nvim"
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use "Shatur/neovim-ayu"
-  use "sainnhe/sonokai"
-  use "rakr/vim-one"
+  -- use "maxmx03/solarized.nvim"
+  -- use "EdenEast/nightfox.nvim"
+  -- use "folke/tokyonight.nvim"
+  -- use "rebelot/kanagawa.nvim"
+  -- use "jaredgorski/spacecamp"
+  use "roobert/palette.nvim"
+  -- use "Mofiqul/dracula.nvim"
+  -- use { "catppuccin/nvim", as = "catppuccin" }
+  -- use "Shatur/neovim-ayu"
+  -- use "sainnhe/sonokai"
+  -- use "rakr/vim-one"
 
   -- utility
 
@@ -45,8 +46,15 @@ return require("packer").startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   }
   use "karb94/neoscroll.nvim"
-  use "olimorris/persisted.nvim"
-  use "nyngwang/murmur.lua"
+  -- use "olimorris/persisted.nvim"
+  use({
+    "coffebar/neovim-project",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.0" },
+      { "Shatur/neovim-session-manager" },
+    }
+  })
   use {
     "akinsho/bufferline.nvim",
     tag = "v3.*",
@@ -100,6 +108,7 @@ return require("packer").startup(function(use)
   use { "mg979/vim-visual-multi", { branch = "master" } }
   -- use "beauwilliams/focus.nvim"
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
+  use "nyngwang/murmur.lua"
   use({
     "okuuva/auto-save.nvim",
     config = function()

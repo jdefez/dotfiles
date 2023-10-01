@@ -1,7 +1,7 @@
 require('murmur').setup({
   cursor_rgb = {
-    guibg = 'white',
-    guifg = 'orange',
+    guibg = nil,
+    guifg = '#B17855',
   },
   -- cursor_rgb_always_use_config = true,
   max_len = 80,

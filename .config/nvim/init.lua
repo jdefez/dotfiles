@@ -5,6 +5,7 @@ require("core.plugins")
 require("core.plugins_config")
 
 vim.keymap.set('', '<leader>n', ':Neotree toggle reveal right<cr>', { silent = true })
+vim.keymap.set('', '<leader>o', ':SymbolsOutline<cr>', { silent = true })
 
 -- diffview mappings
 
