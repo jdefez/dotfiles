@@ -94,7 +94,7 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim"
     }
   }
-  -- use "tpope/vim-fugitive"
+  use "tpope/vim-fugitive"
 
   -- languages
 
