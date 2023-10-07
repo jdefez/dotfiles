@@ -34,12 +34,12 @@ return require("packer").startup(function(use)
 
   -- utility
 
-  use "nvim-tree/nvim-web-devicons"
+  use "nvim-tree/nvim-web-devicons" // skipped
   use "jghauser/mkdir.nvim"
 
   -- navigation
 
-  use { "akinsho/toggleterm.nvim", tag = '*' }
+  use { "akinsho/toggleterm.nvim", tag = '*' } // skipped
   use "mrjones2014/smart-splits.nvim"
   use {
     'nvim-lualine/lualine.nvim',
@@ -67,9 +67,9 @@ return require("packer").startup(function(use)
       "nvim-telescope/telescope-ui-select.nvim",
     }
   }
-  use "kazhala/close-buffers.nvim"
+  use "kazhala/close-buffers.nvim" // skipped
   use "xiyaowong/virtcolumn.nvim"
-  use "chentoast/marks.nvim"
+  use "chentoast/marks.nvim" // skipped
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -115,7 +115,7 @@ return require("packer").startup(function(use)
       require("auto-save").setup({})
     end,
   })
-  use "folke/zen-mode.nvim"
+  use "folke/zen-mode.nvim" // skipped
   use {
     "altermo/ultimate-autopair.nvim",
     event = { 'InsertEnter', 'CmdlineEnter' },
@@ -128,16 +128,16 @@ return require("packer").startup(function(use)
   }
   -- use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
-  use "phpactor/phpactor"
-  use "vim-test/vim-test"
-  use "github/copilot.vim"
+  use "phpactor/phpactor" // skipped
+  use "vim-test/vim-test" // skipped
+  use "github/copilot.vim" // skipped
   use {
-    "b0o/incline.nvim",
+    "b0o/incline.nvim", // skipped
     config = function()
       require("incline").setup()
     end,
   }
-  use "folke/flash.nvim"
+  use "folke/flash.nvim" // ici
 
   -- completion
 
