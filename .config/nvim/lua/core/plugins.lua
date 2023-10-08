@@ -34,12 +34,12 @@ return require("packer").startup(function(use)
 
   -- utility
 
-  use "nvim-tree/nvim-web-devicons" // skipped
+  use "nvim-tree/nvim-web-devicons" -- skipped
   use "jghauser/mkdir.nvim"
 
   -- navigation
 
-  use { "akinsho/toggleterm.nvim", tag = '*' } // skipped
+  use { "akinsho/toggleterm.nvim", tag = '*' } -- skipped
   use "mrjones2014/smart-splits.nvim"
   use {
     'nvim-lualine/lualine.nvim',
@@ -67,9 +67,9 @@ return require("packer").startup(function(use)
       "nvim-telescope/telescope-ui-select.nvim",
     }
   }
-  use "kazhala/close-buffers.nvim" // skipped
+  use "kazhala/close-buffers.nvim" -- skipped
   use "xiyaowong/virtcolumn.nvim"
-  use "chentoast/marks.nvim" // skipped
+  use "chentoast/marks.nvim" -- skipped
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -115,7 +115,7 @@ return require("packer").startup(function(use)
       require("auto-save").setup({})
     end,
   })
-  use "folke/zen-mode.nvim" // skipped
+  use "folke/zen-mode.nvim" -- skipped
   use {
     "altermo/ultimate-autopair.nvim",
     event = { 'InsertEnter', 'CmdlineEnter' },
@@ -128,16 +128,16 @@ return require("packer").startup(function(use)
   }
   -- use "windwp/nvim-autopairs"
   use "b3nj5m1n/kommentary"
-  use "phpactor/phpactor" // skipped
-  use "vim-test/vim-test" // skipped
-  use "github/copilot.vim" // skipped
+  use "phpactor/phpactor"
+  use "vim-test/vim-test" -- skipped
+  use "github/copilot.vim"
   use {
-    "b0o/incline.nvim", // skipped
+    "b0o/incline.nvim", -- skipped
     config = function()
       require("incline").setup()
     end,
   }
-  use "folke/flash.nvim" // ici
+  use "folke/flash.nvim"
 
   -- completion
 
@@ -154,6 +154,7 @@ return require("packer").startup(function(use)
   }
 
   -- lsp
+  -- linting and formatting: https://github.com/folke/dot/blob/master/nvim/lua/plugins/lsp.lua
 
   use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
@@ -201,7 +202,7 @@ return require("packer").startup(function(use)
   -- messages
 
   use({
-    "folke/noice.nvim",
+    "folke/noice.nvim", -- skipped
     requires = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
