@@ -1,25 +1,26 @@
 local null_ls = require("null-ls")
 
 return {
-  "jose-elias-alvarez/null-ls.nvim",
-  opts = {
-    sources = {
-      -- code actions
+	"jose-elias-alvarez/null-ls.nvim",
+	opts = {
+		sources = {
+			-- code actions
 
-      null_ls.builtins.code_actions.gitsigns,
+			null_ls.builtins.code_actions.gitsigns,
 
-      -- completion
+			-- completion
 
-      null_ls.builtins.completion.vsnip,
+			null_ls.builtins.completion.vsnip,
 
-      -- diagnostics
+			-- diagnostics
 
-      null_ls.builtins.diagnostics.phpstan,
+			null_ls.builtins.diagnostics.phpstan,
 
-      -- formatting
+			-- formatting
 
-      null_ls.builtins.formatting.fixjson,
-      null_ls.builtins.formatting.pint,
-    },
-  }
+			null_ls.builtins.formatting.fixjson,
+			null_ls.builtins.formatting.stylua,
+			null_ls.builtins.formatting.pint,
+		},
+	},
 }

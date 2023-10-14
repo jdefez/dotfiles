@@ -14,7 +14,10 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 
-vim.opt.rtp:prepend(lazypath)
+-- TODO: check plugins:
+--  - https://github.com/ray-x/lsp_signature.nvim
+
+vim.opt.rtp:prepened(lazypath)
 
 require("lazy").setup("plugins")
 

@@ -44,7 +44,7 @@ return {
       local opts = { buffer = bufnr }
 
       vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
-      vim.keymap.set("n", "<leader>lx", ":CodeActionMenu<cr>", { silent = true, buffer = bufnr })
+      -- vim.keymap.set("n", "<leader>lx", ":CodeActionMenu<cr>", { silent = true, buffer = bufnr })
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
