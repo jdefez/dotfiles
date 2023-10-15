@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  run = ":TSUpdate",
+  dependencies = { "kevinhwang91/nvim-ufo" },
+  build = ":TSUpdate",
   opts = {},
   init = function ()
     require('ufo').setup({

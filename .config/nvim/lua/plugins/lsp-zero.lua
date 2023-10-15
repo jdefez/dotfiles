@@ -1,7 +1,7 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
   branch = "v3.x",
-  requires = {
+  dependencies = {
     "SmiteshP/nvim-navic",
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",

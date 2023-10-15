@@ -1,7 +1,7 @@
 return {
   "phpactor/phpactor",
   lazy = true,
-  opt = {},
+  opts = {},
   ft = 'php',
   init = function()
     vim.g.phpactorCompletionIgnoreCase = true
