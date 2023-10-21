@@ -22,14 +22,11 @@ return {
 					"lua",
 					"php",
 				},
-
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
-
 				-- Automatically install missing parsers when entering buffer
 				-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 				auto_install = true,
-
 				-- List of parsers to ignore installing (for "all")
 				ignore_install = {},
 
@@ -72,6 +69,18 @@ return {
 		opts = {},
 		keys = {
 			{ "<leader>o", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" },
+		},
+	},
+	{
+		"dnlhc/glance.nvim",
+		config = true,
+		lazy = true,
+		cmd = "Glance",
+		keys = {
+			{ "gD", "<CMD>Glance definitions<CR>" },
+			{ "gR", "<CMD>Glance references<CR>" },
+			{ "gY", "<CMD>Glance type_definitions<CR>" },
+			{ "gM", "<CMD>Glance implementations<CR>" },
 		},
 	},
 	{
