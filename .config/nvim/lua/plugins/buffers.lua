@@ -64,6 +64,26 @@ return {
 				end,
 				"Wipe all buffers except the current focused",
 			},
-    },
+		},
+	},
+	{
+		"LintaoAmons/scratch.nvim",
+		event = "VimEnter",
+		keys = {
+			{
+				"<leader>ss",
+				function()
+					require("scratch").scratch()
+				end,
+				"Scratch",
+			},
+			{
+				"<leader>so",
+				function()
+					require("scratch").openScratch()
+				end,
+				"Open scratch",
+			},
+		},
 	},
 }
