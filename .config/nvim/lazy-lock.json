@@ -51,5 +51,6 @@
   "ultimate-autopair.nvim": { "branch": "v0.6", "commit": "ded1b64e26fcc708837a8391e0f385c4b87ca09b" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" },
   "virtcolumn.nvim": { "branch": "main", "commit": "cd9485d64a0763c5572272e03d70cbff1f91fde0" },
-  "visual_studio_code": { "branch": "master", "commit": "75995b9cfaad3413cf1ca9a2e9f20b41ce53ae8a" }
+  "visual_studio_code": { "branch": "master", "commit": "75995b9cfaad3413cf1ca9a2e9f20b41ce53ae8a" },
+  "zen-mode.nvim": { "branch": "main", "commit": "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" }
 }
