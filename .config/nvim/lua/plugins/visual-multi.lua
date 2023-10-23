@@ -1,5 +1,5 @@
 return {
-  "mg979/vim-visual-multi",
-  lazy = false,
-  branch = "master",
+	"mg979/vim-visual-multi",
+	lazy = false,
+	branch = "master",
 }

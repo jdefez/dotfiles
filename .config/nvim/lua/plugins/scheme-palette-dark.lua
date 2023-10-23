@@ -7,7 +7,7 @@ return {
     require("palette").setup({
       palettes = {
         -- dark or light
-        main = "light",
+        main = "dark",
         -- pastel, bright or dark
         accent = "dark",
         state = "dark",

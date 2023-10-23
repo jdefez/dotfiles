@@ -1,5 +1,7 @@
 return {
   "coffebar/neovim-project",
+  lazy = false,
+  priority = 100,
   opts = {
     projects = { -- define project roots
       "~/Code/*",
@@ -19,6 +21,4 @@ return {
   keys = {
     {'<leader>P', '<cmd>Telescope neovim-project discover<CR>', desc = "Projects list"}
   },
-  lazy = false,
-  priority = 100,
 }
