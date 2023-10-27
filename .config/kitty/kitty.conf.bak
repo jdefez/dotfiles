@@ -2080,6 +2080,6 @@ macos_option_as_alt yes
 # include current-theme.conf
 
 # BEGIN_KITTY_THEME
-# Atom One Light
+# GitHub Dark Dimmed
 include current-theme.conf
 # END_KITTY_THEME
