@@ -29,7 +29,6 @@ return {
 				auto_install = true,
 				-- List of parsers to ignore installing (for "all")
 				ignore_install = {},
-
 				highlight = {
 					additional_vim_regex_highlighting = false,
 				},
@@ -98,8 +97,10 @@ return {
 		},
 		opts = {
 			formatters_by_ft = {
+				json = { "prettier" },
 				lua = { "stylua" },
 				php = { "pint" },
+				xml = { "xmlformatter" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
@@ -145,5 +146,9 @@ return {
 				desc = "Close folds",
 			},
 		},
+	},
+	{
+		"hinell/lsp-timeout.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
 	},
 }

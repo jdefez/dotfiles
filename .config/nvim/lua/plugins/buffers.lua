@@ -66,24 +66,4 @@ return {
 			},
 		},
 	},
-	{
-		"LintaoAmons/scratch.nvim",
-		event = "VimEnter",
-		keys = {
-			{
-				"<leader>ss",
-				function()
-					require("scratch").scratch()
-				end,
-				"Scratch",
-			},
-			{
-				"<leader>so",
-				function()
-					require("scratch").openScratch()
-				end,
-				"Open scratch",
-			},
-		},
-	},
 }
