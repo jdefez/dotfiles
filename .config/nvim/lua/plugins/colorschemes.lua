@@ -4,22 +4,61 @@ return {
 		priority = 100,
 	},
 	{
-		"projekt0n/github-nvim-theme",
-		lazy = false,
-		priority = 1000,
+		"oxfist/night-owl.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			require("github-theme").setup({
-				options = {
-					styles = {
-						comments = "italic",
-						keywords = "bold",
-						types = "italic,bold",
-					},
-				},
-			})
-			vim.cmd("colorscheme github_light")
+			vim.cmd([[
+	       colorscheme night-owl
+	       highlight DiagnosticUnderlineError gui=undercurl
+	       highlight DiagnosticUnderlineWarn gui=undercurl
+      ]])
 		end,
 	},
+	-- {
+	-- 	"projekt0n/github-nvim-theme",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("github-theme").setup({
+	-- 			options = {
+	-- 				styles = {
+	-- 					comments = "italic",
+	-- 					keywords = "bold",
+	-- 					types = "italic,bold",
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 		vim.cmd("colorscheme github_light")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"miikanissi/modus-themes.nvim",
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		style = "auto",
+	-- 		variant = "default",
+	-- 		styles = {
+	-- 			comments = { italic = true },
+	-- 			keywords = { italic = true },
+	-- 			functions = { bold = true },
+	-- 			variables = { bold = false },
+	-- 		},
+	-- 		-- on_colors = function(colors) end,
+	-- 		on_highlights = function(highlights, colors)
+	-- 			highlights.FlashCursor = { bg = colors.cyan_intense, fg = colors.bg_main }
+	-- 			highlights.FlashPromptIcon = { bg = colors.green_intense, fg = colors.bg_main }
+	-- 			highlights.FlashLabel = { bg = colors.red_intense, fg = colors.bg_main }
+	-- 			highlights.FlashMatch = { bg = colors.blue_intense, fg = colors.bg_main }
+	-- 			highlights.FlashCurrent = { bg = colors.green_intense, fg = colors.bg_main }
+	-- 		end,
+	-- 	},
+	-- 	init = function()
+	-- 		vim.cmd([[
+	--        colorscheme modus
+	--      ]])
+	-- 	end,
+	-- },
 	-- {
 	-- 	"roobert/palette.nvim",
 	-- 	lazy = false,
@@ -64,7 +103,6 @@ return {
 	-- 		require("palette").setup({
 	-- 			palettes = {
 	-- 				main = "light",
-
 	-- 				-- pastel, bright or dark
 	-- 				accent = "dark",
 	-- 				state = "dark",
