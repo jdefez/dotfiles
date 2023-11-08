@@ -138,16 +138,7 @@ pat() {
   fi
 }
 
-# php artisan dusk
-pad() {
-  if [ -n "$1" ]
-  then
-    clear && php artisan dusk --testdox --colors --filter "$1"
-  else
-    clear && php artisan dusk --testdox --colors
-  fi
-}
-
+# phpunit
 pu () {
   if [ -n "$1" ]
   then
