@@ -6,26 +6,6 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      BlexMono Nerd Font Mono
-# bold_font        BlexMono Nerd Font Mono Bold
-# italic_font      BlexMono Nerd Font Mono Italic
-# bold_italic_font BlexMono Nerd Font Mono Bold Italic
-
-# font_family      Operator Mono Book
-# bold_font        Operator Mono Medium
-# italic_font      Operator Mono Book Italic
-# bold_italic_font Operator Mono Medium Italic
-
-# font_family      BlexMono Nerd Font Mono
-# bold_font        IBM Plex Mono Bold
-# italic_font      IBM Plex Mono Italic
-# bold_italic_font IBM Plex Mono Bold Italic
-
-# font_family      Iosevka Nerd Font Mono
-# bold_font        Iosevka Nerd Font Mono Bold
-# italic_font      Iosevka Nerd Font Mono Italic
-# bold_italic_font Iosevka Nerd Font Mono Italic
-
 font_family      JetBrainsMonoNFM-Regular
 bold_font        JetBrainsMonoNFM-Bold
 italic_font      JetBrainsMonoNFM-Italic
@@ -201,7 +181,7 @@ adjust_line_height  130%
 
 #: }}}
 
-#: Cursor customization {{{
+# : Cursor customization {{{
 
 # cursor #cccccc
 
@@ -220,7 +200,7 @@ adjust_line_height  130%
 #: special keyword: background. Note that if cursor is set to none
 #: then this setting is ignored.
 
-# cursor_shape block
+cursor_shape underline
 
 #: The cursor shape can be one of (block, beam, underline). Note that
 #: when reloading the config this will be changed only if the cursor
@@ -230,6 +210,8 @@ adjust_line_height  130%
 #: https://sw.kovidgoyal.net/kitty/shell-integration/ in kitty sets
 #: the cursor shape to beam at shell prompts. You can avoid this by
 #: setting shell_integration to no-cursor.
+
+shell_integration no-cursor
 
 # cursor_beam_thickness 1.5
 
@@ -251,7 +233,7 @@ adjust_line_height  130%
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity.  Set to zero to never stop blinking.
 
-#: }}}
+# : }}}
 
 #: Scrollback {{{
 
@@ -710,7 +692,7 @@ single_window_margin_width -1
 #: values set top, horizontal and bottom. Four values set top, right,
 #: bottom and left.
 
-window_padding_width 0
+window_padding_width 2
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
@@ -745,7 +727,7 @@ window_padding_width 0
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations no
+hide_window_decorations titlebar-only
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -2080,6 +2062,6 @@ macos_option_as_alt yes
 # include current-theme.conf
 
 # BEGIN_KITTY_THEME
-# GitHub Dark Dimmed
+# GitHub Light
 include current-theme.conf
 # END_KITTY_THEME
