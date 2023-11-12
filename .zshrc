@@ -84,7 +84,6 @@ plugins=(
   git
   tmux
   httpie
-  thefuck
   aliases
   composer
   git-prompt
@@ -177,7 +176,5 @@ fi
 alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
 alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
 alias vimdiff='nvim -d'
-
-eval $(thefuck --alias)
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
