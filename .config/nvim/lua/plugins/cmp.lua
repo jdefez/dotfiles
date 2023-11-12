@@ -34,18 +34,18 @@ return {
 				},
 			},
 			mapping = require("cmp").mapping.preset.insert({
-				["<C-h>"] = require("cmp").mapping.abort(),
-				["<C-l>"] = require("cmp").mapping.complete(),
-				["<CR>"] = require("cmp").mapping.confirm({ select = true }),
-				["<C-b>"] = require("cmp").mapping.scroll_docs(-4),
-				["<C-f>"] = require("cmp").mapping.scroll_docs(4),
-				["<S-Tab>"] = require("cmp").mapping(function(fallback)
-					if require("cmp").visible() then
-						require("cmp").select_next_item()
+				["<C-h>"] = cmp.mapping.abort(),
+				["<C-l>"] = cmp.mapping.complete(),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
 					-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
 					-- they way you will only jump inside the snippet region
-					elseif luasnip.expand_or_jumpable() then
-						luasnip.expand_or_jump()
+					elseif require("luasnip").expand_or_jumpable() then
+						require("luasnip").expand_or_jump()
 					elseif has_words_before() then
 						cmp.complete()
 					else
@@ -53,25 +53,36 @@ return {
 					end
 				end, { "i", "s" }),
 			}),
-			sources = require("cmp").config.sources({
+			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 			}, {
 				{ name = "buffer" },
 			}),
 		})
+
+		-- copilot integration
+
+		-- cmp.event:on("menu_opened", function()
+		-- 	vim.b.copilot_suggestion_hidden = true
+		-- end)
+
+		-- cmp.event:on("menu_closed", function()
+		-- 	vim.b.copilot_suggestion_hidden = false
+		-- end)
+
 		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-		require("cmp").setup.cmdline({ "/", "?" }, {
-			mapping = require("cmp").mapping.preset.cmdline(),
+		cmp.setup.cmdline({ "/", "?" }, {
+			mapping = cmp.mapping.preset.cmdline(),
 			sources = {
 				{ name = "buffer" },
 			},
 		})
 
 		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-		require("cmp").setup.cmdline(":", {
-			mapping = require("cmp").mapping.preset.cmdline(),
-			sources = require("cmp").config.sources({
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
 				{ name = "path" },
 			}, {
 				{ name = "cmdline" },

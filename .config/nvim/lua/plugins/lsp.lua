@@ -145,5 +145,5 @@ return {
 				desc = "Close folds",
 			},
 		},
-	},
+	}
 }
