@@ -33,8 +33,8 @@ vim.opt.termguicolors = true
 vim.opt.wildmode = 'longest:full,full'
 vim.opt.title = true
 vim.opt.mouse = 'a'
-vim.opt.list = true
-vim.opt.listchars = { tab = '~ ', trail = '.' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '~ ', trail = '.' }
 vim.opt.backup = true
 vim.opt.backupdir:remove('.') -- no backup file in the current dir
 -- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
