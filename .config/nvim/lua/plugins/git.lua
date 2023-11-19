@@ -3,16 +3,27 @@ return {
 		"akinsho/git-conflict.nvim",
 		version = "*",
 		config = true,
-		keys = {
-			-- Default mappings
-			-- co — choose ours
-			-- ct — choose theirs
-			-- cb — choose both
-			-- c0 — choose none
-			-- ]x — move to previous conflict
-			-- [x — move to next conflict
-			{ "<leader>C", "<cmd>:GitConflictListQf<cr>", "Show conflicts list" },
-		},
+		-- default mappings
+		-- co — choose ours
+		-- ct — choose theirs
+		-- cb — choose both
+		-- c0 — choose none
+		-- ]x — move to previous conflict
+		-- [x — move to next conflict
+		init = function()
+			vim.api.nvim_create_autocmd({ "User" }, {
+				pattern = { "GitConflictDetected" },
+				callback = function(ev)
+          -- TODO: test if it works
+
+					print("Conflict detected in " .. vim.fn.expand("<afile>"))
+					vim.keymap.set("n", "cww", function()
+						engage.conflict_buster()
+						create_buffer_local_mappings()
+					end)
+				end,
+			})
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
