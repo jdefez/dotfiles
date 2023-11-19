@@ -18,6 +18,7 @@ vim.diagnostic.config({
 mason_lsp.setup({
 	ensure_installed = {
 		"phpactor",
+    "pest_ls",
 		"lua_ls",
 	},
 	automatic_installation = true,
