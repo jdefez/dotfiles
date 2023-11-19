@@ -137,12 +137,13 @@ compdef '_files -W ${vim_sessions}' vs
 
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias pa='php artisan'
+alias psa='./vendor/bin/phpstan analyse'
 
-pu() {
+pest() {
   if [ -n "$1" ]; then
-    clear && php ./vendor/bin/phpunit $1
+    clear && php ./vendor/bin/pest --filter="$1"
   else
-    clear && php ./vendor/bin/phpunit
+    clear && php ./vendor/bin/pest
   fi
 }
 
