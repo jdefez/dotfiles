@@ -138,13 +138,12 @@ pat() {
   fi
 }
 
-# phpunit
-pu () {
-  if [ -n "$1" ]
-  then
-    clear && ./vendor/bin/phpunit tests --testdox --colors always --filter "$1"
+# pest
+pest() {
+  if [ -n "$1" ]; then
+    clear && php ./vendor/bin/pest --filter="$1"
   else
-    clear && ./vendor/bin/phpunit tests --testdox --colors always "$1"
+    clear && php ./vendor/bin/pest
   fi
 }
 
