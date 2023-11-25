@@ -7,6 +7,7 @@ return {
       "~/Code/*",
       "~/.config/nvim",
       "~/.config/kitty",
+      "~/.config/notes",
     },
   },
   init = function()
