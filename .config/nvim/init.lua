@@ -1,4 +1,5 @@
 require("core.api")
+require("core.dotfiles")
 require("core.keymaps")
 require("core.lazy")
 require("core.lsp")
