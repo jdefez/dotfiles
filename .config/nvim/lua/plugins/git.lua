@@ -14,8 +14,6 @@ return {
 			vim.api.nvim_create_autocmd({ "User" }, {
 				pattern = { "GitConflictDetected" },
 				callback = function(ev)
-          -- TODO: test if it works
-
 					print("Conflict detected in " .. vim.fn.expand("<afile>"))
 					vim.keymap.set("n", "cww", function()
 						engage.conflict_buster()

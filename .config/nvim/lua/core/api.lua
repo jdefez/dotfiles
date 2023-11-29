@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 vim.g.termguicolors = true
 vim.wo.colorcolumn = '80'
 vim.opt.autowrite = true
