@@ -56,6 +56,7 @@ return {
 			sources = require("cmp").config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				{ name = "neorg" },
 			}, {
 				{ name = "buffer" },
 			}),
