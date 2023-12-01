@@ -6,10 +6,21 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      JetBrainsMonoNFM-Regular
-bold_font        JetBrainsMonoNFM-Bold
-italic_font      JetBrainsMonoNFM-Italic
-bold_italic_font JetBrainsMonoNFM-BoldItalic
+# font_family      JetBrainsMonoNFM-Regular
+# bold_font        JetBrainsMonoNFM-Bold
+# italic_font      JetBrainsMonoNFM-Italic
+# bold_italic_font JetBrainsMonoNFM-BoldItalic
+
+font_family      Monaspace Argon Light
+bold_font        Monaspace Argon Bold
+italic_font      Monaspace Argon Italic
+bold_italic_font Monaspace Argon Bold Italic
+
+font_features    MonaspaceArgon-Light        +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +dlig +calt
+font_features    MonaspaceArgon-Regular      +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +dlig +calt
+font_features    MonaspaceArgon-Bold         +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +dlig +calt
+font_features    MonaspaceArgon-Italic       +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +dlig +calt
+font_features    MonaspaceArgon-Bold-Italic  +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +dlig +calt
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -24,7 +35,7 @@ bold_italic_font JetBrainsMonoNFM-BoldItalic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 12
+font_size 12.2
 
 #: Font size (in pts)
 
@@ -47,7 +58,7 @@ font_size 12
 #: support, because it will force kitty to always treat the text as
 #: LTR, which FriBidi expects for terminals.
 
-adjust_line_height  130%
+adjust_line_height  140%
 # adjust_column_width 0
 
 #: Change the size of each character cell kitty renders. You can use
@@ -57,7 +68,7 @@ adjust_line_height  130%
 #: than 100% to reduce sizes (but this might cause rendering
 #: artifacts).
 
-# adjust_baseline 0
+adjust_baseline -3
 
 #: Adjust the vertical alignment of text (the height in the cell at
 #: which text is positioned). You can use either numbers, which are
@@ -2062,6 +2073,6 @@ macos_option_as_alt yes
 # include current-theme.conf
 
 # BEGIN_KITTY_THEME
-# GitHub Light
+# Night Owl
 include current-theme.conf
 # END_KITTY_THEME
