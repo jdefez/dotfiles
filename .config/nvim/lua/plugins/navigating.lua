@@ -159,4 +159,15 @@ return {
 			{ "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find in buffer" },
 		},
 	},
+	{
+		"folke/zen-mode.nvim",
+		keys = {
+			{ "<leader>z", "<cmd>ZenMode<CR>", desc = "Zen mode" },
+		},
+		opts = {
+			window = {
+				backdrop = 1,
+			},
+		},
+	},
 }
