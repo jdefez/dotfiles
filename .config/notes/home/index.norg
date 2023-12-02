@@ -1,1 +1,13 @@
-* HOME index
+* LARAVEL IDEAS & PACKAGES
+** CronSchedule {https://gist.github.com/m4tthumphrey/8236756}[gist]
+   Allows one to parse a cron expression into human readable text
+
+** PHP Cron Expression Parser {https://github.com/dragonmantank/cron-expression}[github]
+    The PHP cron expression parser can parse a CRON expression, determine if it is due to run,
+    calculate the next run date of the expression, and calculate the previous run date of the expression.
+    You can calculate dates far into the future or past by skipping n number of matching dates.
+
+** ( ) *Actions*
+  ~~ ( ) Test filament in interfacages project
+   ~~~ ( ) It first has to be upgraded to _Laravel 10_;
+   ~~~ ( ) See if cron expression and scheduling integrates nicely;
