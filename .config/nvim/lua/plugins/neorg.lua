@@ -16,9 +16,9 @@ return {
 					["core.keybinds"] = {
 						config = {
 							default_keybinds = true,
-							-- neorg_leader = "<LocalLeader>",
 						},
 					},
+					-- Manages Neorg workspaces
 					["core.dirman"] = {
 						config = {
 							workspaces = {
@@ -28,7 +28,6 @@ return {
 							default_workspace = "home",
 						},
 					},
-					-- Manages Neorg workspaces
 					["core.completion"] = {
 						config = {
 							engine = "nvim-cmp",

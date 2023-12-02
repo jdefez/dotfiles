@@ -11,3 +11,14 @@
   ~~ ( ) Test filament in interfacages project
    ~~~ ( ) It first has to be upgraded to _Laravel 10_;
    ~~~ ( ) See if cron expression and scheduling integrates nicely;
+
+* NEOVIM
+  ** colorschemes
+  --- {https://github.com/Tsuzat/NeoSolarized.nvim}[NeoSolarized]
+    - {https://github.com/loctvl842/monokai-pro.nvim}[Monokai Pro]
+    - {https://github.com/sainnhe/sonokai}[Sonokai]
+
+  ** Minimalist colorschemes 
+    - {https://github.com/kvrohit/substrata.nvim}[Substrata]
+    - {https://github.com/Yazeed1s/minimal.nvim}[Minimal]
+    - {https://github.com/p00f/alabaster.nvim}[Alabaster]
