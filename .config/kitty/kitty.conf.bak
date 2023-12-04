@@ -2073,6 +2073,6 @@ macos_option_as_alt yes
 # include current-theme.conf
 
 # BEGIN_KITTY_THEME
-# Night Owl
+# GitHub Light
 include current-theme.conf
 # END_KITTY_THEME

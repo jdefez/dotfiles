@@ -12,12 +12,19 @@ return {
 				options = {
 					styles = {
 						comments = "italic",
+						functions = "bold",
 						keywords = "bold",
+						variables = "NONE",
+						conditionals = "NONE",
+						constants = "NONE",
+						numbers = "NONE",
+						operators = "NONE",
+						strings = "NONE",
 						types = "italic,bold",
 					},
 				},
 			})
-			vim.cmd("colorscheme github_light")
+			vim.cmd("colorscheme github_dark_dimmed")
 		end,
 	},
 }
