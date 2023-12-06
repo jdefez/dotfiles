@@ -9,13 +9,13 @@ return {
 		max_len = 80,
 		min_len = 3,
 		exclude_filetypes = {},
-		callbacks = {
-			-- to trigger the close_events of vim.diagnostic.open_float.
-			function()
-				-- Close floating diag. and make it triggerable again.
-				vim.cmd("doautocmd InsertEnter")
-				vim.w.diag_shown = false
-			end,
-		},
+		-- callbacks = {
+		-- 	-- to trigger the close_events of vim.diagnostic.open_float.
+		-- 	function()
+		-- 		-- Close floating diag. and make it triggerable again.
+		-- 		-- vim.cmd("doautocmd InsertEnter")
+		-- 		-- vim.w.diag_shown = false
+		-- 	end,
+		-- },
 	},
 }
