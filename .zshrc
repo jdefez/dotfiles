@@ -8,7 +8,16 @@ export ZSH="/home/jean/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="gentoo"
+# ZSH_THEME="bira"
+# ZSH_THEME="fino-time"
+ZSH_THEME="jnrowe"
+
+
+# Open tmux on startup, requires tmux plugin
+ZSH_TMUX_AUTOSTART=false
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,9 +80,23 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  ag
   git
+  tmux
+  httpie
+  aliases
+  composer
+  git-prompt
+  chucknorris
+  command-not-found
+  colored-man-pages
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
+
+# sudo snap install lsd
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,40 +133,17 @@ cdpath=(~/Code)
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-# nvim sessions
-export vim_sessions=$HOME/.config/nvim/sessions
-
 compdef '_files -W ${vim_sessions}' vs
 
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias pa='php artisan'
+alias psa='./vendor/bin/phpstan analyse'
 
-vs() {
-  mkdir -p ${vim_sessions}
-
-  if [ "$#" -ne 1 ]; then
-    # use session.vim if no param given
-    SESSION_NAME=session.vim
-  else
-    SESSION_NAME=$1
-  fi
-
-  SESSION_PATH=${vim_sessions}/$SESSION_NAME
-
-  if [[ ! -f $SESSION_PATH ]]; then
-    # make session file if it does not exist
-    nvim -c "Obsession $SESSION_PATH"
-  else
-    # source session file if it exists
-    nvim -S $SESSION_PATH
-  fi
-}
-
-pu() {
+pest() {
   if [ -n "$1" ]; then
-    clear && php ./vendor/bin/phpunit $1
+    clear && php ./vendor/bin/pest --filter="$1"
   else
-    clear && php ./vendor/bin/phpunit
+    clear && php ./vendor/bin/pest
   fi
 }
 
@@ -176,3 +176,6 @@ fi
 
 alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
 alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
+alias vimdiff='nvim -d'
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -1,4 +1,6 @@
 autoload
-my-snippets
 .netrwhist
+.php-cs-fixer.php
+.luarc.json
+lazy-lock.json
 /plugin/packer_compiled.lua
