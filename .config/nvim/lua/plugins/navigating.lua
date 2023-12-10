@@ -20,9 +20,6 @@ return {
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
 	},
 	{
@@ -130,28 +127,71 @@ return {
 		},
 	},
 	{
-		"nvim-telescope/telescope.nvim",
-		lazy = false,
-		branch = "0.1.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
-		},
-		opts = {
-			defaults = {
-				-- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
-				layout_strategy = "vertical",
-				layout_config = { height = 0.95 },
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{
+				"<leader>fr",
+				function()
+					require("fzf-lua").resume()
+				end,
+				desc = "fzf resume",
+			},
+			{
+				"<leader>fh",
+				function()
+					require("fzf-lua").help_tags()
+				end,
+				desc = "Show help tags",
+			},
+			{
+				"<leader>fb",
+				function()
+					require("fzf-lua").buffers()
+				end,
+				desc = "Show buffers",
+			},
+			{
+				"<leader>ff",
+				function()
+					require("fzf-lua").files()
+				end,
+				desc = "Show files",
+			},
+			{
+				"<leader>fl",
+				function()
+					require("fzf-lua").blines()
+				end,
+				desc = "Current buffer lines",
+			},
+			{
+				"<leader>fg",
+				function()
+					require("fzf-lua").grep()
+				end,
+				desc = "live grep",
+			},
+			{
+				"<leader>fG",
+				function()
+					require("fzf-lua").grep_cword()
+				end,
+				desc = "grep current word",
+			},
+			{
+				"<leader>fc",
+				function()
+					require("fzf-lua").builtin()
+				end,
+				desc = "fzf builtin commands",
 			},
 		},
-		keys = {
-			{ "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Show buffers" },
-			{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Show help tags" },
-			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find file" },
-			{ "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep" },
-			{ "<leader>fG", "<cmd>Telescope grep_string<CR>", desc = "Grep word" },
-			{ "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find in buffer" },
-		},
+		config = function()
+			-- calling `setup` is optional for customization
+			require("fzf-lua").setup({})
+		end,
 	},
 	{
 		"folke/zen-mode.nvim",
