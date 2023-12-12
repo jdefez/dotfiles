@@ -43,6 +43,10 @@ return {
 	{
 		"luckasRanarison/clear-action.nvim",
 		opts = {
+			silent = true,
+			signs = {
+				enable = false,
+			},
 			mappings = {
 				code_action = { "<leader>a", "apply code action" },
 				quickfix = { "<leader>q", "apply quickfix" },
@@ -63,7 +67,7 @@ return {
 			},
 		},
 	},
-  {
+	{
 		"hedyhli/outline.nvim",
 		lazy = true,
 		cmd = { "Outline", "OutlineOpen" },
