@@ -24,10 +24,6 @@ return {
 		end,
 	},
 	{
-		"lewis6991/gitsigns.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
 		"NeogitOrg/neogit",
 		opts = {},
 		dependencies = {
@@ -39,7 +35,7 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		config = {
+		opts = {
 			signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 			numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 			linehl = false, -- Toggle with `:Gitsigns toggle_linehl`

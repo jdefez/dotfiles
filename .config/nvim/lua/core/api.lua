@@ -1,3 +1,4 @@
+vim.g.loaded_python3_provider = "/opt/homebrew/bin/python3"
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.termguicolors = true
