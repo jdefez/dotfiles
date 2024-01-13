@@ -22,6 +22,15 @@ return {
 			{ "bcl", "<cmd>:BufferLineCloseRight<CR>", desc = "Next right buffers" },
 		},
 	},
+  {
+    -- rose-pine: customzes bufferline.
+    'akinsho/bufferline.nvim',
+    event = 'ColorScheme',
+    config = function()
+      local highlights = require('rose-pine.plugins.bufferline')
+      require('bufferline').setup({ highlights = highlights })
+    end
+  },
 	{
 		"kazhala/close-buffers.nvim",
 		config = true,
