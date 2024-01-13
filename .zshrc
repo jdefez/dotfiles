@@ -147,8 +147,25 @@ pest() {
   fi
 }
 
-# thefuck
-eval $(thefuck --alias)
+# determine versions of PHP installed with HomeBrew
+installedPhpVersions=($(brew ls --versions | ggrep -E 'php(@.*)?\s' | ggrep -oP '(?<=\s)\d\.\d' | uniq | sort))
+
+# create alias for every version of PHP installed with HomeBrew
+for phpVersion in ${installedPhpVersions[*]}; do
+    value="{"
+
+    for otherPhpVersion in ${installedPhpVersions[*]}; do
+        if [ "${otherPhpVersion}" = "${phpVersion}" ]; then
+            continue;
+        fi
+
+        value="${value} brew unlink php@${otherPhpVersion};"
+    done
+
+    value="${value} brew link php@${phpVersion} --force --overwrite; } &> /dev/null && php -v"
+
+    alias "${phpVersion}"="${value}"
+done
 
 # homebrew-command-not-found
 HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -179,3 +196,16 @@ bindkey -e
 # compinit
 # End of lines added by compinstall
 export PATH=/usr/local/opt/php@8.1/bin/php:usr/local/sbin:~/.composer/vendor/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/kitty.app/Contents/MacOS:/Users/ayctor/.composer/vendor/bin
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/config/php/82/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/ayctor/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/config/php/81/"
