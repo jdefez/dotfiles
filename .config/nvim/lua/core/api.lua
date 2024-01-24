@@ -21,7 +21,7 @@ vim.o.foldenable = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = false
 vim.opt.wrap = false
-vim.opt.scrolloff = 8 -- number of screen lines to show around the cursor
+vim.opt.scrolloff = 8     -- number of screen lines to show around the cursor
 vim.opt.sidescrolloff = 8 -- number of screen lines to show around the cursor
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
@@ -45,12 +45,6 @@ vim.opt.backupdir:remove(".") -- no backup file in the current dir
 -- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.g.markdown_recommended_style = 0
 
--- cursor customization
-vim.cmd([[
-  hi Cursor guifg=blue guibg=red
-  hi lCursor guifg=red guibg=green
-]])
-vim.o.guicursor = "n-v-c-sm-i-ci-ve:hor25,r-cr-o:hor25,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 
 vim.cmd([[
   " Specific syntax settings

@@ -175,12 +175,20 @@ return {
       },
     },
   },
-  {
-    "roobert/action-hints.nvim",
-    config = function()
-      require("action-hints").setup({
-        use_virtual_text = true,
-      })
-    end,
-  },
+  -- {
+  --   "RaafatTurki/corn.nvim",
+  --   opts = {
+  --     -- your configuration comes here
+  --     -- or leave it empty to use the default settings
+  --     -- refer to the configuration section below
+  --   },
+  -- }
+  -- {
+  --   "roobert/action-hints.nvim",
+  --   config = function()
+  --     require("action-hints").setup({
+  --       use_virtual_text = true,
+  --     })
+  --   end,
+  -- },
 }
