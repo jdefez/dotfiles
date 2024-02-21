@@ -63,6 +63,8 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-calc",
     },
     init = function()
       local cmp = require("cmp")
@@ -83,8 +85,8 @@ return {
         window = {
           completion = {
             winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-            col_offset = -3,
-            side_padding = 0,
+            -- col_offset = -3,
+            -- side_padding = 2,
           },
         },
         mapping = require("cmp").mapping.preset.insert({
@@ -108,9 +110,12 @@ return {
           end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
+          { name = 'nvim_lsp_signature_help' },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "neorg" },
+          { name = 'path' },
+          { name = 'calc' },
         }, {
           { name = "buffer" },
         }),
@@ -127,22 +132,22 @@ return {
       -- end)
 
       -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
+      -- cmp.setup.cmdline({ "/", "?" }, {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = {
+      --     { name = "buffer" },
+      --   },
+      -- })
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
-      })
+      -- cmp.setup.cmdline(":", {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = cmp.config.sources({
+      --     { name = "path" },
+      --   }, {
+      --     { name = "cmdline" },
+      --   }),
+      -- })
     end,
   },
   {

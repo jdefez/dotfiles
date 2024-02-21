@@ -125,7 +125,7 @@ return {
     },
     opts = {
       formatters_by_ft = {
-        json = { "prettier" },
+        json = { "fixjson" },
         lua = { "stylua" },
         php = { "pint" },
         xml = { "xmlformatter" },
@@ -175,20 +175,18 @@ return {
       },
     },
   },
-  -- {
-  --   "RaafatTurki/corn.nvim",
-  --   opts = {
-  --     -- your configuration comes here
-  --     -- or leave it empty to use the default settings
-  --     -- refer to the configuration section below
-  --   },
-  -- }
-  -- {
-  --   "roobert/action-hints.nvim",
-  --   config = function()
-  --     require("action-hints").setup({
-  --       use_virtual_text = true,
-  --     })
-  --   end,
-  -- },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      theme = {
+        normal = { fg = "#999999" },
+      }
+    },
+  }
 }
