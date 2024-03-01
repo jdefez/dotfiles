@@ -14,6 +14,6 @@ return {
     }
   },
   keys = {
-    { '<leader>n', ':Neotree toggle<cr>' }
+    { '<leader>n', ':Neotree toggle<cr>', desc = "Toggle Neotree" }
   }
 }

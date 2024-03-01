@@ -3,6 +3,6 @@ return {
 	event = "VeryLazy",
 	opts = {},
 	keys = {
-		{ mode = "n", "<leader>z", "<cmd>:ZenMode<cr>", "Toggle Zen Mode" },
+		{ mode = "n", "<leader>z", "<cmd>:ZenMode<cr>", desc = "Toggle Zen Mode" },
 	},
 }

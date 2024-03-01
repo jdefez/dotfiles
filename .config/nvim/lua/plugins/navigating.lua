@@ -70,7 +70,7 @@ return {
       },
     },
     keys = {
-      { "<leader>n", ":Neotree toggle<cr>" },
+      { "<leader>n", ":Neotree toggle<cr>", desc = "Toggle neotree" },
     },
   },
   {
@@ -149,7 +149,7 @@ return {
         function()
           require("fzf-lua").resume()
         end,
-        desc = "fzf resume",
+        desc = "Fzf resume",
       },
       {
         "<leader>fh",
@@ -184,7 +184,7 @@ return {
         function()
           require("fzf-lua").grep()
         end,
-        desc = "live grep",
+        desc = "Live grep",
       },
       {
         "<leader>fG",
@@ -198,7 +198,7 @@ return {
         function()
           require("fzf-lua").builtin()
         end,
-        desc = "fzf builtin commands",
+        desc = "Fzf builtin commands",
       },
     },
     config = function()

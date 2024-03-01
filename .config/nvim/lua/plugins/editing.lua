@@ -197,8 +197,8 @@ return {
     end,
     keys = {
       { "<leader>cc", "<plug>kommentary_line_default",   desc = "Comment line" },
-      { "<leader>c",  "<plug>kommentary_motion_default", desc = "" },
-      { mode = "v",   "<leader>c",                       "<plug>kommentary_visual_default", desc = "" },
+      { "<leader>c",  "<plug>kommentary_motion_default", desc = "Comment motion default" },
+      { mode = "v",   "<leader>c", "<plug>kommentary_visual_default", desc = "Comment visual default" },
     },
   },
   {
