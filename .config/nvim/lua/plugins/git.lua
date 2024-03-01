@@ -115,9 +115,4 @@ return {
       end,
     },
   },
-  {
-    'fredeeb/tardis.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = true
-  }
 }
