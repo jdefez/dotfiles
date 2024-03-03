@@ -46,7 +46,7 @@ return {
         hl = {
           fg = "aqua",
           underline = false,
-      },
+        },
       },
     },
   },
@@ -145,56 +145,56 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       {
-        "<leader>fr",
+        ";r",
         function()
           require("fzf-lua").resume()
         end,
         desc = "Fzf resume",
       },
       {
-        "<leader>fh",
+        ";H",
         function()
           require("fzf-lua").help_tags()
         end,
         desc = "Show help tags",
       },
       {
-        "<leader>fb",
+        ";b",
         function()
           require("fzf-lua").buffers()
         end,
         desc = "Show buffers",
       },
       {
-        "<leader>ff",
+        ";f",
         function()
           require("fzf-lua").files()
         end,
         desc = "Show files",
       },
       {
-        "<leader>fl",
+        ";l",
         function()
           require("fzf-lua").blines()
         end,
         desc = "Current buffer lines",
       },
       {
-        "<leader>fg",
+        ";g",
         function()
           require("fzf-lua").grep()
         end,
         desc = "Live grep",
       },
       {
-        "<leader>fG",
+        ";G",
         function()
           require("fzf-lua").grep_cword()
         end,
         desc = "grep current word",
       },
       {
-        "<leader>fc",
+        ";c",
         function()
           require("fzf-lua").builtin()
         end,
