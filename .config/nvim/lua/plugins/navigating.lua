@@ -152,7 +152,7 @@ return {
         desc = "Fzf resume",
       },
       {
-        ";H",
+        ";hh",
         function()
           require("fzf-lua").help_tags()
         end,
@@ -187,7 +187,7 @@ return {
         desc = "Live grep",
       },
       {
-        ";G",
+        ";gg",
         function()
           require("fzf-lua").grep_cword()
         end,
