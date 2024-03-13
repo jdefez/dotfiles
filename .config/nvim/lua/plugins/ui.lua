@@ -1,5 +1,17 @@
 return {
   {
+    '2kabhishek/termim.nvim',
+    cmd = {
+      -- JJ to Return to normal mode in terminals, remap for <C-\><C-n>
+      'Fterm', -- open terminal in new tab
+      'FTerm', -- same as Fterm but stays open after process exits
+      'Sterm', -- open terminal in new horizontal split
+      'STerm', -- same as Sterm but stays open after process exits
+      'Vterm', -- open terminal in new vertical split
+      'VTerm'  -- same as Vterm but stays open after process exits
+    },
+  },
+  {
     'gelguy/wilder.nvim',
     config = function()
       local wilder = require('wilder')
