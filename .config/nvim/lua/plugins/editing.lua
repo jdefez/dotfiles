@@ -2,6 +2,19 @@ return {
   {
     "pocco81/auto-save.nvim",
   },
+  -- {
+  --   "altermo/iedit.nvim",
+  --   keys = {
+  --     {
+  --       ";s",
+  --       function()
+  --         require("iedit").toggle()
+  --       end,
+  --       mode = {'n','x'},
+  --       desc = "Toggle iedit mode"
+  --     },
+  --   },
+  -- },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -51,6 +64,17 @@ return {
         server_opts_overrides = {},
       })
     end,
+  },
+  {
+    -- TODO: have a look at https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
   },
   {
     "hrsh7th/nvim-cmp",
@@ -120,34 +144,6 @@ return {
           { name = "buffer" },
         }),
       })
-
-      -- copilot integration
-
-      -- cmp.event:on("menu_opened", function()
-      -- 	vim.b.copilot_suggestion_hidden = true
-      -- end)
-
-      -- cmp.event:on("menu_closed", function()
-      -- 	vim.b.copilot_suggestion_hidden = false
-      -- end)
-
-      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-      -- cmp.setup.cmdline({ "/", "?" }, {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = {
-      --     { name = "buffer" },
-      --   },
-      -- })
-
-      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      -- cmp.setup.cmdline(":", {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = cmp.config.sources({
-      --     { name = "path" },
-      --   }, {
-      --     { name = "cmdline" },
-      --   }),
-      -- })
     end,
   },
   {
@@ -198,7 +194,7 @@ return {
     keys = {
       { "<leader>cc", "<plug>kommentary_line_default",   desc = "Comment line" },
       { "<leader>c",  "<plug>kommentary_motion_default", desc = "Comment motion default" },
-      { mode = "v",   "<leader>c", "<plug>kommentary_visual_default", desc = "Comment visual default" },
+      { mode = "v",   "<leader>c",                       "<plug>kommentary_visual_default", desc = "Comment visual default" },
     },
   },
   {

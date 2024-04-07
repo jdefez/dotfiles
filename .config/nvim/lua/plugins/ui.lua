@@ -1,5 +1,18 @@
 return {
   {
+    "backdround/global-note.nvim",
+    config = {},
+    keys = {
+      {
+        "<leader>N",
+        function()
+          require("global-note").toggle_note()
+        end,
+        desc = "Toggle global note",
+      }
+    }
+  },
+  {
     '2kabhishek/termim.nvim',
     cmd = {
       -- JJ to Return to normal mode in terminals, remap for <C-\><C-n>
