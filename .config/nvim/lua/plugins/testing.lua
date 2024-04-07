@@ -10,11 +10,12 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
+      "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "olimorris/neotest-phpunit",
-      -- "theutz/neotest-pest",
+      -- "olimorris/neotest-phpunit",
+      "theutz/neotest-pest",
     },
     config = function()
       require("neotest").setup({
@@ -38,8 +39,8 @@ return {
         --  - target = "t",
         --  - watch = "w"
         adapters = {
-          require("neotest-phpunit"),
-          -- require("neotest-pest"),
+          -- require("neotest-phpunit"),
+          require("neotest-pest"),
         },
         diagnostic = {
           enabled = false,
@@ -91,5 +92,5 @@ return {
         desc = "Toggle output panel",
       },
     },
-  },
+  }
 }
