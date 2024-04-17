@@ -104,10 +104,10 @@ return {
     lazy = true,
     cmd = "Glance",
     keys = {
-      { "gD", "<CMD>Glance definitions<CR>", desc = "Glance definitions" },
-      { "gR", "<CMD>Glance references<CR>", desc = "Glance references"},
-      { "gY", "<CMD>Glance type_definitions<CR>", desc = "Glance type definitions" },
-      { "gM", "<CMD>Glance implementations<CR>", desc = "Glance implementations" },
+      { "gD",  "<CMD>Glance definitions<CR>",     desc = "Glance definitions" },
+      { "gl", "<CMD>Glance references<CR>",      desc = "Glance references" },
+      -- { "gY",  "<CMD>Glance type_definitions<CR>", desc = "Glance type definitions" },
+      { "gM",  "<CMD>Glance implementations<CR>", desc = "Glance implementations" },
     },
   },
   {
