@@ -203,6 +203,13 @@ return {
     opts = {},
   },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      scope = { enabled = false },
+    }
+  },
+  {
     "xiyaowong/virtcolumn.nvim",
   },
   {
