@@ -16,6 +16,13 @@ return {
   --   },
   -- },
   {
+    "chrisgrieser/nvim-alt-substitute",
+    -- lua patterns: @see https://www.lua.org/manual/5.4/manual.html#6.4.1
+    opts = true,
+    -- lazy-loading with `cmd =` does not work well with incremental preview
+    event = "CmdlineEnter",
+  },
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -206,7 +213,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
-      scope = { enabled = false },
+      scope = { enabled = false }
     }
   },
   {

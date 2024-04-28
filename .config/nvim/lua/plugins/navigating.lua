@@ -201,10 +201,13 @@ return {
         desc = "Fzf builtin commands",
       },
     },
-    config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({})
-    end,
+    opts = {
+      winopts = {
+        preview = {
+          layout = "vertical",
+        }
+      }
+    }
   },
   {
     "folke/zen-mode.nvim",

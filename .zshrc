@@ -80,9 +80,9 @@ plugins=(
   git
   brew
   tmux
-  httpie
+  # httpie
   composer
-  colored-man-pages
+  # colored-man-pages
   command-not-found
   zsh-interactive-cd
   zsh-autosuggestions
