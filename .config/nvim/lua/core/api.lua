@@ -1,4 +1,5 @@
-vim.g.loaded_python3_provider = "/opt/homebrew/bin/python3"
+vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+-- vim.g.loaded_python3_provider = "/opt/homebrew/bin/python3"
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.termguicolors = true
@@ -42,9 +43,8 @@ vim.opt.mouse = "a"
 -- }
 vim.opt.backup = true
 vim.opt.backupdir:remove(".") -- no backup file in the current dir
--- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.g.markdown_recommended_style = 0
-
 
 vim.cmd([[
   " Specific syntax settings
