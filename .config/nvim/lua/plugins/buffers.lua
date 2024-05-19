@@ -4,12 +4,13 @@ return {
 		lazy = false,
 		-- tag = "v3.*",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {
-			options = {
-				themable = true,
-				-- separator_style = 'slant'
-			},
-		},
+    opts = {},
+		-- opts = {
+		-- 	options = {
+		-- 		themable = true,
+		-- 		-- separator_style = 'slant'
+		-- 	},
+		-- },
 		keys = {
 			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
 			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
