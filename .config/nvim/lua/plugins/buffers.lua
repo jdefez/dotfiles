@@ -2,7 +2,6 @@ return {
   {
     "akinsho/bufferline.nvim",
     lazy = false,
-    -- after = "catppuccin",
     config = function()
       require("bufferline").setup {
         highlights = require("catppuccin.groups.integrations.bufferline").get()
@@ -27,15 +26,6 @@ return {
       -- { "bP",         "<cmd>:BufferLineTogglePin<CR>",       desc = "Pin/Unpin buffer" },
     },
   },
-  -- {
-  --   -- rose-pine: customzes bufferline.
-  --   'akinsho/bufferline.nvim',
-  --   event = 'ColorScheme',
-  --   config = function()
-  --     local highlights = require('rose-pine.plugins.bufferline')
-  --     require('bufferline').setup({ highlights = highlights })
-  --   end
-  -- },
   {
     "kazhala/close-buffers.nvim",
     config = true,

@@ -1,8 +1,4 @@
 return {
-  -- {
-  --   "askfiy/visual_studio_code",
-  --   priority = 100,
-  -- },
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -26,10 +22,10 @@ return {
     },
     config = function()
       vim.cmd([[
-	       colorscheme catppuccin
-	       highlight DiagnosticUnderlineError gui=undercurl
-	       highlight DiagnosticUnderlineWarn gui=undercurl
-	     ]])
+        colorscheme catppuccin
+        highlight DiagnosticUnderlineError gui=undercurl
+        highlight DiagnosticUnderlineWarn gui=undercurl
+      ]])
     end
   },
 }
