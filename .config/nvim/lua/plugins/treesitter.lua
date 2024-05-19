@@ -54,15 +54,24 @@ return {
       vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 
       require("nvim-treesitter.configs").setup({
+        -- TODO: map keys for:
+        --  - @conditional.inner - @conditional.outer
+        --  - @block.inner / @block.outer
+        --  - @call.inner / @call.outer
         textobjects = {
           select = {
             enable = true,
             lookahead = true,
             keymaps = {
+              -- method / function
               ["am"] = { query = "@function.outer", desc = "Select outter function" },
-              ["ac"] = { query = "@class.outer", desc = "Select outter class" },
               ["im"] = { query = "@function.inner", desc = "Select inner function" },
-              ["ic"] = { query = "@class.inner", desc = "Select inner class" },
+              -- conditional
+              ["ac"] = { query = "@conditional.outer", desc = "Select outter conditional" },
+              ["ic"] = { query = "@conditional.inner", desc = "Select inner conditional" },
+              -- class
+              ["ak"] = { query = "@class.outer", desc = "Select outter class" },
+              ["ik"] = { query = "@class.inner", desc = "Select inner class" },
             },
           },
           move = {
@@ -70,19 +79,23 @@ return {
             set_jumps = true,
             goto_next_start = {
               ["]ms"] = { query = "@function.outer", desc = "Goto next function start" },
-              ["]cs"] = { query = "@class.outer", desc = "Goto next class start" },
+              ["]ks"] = { query = "@class.outer", desc = "Goto next class start" },
+              ["]cs"] = { query = "@conditional.outer", desc = "Goto next conditional start" },
             },
             goto_next_end = {
               ["]me"] = { query = "@function.outer", desc = "Goto next function end" },
-              ["]ce"] = { query = "@class.outer", desc = "Goto next class end" },
+              ["]ke"] = { query = "@class.outer", desc = "Goto next class end" },
+              ["]ce"] = { query = "@conditional.outer", desc = "Goto next conditional end" },
             },
             goto_previous_start = {
               ["[ms"] = { query = "@function.outer", desc = "Goto previous function start" },
-              ["[cs"] = { query = "@class.outer", desc = "Goto previous class start" },
+              ["[ks"] = { query = "@class.outer", desc = "Goto previous class start" },
+              ["[cs"] = { query = "@conditional.outer", desc = "Goto previous conditional start" },
             },
             goto_previous_end = {
               ["[me"] = { query = "@function.outer", desc = "Goto previous function end" },
-              ["[ce"] = { query = "@class.outer", desc = "Goto previous class end" },
+              ["[ke"] = { query = "@class.outer", desc = "Goto previous class end" },
+              ["[ce"] = { query = "@conditional.outer", desc = "Goto previous conditional end" },
             },
           },
           -- swap = {
