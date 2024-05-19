@@ -1,9 +1,5 @@
 return {
 	-- {
-	-- 	"askfiy/visual_studio_code",
-	-- 	priority = 100,
-	-- },
-	-- {
 	-- 	"rose-pine/neovim",
 	-- 	name = "rose-pine",
 	-- 	config = function()

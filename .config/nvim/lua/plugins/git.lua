@@ -92,9 +92,10 @@ return {
 		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+      "ibhagwan/fzf-lua",
 		},
 		keys = {
-			{ "<leader>G", "<cmd>Neogit kind=vsplit<CR>", desc = "Neogit open" },
+			{ "<leader>G", "<cmd>Neogit kind=auto<CR>", desc = "Neogit open" },
 		},
 	},
 }

@@ -2,15 +2,8 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		lazy = false,
-		-- tag = "v3.*",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
-		-- opts = {
-		-- 	options = {
-		-- 		themable = true,
-		-- 		-- separator_style = 'slant'
-		-- 	},
-		-- },
 		keys = {
 			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
 			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
@@ -20,7 +13,6 @@ return {
 			{ "bp", "<cmd>:BufferLinePick<CR>", desc = "Pick buffer" },
 			{ "bch", "<cmd>:BufferLineCloseLeft<CR>", desc = "Close left buffers" },
 			{ "bcl", "<cmd>:BufferLineCloseRight<CR>", desc = "Next right buffers" },
-			-- { "bP",         "<cmd>:BufferLineTogglePin<CR>",       desc = "Pin/Unpin buffer" },
 		},
 	},
 	{
@@ -64,26 +56,6 @@ return {
 					require("close_buffers").wipe({ type = "other", force = true })
 				end,
 				"Wipe all buffers except the current focused",
-			},
-		},
-	},
-	{
-		"LintaoAmons/scratch.nvim",
-		event = "VimEnter",
-		keys = {
-			{
-				"<leader>ss",
-				function()
-					require("scratch").scratch()
-				end,
-				"Scratch",
-			},
-			{
-				"<leader>so",
-				function()
-					require("scratch").openScratch()
-				end,
-				"Open scratch",
 			},
 		},
 	},
