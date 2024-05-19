@@ -3,11 +3,10 @@ return {
   lazy = false,
   priority = 100,
   opts = {
-    projects = { -- define project roots
+    projects = {
       "~/Code/*",
       "~/.config/nvim",
       "~/.config/kitty",
-      "~/.config/notes",
     },
   },
   init = function()

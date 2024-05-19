@@ -14,7 +14,7 @@ return {
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
-      -- "olimorris/neotest-phpunit",
+      "olimorris/neotest-phpunit",
       "theutz/neotest-pest",
     },
     config = function()
@@ -39,8 +39,12 @@ return {
         --  - target = "t",
         --  - watch = "w"
         adapters = {
-          -- require("neotest-phpunit"),
+          require("neotest-phpunit"),
           require("neotest-pest"),
+        },
+        statusline = {
+          enabled = true,
+          interval = 1000,
         },
         diagnostic = {
           enabled = false,

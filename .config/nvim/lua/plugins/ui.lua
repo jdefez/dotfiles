@@ -1,7 +1,7 @@
 return {
   {
     "backdround/global-note.nvim",
-    config = {},
+    opts = {},
     keys = {
       {
         "<leader>N",
@@ -13,6 +13,14 @@ return {
     }
   },
   {
+    "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { mode = "n", "<leader>z", "<cmd>:ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
+  },
+  {
     '2kabhishek/termim.nvim',
     cmd = {
       -- JJ to Return to normal mode in terminals, remap for <C-\><C-n>
@@ -21,28 +29,28 @@ return {
       'Sterm', -- open terminal in new horizontal split
       'STerm', -- same as Sterm but stays open after process exits
       'Vterm', -- open terminal in new vertical split
-      'VTerm'  -- same as Vterm but stays open after process exits
+      'VTerm' -- same as Vterm but stays open after process exits
     },
   },
-  {
-    'gelguy/wilder.nvim',
-    config = function()
-      local wilder = require('wilder')
+  -- {
+  --   'gelguy/wilder.nvim',
+  --   config = function()
+  --     local wilder = require('wilder')
 
-      wilder.setup({ modes = { ':', '/', '?' } })
+  --     wilder.setup({ modes = { ':', '/', '?' } })
 
-      wilder.set_option('renderer', wilder.popupmenu_renderer(
-        wilder.popupmenu_border_theme({
-          highlights = {
-            border = 'Normal', -- highlight to use for the border
-          },
-          -- 'single', 'double', 'rounded' or 'solid'
-          -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-          border = 'rounded',
-        })
-      ))
-    end,
-  },
+  --     wilder.set_option('renderer', wilder.popupmenu_renderer(
+  --       wilder.popupmenu_border_theme({
+  --         highlights = {
+  --           border = 'Normal', -- highlight to use for the border
+  --         },
+  --         -- 'single', 'double', 'rounded' or 'solid'
+  --         -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
+  --         border = 'rounded',
+  --       })
+  --     ))
+  --   end,
+  -- },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",

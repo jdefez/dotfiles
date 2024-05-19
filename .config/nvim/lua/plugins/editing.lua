@@ -2,19 +2,6 @@ return {
   {
     "pocco81/auto-save.nvim",
   },
-  -- {
-  --   "altermo/iedit.nvim",
-  --   keys = {
-  --     {
-  --       ";s",
-  --       function()
-  --         require("iedit").toggle()
-  --       end,
-  --       mode = {'n','x'},
-  --       desc = "Toggle iedit mode"
-  --     },
-  --   },
-  -- },
   {
     "chrisgrieser/nvim-alt-substitute",
     -- lua patterns: @see https://www.lua.org/manual/5.4/manual.html#6.4.1
@@ -91,9 +78,9 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
+      -- "saadparwaiz1/cmp_luasnip",
+      -- "L3MON4D3/LuaSnip",
+      -- "rafamadriz/friendly-snippets",
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-calc",
     },
@@ -108,11 +95,11 @@ return {
             ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           }),
         },
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
-        },
+        -- snippet = {
+        --   expand = function(args)
+        --     require("luasnip").lsp_expand(args.body)
+        --   end,
+        -- },
         window = {
           completion = {
             winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
@@ -131,8 +118,8 @@ return {
               cmp.select_next_item()
               -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
               -- they way you will only jump inside the snippet region
-            elseif require("luasnip").expand_or_jumpable() then
-              require("luasnip").expand_or_jump()
+              -- elseif require("luasnip").expand_or_jumpable() then
+              --   require("luasnip").expand_or_jump()
             elseif has_words_before() then
               cmp.complete()
             else
@@ -143,8 +130,8 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lsp_signature_help' },
           { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "neorg" },
+          -- { name = "luasnip" },
+          -- { name = "neorg" },
           { name = 'path' },
           { name = 'calc' },
         }, {
@@ -226,5 +213,13 @@ return {
   },
   {
     "mateuszwieloch/automkdir.nvim"
+  },
+  {
+    'MeanderingProgrammer/markdown.nvim',
+    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('render-markdown').setup({})
+    end,
   }
 }
