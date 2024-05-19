@@ -17,8 +17,9 @@ vim.diagnostic.config({
 
 mason_lsp.setup({
 	ensure_installed = {
-		"phpactor",
-    "pest_ls",
+		-- "phpactor",
+    "rust_analyzer",
+		"pest_ls",
 		"lua_ls",
 	},
 	automatic_installation = true,
@@ -54,26 +55,4 @@ mason_lsp.setup_handlers({
 			inlay_hints = { enabled = true },
 		})
 	end,
-	-- https://phpactor.readthedocs.io/en/master/reference/configuration.html#ref-configuration
-	-- ["phpactor"] = function()
-	-- 	lspconfig.phpactor.setup({
-	-- 		on_attach = on_attach,
-	-- 		capabilities = capabilities,
-	-- 		filetypes = {
-	-- 			"php",
-	-- 		},
-	-- 		settings = {
-	-- 			phpactor = {
-	-- 				language_server_worse_reflection = {
-	-- 					enabled = true,
-	-- 					inlay_hints = {
-	-- 						enabled = true,
-	-- 						types = false,
-	-- 						params = true,
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	})
-	-- end,
 })

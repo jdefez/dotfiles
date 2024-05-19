@@ -1,3 +1,5 @@
+vim.g.python3_host_prog = '/usr/bin/python'
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.termguicolors = true

@@ -1,40 +1,42 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		-- cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter").setup({
-				indent = {
-					enable = true,
-				},
-				-- A list of parser names, or "all"
-				ensure_installed = {
-					"markdown",
-					"graphql",
-					"phpdoc",
-					"python",
-					"regex",
-					"json",
-					"html",
-					"yaml",
-					"vue",
-					"css",
-					"lua",
-					"php",
-				},
-				-- Install parsers synchronously (only applied to `ensure_installed`)
-				sync_install = false,
-				-- Automatically install missing parsers when entering buffer
-				-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-				auto_install = true,
-				-- List of parsers to ignore installing (for "all")
-				ignore_install = {},
-
-				highlight = {
-					additional_vim_regex_highlighting = false,
-				},
-			})
-		end,
+		opts = {
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = false,
+			},
+			indent = { enable = true },
+			-- A list of parser names, or "all"
+			ensure_installed = {
+				"markdown",
+				"graphql",
+				"phpdoc",
+				"python",
+				"regex",
+				"json",
+				"html",
+				"yaml",
+				"vue",
+				"css",
+				"lua",
+				"php",
+			},
+			-- Install parsers synchronously (only applied to `ensure_installed`)
+			sync_install = false,
+			-- Automatically install missing parsers when entering buffer
+			-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+			auto_install = true,
+			-- List of parsers to ignore installing (for "all")
+			ignore_install = {},
+		},
+		-- dependencies = {
+		-- 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+		-- 	{ "nvim-treesitter/nvim-treesitter-refactor" },
+		-- 	{ "nvim-treesitter/nvim-treesitter-context" },
+		-- },
 	},
 	{
 		"williamboman/mason.nvim",
@@ -45,22 +47,15 @@ return {
 		"luckasRanarison/clear-action.nvim",
 		opts = {
 			mappings = {
-				code_action = { "<leader>a", "apply code action" },
-				quickfix = { "<leader>q", "apply quickfix" },
-				quickfix_next = { "]a", "apply next quickfix" },
-				quickfix_prev = { "[a", "apply prev quickfix" },
+				code_action = { "<leader>a", "display code action" },
+				-- quickfix = { "<leader>q", "apply quickfix" },
+				-- quickfix_next = { "a", "apply next quickfix" },
+				-- quickfix_prev = { "[a", "apply prev quickfix" },
 				-- Consider this as a Hydra or prefixed with a 'refactor' mapping.
-				refactor = { "<leader>rr", "apply refactor" },
-				refactor_inline = { "<leader>ri", "refactor inline" },
-				refactor_extract = { "<leader>re", "refactor extract" },
-				refactor_rewrite = { "<leader>rw", "refactor rewrite" },
-				-- actions = {
-				--     ["rust_analyzer"] = {
-				--         -- ["Inline"] = "<leader>ai"
-				--         ["Add braces"] = { "<leader>rb", "Add braces" },
-				--         ["Insert explicit type"] = { "<leader>rt", "Explicit type" },
-				--     },
-				-- },
+				-- refactor = { "<leader>rr", "apply refactor" },
+				-- refactor_inline = { "<leader>ri", "refactor inline" },
+				-- refactor_extract = { "<leader>re", "refactor extract" },
+				-- refactor_rewrite = { "<leader>rw", "refactor rewrite" },
 			},
 		},
 	},
@@ -122,6 +117,7 @@ return {
 		},
 		opts = {
 			formatters_by_ft = {
+				rust = { "ast_grep" },
 				lua = { "stylua" },
 				php = { "pint" },
 			},

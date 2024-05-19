@@ -4,10 +4,10 @@ return {
 	priority = 100,
 	opts = {
 		projects = { -- define project roots
+      "~/Rust/*",
 			"~/Code/*",
 			"~/.config/nvim",
 			"~/.config/kitty",
-			"~/.config/notes",
 		},
 	},
 	init = function()
