@@ -29,28 +29,9 @@ return {
       'Sterm', -- open terminal in new horizontal split
       'STerm', -- same as Sterm but stays open after process exits
       'Vterm', -- open terminal in new vertical split
-      'VTerm' -- same as Vterm but stays open after process exits
+      'VTerm'  -- same as Vterm but stays open after process exits
     },
   },
-  -- {
-  --   'gelguy/wilder.nvim',
-  --   config = function()
-  --     local wilder = require('wilder')
-
-  --     wilder.setup({ modes = { ':', '/', '?' } })
-
-  --     wilder.set_option('renderer', wilder.popupmenu_renderer(
-  --       wilder.popupmenu_border_theme({
-  --         highlights = {
-  --           border = 'Normal', -- highlight to use for the border
-  --         },
-  --         -- 'single', 'double', 'rounded' or 'solid'
-  --         -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-  --         border = 'rounded',
-  --       })
-  --     ))
-  --   end,
-  -- },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -59,13 +40,44 @@ return {
       vim.o.timeoutlen = 300
     end,
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      plugins = {
+        marks = false,
+        registers = false,
+        spelling = {
+          enabled = false,
+          suggestions = 20,
+        },
+      },
     }
   },
   {
     'karb94/neoscroll.nvim',
     opts = {}
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = false,        -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false,       -- add a border to hover docs and signature help
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
   }
 }
