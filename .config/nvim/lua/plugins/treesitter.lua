@@ -15,6 +15,7 @@ return {
           "phpdoc",
           "python",
           "regex",
+          "query",
           "json",
           "html",
           "yaml",
@@ -22,6 +23,7 @@ return {
           "css",
           "lua",
           "php",
+          "sql",
         },
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
@@ -35,16 +37,10 @@ return {
         ignore_install = {},
       })
     end,
-    dependencies = {
-      -- "nvim-treesitter/playground",
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-treesitter/nvim-treesitter-refactor",
-      "nvim-treesitter/nvim-treesitter-context",
-      -- "nvim-treesitter/nvim-treesitter-hl"
-    },
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    requires = "nvim-treesitter/nvim-treesitter",
     config = function()
       local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
 
@@ -55,7 +51,6 @@ return {
 
       require("nvim-treesitter.configs").setup({
         -- TODO: map keys for:
-        --  - @conditional.inner - @conditional.outer
         --  - @block.inner / @block.outer
         --  - @call.inner / @call.outer
         textobjects = {
@@ -72,6 +67,15 @@ return {
               -- class
               ["ak"] = { query = "@class.outer", desc = "Select outter class" },
               ["ik"] = { query = "@class.inner", desc = "Select inner class" },
+              -- statement
+              ["as"] = { query = "@statement.outer", desc = "Select outter statement" },
+              ["is"] = { query = "@statement.inner", desc = "Select inner statement" },
+              -- parameter
+              ["ap"] = { query = "@parameter.outer", desc = "Select outter parameter" },
+              ["ip"] = { query = "@parameter.inner", desc = "Select inner parameter" },
+              -- loop
+              ["al"] = { query = "@loop.outer", desc = "Select outter loop" },
+              ["il"] = { query = "@loop.inner", desc = "Select inner loop" },
             },
           },
           move = {
@@ -81,38 +85,43 @@ return {
               ["]ms"] = { query = "@function.outer", desc = "Goto next function start" },
               ["]ks"] = { query = "@class.outer", desc = "Goto next class start" },
               ["]cs"] = { query = "@conditional.outer", desc = "Goto next conditional start" },
+              ["]ps"] = { query = "@parameter.outer", desc = "Goto next parameter start" },
             },
             goto_next_end = {
               ["]me"] = { query = "@function.outer", desc = "Goto next function end" },
               ["]ke"] = { query = "@class.outer", desc = "Goto next class end" },
               ["]ce"] = { query = "@conditional.outer", desc = "Goto next conditional end" },
+              ["]pe"] = { query = "@parameter.outer", desc = "Goto next parameter end" },
             },
             goto_previous_start = {
               ["[ms"] = { query = "@function.outer", desc = "Goto previous function start" },
               ["[ks"] = { query = "@class.outer", desc = "Goto previous class start" },
               ["[cs"] = { query = "@conditional.outer", desc = "Goto previous conditional start" },
+              ["[ps"] = { query = "@parameter.outer", desc = "Goto previous parameter start" },
             },
             goto_previous_end = {
               ["[me"] = { query = "@function.outer", desc = "Goto previous function end" },
               ["[ke"] = { query = "@class.outer", desc = "Goto previous class end" },
               ["[ce"] = { query = "@conditional.outer", desc = "Goto previous conditional end" },
+              ["[pe"] = { query = "@parameter.outer", desc = "Goto previous parameter end" },
             },
           },
-          -- swap = {
-          --   enable = true,
-          --   swap_next = {
-          --     ["<leader>a"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
-          --   },
-          --   swap_previous = {
-          --     ["<leader>A"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
-          --   },
-          -- },
+          swap = {
+            enable = true,
+            swap_next = {
+              ["g]"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
+            },
+            swap_previous = {
+              ["g["] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
+            },
+          },
         },
       })
     end
   },
   {
     "nvim-treesitter/nvim-treesitter-refactor",
+    requires = "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
         refactor = {
@@ -124,27 +133,6 @@ return {
               smart_rename = "grr",
             },
           },
-          -- navigation = {
-          --   enable = true,
-          --   keymaps = {
-          --     goto_definition = "gnd",
-          --     list_definitions = "gnD",
-          --     list_definitions_toc = "gO",
-          --     goto_next_usage = "<a-*>",
-          --     goto_previous_usage = "<a-#>",
-          --   },
-          -- },
-        },
-      })
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        context = {
-          enable = true,
-          throttle = true,
         },
       })
     end,
