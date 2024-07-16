@@ -71,6 +71,8 @@ return {
     end
   },
   {
+    -- TODO: native snippets integration ?
+    -- https://github.com/hrsh7th/nvim-cmp
     "hrsh7th/nvim-cmp",
     dependencies = {
       "onsails/lspkind-nvim",
