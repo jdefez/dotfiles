@@ -4,7 +4,7 @@ return {
     lazy = false,
     config = function()
       require("bufferline").setup {
-        highlights = require("catppuccin.groups.integrations.bufferline").get()
+        -- highlights = require("catppuccin.groups.integrations.bufferline").get()
       }
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },

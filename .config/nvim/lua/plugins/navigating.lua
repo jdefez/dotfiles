@@ -44,7 +44,7 @@ return {
         enable = true,
         min_length = 3,
         hl = {
-          fg = "aqua",
+          fg = "orange",
           underline = false,
         },
       },
