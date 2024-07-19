@@ -71,6 +71,68 @@ return {
     end
   },
   {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+    keys = {
+      {
+        "<c-k>",
+        function()
+          local ls = require("luasnip")
+          print(ls.expand_or_jumpable())
+          if ls.expand_or_jumpable() then
+            ls.expand_or_jump()
+          end
+        end,
+        mode = { "i", "s" },
+        silent = true,
+        desc = "Expand or jump to next snippet"
+      },
+      {
+        "<c-h>",
+        function()
+          local ls = require("luasnip")
+          if ls.jumpable(-1) then
+            ls.jump(-1)
+          end
+        end,
+        mode = { "i", "s" },
+        silent = true,
+        desc = "Jump to previous snippet"
+      },
+      {
+        "<c-u>",
+        function()
+          local ls = require("luasnip")
+          if ls.choice_active() then
+            ls.change_choice(1)
+          end
+        end,
+        mode = { "i" },
+        silent = true,
+        desc = "Change snippet choice"
+      },
+      -- TODO: edit snippet keymap or command require("luasnip.loaders").edit_snippet_files(opts:table|nil)
+      -- command! LuaSnipEdit :lua require("luasnip.loaders").edit_snippet_files()
+      {
+        "<leader><leader>s",
+        "<cmd>source ~/.config/nvim/lua/snippets/php.lua<CR> ",
+        mode = { "n" },
+        silent = true,
+        desc = "Reload snippet"
+      },
+    },
+    config = function()
+      local ls = require("luasnip")
+      ls.config.setup({
+        history = true,
+        updateevents = "TextChanged,TextChangedI",
+        enable_autosnippets = true,
+      })
+      require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
+    end,
+  },
+  {
     -- TODO: native snippets integration ?
     -- https://github.com/hrsh7th/nvim-cmp
     "hrsh7th/nvim-cmp",
@@ -80,9 +142,6 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      -- "saadparwaiz1/cmp_luasnip",
-      -- "L3MON4D3/LuaSnip",
-      -- "rafamadriz/friendly-snippets",
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-calc",
     },
@@ -97,11 +156,6 @@ return {
             ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           }),
         },
-        -- snippet = {
-        --   expand = function(args)
-        --     require("luasnip").lsp_expand(args.body)
-        --   end,
-        -- },
         window = {
           completion = {
             winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
@@ -118,10 +172,6 @@ return {
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-              -- they way you will only jump inside the snippet region
-              -- elseif require("luasnip").expand_or_jumpable() then
-              --   require("luasnip").expand_or_jump()
             elseif has_words_before() then
               cmp.complete()
             else
@@ -132,8 +182,6 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lsp_signature_help' },
           { name = "nvim_lsp" },
-          -- { name = "luasnip" },
-          -- { name = "neorg" },
           { name = 'path' },
           { name = 'calc' },
         }, {

@@ -6,15 +6,15 @@ local mason_lsp = require("mason-lspconfig")
 --   on_attach = function(client, bufnr)
 --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 --   end,
-  -- settings = {
-  --   phpactor = {
-  --     inlay_hints = {
-  --       "language_server_worse_reflection.inlay_hints.enable" = false,
-  --       "language_server_worse_reflection.inlay_hints.params" = true,
-  --       "language_server_worse_reflection.inlay_hints.types" = false,
-  --     },
-  --   },
-  -- },
+-- settings = {
+--   phpactor = {
+--     inlay_hints = {
+--       "language_server_worse_reflection.inlay_hints.enable" = false,
+--       "language_server_worse_reflection.inlay_hints.params" = true,
+--       "language_server_worse_reflection.inlay_hints.types" = false,
+--     },
+--   },
+-- },
 -- })
 
 require("mason").setup({})
@@ -41,9 +41,9 @@ mason_lsp.setup({
 
 local function on_attach(client, bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover" })
-  vim.keymap.set("n", "<space>K", vim.diagnostic.open_float, { buffer = bufnr, desc = "Hover diagnostic (lsp)" })
+  -- vim.keymap.set("n", "<space>K", vim.diagnostic.open_float, { buffer = bufnr, desc = "Hover diagnostic (lsp)" })
   vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature help" })
-  vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature help" })
+  -- vim.keymap.set("i", "<S-k>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature help" })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition (lsp)" })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration (lsp)" })
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr, desc = "Go to implementation (lsp)" })
