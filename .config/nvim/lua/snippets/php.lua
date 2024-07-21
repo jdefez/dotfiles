@@ -1,22 +1,50 @@
+-- NOTE: function reference:
+--  https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#snippetnode
+
 local ls = require('luasnip')
+
 local s = ls.snippet
 local i = ls.insert_node
 local t = ls.text_node
-local c = ls.choice_node
-local sn = ls.snippet_node
-local isn = ls.indent_snippet_node
-local fmt = require('luasnip.extras.fmt').fmt
-local types = require("luasnip.util.types")
+local fmt = require("luasnip.extras.fmt").fmt
+local extras = require("luasnip.extras")
 
 -- lua require("luasnip.loaders").edit_snippet_files()
--- https://github.com/L3MON4D3/LuaSnip/wiki/Cool-Snippets#python
 
-return {
-  s("pub", {
-    t("public function "), i(1, "methodName"), t(" (")
-    t({ "", "" }), i(2),
-    t({ "", ")" }), i(3), t(" {"),
-    t({ "", "" }), i(0, "// Body"),
-    t({ "", "}" }),
+ls.add_snippets("php",
+  {
+    s("fna", {
+      t("fn ("), i(1, "item"), t(") => "), extras.rep(1), i(0)
+    })
   })
-}
+
+ls.add_snippets("php", {
+  s("prim", fmt([[private function <> (
+      <>
+    )<> {
+      <>
+    }]], {
+    i(1, "methodName"),
+    i(2),
+    i(3),
+    i(0, "body"),
+  }, {
+    delimiters = "<>"
+  }))
+})
+
+ls.add_snippets("php", {
+  s("pubm", fmt([[public <> function <> (
+      <>
+    )<> {
+      <>
+    }]], {
+    i(1, "methodName"),
+    i(2),
+    i(3),
+    i(4),
+    i(0, "body"),
+  }, {
+    delimiters = "<>"
+  }))
+})
