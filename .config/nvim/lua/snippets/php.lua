@@ -39,11 +39,39 @@ ls.add_snippets("php", {
     )<> {
       <>
     }]], {
-    i(1, "methodName"),
-    i(2),
+    i(1),
+    i(2, "methodName"),
     i(3),
     i(4),
     i(0, "body"),
+  }, {
+    delimiters = "<>"
+  }))
+})
+
+ls.add_snippets("php", {
+  s("dtoc", fmt([[<<?php
+  final class <> {
+    public function __construct(
+      <>
+    ) {
+    }
+
+    /**
+      * @param array<<array-key, mixed>> $data
+      */
+    public static function make(
+      array $data
+    ): static {
+      return new static(
+        <>
+      );
+    }
+  }
+  ]], {
+    i(1, "ClassName"),
+    i(2, "propertyName"),
+    i(0),
   }, {
     delimiters = "<>"
   }))
