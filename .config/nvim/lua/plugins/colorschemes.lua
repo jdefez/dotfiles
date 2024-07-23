@@ -1,14 +1,24 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "Mofiqul/vscode.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
     config = function()
-      -- vim.o.background = "light"
-      vim.cmd([[ colorscheme tokyonight-moon ]])
+      vim.o.background = "light"
+      vim.cmd([[ colorscheme vscode ]])
     end
   },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  --   config = function()
+  --     -- vim.o.background = "light"
+  --     vim.cmd([[ colorscheme tokyonight-moon ]])
+  --   end
+  -- },
   -- {
   --   "catppuccin/nvim",
   --   name = "catppuccin",
@@ -38,14 +48,4 @@ return {
   --     ]])
   --   end
   -- },
-  -- {
-  --   "slugbyte/lackluster.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   init = function()
-  --     -- vim.cmd.colorscheme("lackluster")
-  --     -- vim.cmd.colorscheme("lackluster-hack") -- my favorite
-  --     vim.cmd.colorscheme("lackluster-mint")
-  --   end,
-  -- }
 }
