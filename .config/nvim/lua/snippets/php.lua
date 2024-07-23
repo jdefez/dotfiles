@@ -53,7 +53,7 @@ ls.add_snippets("php", {
   s("dtoc", fmt([[<<?php
   final class <> {
     public function __construct(
-      <>
+      public <> <>,
     ) {
     }
 
@@ -70,7 +70,8 @@ ls.add_snippets("php", {
   }
   ]], {
     i(1, "ClassName"),
-    i(2, "propertyName"),
+    i(2, "type"),
+    i(3, "property_name"),
     i(0),
   }, {
     delimiters = "<>"
