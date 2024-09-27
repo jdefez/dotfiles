@@ -179,7 +179,6 @@ export NODE_OPTIONS=--max_old_space_size=4096
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="~/.composer/vendor/bin:$PATH"
 export PATH="usr/local/sbin:$PATH"
-# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/php@8.1/bin/php:$PATH"
 # export PATH="/usr/local/opt/libiconv/bin:$PATH"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

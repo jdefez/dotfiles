@@ -1,7 +1,40 @@
 return {
+  -- {
+  --   "kevinhwang91/nvim-bqf",
+  --   ft = "qf",
+  -- },
   {
-    "kevinhwang91/nvim-bqf",
-    ft = "qf",
+    'stevearc/quicker.nvim',
+    event = "FileType qf",
+    opts = {
+      keys = {
+        {
+          mode = { "n" },
+          "<leader>q",
+          function()
+            require("quicker").toggle()
+          end,
+          desc = "Close quickfix",
+          silent = true,
+        },
+        {
+          ">",
+          function()
+            require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
+          end,
+          desc = "Expand quickfix context",
+          silent = true,
+        },
+        {
+          "<",
+          function()
+            require("quicker").collapse()
+          end,
+          desc = "Collapse quickfix context",
+          silent = true,
+        },
+      }
+    },
   },
   {
     "folke/flash.nvim",

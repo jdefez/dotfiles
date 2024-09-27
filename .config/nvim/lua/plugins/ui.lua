@@ -91,5 +91,40 @@ return {
       "MunifTanjim/nui.nvim",
       -- "rcarriga/nvim-notify",
     }
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    opts = {},
+    keys = {
+      {
+        "zR",
+        function()
+          return require("ufo").openAllFolds()
+        end,
+        desc = "Open folds",
+      },
+      {
+        "zM",
+        function()
+          return require("ufo").closeAllFolds()
+        end,
+        desc = "Close folds",
+      },
+    },
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      theme = {
+        normal = { fg = "#999999" },
+      }
+    },
   }
 }

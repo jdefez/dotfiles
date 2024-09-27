@@ -1,22 +1,6 @@
 local lspconfig = require("lspconfig")
 local mason_lsp = require("mason-lspconfig")
 
--- lspconfig.phpactor.setup({
---   filetypes = {"php"},
---   on_attach = function(client, bufnr)
---     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
---   end,
--- settings = {
---   phpactor = {
---     inlay_hints = {
---       "language_server_worse_reflection.inlay_hints.enable" = false,
---       "language_server_worse_reflection.inlay_hints.params" = true,
---       "language_server_worse_reflection.inlay_hints.types" = false,
---     },
---   },
--- },
--- })
-
 require("mason").setup({})
 
 vim.diagnostic.config({
@@ -38,6 +22,14 @@ mason_lsp.setup({
   },
   automatic_installation = true,
 })
+
+-- lspconfig.phpactor.setup {
+--   init_options = {
+--     ["language_server_worse_reflection.inlay_hints.enable"] = false,
+--     ["language_server_worse_reflection.inlay_hints.params"] = true,
+--     ["language_server_worse_reflection.inlay_hints.types"] = false,
+--   },
+-- }
 
 local function on_attach(client, bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover" })
