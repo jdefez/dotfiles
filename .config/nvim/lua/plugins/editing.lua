@@ -270,19 +270,18 @@ return {
     version = "*", -- Use the latest tagged version
     opts = {},     -- This causes the plugin setup function to be called
     keys = {
-      {
-        "<C-j>",
-        "<Cmd>MultipleCursorsAddDown<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor and move down"
-      },
-      {
-        "<C-k>",
-        "<Cmd>MultipleCursorsAddUp<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor and move up"
-      },
-
+      -- {
+      --   "<C-j>",
+      --   "<Cmd>MultipleCursorsAddDown<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor and move down"
+      -- },
+      -- {
+      --   "<C-k>",
+      --   "<Cmd>MultipleCursorsAddUp<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor and move up"
+      -- },
       {
         "<C-Up>",
         "<Cmd>MultipleCursorsAddUp<CR>",
@@ -295,14 +294,12 @@ return {
         mode = { "n", "i", "x" },
         desc = "Add cursor and move down"
       },
-
-      {
-        "<C-LeftMouse>",
-        "<Cmd>MultipleCursorsMouseAddDelete<CR>",
-        mode = { "n", "i" },
-        desc = "Add or remove cursor"
-      },
-
+      -- {
+      --   "<C-LeftMouse>",
+      --   "<Cmd>MultipleCursorsMouseAddDelete<CR>",
+      --   mode = { "n", "i" },
+      --   desc = "Add or remove cursor"
+      -- },
       {
         "<Leader>w",
         "<Cmd>MultipleCursorsAddMatches<CR>",
@@ -316,7 +313,6 @@ return {
         desc =
         "Add cursors to cword in previous area"
       },
-
       {
         "<Leader>d",
         "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
@@ -329,7 +325,6 @@ return {
         mode = { "n", "x" },
         desc = "Jump to next cword"
       },
-
       {
         "<Leader>l",
         "<Cmd>MultipleCursorsLock<CR>",
