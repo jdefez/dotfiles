@@ -1,10 +1,23 @@
+require "nvchad.options"
+
+-- add yours here!
+
+local o = vim.o
+
+o.cursorlineopt = "both" -- to enable cursorline!
+
+-- NOTE: Using ufo provider need a large value, feel free to decrease the value
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true
+
 local augroup = vim.api.nvim_create_augroup("user_cmds", { clear = true })
 
 local function update_git_env_for_dotfiles()
   -- Auto change ENV variables to enable
   -- bare git repository for dotfiles after
   -- loading saved session
-  local home = vim.fn.expand("~")
+  local home = vim.fn.expand "~"
   local git_dir = home .. "/.dotfiles"
 
   if vim.env.GIT_DIR ~= nil and vim.env.GIT_DIR ~= git_dir then

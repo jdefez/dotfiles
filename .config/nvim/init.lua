@@ -1,18 +1,37 @@
-require("core.api")
-require("core.dotfiles")
-require("core.keymaps")
-require("core.lazy")
-require("core.lsp")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
-vim.cmd([[
-  colorscheme default
-  highlight DiagnosticUnderlineError gui=undercurl
-  highlight DiagnosticUnderlineWarn gui=undercurl
-  highlight WinSeparator guifg=#000000
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-  highlight Conditional guifg=NvimLightGreen
-  highlight Type gui=bold
-]])
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
--- NvimLightCyan
--- NvimLightGreen
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
