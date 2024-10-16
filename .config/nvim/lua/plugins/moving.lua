@@ -2,7 +2,6 @@ return {
   {
     "coffebar/neovim-project",
     lazy = false,
-    -- priority = 100,
     opts = {
       projects = {
         "~/Code/*",
