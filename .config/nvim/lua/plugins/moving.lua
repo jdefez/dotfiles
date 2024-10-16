@@ -1,29 +1,29 @@
 return {
-  -- {
-  --   "coffebar/neovim-project",
-  --   lazy = false,
-  --   priority = 100,
-  --   opts = {
-  --     projects = {
-  --       "~/Code/*",
-  --       "~/.config/nvim",
-  --       "~/.config/kitty",
-  --     },
-  --   },
-  --   init = function()
-  --     -- enable saving the state of plugins in the session
-  --     -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
-  --     vim.opt.sessionoptions:append "globals"
-  --   end,
-  --   dependencies = {
-  --     { "nvim-lua/plenary.nvim" },
-  --     { "nvim-telescope/telescope.nvim" },
-  --     { "Shatur/neovim-session-manager" },
-  --   },
-  --   keys = {
-  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
-  --   },
-  -- },
+  {
+    "coffebar/neovim-project",
+    lazy = false,
+    -- priority = 100,
+    opts = {
+      projects = {
+        "~/Code/*",
+        "~/.config/nvim",
+        "~/.config/kitty",
+      },
+    },
+    init = function()
+      -- enable saving the state of plugins in the session
+      -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+      vim.opt.sessionoptions:append "globals"
+    end,
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+      { "Shatur/neovim-session-manager" },
+    },
+    keys = {
+      { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+    },
+  },
   {
     "stevearc/quicker.nvim",
     event = "FileType qf",
