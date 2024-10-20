@@ -1,0 +1,18 @@
+[user]
+	name = jdefez
+	email = jdefez@gmail.com
+[core]
+	editor = nvim
+	excludesfile = /home/jean/.global_gitignore
+[commit]
+	template = /home/jean/.gitmessage
+[init]
+	defaultBranch = main
+[mergetool]
+  prompt = false
+[merge]
+	tool = nvimdiff
+	conflictstyle = diff3
+[pull]
+	rebase = false
+[alias]

@@ -53,8 +53,9 @@ return {
     opts = {
       projects = {
         "~/Code/*",
-        "~/.config/nvim",
-        "~/.config/kitty",
+        "~/dotfiles",
+        -- "~/.config/nvim",
+        -- "~/.config/kitty",
       },
     },
     dependencies = {

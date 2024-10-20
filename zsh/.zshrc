@@ -175,7 +175,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
-alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
+# alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
 alias vimdiff='nvim -d'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
