@@ -1,6 +1,8 @@
 
 # How to install this repo
 
+Inspired from : https://www.youtube.com/watch?v=NoFiYOqnC4o
+
 1. Install GNU stow
 2. git clone this repo
 3. CD dotfiles directory
