@@ -53,7 +53,8 @@ return {
     opts = {
       projects = {
         "~/Code/*",
-        "~/dotfiles",
+        "~/dotfiles/nvim",
+        "~/dotfiles/kitty",
         -- "~/.config/nvim",
         -- "~/.config/kitty",
       },
