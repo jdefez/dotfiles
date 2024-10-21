@@ -55,6 +55,7 @@ return {
         "~/Code/*",
         "~/dotfiles/nvim",
         "~/dotfiles/kitty",
+        "~/dotfiles/git",
       },
     },
     dependencies = {
