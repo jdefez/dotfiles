@@ -8,7 +8,7 @@
 [commit]
 	template = /Users/ayctor/.gitmessage
 [core]
-	excludesfile = /Users/ayctor/.gitignore
+	excludesfile = /Users/ayctor/.global_ignore
 	pager = delta
 
 [interactive]
