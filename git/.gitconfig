@@ -1,0 +1,29 @@
+[pull]
+	rebase = false
+[user]
+	name = jean-francois Defez
+	email = jean-francois@ayctor.com
+[init]
+	defaultBranch = main
+[commit]
+	template = /Users/ayctor/.gitmessage
+[core]
+	excludesfile = /Users/ayctor/.gitignore
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	light = false
+
+[merge]
+	conflicstyle = diff3
+
+[diff]
+	colorMoved = default
+[fetch]
+	prune = true
+[alias]
+    delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|main|develop'  | xargs git branch -d"
