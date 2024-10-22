@@ -1,7 +1,12 @@
 return {
   defaults = { lazy = true },
-  install = { colorscheme = { "nvchad" } },
-
+  install = {
+    colorscheme = { "nvchad" }
+  },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
   ui = {
     icons = {
       ft = "",
@@ -10,7 +15,6 @@ return {
       not_loaded = "",
     },
   },
-
   performance = {
     rtp = {
       disabled_plugins = {

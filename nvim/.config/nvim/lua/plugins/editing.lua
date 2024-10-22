@@ -40,11 +40,4 @@ return {
     "xiyaowong/virtcolumn.nvim",
     lazy = false,
   },
-  {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    -- event = "VeryLazy",
-    config = function()
-      require("tiny-inline-diagnostic").setup()
-    end,
-  },
 }
