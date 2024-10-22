@@ -1,8 +1,43 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "phpactor",
+        "phpstan",
+        "stylua",
+        "fixjson",
+        "lua-language-server",
+        "phpactor",
+        "pint",
+        "stylua",
+        "xmlformatter",
+      },
+    },
+  },
+  {
     "rachartier/tiny-inline-diagnostic.nvim",
     -- event = "VeryLazy",
+    event = "LspAttach",
     config = function()
+      vim.diagnostic.config {
+        virtual_text = false,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          show_header = true,
+          source = "if_many",
+          border = "rounded",
+          focusable = false,
+        },
+      }
       require("tiny-inline-diagnostic").setup()
     end,
   },

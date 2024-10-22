@@ -38,11 +38,11 @@ return {
   },
   {
     "xiyaowong/virtcolumn.nvim",
-    lazy = false,
+    lazy = true,
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("tiny-inline-diagnostic").setup()
     end,

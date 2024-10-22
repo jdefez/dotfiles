@@ -1,6 +1,6 @@
 local options = {
   formatters_by_ft = {
-    json = { "jsonlint" },
+    json = { "fixjson" },
     lua = { "stylua" },
     php = { "pint" },
     xml = { "xmlformatter" },
