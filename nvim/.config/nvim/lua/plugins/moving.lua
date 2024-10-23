@@ -47,24 +47,24 @@ return {
       },
     },
   },
-  {
-    "coffebar/neovim-project",
-    lazy = false,
-    opts = {
-      projects = {
-        "~/Code/*",
-        "~/dotfiles/nvim",
-        "~/dotfiles/kitty",
-        "~/dotfiles/git",
-      },
-    },
-    dependencies = {
-      { "Shatur/neovim-session-manager" },
-    },
-    keys = {
-      { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
-    },
-  },
+  -- {
+  --   "coffebar/neovim-project",
+  --   lazy = false,
+  --   opts = {
+  --     projects = {
+  --       "~/Code/*",
+  --       "~/dotfiles/nvim",
+  --       "~/dotfiles/kitty",
+  --       "~/dotfiles/git",
+  --     },
+  --   },
+  --   dependencies = {
+  --     { "Shatur/neovim-session-manager" },
+  --   },
+  --   keys = {
+  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+  --   },
+  -- },
   {
     "stevearc/quicker.nvim",
     event = "FileType qf",

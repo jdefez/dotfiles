@@ -69,7 +69,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    lazy = true,
+    -- lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       keywords = {
@@ -79,13 +79,6 @@ return {
   },
   {
     "xiyaowong/virtcolumn.nvim",
-    lazy = true,
-  },
-  {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("tiny-inline-diagnostic").setup()
-    end,
+    -- lazy = true,
   },
 }

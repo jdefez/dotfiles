@@ -24,7 +24,6 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    -- event = "VeryLazy",
     event = "LspAttach",
     config = function()
       vim.diagnostic.config {
