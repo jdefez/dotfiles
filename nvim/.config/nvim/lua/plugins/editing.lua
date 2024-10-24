@@ -69,7 +69,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    -- lazy = true,
+    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       keywords = {
@@ -79,6 +79,26 @@ return {
   },
   {
     "xiyaowong/virtcolumn.nvim",
-    -- lazy = true,
+    lazy = false,
+  },
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      window = {
+        backdrop = 1,
+      },
+      options = {
+        -- signcolumn = "no", -- disable signcolumn
+        -- number = false, -- disable number column
+        -- relativenumber = false, -- disable relative numbers
+        -- cursorline = false, -- disable cursorline
+        -- cursorcolumn = false, -- disable cursor column
+        -- foldcolumn = "0", -- disable fold column
+        -- list = false, -- disable whitespace characters
+      },
+    },
+    keys = {
+      { "<Leader>z", "<Cmd>ZenMode<CR>", mode = { "n", "v" }, desc = "Zen mode" },
+    },
   },
 }
