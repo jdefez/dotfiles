@@ -80,6 +80,10 @@ return {
   {
     "xiyaowong/virtcolumn.nvim",
     lazy = false,
+    -- highlight = { "VirtColumn" },
+    config = function()
+      vim.api.nvim_set_hl(0, "VirtColumn", { fg = "#4b5263" })
+    end,
   },
   {
     "folke/zen-mode.nvim",

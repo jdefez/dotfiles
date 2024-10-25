@@ -1,4 +1,27 @@
 return {
+
+  -- FIXME: not working see configuration of session manager dependency:
+  --  https://github.com/Shatur/neovim-session-manager#configuration
+
+  -- {
+  --   "coffebar/neovim-project",
+  --   lazy = false,
+  --   opts = {
+  --     projects = {
+  --       "~/Code/*",
+  --       "~/dotfiles/nvim",
+  --       "~/dotfiles/kitty",
+  --       "~/dotfiles/git",
+  --     },
+  --   },
+  --   dependencies = {
+  --     { "Shatur/neovim-session-manager" },
+  --   },
+  --   keys = {
+  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+  --   },
+  -- },
+
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
@@ -47,24 +70,6 @@ return {
       },
     },
   },
-  -- {
-  --   "coffebar/neovim-project",
-  --   lazy = false,
-  --   opts = {
-  --     projects = {
-  --       "~/Code/*",
-  --       "~/dotfiles/nvim",
-  --       "~/dotfiles/kitty",
-  --       "~/dotfiles/git",
-  --     },
-  --   },
-  --   dependencies = {
-  --     { "Shatur/neovim-session-manager" },
-  --   },
-  --   keys = {
-  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
-  --   },
-  -- },
   {
     "stevearc/quicker.nvim",
     event = "FileType qf",
