@@ -22,24 +22,13 @@ return {
       },
     },
   },
-  {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "LspAttach",
-    config = function()
-      vim.diagnostic.config {
-        virtual_text = false,
-        update_in_insert = false,
-        severity_sort = true,
-        float = {
-          show_header = true,
-          source = "if_many",
-          border = "rounded",
-          focusable = false,
-        },
-      }
-      require("tiny-inline-diagnostic").setup()
-    end,
-  },
+  -- {
+  --   "rachartier/tiny-inline-diagnostic.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("tiny-inline-diagnostic").setup()
+  --   end,
+  -- },
   {
     "hedyhli/outline.nvim",
     lazy = true,

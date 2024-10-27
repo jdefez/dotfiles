@@ -1,29 +1,64 @@
 return {
+  {
+    "Shatur/neovim-session-manager",
+    lazy = false,
+    config = function()
+      local config = require "session_manager.config"
 
-  -- FIXME: not working see configuration of session manager dependency:
-  --  https://github.com/Shatur/neovim-session-manager#configuration
+      require("session_manager").setup {
+        autoload_mode = {
+          config.AutoloadMode.CurrentDir,
+          config.AutoloadMode.LastSession,
+        },
+      }
+    end,
+  },
+
+  -- FIXME: not working nvim-tree is not reloaded when directory has changed
 
   -- {
   --   "coffebar/neovim-project",
   --   lazy = false,
+  --   priority = 100,
   --   opts = {
   --     projects = {
   --       "~/Code/*",
-  --       "~/dotfiles/nvim",
-  --       "~/dotfiles/kitty",
+  --       "~/.config/nvim",
+  --       "~.config/kitty",
   --       "~/dotfiles/git",
   --     },
   --   },
   --   dependencies = {
+  --     { "nvim-lua/plenary.nvim" },
   --     { "Shatur/neovim-session-manager" },
   --   },
   --   keys = {
-  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+  --     {
+  --       "<leader>P",
+  --       "<cmd>Telescope neovim-project discover<CR>",
+  --       desc = "Projects list",
+  --     },
   --   },
+  --   -- init = function()
+  --   -- enable saving the state of plugins in the session
+  --   -- vim.opt.sessionoptions:append "globals"
+  --   -- end,
   -- },
 
   {
     "nvim-tree/nvim-tree.lua",
+    init = function()
+      require("nvim-tree").setup {
+        prefer_startup_root = true,
+        sync_root_with_cwd = true,
+        reload_on_bufenter = true,
+        respect_buf_cwd = true,
+        update_focused_file = {
+          enable = true,
+          update_root = true,
+        },
+      }
+    end,
     dependencies = {
       {
         "JMarkin/nvim-tree.lua-float-preview",
@@ -47,7 +82,7 @@ return {
             -- scroll down float buffer
             down = { "<C-d>" },
             -- scroll up float buffer
-            up = { "<C-e>", "<C-u>" },
+            up = { "<C-u>" },
             -- enable/disable float windows
             toggle = { "<C-x>" },
           },
