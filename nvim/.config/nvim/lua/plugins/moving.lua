@@ -8,7 +8,7 @@ return {
       require("session_manager").setup {
         autoload_mode = {
           config.AutoloadMode.CurrentDir,
-          config.AutoloadMode.LastSession,
+          -- config.AutoloadMode.LastSession,
         },
       }
     end,
