@@ -34,18 +34,6 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
-vim.diagnostic.config {
-  virtual_text = false,
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    show_header = true,
-    source = "if_many",
-    border = "rounded",
-    focusable = false,
-  },
-}
-
 vim.schedule(function()
   require "mappings"
 end)
