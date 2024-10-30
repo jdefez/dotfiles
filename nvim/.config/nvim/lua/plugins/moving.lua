@@ -48,22 +48,38 @@ return {
     },
   },
   {
-    "coffebar/neovim-project",
+    "Shatur/neovim-session-manager",
     lazy = false,
-    opts = {
-      projects = {
-        "~/Code/*",
-        "~/dotfiles/nvim",
-        "~/dotfiles/kitty",
-      },
-    },
-    dependencies = {
-      { "Shatur/neovim-session-manager" },
-    },
-    keys = {
-      { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
-    },
+    config = function()
+      local config = require "session_manager.config"
+
+      require("session_manager").setup {
+        autoload_mode = {
+          config.AutoloadMode.CurrentDir,
+          -- config.AutoloadMode.LastSession,
+        },
+      }
+    end,
   },
+  -- {
+  --   "coffebar/neovim-project",
+  --   lazy = false,
+  --   opts = {
+  --     projects = {
+  --       "~/Code/*",
+  --       "~/dotfiles/git",
+  --       "~/dotfiles/zsh",
+  --       "~/dotfiles/nvim",
+  --       "~/dotfiles/kitty",
+  --     },
+  --   },
+  --   dependencies = {
+  --     { "Shatur/neovim-session-manager" },
+  --   },
+  --   keys = {
+  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+  --   },
+  -- },
   {
     "stevearc/quicker.nvim",
     event = "FileType qf",
