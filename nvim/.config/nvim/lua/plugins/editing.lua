@@ -32,7 +32,11 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       keywords = {
-        NOTE = { icon = " ", color = "hint", alt = { "INFO", "EXPECT" } },
+        NOTE = {
+          icon = " ",
+          color = "hint",
+          alt = { "INFO", "EXPECT" },
+        },
       },
     },
   },
@@ -41,7 +45,7 @@ return {
     lazy = false,
     highlight = { "VirtColumn" },
     config = function()
-      vim.api.nvim_set_hl(0, "VirtColumn", { fg = "yellow" })
+      vim.api.nvim_set_hl(0, "VirtColumn", { fg = "orange" })
     end,
   },
   {

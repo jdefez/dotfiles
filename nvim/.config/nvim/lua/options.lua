@@ -21,6 +21,6 @@ o.guicursor = "n-v-c-sm-i-ci-ve:hor25,r-cr-o:hor25,a:blinkwait700-blinkoff400-bl
 -- virtcolumn
 --
 
-o.colorcolumn = "88"
+o.colorcolumn = "80"
 g.virtcolumn_char = "▕" -- char to display the line
 g.virtcolumn_priority = 10 -- priority of extmark
