@@ -15,9 +15,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
+--
+-- NOTE: neovim-project: we need this to reload nvim-tree when moving in a project
+--
+
+local function refresh_nvim_tree()
+  local cwd = vim.fn.getcwd()
+  require("nvim-tree.api").tree.change_root(cwd)
+end
+
+vim.api.nvim_create_autocmd({ "DirChanged" }, { callback = refresh_nvim_tree })
 
 --
--- Load plugins
+-- NOTE: Load plugins
 --
 
 require("lazy").setup({
@@ -32,7 +42,7 @@ require("lazy").setup({
 }, lazy_config)
 
 --
--- Load theme
+-- NOTE: Load theme
 --
 
 dofile(vim.g.base46_cache .. "defaults")
@@ -40,15 +50,7 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
--- require "configs.dotfiles"
 
 vim.schedule(function()
   require "mappings"
 end)
-
-local function refresh_nvim_tree()
-  local cwd = vim.fn.getcwd()
-  require("nvim-tree.api").tree.change_root(cwd)
-end
-
-vim.api.nvim_create_autocmd({ "DirChanged" }, { callback = refresh_nvim_tree })

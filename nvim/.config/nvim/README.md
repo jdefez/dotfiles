@@ -1,7 +1,7 @@
 
 # How to install this repo
 
-Inspired from : https://www.youtube.com/watch?v=NoFiYOqnC4o
+Inspired from : [NEVER lose dotfiles again with GNU Stow](https://www.youtube.com/watch?v=NoFiYOqnC4o)
 
 1. Install GNU stow
 ```bash

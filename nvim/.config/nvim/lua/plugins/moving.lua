@@ -1,18 +1,6 @@
 return {
   {
     "nvim-tree/nvim-tree.lua",
-    -- keys = {
-    --   {
-    --     "<c-n>",
-    --     function()
-    --       require("nvim-tree.api").tree.toggle {
-    --         path = nil,
-    --         update_root = true,
-    --       }
-    --     end,
-    --     desc = "Toggle NvimTree",
-    --   },
-    -- },
     dependencies = {
       {
         "JMarkin/nvim-tree.lua-float-preview",
@@ -59,27 +47,11 @@ return {
       },
     },
   },
-  -- {
-  --   "Shatur/neovim-session-manager",
-  --   lazy = false,
-  --   config = function()
-  --     local config = require "session_manager.config"
-  --
-  --     require("session_manager").setup {
-  --       autoload_mode = {
-  --         config.AutoloadMode.CurrentDir,
-  --         -- config.AutoloadMode.LastSession,
-  --       },
-  --     }
-  --   end,
-  -- },
-
-  --
-  -- FIXME: https://github.com/nvim-tree/nvim-tree.lua/issues/2895#issuecomment-2335078432
-  --  this command will refresh nvim-tree
-  --
-
   {
+    --
+    -- NOTE: https://github.com/nvim-tree/nvim-tree.lua/issues/2895#issuecomment-2335078432
+    --  this command will refresh nvim-tree
+    --
     "coffebar/neovim-project",
     lazy = false,
     opts = {
