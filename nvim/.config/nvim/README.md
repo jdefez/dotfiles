@@ -1,9 +1,15 @@
-**This repo is supposed to used as config by NvChad users!**
 
-- The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
-- So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`
-- So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
+# How to install this repo
 
-# Credits
+Inspired from : https://www.youtube.com/watch?v=NoFiYOqnC4o
 
-1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+1. Install GNU stow
+```bash
+# linux
+$ sudo apt-get install stow
+# macos
+$ brew install stow
+```
+2. git clone this repo
+3. CD dotfiles directory
+4. Stow dotfiles/nvim to create a .config/nvim simlink with the home directory
