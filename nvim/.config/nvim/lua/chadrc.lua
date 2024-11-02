@@ -9,6 +9,16 @@ M.term = {
   winopts = {
     cc = "500",
   },
+  sizes = {
+    sp = 0.4,
+    vsp = 0.4,
+  },
+  float = {
+    row = 0.1,
+    col = 0.15,
+    width = 0.7,
+    height = 0.7,
+  },
 }
 
 M.ui = {

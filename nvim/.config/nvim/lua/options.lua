@@ -5,6 +5,7 @@ local g = vim.g
 --
 -- Enables cursorline
 --
+
 o.cursorlineopt = "both"
 
 --
