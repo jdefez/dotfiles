@@ -25,15 +25,27 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-refactor",
     requires = "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     config = function()
       require("nvim-treesitter.configs").setup {
         refactor = {
           highlight_definitions = { enable = true },
-          highlight_current_scope = { enable = true },
+          highlight_current_scope = { enable = false },
           smart_rename = {
             enable = true,
             keymaps = {
               smart_rename = "grr",
+            },
+          },
+          navigation = {
+            enable = true,
+            -- NOTE: Assign keymaps to false to disable them, e.g. `goto_definition = false`.
+            keymaps = {
+              goto_definition = false,
+              list_definitions = false,
+              list_definitions_toc = false,
+              goto_next_usage = "<M-*>",
+              goto_previous_usage = "<M-#>",
             },
           },
         },
