@@ -41,9 +41,9 @@ return {
             enable = true,
             -- NOTE: Assign keymaps to false to disable them, e.g. `goto_definition = false`.
             keymaps = {
-              goto_definition = false,
-              list_definitions = false,
-              list_definitions_toc = false,
+              goto_definition = false, -- "gnd"
+              list_definitions = false, -- "gnD"
+              list_definitions_toc = false, -- "gO"
               goto_next_usage = "<M-*>",
               goto_previous_usage = "<M-#>",
             },

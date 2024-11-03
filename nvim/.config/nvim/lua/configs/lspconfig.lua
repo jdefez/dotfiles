@@ -3,12 +3,16 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
--- Example
-local servers = { "phpactor" }
+local servers = {
+  "phpactor",
+  "lemminx",
+  "lua_ls",
+  "jsonls",
+}
 
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- lsps with default config
+-- NOTE: lsps with default config
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -18,7 +22,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- configuring single server, example: typescript
+-- NOTE: configuring single server, example: typescript
+
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,
 --   on_init = nvlsp.on_init,
