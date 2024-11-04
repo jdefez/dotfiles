@@ -7,6 +7,9 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "phpactor",
+  "lemminx",
+  "lua_ls",
+  "jsonls",
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"

@@ -32,6 +32,12 @@ require("nvim-tree").setup {
 }
 
 --
+-- Telescope
+--
+
+map("n", "<leader>fW", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", { desc = "telescope grep current word" })
+--
 -- Gitsigns
 --
 
@@ -57,8 +63,8 @@ require("gitsigns").setup {
     end)
 
     -- Actions
-    map("n", "<leader>gs", gitsigns.stage_hunk, { desc = "Stage hunk"})
-    map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "Reset hunk"})
+    map("n", "<leader>gs", gitsigns.stage_hunk, { desc = "Stage hunk" })
+    map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "Reset hunk" })
     map("v", "<leader>gs", function()
       gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
     end, { desc = "Stage hunk" })

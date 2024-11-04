@@ -1,50 +1,27 @@
 return {
   {
-    "Shatur/neovim-session-manager",
+    --
+    -- NOTE: https://github.com/nvim-tree/nvim-tree.lua/issues/2895#issuecomment-2335078432
+    --  this command will refresh nvim-tree
+    --
+    "coffebar/neovim-project",
     lazy = false,
-    config = function()
-      local config = require "session_manager.config"
-
-      require("session_manager").setup {
-        autoload_mode = {
-          config.AutoloadMode.CurrentDir,
-          -- config.AutoloadMode.LastSession,
-        },
-      }
-    end,
+    opts = {
+      projects = {
+        "~/Code/*",
+        "~/dotfiles/git",
+        "~/dotfiles/zsh",
+        "~/.config/nvim",
+        "~/.config/kitty",
+      },
+    },
+    dependencies = {
+      { "Shatur/neovim-session-manager" },
+    },
+    keys = {
+      { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+    },
   },
-
-  -- FIXME: not working nvim-tree is not reloaded when directory has changed
-
-  -- {
-  --   "coffebar/neovim-project",
-  --   lazy = false,
-  --   priority = 100,
-  --   opts = {
-  --     projects = {
-  --       "~/Code/*",
-  --       "~/.config/nvim",
-  --       "~.config/kitty",
-  --       "~/dotfiles/git",
-  --     },
-  --   },
-  --   dependencies = {
-  --     { "nvim-lua/plenary.nvim" },
-  --     { "Shatur/neovim-session-manager" },
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>P",
-  --       "<cmd>Telescope neovim-project discover<CR>",
-  --       desc = "Projects list",
-  --     },
-  --   },
-  --   -- init = function()
-  --   -- enable saving the state of plugins in the session
-  --   -- vim.opt.sessionoptions:append "globals"
-  --   -- end,
-  -- },
-
   {
     "nvim-tree/nvim-tree.lua",
     init = function()

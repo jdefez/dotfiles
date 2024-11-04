@@ -3,8 +3,7 @@ return {
 
   install = { colorscheme = { "nvchad" } },
 
-  checker = {
-    enabled = true,
+  change_detection = {
     notify = false,
   },
 
