@@ -7,7 +7,7 @@ local g = vim.g
 
 o.cursorlineopt = "both"
 
--- NOTE: Using ufo provider need a large value, feel free to decrease the value
+-- NOTE: treesitter folding options
 
 o.foldmethod = "expr"
 o.foldexpr = "nvim_treesitter#foldexpr()"
