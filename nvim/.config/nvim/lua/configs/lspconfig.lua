@@ -7,6 +7,7 @@ local lspconfig = require "lspconfig"
 local servers = {
   "phpactor",
   "lemminx",
+  "yamlls",
   "lua_ls",
   "jsonls",
 }
