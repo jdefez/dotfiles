@@ -2,11 +2,10 @@ return {
   {
     "phpactor/phpactor",
     event = "VeryLazy",
-    config = function()
-      vim.g.phpactorCompletionIgnoreCase = true
-    end,
+    ft = { "php" },
     keys = {
       { "<leader>p", ":PhpactorContextMenu<CR>", desc = "Phpactor context menu" },
     },
+    run = ":PhpactorUpdate",
   },
 }

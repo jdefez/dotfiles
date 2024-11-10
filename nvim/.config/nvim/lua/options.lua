@@ -2,6 +2,7 @@ require "nvchad.options"
 
 local o = vim.o
 local g = vim.g
+
 --
 -- NOTE: Enables cursorline
 --
@@ -25,3 +26,10 @@ o.guicursor = "n-v-c-sm-i-ci-ve:hor25,r-cr-o:hor25,a:blinkwait700-blinkoff400-bl
 o.colorcolumn = "80"
 g.virtcolumn_char = "▕"
 g.virtcolumn_priority = 10
+
+--
+-- Phpactor
+--
+
+g.phpactorCompletionIgnoreCase = true
+g.phpactorBranch = "master"

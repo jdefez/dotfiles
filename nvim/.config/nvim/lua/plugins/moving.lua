@@ -70,7 +70,6 @@ return {
       { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
     },
   },
-
   {
     "stevearc/quicker.nvim",
     event = "FileType qf",
@@ -117,19 +116,22 @@ return {
         backdrop = true,
       },
     },
-    -- stylua: ignore
     keys = {
       {
         "s",
         mode = { "n", "x", "o" },
-        function() require("flash").jump() end,
-        desc = "Flash"
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
       },
       {
         "S",
         mode = { "n", "x", "o" },
-        function() require("flash").treesitter() end,
-        desc = "Flash Treesitter"
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
       },
     },
   },
