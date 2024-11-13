@@ -1,6 +1,7 @@
 return {
   {
     "phpactor/phpactor",
+    ft = { "php" },
     event = "VeryLazy",
     config = function()
       vim.g.phpactorCompletionIgnoreCase = true
