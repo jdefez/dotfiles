@@ -139,40 +139,4 @@ return {
       },
     },
   },
-  -- {
-  --   "nvim-neotest/neotest",
-  --   ft = { "php" },
-  --   dependencies = {
-  --     "nvim-neotest/nvim-nio",
-  --     "nvim-lua/plenary.nvim",
-  --     "antoinemadec/FixCursorHold.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "V13Axel/neotest-pest",
-  --   },
-  --   config = function()
-  --     require "neotest" {
-  --       adapters = {
-  --         require "neotest-pest",
-  --       },
-  --     }
-  --   end,
-  --   keys = {
-  --     {
-  --       mode = { "n" },
-  --       "<leader>tn",
-  --       function()
-  --         require("neotest").run.run()
-  --       end,
-  --       desc = "Run nearest test",
-  --     },
-  --     {
-  --       mode = { "n" },
-  --       "<leader>tt",
-  --       function()
-  --         require("neotest").run.run(vim.fn.expand "%")
-  --       end,
-  --       desc = "Run nearest test",
-  --     },
-  --   },
-  -- },
 }
