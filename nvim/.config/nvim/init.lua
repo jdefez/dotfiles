@@ -1,3 +1,10 @@
+--
+-- NOTE:
+--  - To be tested: https://github.com/hat0uma/csvview.nvim
+--  - To be tested: https://github.com/zbirenbaum/copilot.lua
+--  - To be tested: https://github.com/folke/persistence.nvim (through a dashboard integration)
+--  - Configure DAP for php
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
@@ -15,7 +22,7 @@ local lazy_config = require "configs.lazy"
 
 require "configs.neovim-project"
 
--- load plugins
+-- NOTE: load plugins
 
 require("lazy").setup({
   {
@@ -28,7 +35,7 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
--- load theme
+-- NOTE: load theme
 
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")

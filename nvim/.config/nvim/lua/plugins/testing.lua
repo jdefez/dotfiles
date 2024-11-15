@@ -22,7 +22,7 @@ return {
       },
       {
         mode = { "n" },
-        "<leader>tn",
+        "<leader>tt",
         function()
           require("neotest").run.run(vim.fn.expand "%")
         end,
@@ -45,4 +45,15 @@ return {
       "V13Axel/neotest-pest",
     },
   },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   ft = { "php" },
+  -- },
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   dependencies = {
+  --     "mfussenegger/nvim-dap",
+  --     "nvim-neotest/nvim-nio",
+  --   },
+  -- },
 }
