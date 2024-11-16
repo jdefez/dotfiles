@@ -22,7 +22,7 @@ return {
       },
       {
         mode = { "n" },
-        "<leader>tn",
+        "<leader>tt",
         function()
           require("neotest").run.run(vim.fn.expand "%")
         end,

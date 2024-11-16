@@ -1,26 +1,36 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 
--- map("n", ";", ":", { desc = "CMD enter command mode" })
+nomap("n", "<leader>/")
+
 map("i", "jk", "<ESC>")
 map("n", "Y", "yy$")
 
 --
--- nvim-tree
+-- NOTE: nvim-tree
 --
 
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
   local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return {
+      desc = "nvim-tree: " .. desc,
+      buffer = bufnr,
+      noremap = true,
+      silent = true,
+      nowait = true,
+    }
   end
 
-  -- Default mappings
+  -- NOTE: Default mappings
+
   api.config.mappings.default_on_attach(bufnr)
 
-  -- Custom mappings
+  -- NOTE: Custom mappings
+
   vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
   -- vim.keymap.set("n", "<c-z>", api.node.open.preview, opts "Open preview")
 
@@ -32,7 +42,7 @@ require("nvim-tree").setup {
 }
 
 --
--- Telescope
+-- NOTE: Telescope
 --
 
 map("n", "<leader>fW", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
