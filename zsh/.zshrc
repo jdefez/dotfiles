@@ -126,30 +126,23 @@ cdpath=(~/Documents ~/Code)
 # alias ssh="kitty +kitten ssh"
 
 # artisan
+
 alias pa="php artisan"
 alias psa="./vendor/bin/phpstan analyse"
 alias pi="./vendor/bin/pint"
 
 # Docker delegatio
+
 alias up="make dev-up"
 alias down="make dev-down"
 
-# php artisan test
-pat() {
-  if [ -n "$1" ]
-  then
-    clear && php artisan test --filter "$1"
-  else
-    clear && php artisan test
-  fi
-}
+# Pest
 
-# pest
 pest() {
   if [ -n "$1" ]; then
-    clear && php ./vendor/bin/pest --filter="$1"
+    clear && php ./vendor/bin/pest --filter="$1" --parallel --stop-on-failure
   else
-    clear && php ./vendor/bin/pest
+    clear && php ./vendor/bin/pest --parallel --stop-on-failure
   fi
 }
 
