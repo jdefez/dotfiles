@@ -1,5 +1,6 @@
 local options = {
   formatters_by_ft = {
+    yaml = { "yamllint" },
     json = { "jsonlint" },
     lua = { "stylua" },
     php = { "pint" },
