@@ -23,8 +23,9 @@ return {
     },
     config = function()
       require("nvim-treesitter.configs").setup {
-        --  TODO: make the movements repeatable: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-        --  TODO: lsp interoperability: https://github.com/nvim-treesitter/nvim-treesitter-textobjects#textobjects-lsp-interop
+        --  TODO:
+        --  - make the movements repeatable: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+        --  - lsp interoperability: https://github.com/nvim-treesitter/nvim-treesitter-textobjects#textobjects-lsp-interop
         highlight = {
           enable = true,
         },
@@ -47,7 +48,7 @@ return {
           enable = true,
           keymaps = {
             -- set to `false` to disable one of the mappings
-            -- FIXME : conflicting with flash + <sn> not whowing in mappings
+            -- FIXME : conflicting with flash + <sn not whowing in mappings
             init_selection = "<leader>ss",
             node_incremental = "<leader>sn",
             scope_incremental = "<leader>si",

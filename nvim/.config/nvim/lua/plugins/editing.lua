@@ -77,13 +77,13 @@ return {
         desc = "Add cursors to cword in previous area",
       },
       {
-        "<Leader>d",
+        "<Leader>m",
         "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
         mode = { "n", "x" },
         desc = "Add cursor and jump to next cword",
       },
       {
-        "<Leader>D",
+        "<Leader>M",
         "<Cmd>MultipleCursorsJumpNextMatch<CR>",
         mode = { "n", "x" },
         desc = "Jump to next cword",
