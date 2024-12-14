@@ -9,6 +9,15 @@ map("i", "jk", "<ESC>")
 map("n", "Y", "yy$")
 
 --
+-- NOTE: Treewalker
+--
+
+map("n", "<C-]>", ":Treewalker Down<CR>", { desc = "Treewalker down" })
+map("n", "<C-[>", ":Treewalker Up<CR>", { desc = "Treewalker up" })
+map("n", "<C-h>", ":Treewalker Left<CR>", { desc = "Treewalker in" })
+map("n", "<C-l>", ":Treewalker Right<CR>", { desc = "Treewalker out" })
+
+--
 -- NOTE: nvim-tree
 --
 
