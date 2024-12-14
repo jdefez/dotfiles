@@ -179,3 +179,5 @@ alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
 alias vimdiff='nvim -d'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
