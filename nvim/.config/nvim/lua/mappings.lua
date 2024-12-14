@@ -31,7 +31,7 @@ local function my_on_attach(bufnr)
 
   -- NOTE: Custom mappings
 
-  vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
+  map("n", "?", api.tree.toggle_help, opts "Help")
   -- vim.keymap.set("n", "<c-z>", api.node.open.preview, opts "Open preview")
 
   require("float-preview").attach_nvimtree(bufnr)

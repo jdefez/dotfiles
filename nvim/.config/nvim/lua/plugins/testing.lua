@@ -49,7 +49,7 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       require "configs.dap"
-      local dap = require "dap"
+      local fn = vim.fn
 
       -- dap.defaults.fallback.external_terminal = {
       --   command = "wezterm",
@@ -57,17 +57,17 @@ return {
       -- }
 
       -- https://microsoft.github.io/vscode-codicons/dist/codicon.html
-      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" }) -- debug-breakpoint-conditional
-      vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
-      --
+      fn.sign_define("DapBreakpoint", { text = "", texthl = "", linehl = "", numhl = "" })
+      fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
+      fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" }) -- debug-breakpoint-conditional
+      fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
+      fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
+
       -- require("utils").on_ft("dap-repl", function(event)
       --   vim.api.nvim_buf_set_option(event.buf, "buflisted", false)
       --   require("dap.ext.autocompl").attach()
       -- end)
-      --
+
       -- require("dap.repl").commands = vim.tbl_extend("force", require("dap.repl").commands, {
       --   continue = { ".continue", "c" },
       --   next_ = { ".next", "n" },
