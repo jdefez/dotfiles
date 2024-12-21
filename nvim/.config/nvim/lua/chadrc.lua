@@ -28,7 +28,7 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = "material-lighter",
+  theme = "ayu_dark",
 
   hl_override = {
     Comment = { italic = true },
