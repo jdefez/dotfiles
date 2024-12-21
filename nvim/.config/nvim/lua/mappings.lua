@@ -12,9 +12,6 @@ map("n", "Y", "yy$")
 -- NOTE: Treewalker
 --
 
--- nomap("n", "<S-h>")
--- nomap("n", "<S-l>")
-
 map("n", "<C-]>", ":Treewalker Down<CR>", { desc = "Treewalker down" })
 map("n", "<C-[>", ":Treewalker Up<CR>", { desc = "Treewalker up" })
 map("n", "<S-h>", ":Treewalker Left<CR>", { desc = "Treewalker in" })
