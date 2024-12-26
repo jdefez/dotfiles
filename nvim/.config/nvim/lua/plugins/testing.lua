@@ -7,6 +7,10 @@ return {
         adapters = {
           require "neotest-pest" {
             ignore_dirs = { "vendor", "node_modules" },
+            -- sail_enabled = true,
+            -- sail_executable = { "docker", "exec", "[app]" },
+            -- sail_project_path = "/app",
+            -- results_path = "app/storage/app",
           },
         },
       }

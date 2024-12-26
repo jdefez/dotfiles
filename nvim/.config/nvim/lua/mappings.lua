@@ -17,10 +17,16 @@ local function nvim_tree_on_attach(bufnr)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+  --
   -- default mappings
+  --
+
   api.config.mappings.default_on_attach(bufnr)
 
-  -- custom mappings
+  --
+  -- nvimtree
+  --
+
   vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
   -- vim.keymap.set("n", "<c-z>", api.node.open.preview, opts "Open preview")
 
@@ -30,6 +36,15 @@ end
 require("nvim-tree").setup {
   on_attach = nvim_tree_on_attach,
 }
+
+--
+-- Treewalker
+--
+
+map("n", "<C-]>", ":Treewalker Down<CR>", { desc = "Treewalker down" })
+map("n", "<C-[>", ":Treewalker Up<CR>", { desc = "Treewalker up" })
+map("n", "<S-h>", ":Treewalker Left<CR>", { desc = "Treewalker in" })
+map("n", "<S-l>", ":Treewalker Right<CR>", { desc = "Treewalker out" })
 
 --
 -- Telescope

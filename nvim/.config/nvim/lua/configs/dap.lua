@@ -1,6 +1,6 @@
 -- NOTE: Enable remote debugging in your php.ini
--- xdebug.mode = debug
--- xdebug.start_with_request = yes
+-- xdebug.mode=develop,debug
+-- xdebug.start_with_request=yes
 
 local dap = require "dap"
 local fn = vim.fn

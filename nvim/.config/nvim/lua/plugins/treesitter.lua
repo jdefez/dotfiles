@@ -30,7 +30,6 @@ return {
           enable = true,
         },
         refactor = {
-          -- highlight_definitions = { enable = true },
           highlight_definitions = {
             enable = true,
             -- Set to false if you have an `updatetime` of ~100.
@@ -55,17 +54,17 @@ return {
             node_decremental = "<leader>sd",
           },
         },
-        navigation = {
-          enable = true,
-          -- NOTE: Assign keymaps to false to disable them, e.g. `goto_definition = false`.
-          keymaps = {
-            goto_definition = false, -- "gnd"
-            list_definitions = false, -- "gnD"
-            list_definitions_toc = false, -- "gO"
-            goto_next_usage = "<M-*>",
-            goto_previous_usage = "<M-#>",
-          },
-        },
+        -- navigation = {
+        --   enable = true,
+        --   -- NOTE: Assign keymaps to false to disable them, e.g. `goto_definition = false`.
+        --   keymaps = {
+        --     goto_definition = false, -- "gnd"
+        --     list_definitions = false, -- "gnD"
+        --     list_definitions_toc = false, -- "gO"
+        --     goto_next_usage = "<M-*>",
+        --     goto_previous_usage = "<M-#>",
+        --   },
+        -- },
         textobjects = {
           select = {
             enable = true,
@@ -97,5 +96,13 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     requires = { "nvim-treesitter/nvim-treesitter" },
     lazy = false,
+  },
+  {
+    "aaronik/treewalker.nvim",
+    lazy = false,
+    opts = {
+      highlight = true, -- default is false
+    },
+    requires = { "nvim-treesitter/nvim-treesitter" },
   },
 }
