@@ -36,112 +36,222 @@ return {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
     lazy = false,
-    config = function()
-      local mc = require "multicursor-nvim"
-
-      mc.setup()
-
-      local set = vim.keymap.set
-
+    keys = {
       -- Add or skip cursor above/below the main cursor.
-
-      set({ "n", "v" }, "<up>", function()
-        mc.lineAddCursor(-1)
-      end)
-      set({ "n", "v" }, "<down>", function()
-        mc.lineAddCursor(1)
-      end)
-      set({ "n", "v" }, "<leader><up>", function()
-        mc.lineSkipCursor(-1)
-      end)
-      set({ "n", "v" }, "<leader><down>", function()
-        mc.lineSkipCursor(1)
-      end)
-
+      {
+        mode = { "n", "v" },
+        "<up>",
+        function()
+          require("multicursor-nvim").lineAddCursor(-1)
+        end,
+        desc = "Add cursor above",
+      },
+      {
+        mode = { "n", "v" },
+        "<down>",
+        function()
+          require("multicursor-nvim").lineAddCursor(1)
+        end,
+        desc = "Add cursor below",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader><up>",
+        function()
+          require("multicursor-nvim").lineSkipCursor(-1)
+        end,
+        desc = "Skip cursor above",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader><down>",
+        function()
+          require("multicursor-nvim").lineSkipCursor(1)
+        end,
+        desc = "Skip cursor below",
+      },
       -- Add or skip adding a new cursor by matching word/selection
-
-      set({ "n", "v" }, "<leader>a", function()
-        mc.matchAddCursor(1)
-      end)
-      set({ "n", "v" }, "<leader>s", function()
-        mc.matchSkipCursor(1)
-      end)
-      set({ "n", "v" }, "<leader>A", function()
-        mc.matchAddCursor(-1)
-      end)
-      set({ "n", "v" }, "<leader>S", function()
-        mc.matchSkipCursor(-1)
-      end)
-
-      -- Add all matches in the document
-      set({ "n", "v" }, "<leader>A", mc.matchAllAddCursors)
-
-      -- You can also add cursors with any motion you prefer:
-      -- set("n", "<right>", function()
-      --     mc.addCursor("w")
-      -- end)
-      -- set("n", "<leader><right>", function()
-      --     mc.skipCursor("w")
-      -- end)
-
+      {
+        mode = { "n", "v" },
+        "<leader>a",
+        function()
+          require("multicursor-nvim").matchAddCursor(1)
+        end,
+        desc = "Add cursor by matching word/selection",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader>s",
+        function()
+          require("multicursor-nvim").matchSkipCursor(1)
+        end,
+        desc = "Skip cursor by matching word/selection",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader>A",
+        function()
+          require("multicursor-nvim").matchAddCursor(-1)
+        end,
+        desc = "Add cursor by matching word/selection",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader>S",
+        function()
+          require("multicursor-nvim").matchSkipCursor(-1)
+        end,
+        desc = "Skip cursor by matching word/selection",
+      },
       -- Rotate the main cursor.
-      set({ "n", "v" }, "<left>", mc.nextCursor)
-      set({ "n", "v" }, "<right>", mc.prevCursor)
-
+      {
+        mode = { "n", "v" },
+        "<left>",
+        function()
+          require("multicursor-nvim").nextCursor()
+        end,
+        desc = "Rotate cursor left",
+      },
+      {
+        mode = { "n", "v" },
+        "<right>",
+        function()
+          require("multicursor-nvim").prevCursor()
+        end,
+        desc = "Rotate cursor right",
+      },
       -- Delete the main cursor.
-      set({ "n", "v" }, "<leader>x", mc.deleteCursor)
-
+      -- {
+      --   mode = { "n", "v" },
+      --   conflicting with buffer delete
+      --   "<leader>x",
+      --   function()
+      --     require("multicursor-nvim").deleteCursor()
+      --   end,
+      --   desc = "Delete cursor",
+      -- },
       -- Add and remove cursors with control + left click.
-      set("n", "<c-leftmouse>", mc.handleMouse)
-
+      {
+        "n",
+        "<c-leftmouse>",
+        function()
+          require("multicursor-nvim").handleMouse()
+        end,
+        desc = "Add or remove cursor with control + left click",
+      },
       -- Easy way to add and remove cursors using the main cursor.
-      set({ "n", "v" }, "<c-q>", mc.toggleCursor)
-
+      {
+        mode = { "n", "v" },
+        "<c-q>",
+        function()
+          require("multicursor-nvim").toggleCursor()
+        end,
+        desc = "Toggle cursor",
+      },
       -- Clone every cursor and disable the originals.
-      set({ "n", "v" }, "<leader><c-q>", mc.duplicateCursors)
-
-      set("n", "<esc>", function()
-        if not mc.cursorsEnabled() then
-          mc.enableCursors()
-        elseif mc.hasCursors() then
-          mc.clearCursors()
-        else
-          -- Default <esc> handler.
-        end
-      end)
-
+      -- {
+      --   mode = { "n", "v" },
+      --   "<leader><c-q>",
+      --   function()
+      --     require("multicursor-nvim").duplicateCursors()
+      --   end,
+      --   desc = "Duplicate cursor",
+      -- },
+      {
+        "n",
+        "<esc>",
+        function()
+          require("multicursor-nvim").clearCursors()
+          -- local mc = require "multicursor-nvim"
+          -- if not mc.cursorsEnabled() then
+          --   mc.enableCursors()
+          -- elseif mc.hasCursors() then
+          --   mc.clearCursors()
+          -- else
+          --   -- Default <esc> handler.
+          -- end
+        end,
+        desc = "Clear cursors",
+      },
       -- bring back cursors if you accidentally clear them
-      set("n", "<leader>gv", mc.restoreCursors)
-
+      {
+        "n",
+        "<leader>gv",
+        function()
+          require("multicursor-nvim").restoreCursors()
+        end,
+        desc = "Restore cursors",
+      },
       -- Align cursor columns.
-      set("n", "<leader>a", mc.alignCursors)
-
+      {
+        "n",
+        "<leader>a",
+        function()
+          require("multicursor-nvim").alignCursors()
+        end,
+        desc = "Align cursor columns",
+      },
       -- Split visual selections by regex.
-      set("v", "S", mc.splitCursors)
-
+      -- {
+      --   "v",
+      --   "S",
+      --   function()
+      --     require("multicursor-nvim").splitCursors()
+      --   end,
+      --   desc = "Split visual selections by regex",
+      -- },
       -- Append/insert for each line of visual selections.
-      set("v", "I", mc.insertVisual)
-      set("v", "A", mc.appendVisual)
-
+      {
+        "v",
+        "I",
+        function()
+          require("multicursor-nvim").insertVisual()
+        end,
+        desc = "Insert for each line of visual selections",
+      },
+      {
+        "v",
+        "A",
+        function()
+          require("multicursor-nvim").appendVisual()
+        end,
+        desc = "Append for each line of visual selections",
+      },
       -- match new cursors within visual selections by regex.
-      set("v", "M", mc.matchCursors)
-
+      -- {
+      --   "v",
+      --   "M",
+      --   function()
+      --     require("multicursor-nvim").matchCursors()
+      --   end,
+      --   desc = "Match new cursors within visual selections by regex",
+      -- },
       -- Rotate visual selection contents.
-      set("v", "<leader>t", function()
-        mc.transposeCursors(1)
-      end)
-      set("v", "<leader>T", function()
-        mc.transposeCursors(-1)
-      end)
-
+      -- {
+      --   "v",
+      --   "<leader>t",
+      --   function()
+      --     require("multicursor-nvim").transposeCursors(1)
+      --   end,
+      --   desc = "Rotate visual selection contents",
+      -- },
+      -- {
+      --   "v",
+      --   "<leader>T",
+      --   function()
+      --     require("multicursor-nvim").transposeCursors(-1)
+      --   end,
+      --   desc = "Rotate visual selection contents",
+      -- },
       -- Jumplist support
-
-      set({ "v", "n" }, "<c-i>", mc.jumpForward)
-      set({ "v", "n" }, "<c-o>", mc.jumpBackward)
-
-      -- Customize how cursors look.
+      -- set({ "v", "n" }, "<c-i>", mc.jumpForward)
+      -- set({ "v", "n" }, "<c-o>", mc.jumpBackward)
+    },
+    config = function()
+      require("multicursor-nvim").setup()
 
       local hl = vim.api.nvim_set_hl
+
       hl(0, "MultiCursorCursor", { link = "Cursor" })
       hl(0, "MultiCursorVisual", { link = "Visual" })
       hl(0, "MultiCursorSign", { link = "SignColumn" })
