@@ -61,6 +61,7 @@ return {
         "~/dotfiles/zsh",
         "~/dotfiles/nvim",
         "~/dotfiles/kitty",
+        "~/dotfiles/ghostty",
         "~/dotfiles/wezterm",
       },
     },
