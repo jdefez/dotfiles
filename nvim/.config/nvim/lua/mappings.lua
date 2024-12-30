@@ -14,7 +14,13 @@ local function nvim_tree_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
   local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return {
+      desc = "nvim-tree: " .. desc,
+      buffer = bufnr,
+      noremap = true,
+      silent = true,
+      nowait = true,
+    }
   end
 
   --
@@ -78,7 +84,6 @@ require("gitsigns").setup {
       end
     end)
 
-    -- Actions
     map("n", "<leader>gs", gitsigns.stage_hunk, { desc = "Stage hunk" })
     map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "Reset hunk" })
     map("v", "<leader>gs", function()
