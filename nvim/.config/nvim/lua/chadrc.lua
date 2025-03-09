@@ -21,6 +21,10 @@ M.term = {
   },
 }
 
+M.lsp = {
+  signature = true,
+}
+
 M.ui = {
   cmp = {
     icons_left = true,
@@ -30,9 +34,20 @@ M.ui = {
 M.base46 = {
   theme = "catppuccin",
 
+  integrations = {
+    "flash",
+  },
+
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+  },
+
+  hl_add = {
+    FlashMatch = { fg = "#337aff", bg = "" },
+    FlashLabel = { fg = "#ff0000", bg = "" },
+    FlashCursor = { fg = "#7033ff", bg = "" },
+    FlashCurrent = { fg = "#48ff33", bg = "" },
   },
 }
 
