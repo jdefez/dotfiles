@@ -69,9 +69,8 @@ return {
         desc = "Delete cursor",
       },
       {
-        -- FIXME: This is not working.
         mode = { "n" },
-        "<ESC>",
+        "<M-x>",
         function()
           require("multicursor-nvim").clearCursors()
         end,
@@ -86,81 +85,80 @@ return {
         end,
         desc = "Rotate next cursor",
       },
-      {
-        mode = { "n", "v" },
-        "<right>",
-        function()
-          require("multicursor-nvim").prevCursor()
-        end,
-        desc = "Rotate previous cursor",
-      },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<right>",
+      --   function()
+      --     require("multicursor-nvim").prevCursor()
+      --   end,
+      --   desc = "Rotate previous cursor",
+      -- },
       -- NOTE: Add a new cursor by matching word/selection
       {
         mode = { "n", "v" },
-        "<c-a>",
+        "<M-w>",
         function()
           require("multicursor-nvim").matchAddCursor(1)
         end,
         desc = "Add cursor",
       },
-      {
-        -- FIXME: This is not working.
-        mode = { "n", "v" },
-        "<c-s-a>",
-        function()
-          require("multicursor-nvim").matchAddCursor(-1)
-        end,
-        desc = "Add cursor above",
-      },
-      {
-        mode = { "n", "v" },
-        "<up>",
-        function()
-          require("multicursor-nvim").lineAddCursor(-1)
-        end,
-        desc = "Add cursor above",
-      },
-      {
-        mode = { "n", "v" },
-        "<down>",
-        function()
-          require("multicursor-nvim").lineAddCursor(1)
-        end,
-        desc = "Add cursor below",
-      },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<c-a>",
+      --   function()
+      --     require("multicursor-nvim").matchAddCursor(-1)
+      --   end,
+      --   desc = "Add cursor above",
+      -- },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<up>",
+      --   function()
+      --     require("multicursor-nvim").lineAddCursor(-1)
+      --   end,
+      --   desc = "Add cursor above",
+      -- },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<down>",
+      --   function()
+      --     require("multicursor-nvim").lineAddCursor(1)
+      --   end,
+      --   desc = "Add cursor below",
+      -- },
       -- NOTE: Skip adding a new cursor by matching word/selection
       {
         mode = { "n", "v" },
-        "<leader>s",
+        "<M-s>",
         function()
           require("multicursor-nvim").matchSkipCursor(1)
         end,
         desc = "Skip cursor",
       },
-      {
-        mode = { "n", "v" },
-        "<leader>S",
-        function()
-          require("multicursor-nvim").matchSkipCursor(-1)
-        end,
-        desc = "Skip cursor above",
-      },
-      {
-        mode = { "n", "v" },
-        "<leader><up>",
-        function()
-          require("multicursor-nvim").lineSkipCursor(-1)
-        end,
-        desc = "Skip cursor above",
-      },
-      {
-        mode = { "n", "v" },
-        "<leader><down>",
-        function()
-          require("multicursor-nvim").lineSkipCursor(1)
-        end,
-        desc = "Skip cursor below",
-      },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<leader>S",
+      --   function()
+      --     require("multicursor-nvim").matchSkipCursor(-1)
+      --   end,
+      --   desc = "Skip cursor above",
+      -- },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<leader><up>",
+      --   function()
+      --     require("multicursor-nvim").lineSkipCursor(-1)
+      --   end,
+      --   desc = "Skip cursor above",
+      -- },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<leader><down>",
+      --   function()
+      --     require("multicursor-nvim").lineSkipCursor(1)
+      --   end,
+      --   desc = "Skip cursor below",
+      -- },
     },
     config = function()
       local mc = require "multicursor-nvim"

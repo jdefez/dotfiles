@@ -8,6 +8,12 @@ nomap("n", "<leader>/")
 map("i", "jk", "<ESC>")
 map("n", "Y", "yy$")
 
+-- NOTE: removing NvChad terminal mappings
+
+nomap("n", "<M-h>")
+nomap("n", "<M-i>")
+nomap("n", "<M-v>")
+
 --
 -- NOTE: Treewalker
 --
