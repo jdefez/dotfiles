@@ -85,14 +85,14 @@ return {
         end,
         desc = "Rotate next cursor",
       },
-      -- {
-      --   mode = { "n", "v" },
-      --   "<right>",
-      --   function()
-      --     require("multicursor-nvim").prevCursor()
-      --   end,
-      --   desc = "Rotate previous cursor",
-      -- },
+      {
+        mode = { "n", "v" },
+        "<right>",
+        function()
+          require("multicursor-nvim").prevCursor()
+        end,
+        desc = "Rotate previous cursor",
+      },
       -- NOTE: Add a new cursor by matching word/selection
       {
         mode = { "n", "v" },
@@ -102,6 +102,23 @@ return {
         end,
         desc = "Add cursor",
       },
+      -- NOTE: Skip adding a new cursor by matching word/selection
+      {
+        mode = { "n", "v" },
+        "<M-s>",
+        function()
+          require("multicursor-nvim").matchSkipCursor(1)
+        end,
+        desc = "Skip cursor",
+      },
+      -- {
+      --   mode = { "n", "v" },
+      --   "<right>",
+      --   function()
+      --     require("multicursor-nvim").prevCursor()
+      --   end,
+      --   desc = "Rotate previous cursor",
+      -- },
       -- {
       --   mode = { "n", "v" },
       --   "<c-a>",
@@ -126,15 +143,6 @@ return {
       --   end,
       --   desc = "Add cursor below",
       -- },
-      -- NOTE: Skip adding a new cursor by matching word/selection
-      {
-        mode = { "n", "v" },
-        "<M-s>",
-        function()
-          require("multicursor-nvim").matchSkipCursor(1)
-        end,
-        desc = "Skip cursor",
-      },
       -- {
       --   mode = { "n", "v" },
       --   "<leader>S",
