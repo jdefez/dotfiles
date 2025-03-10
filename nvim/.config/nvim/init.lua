@@ -3,7 +3,6 @@
 --  - To be tested: https://github.com/hat0uma/csvview.nvim
 --  - To be tested: https://github.com/zbirenbaum/copilot.lua
 --  - To be tested: https://github.com/folke/persistence.nvim (through a dashboard integration)
---  - Configure DAP for php
 
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
@@ -44,11 +43,6 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
-
-vim.cmd [[
-  highlight DiagnosticUnderlineError gui=undercurl
-  highlight DiagnosticUnderlineWarn gui=undercurl
-]]
 
 vim.schedule(function()
   require "mappings"

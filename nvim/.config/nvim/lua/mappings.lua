@@ -1,10 +1,17 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "Y", "yy$")
+
+-- NOTE: removing NvChad terminal mappings
+
+nomap("n", "<M-h>")
+nomap("n", "<M-i>")
+nomap("n", "<M-v>")
 
 --
 -- nvim-tree

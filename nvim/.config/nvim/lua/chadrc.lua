@@ -22,11 +22,21 @@ M.term = {
 }
 
 M.base46 = {
-  theme = "ayu_light",
+  theme = "github_light",
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+  },
+
+  hl_add = {
+    DiagnosticUnderlineError = { undercurl = true },
+    DiagnosticUnderlineWarn = { undercurl = true },
+
+    FlashMatch = { fg = "#337aff", bg = "" },
+    FlashLabel = { fg = "#ff0000", bg = "" },
+    FlashCursor = { fg = "#7033ff", bg = "" },
+    FlashCurrent = { fg = "#48ff33", bg = "" },
   },
 }
 
