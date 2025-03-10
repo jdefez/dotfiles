@@ -6,6 +6,7 @@
 local M = {}
 
 M.term = {
+  enabled = false,
   winopts = {
     cc = "500",
   },
@@ -32,10 +33,11 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "ayu_light",
 
   integrations = {
-    "flash",
+    -- "flash",
+    "git-conflict",
   },
 
   hl_override = {
@@ -44,6 +46,23 @@ M.base46 = {
   },
 
   hl_add = {
+    DiagnosticUnderlineError = { undercurl = true },
+    DiagnosticUnderlineWarn = { undercurl = true },
+
+    -- GitConflictCurrent = { bg = "#ffffff" },
+    -- GitConflictIncoming = { bg = "#ffffff" },
+    -- GitConflictAncestor = { bg = "#ffffff" },
+    -- GitConflictCurrentLabel = { bg = "#ffffff", bold = true },
+    -- GitConflictIncomingLabel = { bg = "#ffffff", bold = true },
+    -- GitConflictAncestorLabel = { bg = "#ffffff", bold = true },
+
+    -- DiffAdd = { bg = "#ffffff", fg = "#00ff00" },
+    -- DiffAdded = { bg = "#ffffff", fg = "#00ff00" },
+    -- DiffChange = { bg = "#ffffff", fg = "#00ff00" },
+    -- DiffDelete = { bg = "#ffffff", fg = "#ff0000", italic = true },
+    -- DiffChangeDeleted = { bg = "#ffffff", fg = "#ff0000", italic = true },
+    -- DiffText = { bg = "#ffffff", fg = "#ff0000" },
+
     FlashMatch = { fg = "#337aff", bg = "" },
     FlashLabel = { fg = "#ff0000", bg = "" },
     FlashCursor = { fg = "#7033ff", bg = "" },

@@ -1,6 +1,7 @@
 return {
   {
     "akinsho/git-conflict.nvim",
+    lazy = false,
     version = "*",
     config = true,
     -- default mappings:
@@ -14,7 +15,7 @@ return {
       vim.api.nvim_create_autocmd({ "User" }, {
         pattern = { "GitConflictDetected" },
         callback = function(ev)
-          print("Conflict detected in " .. vim.fn.expand("<afile>"))
+          print("Conflict detected in " .. vim.fn.expand "<afile>")
           vim.keymap.set("n", "cww", function()
             engage.conflict_buster()
             create_buffer_local_mappings()

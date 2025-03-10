@@ -42,11 +42,6 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 
-vim.cmd [[
-  highlight DiagnosticUnderlineError gui=undercurl
-  highlight DiagnosticUnderlineWarn gui=undercurl
-]]
-
 -- NOTE: Set commentstring for PHP files
 
 vim.schedule(function()
