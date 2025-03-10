@@ -13,9 +13,7 @@ o.foldmethod = "expr"
 o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldlevelstart = 99
 
-o.guicursor = "n-v-c-sm-i-ci-ve:hor25,r-cr-o:hor25,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
-
--- o.autochdir = true
+-- o.guicursor = "n-v-c-sm-i-ci-ve:hor25,r-cr-o:hor25,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 
 --
 -- virtcolumn
