@@ -1,0 +1,14 @@
+[[language]]
+name = "php"
+scope = "source.php"
+injection-regex = "php"
+file-types = ["php"]
+shebangs = ["php"]
+# roots = ["composer.json", "index.php"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "    " }
+language-servers = [{name = "phpactor", except-features = ["format"] }]
+
+[language-server.phpactor]
+command = "phpactor"
+args = [ "language-server" ]

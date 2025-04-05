@@ -1,0 +1,57 @@
+theme = "ayu_light"
+
+[editor]
+end-of-line-diagnostics = "hint"
+bufferline = "multiple"
+rulers = [80]
+color-modes = true
+
+[editor.inline-diagnostics]
+cursor-line = "error" # show warnings and errors on the cursorline inline
+other-lines = "disable"
+
+[editor.statusline]
+left = ["mode", "version-control", "position-percentage", "position"]
+center = ["diagnostics", "spinner"]
+right = ["separator", "file-name", "file-modification-indicator", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = true
+display-progress-messages = true
+
+[editor.cursor-shape]
+normal = "underline"
+insert = "underline"
+select = "underline"
+
+[editor.auto-save]
+after-delay.enable = true
+after.delay-timeout = 3000
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+[editor.gutters]
+# layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[keys.normal]
+# "A-," = "goto_previous_buffer"
+# "A-." = "goto_next_buffer"
+# "A-w" = ":buffer-close"
+# "A-/" = "repeat_last_motion"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
