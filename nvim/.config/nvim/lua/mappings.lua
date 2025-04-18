@@ -13,6 +13,8 @@ nomap("n", "<M-h>")
 nomap("n", "<M-i>")
 nomap("n", "<M-v>")
 
+-- NOTE: LSP update information: https://neovim.io/doc/user/news-0.11.html
+
 --
 -- nvim-tree
 --

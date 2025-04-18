@@ -3,6 +3,8 @@ require "nvchad.options"
 local o = vim.o
 local g = vim.g
 
+-- vim.diagnostic.config { virtual_lines = { virtual_lines = true } }
+
 -- NOTE: Enable cursorline!
 
 o.cursorlineopt = "both"

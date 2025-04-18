@@ -1,28 +1,28 @@
 return {
-  {
-    --
-    -- NOTE: https://github.com/nvim-tree/nvim-tree.lua/issues/2895#issuecomment-2335078432
-    --  this command will refresh nvim-tree
-    --
-    "coffebar/neovim-project",
-    lazy = false,
-    opts = {
-      projects = {
-        "~/Code/*",
-        "~/dotfiles/git",
-        "~/dotfiles/zsh",
-        "~/dotfiles/nvim",
-        "~/dotfiles/kitty",
-        "~/dotfiles/ghostty",
-      },
-    },
-    dependencies = {
-      { "Shatur/neovim-session-manager" },
-    },
-    keys = {
-      { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
-    },
-  },
+  -- {
+  --   --
+  --   -- NOTE: https://github.com/nvim-tree/nvim-tree.lua/issues/2895#issuecomment-2335078432
+  --   --  this command will refresh nvim-tree
+  --   --
+  --   "coffebar/neovim-project",
+  --   lazy = false,
+  --   opts = {
+  --     projects = {
+  --       "~/Code/*",
+  --       "~/dotfiles/git",
+  --       "~/dotfiles/zsh",
+  --       "~/dotfiles/nvim",
+  --       "~/dotfiles/kitty",
+  --       "~/dotfiles/ghostty",
+  --     },
+  --   },
+  --   dependencies = {
+  --     { "Shatur/neovim-session-manager" },
+  --   },
+  --   keys = {
+  --     { "<leader>P", "<cmd>Telescope neovim-project discover<CR>", desc = "Projects list" },
+  --   },
+  -- },
   {
     "nvim-tree/nvim-tree.lua",
     init = function()

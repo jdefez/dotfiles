@@ -44,7 +44,7 @@ return {
           },
         },
         incremental_selection = {
-          enable = true,
+          enable = false,
           keymaps = {
             -- set to `false` to disable one of the mappings
             -- FIXME : conflicting with flash + <sn not whowing in mappings
