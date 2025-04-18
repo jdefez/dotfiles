@@ -5,19 +5,37 @@ end-of-line-diagnostics = "hint"
 bufferline = "multiple"
 rulers = [80]
 color-modes = true
+default-yank-register = '+'
 
 [editor.inline-diagnostics]
 cursor-line = "error" # show warnings and errors on the cursorline inline
 other-lines = "disable"
 
 [editor.statusline]
-left = ["mode", "version-control", "position-percentage", "position"]
-center = ["diagnostics", "spinner"]
-right = ["separator", "file-name", "file-modification-indicator", "file-encoding", "file-line-ending", "file-type"]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "spacer",
+  "position-percentage",
+  "position"
+]
+center = [
+  "diagnostics",
+  "spinner"
+]
+right = [
+  "separator",
+  "file-name",
+  "file-modification-indicator",
+  "file-encoding",
+  "file-line-ending",
+  "file-type"
+]
 separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.lsp]
 display-messages = true
@@ -37,16 +55,22 @@ render = true
 character = "┊"
 skip-levels = 1
 
-[editor.gutters]
-# layout = ["diff", "diagnostics", "line-numbers", "spacer"]
-
 [keys.normal]
+esc = ["collapse_selection", "normal_mode"]
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
 # "A-," = "goto_previous_buffer"
 # "A-." = "goto_next_buffer"
 # "A-w" = ":buffer-close"
 # "A-/" = "repeat_last_motion"
 
+[keys.select]
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
+
 [keys.insert]
+esc = ["collapse_selection", "normal_mode"]
+S-tab = "move_parent_node_start"
 up = "no_op"
 down = "no_op"
 left = "no_op"
