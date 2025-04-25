@@ -13,11 +13,11 @@ nomap("n", "<M-h>")
 nomap("n", "<M-i>")
 nomap("n", "<M-v>")
 
--- NOTE: LSP update information: https://neovim.io/doc/user/news-0.11.html
-
 --
 -- nvim-tree
 --
+
+map("n", "<leader>tf", ":NvimTreeFindFile!<cr>", { desc = "NvimTree find file" })
 
 local function nvim_tree_on_attach(bufnr)
   local api = require "nvim-tree.api"
@@ -39,11 +39,35 @@ local function nvim_tree_on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   --
+  -- LSP
+  --
+  -- Reference:
+  --  - https://vonheikemen.github.io/devlog/tools/neovim-lsp-client-guide/
+  --  - https://neovim.io/doc/user/news-0.11.html
+  --
+  -- In normal mode:
+  --  - grn renames all references of the symbol under the cursor.
+  --  - gra shows a list of code actions available in the line under the cursor.
+  --  - grr lists all the references of the symbol under the cursor.
+  --  - gri lists all the implementations for the symbol under the cursor.
+  --  - gO lists all symbols in the current buffer.
+  --
+  -- In insert mode:
+  --  - <Ctrl-s> displays the function signature of the symbol under the cursor.
+
+  -- map("n", "<leader>ca", function()
+  --   require("tiny-code-action").code_action()
+  -- end, { noremap = true, silent = true })
+
+  -- map("n", "<leader>ca", function()
+  --   vim.lsp.buf.code_action { async = true }
+  -- end, { desc = "Code action" })
+
+  --
   -- nvimtree
   --
 
-  vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
-  -- vim.keymap.set("n", "<c-z>", api.node.open.preview, opts "Open preview")
+  map("n", "?", api.tree.toggle_help, opts "Help")
 
   require("float-preview").attach_nvimtree(bufnr)
 end

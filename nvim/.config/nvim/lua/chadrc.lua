@@ -37,15 +37,6 @@ M.base46 = {
     FlashLabel = { fg = "#ff0000", bg = "" },
     FlashCursor = { fg = "#7033ff", bg = "" },
     FlashCurrent = { fg = "#48ff33", bg = "" },
-
-    -- DiffAdd = { bg = "#ffffff" },
-    -- DiffDelete = { bg = "#ffffff" },
-    -- DiffText = { bg = "#ffffff" },
-    -- DiffChange = { bg = "#ffffff" },
-    --
-    -- DiffAdded = { fg = "#48ff33", bold = true },
-    -- DiffRemoved = { fg = "#ff0000", bold = true },
-    -- DiffChanged = { fg = "#337aff", bold = true },
   },
 }
 

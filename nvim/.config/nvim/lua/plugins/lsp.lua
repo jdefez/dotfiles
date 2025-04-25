@@ -23,6 +23,37 @@ return {
     },
   },
   {
+    "Chaitanyabsprip/fastaction.nvim",
+    ---@type FastActionConfig
+    opts = {},
+    keys = {
+      {
+        "<leader>ca",
+        function()
+          require("fastaction").code_action()
+        end,
+        desc = "Code action",
+      },
+    },
+  },
+  -- {
+  --   "rachartier/tiny-code-action.nvim",
+  --   event = "LspAttach",
+  --   dependencies = {
+  --     { "nvim-lua/plenary.nvim" },
+  --     { "nvim-telescope/telescope.nvim" },
+  --   },
+  --   keys = {
+  --     {
+  --       "<leader>ca",
+  --       function()
+  --         require("tiny-code-action").code_action()
+  --       end,
+  --       desc = "Code action",
+  --     },
+  --   },
+  -- },
+  {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
     config = function()
@@ -38,7 +69,7 @@ return {
         },
       }
 
-      require("tiny-inline-diagnostic").setup()
+      require("tiny-inline-diagnostic").setup {}
     end,
   },
   {
