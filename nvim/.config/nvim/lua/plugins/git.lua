@@ -4,6 +4,7 @@ return {
     opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
     },
     keys = {
       { "<leader>G", "<cmd>Neogit kind=vsplit<CR>", desc = "Neogit open" },
