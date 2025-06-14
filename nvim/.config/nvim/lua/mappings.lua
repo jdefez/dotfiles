@@ -19,6 +19,12 @@ nomap("n", "<M-v>")
 
 map("n", "<leader>tf", ":NvimTreeFindFile!<cr>", { desc = "NvimTree find file" })
 
+--
+-- Git conflict
+--
+
+-- map("n", "<leader>c", ":GitConflictListQf!<cr>", { desc = "Conflict list open" })
+
 local function nvim_tree_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
