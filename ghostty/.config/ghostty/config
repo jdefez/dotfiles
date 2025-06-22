@@ -1,4 +1,5 @@
-theme = "Alabaster"
+theme = "Adwaita"
+
 font-size = 11
 adjust-underline-position = 3
 font-family = "Monaspace Neon"
