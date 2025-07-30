@@ -1,75 +1,84 @@
---
--- NOTE:
---  - To be tested: https://github.com/hat0uma/csvview.nvim
---  - To be tested: https://github.com/zbirenbaum/copilot.lua
---  - To be tested: https://github.com/folke/persistence.nvim (through a dashboard integration)
+local option = vim.opt
+local keymap = vim.keymap
 
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+-- Options
+
 vim.g.mapleader = " "
 
--- bootstrap lazy and all plugins
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+option.updatetime = 250
+option.swapfile = false
+option.number = true
+option.signcolumn = "yes"
+option.wrap = false
+option.expandtab = true
+option.shiftwidth = 4
+option.tabstop = 4
+option.winborder = "rounded"
+option.clipboard = "unnamedplus"
 
-if not vim.uv.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
-end
+-- Keymapings
 
-vim.opt.rtp:prepend(lazypath)
+keymap.set("i", "<S-TAB>", "<C-x><C-o>", { desc = "Trigger completion" })
+keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
+keymap.set("n", "<leader>s", ":update<CR> :source<CR>", { desc = "Update and source" })
+keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
+keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
 
-local lazy_config = require "configs.lazy"
+vim.pack.add({
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    { src = "https://github.com/echasnovski/mini.pick" },
+    { src = "https://github.com/stevearc/oil.nvim" },
+    { src = "https://github.com/vague2k/vague.nvim" },
+})
 
--- require "configs.neovim-project"
+-- LSP
 
--- NOTE: load plugins
+vim.lsp.enable({ "lua_ls", "phpactor" })
 
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
+})
+vim.cmd("set completeopt+=noselect")
 
-  { import = "plugins" },
-}, lazy_config)
+require "nvim-treesitter.configs".setup({
+    ensure_installed = {
+        "php", "typescript", "javascript", "markdown", "html", "json"
+    },
+    highlight = { enable = true }
+})
 
---
--- NOTE: dap view
---
+vim.diagnostic.config({
+    underline = true,
+    signs = true,
+    virtual_text = false,
+    float = {
+        source = 'always',
+        show_header = true,
+        border = 'rounded',
+        focusable = false,
+    },
+    update_in_insert = true, -- default to false
+    severity_sort = true,    -- default to false
+})
 
--- local dap, dv = require("dap"), require("dap-view")
---
--- dap.listeners.before.attach["dap-view-config"] = function()
---     dv.open()
--- end
---
--- dap.listeners.before.launch["dap-view-config"] = function()
---     dv.open()
--- end
---
--- dap.listeners.before.event_terminated["dap-view-config"] = function()
---     dv.close()
--- end
---
--- dap.listeners.before.event_exited["dap-view-config"] = function()
---     dv.close()
--- end
---
--- NOTE: load theme
---
 
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
+-- Plugins configs
 
-require "options"
-require "nvchad.autocmds"
+require "mini.pick".setup()
+keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Find files" })
+keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Find buffers" })
+keymap.set("n", "<leader>fw", ":Pick grep<CR>", { desc = "Grep" })
 
-vim.schedule(function()
-  require "mappings"
-end)
+require "oil".setup()
+keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Oil explore" })
 
--- vim.api.nvim_set_hl(0, "DiffAdd", { fg = "none", bg = "palegreen", bold = true })
--- vim.api.nvim_set_hl(0, "DiffDelete", { fg = "none", bg = "tomato", bold = true })
--- vim.api.nvim_set_hl(0, "DiffChange", { fg = "none", bg = "lightblue", bold = true })
--- vim.api.nvim_set_hl(0, "DiffText", { fg = "none", bg = "lightpink", bold = true })
+-- UI
+
+vim.cmd("colorscheme vague")
+vim.cmd("hi statusline guibg=NONE")
