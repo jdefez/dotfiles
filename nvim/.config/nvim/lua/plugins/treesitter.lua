@@ -87,16 +87,16 @@ return {
       }
     end,
   },
-  -- {
-  --   "nvim-treesitter/nvim-treesitter-refactor",
-  --   requires = { "nvim-treesitter/nvim-treesitter" },
-  --   lazy = false,
-  -- },
-  -- {
-  --   "nvim-treesitter/nvim-treesitter-textobjects",
-  --   requires = { "nvim-treesitter/nvim-treesitter" },
-  --   lazy = false,
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter-refactor",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    lazy = false,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    lazy = false,
+  },
   {
     "aaronik/treewalker.nvim",
     lazy = false,
