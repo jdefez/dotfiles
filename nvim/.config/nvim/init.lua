@@ -1,49 +1,85 @@
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
-vim.g.mapleader = " "
+require('configs')
+require('keymaps')
+require('plugins')
 
---
--- Bootstrap lazy and all plugins
---
+-- LSP
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+vim.lsp.enable({ "lua_ls", "phpactor" })
 
-if not vim.uv.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
-end
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
+})
+vim.cmd("set completeopt+=noselect")
 
-vim.opt.rtp:prepend(lazypath)
+require "nvim-treesitter.configs".setup({
+    ensure_installed = {
+        "javascript",
+        "markdown",
+        "html",
+        "json",
+        "yaml",
+        "xml",
+        "php",
+    },
+    highlight = { enable = true }
+})
 
-local lazy_config = require "configs.lazy"
+vim.diagnostic.config({
+    underline = true,
+    signs = true,
+    virtual_text = false,
+    float = {
+        source = 'always',
+        show_header = true,
+        border = 'rounded',
+        focusable = false,
+    },
+    update_in_insert = true, -- default to false
+    severity_sort = true,    -- default to false
+})
 
-require "configs.neovim-project"
 
---
--- NOTE: Load plugins
---
+-- Plugins configs
 
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
+local keymap = vim.keymap
 
-  { import = "plugins" },
-}, lazy_config)
+require "mini.pick".setup()
+keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Find files" })
+keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Find buffers" })
+keymap.set("n", "<leader>fw", ":Pick grep<CR>", { desc = "Grep" })
 
---
--- NOTE: Load theme
---
+require "oil".setup()
+keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Oil explore" })
 
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
+require('gitsigns').setup({ signcolumn = true })
 
-require "options"
+require("mason").setup({})
 
--- NOTE: Set commentstring for PHP files
+require("flash").setup({})
+keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash jump" })
+keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash treesitter" })
+keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
+keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash Treesitter search" })
 
-vim.schedule(function()
-  require "mappings"
-end)
+require("neogit").setup({})
+keymap.set("n", "<leader>G", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
+
+require("nvim-surround").setup({})
+
+require("fastaction").setup({})
+keymap.set(
+    { 'n', 'x' },
+    '<leader>ca',
+    '<cmd>lua require("fastaction").code_action({ select_first = true })<CR>',
+    { desc = "Select and apply first code action", buffer = bufnr }
+)
+
+-- ui
+
+-- vim.cmd("colorscheme vague")
+vim.cmd("hi statusline guibg=NONE")
