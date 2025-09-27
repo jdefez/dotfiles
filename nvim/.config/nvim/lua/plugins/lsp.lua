@@ -10,15 +10,15 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "lua-language-server",
+        "xmlformatter",
         "phpactor",
         "phpstan",
         "stylua",
         "fixjson",
-        "lua-language-server",
         "phpactor",
         "pint",
         "stylua",
-        "xmlformatter",
       },
     },
   },
@@ -36,23 +36,6 @@ return {
       },
     },
   },
-  -- {
-  --   "rachartier/tiny-code-action.nvim",
-  --   event = "LspAttach",
-  --   dependencies = {
-  --     { "nvim-lua/plenary.nvim" },
-  --     { "nvim-telescope/telescope.nvim" },
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>ca",
-  --       function()
-  --         require("tiny-code-action").code_action()
-  --       end,
-  --       desc = "Code action",
-  --     },
-  --   },
-  -- },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",

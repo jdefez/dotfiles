@@ -5,6 +5,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 local servers = {
+  "stimulus_ls",
   "phpactor",
   "lemminx",
   "yamlls",
