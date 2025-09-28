@@ -1,5 +1,6 @@
 theme = ayu
-font-family = "Monaspace Argon"
+font-family = "Monaspace Neon"
+font-size = 10
 font-feature = "ss01"
 font-feature = "ss02"
 font-feature = "ss03"
