@@ -1,5 +1,6 @@
 {
     "diagnostics.globals": [
-        "rquire"
+        "rquire",
+        "vim"
     ]
 }

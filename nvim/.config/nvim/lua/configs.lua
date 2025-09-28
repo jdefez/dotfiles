@@ -17,11 +17,15 @@ option.winborder = "rounded"
 option.clipboard = "unnamedplus"
 option.termguicolors = true
 option.ignorecase = true
+option.fillchars = { eob = " " }
 
-option.listchars = "tab: ,multispace:|   ,eol:󰌑"
-option.list = true
+-- option.listchars = "tab: ,multispace:|   ,eol:󰌑"
+-- option.list = true
 option.cursorline = true
 option.scrolloff = 8
 option.inccommand = "nosplit"
+
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 vim.cmd.filetype("plugin indent on")
