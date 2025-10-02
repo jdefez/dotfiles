@@ -28,9 +28,9 @@ keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote 
 keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash Treesitter search" })
 
 require("quicker").setup({})
-keymap.set({ "n" }, "<leader>q", function() require("quicker").toggle() end, {desc = "Close quickfix"})
-keymap.set({ "n"}, ">", function() require("quicker").expand { before = 2, after = 2, add_to_existing = true } end, {desc = "Expand quickfix context"})
-keymap.set({ "n"}, "<", function() require("quicker").collapse() end, {desc = "Collapse quickfix context"})
+keymap.set({"n"}, "<leader>q", function() require("quicker").toggle() end, {desc = "Close quickfix"})
+keymap.set({"n"}, ">", function() require("quicker").expand { before = 2, after = 2, add_to_existing = true } end, {desc = "Expand quickfix context"})
+keymap.set({"n"}, "<", function() require("quicker").collapse() end, {desc = "Collapse quickfix context"})
 
 -- git
 
