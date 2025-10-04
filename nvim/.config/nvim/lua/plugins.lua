@@ -24,6 +24,7 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.pick" },
     { src = "https://github.com/folke/flash.nvim" },
     { src = "https://github.com/stevearc/quicker.nvim" },
+    { src = "https://github.com/ahkohd/buffer-sticks.nvim" },
 
     -- ui
     { src = "https://github.com/xiyaowong/virtcolumn.nvim"},

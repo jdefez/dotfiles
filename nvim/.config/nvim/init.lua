@@ -28,9 +28,22 @@ keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote 
 keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash Treesitter search" })
 
 require("quicker").setup({})
-keymap.set({"n"}, "<leader>q", function() require("quicker").toggle() end, {desc = "Close quickfix"})
-keymap.set({"n"}, ">", function() require("quicker").expand { before = 2, after = 2, add_to_existing = true } end, {desc = "Expand quickfix context"})
-keymap.set({"n"}, "<", function() require("quicker").collapse() end, {desc = "Collapse quickfix context"})
+keymap.set({ "n" }, "<leader>q", function() require("quicker").toggle() end, { desc = "Close quickfix" })
+keymap.set({ "n" }, ">", function() require("quicker").expand { before = 2, after = 2, add_to_existing = true } end,
+    { desc = "Expand quickfix context" })
+keymap.set({ "n" }, "<", function() require("quicker").collapse() end, { desc = "Collapse quickfix context" })
+
+require("buffer-sticks").setup({
+    filter = {
+        filetypes = { "help", "qf" },       -- Exclude by filetype (also: "NvimTree", "neo-tree", "Trouble")
+        buftypes = { "terminal" },          -- Exclude by buftype (also: "help", "quickfix", "nofile")
+        names = { ".*%.git/.*", "^/tmp/.*" }, -- Exclude buffers matching lua patterns
+    },
+})
+keymap.set("n", "<leader>bo", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
+keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Buffer sticks: hide" })
+-- keymap.set("n", "<leader>bo", function() BufferSticks.list({ action = "open" }) end, { desc = "Open buffer", })
+-- keymap.set({ "<leader>p", function() BufferSticks.list({ action = function(buffer, leave) print("Selected: " .. buffer.name) leave() end }) end, desc = "Buffer picker" })
 
 -- git
 
