@@ -6,11 +6,33 @@ keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("n", "<leader>s", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
-keymap.set("n", "<leader>x", ":bdelete<cr>", { desc = "Close buffer" })
 keymap.set("n", "<C-h>", "<c-w>h", { desc = "To left split" })
 keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
+
+-- oil
+
+keymap.set("n", "<leader>O", "<cmd>Oil<CR>", { desc = "Oil start" })
+
+-- glance
+
+keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
+keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
+keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
+keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
+
+-- phpactor
+keymap.set("n", "<leader>p", "<cmd>PhpactorContextMenu<CR>", { desc = "Phpactor context menu" })
+
+-- outline
+-- keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle outline" })
+
+-- symbol outline
+keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
+
+-- mini.bufremove
+keymap.set("n", "<leader>x", function() MiniBufremove.delete(0) end, { desc = "Mini buffremove" })
 
 -- mini.pick
 
@@ -46,6 +68,11 @@ keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Bu
 -- neogit
 
 keymap.set("n", "<leader>G", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
+
+-- diffview
+
+keymap.set("n", "<leader>D", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
+keymap.set("n", "<leader>Dc", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
 
 
 -- fastaction

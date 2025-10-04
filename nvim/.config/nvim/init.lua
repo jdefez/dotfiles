@@ -1,15 +1,17 @@
+local option = vim.opt
+local cmd = vim.cmd
+
+-- mini.pick mappings : https://nvim-mini.org/mini.nvim/doc/mini-pick.html#minipick.config-defaults
+
 require('configs')
 require('plugins')
-
 require('lsp')
 require('treesitter')
-
 require('keymaps')
-
 require("mason").setup({})
 
-vim.cmd("hi statusline guibg=NONE")
-vim.cmd("hi DiagnosticUnderlineError gui=undercurl")
-vim.cmd("hi DiagnosticUnderlineWarn gui=undercurl")
+cmd("hi statusline guibg=NONE")
+cmd("hi DiagnosticUnderlineError gui=undercurl")
+cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
--- vim.cmd("colorscheme vague")
+option.background = "light"
