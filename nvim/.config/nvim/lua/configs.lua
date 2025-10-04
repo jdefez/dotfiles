@@ -27,5 +27,6 @@ option.inccommand = "nosplit"
 
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldlevel = 90
 
 vim.cmd.filetype("plugin indent on")
