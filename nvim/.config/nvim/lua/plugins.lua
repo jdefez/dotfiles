@@ -3,14 +3,11 @@ vim.pack.add({
 
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/xiyaowong/virtcolumn.nvim" },
-    {
-        src = "https://github.com/lukas-reineke/indent-blankline.nvim",
-        name = 'ibl'
-    },
     { src = "https://github.com/okuuva/auto-save.nvim" },
     { src = "https://github.com/echasnovski/mini.bufremove" },
     { src = "https://github.com/echasnovski/mini.animate" },
-
+    { src = "https://github.com/echasnovski/mini.statusline" },
+    { src = "https://github.com/echasnovski/mini.sessions" },
 
     -- lsp
 
@@ -29,6 +26,7 @@ vim.pack.add({
 
     { src = "https://github.com/kylechui/nvim-surround" },
     { src = "https://github.com/echasnovski/mini.pairs" },
+    { src = "https://github.com/echasnovski/mini.indentscope" },
 
     -- git
 
@@ -80,13 +78,17 @@ require("neogit").setup({})
 
 -- editing
 
-require("mini.pairs").setup()
+require("mini.pairs").setup({})
 require("nvim-surround").setup({})
 require("fastaction").setup({})
+require("mini.indentscope").setup({})
 
 -- ui
-
-require("ibl").setup()
 require("auto-save").setup({})
 require("mini.bufremove").setup({})
-require("mini.animate").setup()
+require("mini.animate").setup({})
+require("mini.statusline").setup({})
+require("mini.sessions").setup({
+    autoread = true,
+    autowrite = true, -- default
+})

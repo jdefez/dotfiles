@@ -11,7 +11,7 @@ keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
 keymap.set("n", "<Leader>ds", vim.diagnostic.open_float, { desc = "Show diagnostic" })
-keymap.set({"n", "i", "v"}, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Show diagnostic" })
+keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
 
 -- lsp default keymaping
 
@@ -22,8 +22,12 @@ keymap.set({"n", "i", "v"}, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Show diagn
 -- "grt" modes: Normal : vim.lsp.buf.type_definition()
 -- "gO" modes: Normal : vim.lsp.buf.document_symbol()
 -- CTRL-S modes: Insert : vim.lsp.buf.signature_help()
--- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range() 
--- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range() 
+-- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range()
+-- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range()
+
+-- mini.sessions
+
+keymap.set('n', '<leader>S', ':lua MiniSessions.select()<CR>', { desc = 'Mini sessions select' })
 
 -- fastaction
 
