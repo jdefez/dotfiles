@@ -16,6 +16,9 @@ vim.pack.add({
 
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/phpactor/phpactor" },
+    { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
+    -- { src = "https://github.com/DNLHC/glance.nvim" },
 
     -- treesitter
 
@@ -35,12 +38,6 @@ vim.pack.add({
     { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
     { src = "https://github.com/NeogitOrg/neogit" },
 
-    -- lsp
-
-    { src = "https://github.com/mason-org/mason.nvim" },
-    { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
-    { src = "https://github.com/DNLHC/glance.nvim" },
-
     -- move
 
     { src = "https://github.com/stevearc/oil.nvim" },
@@ -56,7 +53,9 @@ vim.pack.add({
 
 -- lsp
 
-require("glance").setup()
+require("lspconfig")
+
+-- require("glance").setup()
 
 -- moving
 

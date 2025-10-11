@@ -10,6 +10,29 @@ keymap.set("n", "<C-h>", "<c-w>h", { desc = "To left split" })
 keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
+keymap.set("n", "<Leader>ds", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+keymap.set({"n", "i", "v"}, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Show diagnostic" })
+
+-- lsp default keymaping
+
+-- "gra" modes: Normal + Visual : vim.lsp.buf.code_action()
+-- "gri" modes: Normal : vim.lsp.buf.implementation()
+-- "grn" modes: Normal : vim.lsp.buf.rename()
+-- "grr" modes: Normal : vim.lsp.buf.references()
+-- "grt" modes: Normal : vim.lsp.buf.type_definition()
+-- "gO" modes: Normal : vim.lsp.buf.document_symbol()
+-- CTRL-S modes: Insert : vim.lsp.buf.signature_help()
+-- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range() 
+-- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range() 
+
+-- fastaction
+
+keymap.set(
+    { 'n', 'x' },
+    '<leader>a',
+    '<cmd>lua require("fastaction").code_action({ select_first = true })<CR>',
+    { desc = "Select and apply first code action", buffer = bufnr }
+)
 
 -- oil
 
@@ -17,13 +40,22 @@ keymap.set("n", "<leader>O", "<cmd>Oil<CR>", { desc = "Oil start" })
 
 -- glance
 
-keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
-keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
-keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
-keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
+-- keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
+-- keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
+-- keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
+-- keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
 
 -- phpactor
 keymap.set("n", "<leader>p", "<cmd>PhpactorContextMenu<CR>", { desc = "Phpactor context menu" })
+
+-- fastaction
+
+keymap.set(
+    { 'n', 'x' },
+    '<leader>a',
+    function() require("fastaction").code_action() end,
+    { desc = "Display code actions", buffer = bufnr }
+)
 
 -- outline
 -- keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle outline" })
@@ -73,13 +105,3 @@ keymap.set("n", "<leader>G", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit ope
 
 keymap.set("n", "<leader>D", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
 keymap.set("n", "<leader>Dc", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
-
-
--- fastaction
-
-keymap.set(
-    { 'n', 'x' },
-    '<leader>ca',
-    '<cmd>lua require("fastaction").code_action({ select_first = true })<CR>',
-    { desc = "Select and apply first code action", buffer = bufnr }
-)

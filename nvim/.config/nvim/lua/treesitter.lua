@@ -60,17 +60,3 @@ require "nvim-treesitter.configs".setup({
         },
     },
 })
-
-vim.diagnostic.config({
-    underline = true,
-    signs = true,
-    virtual_text = false,
-    float = {
-        source = 'always',
-        show_header = true,
-        border = 'rounded',
-        focusable = false,
-    },
-    update_in_insert = true, -- default to false
-    severity_sort = true,    -- default to false
-})

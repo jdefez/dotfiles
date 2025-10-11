@@ -1,6 +1,6 @@
 vim.lsp.enable({
     "jsonls",
-    "laravel_ls",
+    -- "laravel_ls",
     "lemminx", -- xml
     "lua_ls",
     "pest_ls",
@@ -16,5 +16,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
+
+-- vim.lsp.set_log_level('debug')
+
+vim.diagnostic.config({
+    underline = true,
+    signs = true,
+    virtual_text = false,
+    virtual_line = false,
+    float = {
+        source = 'always',
+        show_header = true,
+        border = 'rounded',
+        focusable = false,
+    },
+    update_in_insert = false, -- default to false
+    severity_sort = false,     -- default to false
+})
+
 
 vim.cmd("set completeopt+=noselect")
