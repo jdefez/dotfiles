@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
-keymap.set("i", "<S-TAB>", "<C-x><C-o>", { desc = "Trigger completion" })
+-- keymap.set("i", "<S-TAB>", "<C-x><C-o>", { desc = "Trigger completion" })
 keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("n", "<leader>s", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
@@ -24,6 +24,10 @@ keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
 -- CTRL-S modes: Insert : vim.lsp.buf.signature_help()
 -- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range()
 -- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range()
+
+
+-- supertab
+-- keymap.set("i", "<TAB>", function() require("supertab").trigger("<Tab>") end, { desc = "Supertab" })
 
 -- mini.sessions
 
