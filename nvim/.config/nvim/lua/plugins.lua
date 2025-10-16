@@ -9,6 +9,9 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.statusline" },
     { src = "https://github.com/echasnovski/mini.sessions" },
 
+    { src = "https://github.com/SmiteshP/nvim-navic"}, -- barbecue dependency
+    { src = "https://github.com/utilyre/barbecue.nvim"},
+
     -- lsp
 
     { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -125,3 +128,5 @@ require("mini.sessions").setup({
     autoread = true,
     autowrite = true, -- default
 })
+require("barbecue").setup({})
+
