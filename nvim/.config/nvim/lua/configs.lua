@@ -25,8 +25,13 @@ option.cursorline = true
 option.scrolloff = 8
 option.inccommand = "nosplit"
 
+option.splitbelow = true
+option.splitright = true
+
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo.foldlevel = 90
+vim.wo.foldlevel = 10
+vim.wo.foldminlines = 0
+vim.wo.foldnestmax = 10
 
 vim.cmd.filetype("plugin indent on")

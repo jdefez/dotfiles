@@ -1,17 +1,70 @@
 local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
--- keymap.set("i", "<S-TAB>", "<C-x><C-o>", { desc = "Trigger completion" })
 keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("n", "<leader>s", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
+
 keymap.set("n", "<C-h>", "<c-w>h", { desc = "To left split" })
 keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
-keymap.set("n", "<Leader>ds", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
 keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
+
+--------------------------------------------------------------------------------
+-- b for buffer
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>bd", '<cmd>lua MiniBufremove.delete()<CR>', { desc = "Delete buffer" })
+keymap.set("n", "<leader>bD", '<Cmd>lua MiniBufremove.delete(0, true)<CR>', { desc = "Delete! buffer" })
+keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
+keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Buffer sticks: hide" })
+
+--------------------------------------------------------------------------------
+-- f for file
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
+keymap.set("n", "<leader>fb", "<cmd>Pick buffers<CR>", { desc = "Find buffers" })
+keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
+keymap.set("n", "<leader>fW", '<cmd>Pick grep pattern="<cword>"<CR>', { desc = "Grep word" })
+keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
+keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
+keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
+keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
+
+--------------------------------------------------------------------------------
+-- g for git
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>g", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
+keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
+keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
+keymap.set("n", "<leader>gh", '<cmd>Pick git_hunks path="%" scope=staged<CR>', { desc = "Pick buffer hunks" })
+keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "Pick all hunks" })
+
+--------------------------------------------------------------------------------
+-- l for lsp
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>P", "<cmd>PhpactorContextMenu<CR>", { desc = "Phpactor context menu" })
+
+keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Source definition" })
+keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
+keymap.set("n", "<Leader>lh", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
+keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
+keymap.set("n", '<leader>lR', '<Cmd>Pick lsp scope="references"<CR>', {desc = 'References (LSP)'})
+keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', {desc = 'Symbols workspace'})
+keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>',  {desc ='Symbols document'})
+keymap.set(
+    { 'n', 'x' },
+    '<leader>la',
+    function() require("fastaction").code_action() end,
+    { desc = "Display code actions", buffer = bufnr }
+)
 
 -- lsp default keymaping
 
@@ -24,67 +77,6 @@ keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
 -- CTRL-S modes: Insert : vim.lsp.buf.signature_help()
 -- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range()
 -- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range()
-
-
--- supertab
--- keymap.set("i", "<TAB>", function() require("supertab").trigger("<Tab>") end, { desc = "Supertab" })
-
--- mini.sessions
-
-keymap.set('n', '<leader>S', ':lua MiniSessions.select()<CR>', { desc = 'Mini sessions select' })
-
--- fastaction
-
-keymap.set(
-    { 'n', 'x' },
-    '<leader>a',
-    '<cmd>lua require("fastaction").code_action({ select_first = true })<CR>',
-    { desc = "Select and apply first code action", buffer = bufnr }
-)
-
--- oil
-
-keymap.set("n", "<leader>O", "<cmd>Oil<CR>", { desc = "Oil start" })
-
--- glance
-
--- keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
--- keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
--- keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
--- keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
-
--- phpactor
-keymap.set("n", "<leader>p", "<cmd>PhpactorContextMenu<CR>", { desc = "Phpactor context menu" })
-
--- fastaction
-
-keymap.set(
-    { 'n', 'x' },
-    '<leader>a',
-    function() require("fastaction").code_action() end,
-    { desc = "Display code actions", buffer = bufnr }
-)
-
--- outline
--- keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle outline" })
-
--- symbol outline
-keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
-
--- mini.bufremove
-keymap.set("n", "<leader>x", function() MiniBufremove.delete(0) end, { desc = "Mini buffremove" })
-
--- mini.pick
-
-keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Find buffers" })
-keymap.set("n", "<leader>fw", ":Pick grep<CR>", { desc = "Grep" })
-keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Find help" })
-keymap.set("n", "<leader>fr", ":Pick resume<CR>", { desc = "Mini pick resume" })
-
--- oil
-
-keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Oil explore" })
 
 -- flash
 
@@ -100,16 +92,14 @@ keymap.set({ "n" }, ">", function() require("quicker").expand { before = 2, afte
     { desc = "Expand quickfix context" })
 keymap.set({ "n" }, "<", function() require("quicker").collapse() end, { desc = "Collapse quickfix context" })
 
--- buffer-sticks
+-- glance
 
-keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
-keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Buffer sticks: hide" })
+-- keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
+-- keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
+-- keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
+-- keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
 
--- neogit
 
-keymap.set("n", "<leader>G", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
+-- mini.sessions
 
--- diffview
-
-keymap.set("n", "<leader>D", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
-keymap.set("n", "<leader>Dc", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
+keymap.set('n', '<leader>S', ':lua MiniSessions.select()<CR>', { desc = 'Mini sessions select' })

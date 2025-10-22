@@ -1,6 +1,7 @@
 vim.pack.add({
     -- ui
 
+    { src = "https://github.com/echasnovski/mini.extra" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/xiyaowong/virtcolumn.nvim" },
     { src = "https://github.com/okuuva/auto-save.nvim" },
@@ -9,8 +10,8 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.statusline" },
     { src = "https://github.com/echasnovski/mini.sessions" },
 
-    { src = "https://github.com/SmiteshP/nvim-navic"}, -- barbecue dependency
-    { src = "https://github.com/utilyre/barbecue.nvim"},
+    { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
+    { src = "https://github.com/utilyre/barbecue.nvim" },
 
     -- lsp
 
@@ -85,7 +86,7 @@ require("symbols-outline").setup()
 
 -- git
 
-require("gitsigns").setup({ signcolumn = true })
+require("gitsigns").setup({})
 require("neogit").setup({})
 
 -- editing
@@ -120,6 +121,7 @@ cmp.setup({
 require("supermaven-nvim").setup({})
 
 -- ui
+require('mini.extra').setup()
 require("auto-save").setup({})
 require("mini.bufremove").setup({})
 require("mini.animate").setup({})
@@ -129,4 +131,3 @@ require("mini.sessions").setup({
     autowrite = true, -- default
 })
 require("barbecue").setup({})
-
