@@ -1,5 +1,7 @@
 vim.pack.add({
+    ----------------------------------------------------------------------------
     -- ui
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/echasnovski/mini.extra" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
@@ -13,7 +15,9 @@ vim.pack.add({
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
 
+    ----------------------------------------------------------------------------
     -- lsp
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/phpactor/phpactor" },
@@ -21,18 +25,24 @@ vim.pack.add({
     { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
     -- { src = "https://github.com/DNLHC/glance.nvim" },
 
+    ----------------------------------------------------------------------------
     -- treesitter
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-refactor" }, -- after nvim-treesitter
 
+    ----------------------------------------------------------------------------
     -- edit
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/kylechui/nvim-surround" },
     { src = "https://github.com/echasnovski/mini.pairs" },
     { src = "https://github.com/echasnovski/mini.indentscope" },
 
+    ----------------------------------------------------------------------------
     -- completion
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/supermaven-inc/supermaven-nvim" }, -- supertab dependency
     { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
@@ -41,7 +51,9 @@ vim.pack.add({
     { src = "https://github.com/hrsh7th/cmp-cmdline" },
     { src = "https://github.com/hrsh7th/nvim-cmp" },
 
+    ----------------------------------------------------------------------------
     -- git
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
 
@@ -49,7 +61,9 @@ vim.pack.add({
     { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
     { src = "https://github.com/NeogitOrg/neogit" },
 
+    ----------------------------------------------------------------------------
     -- move
+    ----------------------------------------------------------------------------
 
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/echasnovski/mini.pick" },
@@ -58,17 +72,19 @@ vim.pack.add({
     { src = "https://github.com/ahkohd/buffer-sticks.nvim" },
     -- { src = "https://github.com/hedyhli/outline.nvim" },
     { src = "https://github.com/simrat39/symbols-outline.nvim" },
-
-    -- color scheme
 })
 
+--------------------------------------------------------------------------------
 -- lsp
+--------------------------------------------------------------------------------
 
 require("lspconfig")
 
 -- require("glance").setup()
 
+--------------------------------------------------------------------------------
 -- moving
+--------------------------------------------------------------------------------
 
 require("mini.pick").setup()
 require("oil").setup()
@@ -84,19 +100,27 @@ require("buffer-sticks").setup({
 -- require("outline").setup({})
 require("symbols-outline").setup()
 
+--------------------------------------------------------------------------------
 -- git
+--------------------------------------------------------------------------------
 
 require("gitsigns").setup({})
 require("neogit").setup({})
 
+--------------------------------------------------------------------------------
 -- editing
+--------------------------------------------------------------------------------
 
 require("mini.pairs").setup({})
 require("nvim-surround").setup({})
 require("fastaction").setup({})
 require("mini.indentscope").setup({})
 
+--------------------------------------------------------------------------------
 -- completion
+--------------------------------------------------------------------------------
+
+require("supermaven-nvim").setup({})
 local cmp = require('cmp')
 cmp.setup({
     window = {
@@ -118,9 +142,10 @@ cmp.setup({
     })
 })
 
-require("supermaven-nvim").setup({})
-
+--------------------------------------------------------------------------------
 -- ui
+--------------------------------------------------------------------------------
+
 require('mini.extra').setup()
 require("auto-save").setup({})
 require("mini.bufremove").setup({})
@@ -130,4 +155,6 @@ require("mini.sessions").setup({
     autoread = true,
     autowrite = true, -- default
 })
-require("barbecue").setup({})
+require("barbecue").setup({
+    theme = "default"
+})

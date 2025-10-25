@@ -5,16 +5,22 @@ keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("n", "<leader>s", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
+keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
+
+--------------------------------------------------------------------------------
+--- Move
+--------------------------------------------------------------------------------
 
 keymap.set("n", "<C-h>", "<c-w>h", { desc = "To left split" })
 keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
 
-keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 --------------------------------------------------------------------------------
--- b for buffer
+-- [b] for buffer
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>bd", '<cmd>lua MiniBufremove.delete()<CR>', { desc = "Delete buffer" })
@@ -23,7 +29,7 @@ keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buff
 keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Buffer sticks: hide" })
 
 --------------------------------------------------------------------------------
--- f for file
+-- [f] for file
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
@@ -36,7 +42,7 @@ keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume
 keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
 
 --------------------------------------------------------------------------------
--- g for git
+-- [g] for git
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>g", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
@@ -46,7 +52,7 @@ keymap.set("n", "<leader>gh", '<cmd>Pick git_hunks path="%" scope=staged<CR>', {
 keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "Pick all hunks" })
 
 --------------------------------------------------------------------------------
--- l for lsp
+-- [l] for lsp
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>P", "<cmd>PhpactorContextMenu<CR>", { desc = "Phpactor context menu" })
