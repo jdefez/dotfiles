@@ -2,7 +2,7 @@ local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
 keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
-keymap.set("n", "<leader>s", ":update<CR> :source<CR>", { desc = "Update and source" })
+keymap.set("n", "<leader>R", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
 keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
@@ -45,9 +45,9 @@ keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
 -- [g] for git
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<leader>g", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
-keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
-keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
+keymap.set("n", "<leader>go", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
+keymap.set("n", "<leader>gO", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
+keymap.set("n", "<leader>gC", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
 keymap.set("n", "<leader>gh", '<cmd>Pick git_hunks path="%" scope=staged<CR>', { desc = "Pick buffer hunks" })
 keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "Pick all hunks" })
 
@@ -62,9 +62,9 @@ keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnost
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
 keymap.set("n", "<Leader>lh", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
 keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
-keymap.set("n", '<leader>lR', '<Cmd>Pick lsp scope="references"<CR>', {desc = 'References (LSP)'})
-keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', {desc = 'Symbols workspace'})
-keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>',  {desc ='Symbols document'})
+keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
+keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
+keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
 keymap.set(
     { 'n', 'x' },
     '<leader>la',
@@ -84,28 +84,55 @@ keymap.set(
 -- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range()
 -- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range()
 
+--------------------------------------------------------------------------------
+-- [s] for session
+--------------------------------------------------------------------------------
+
+
+local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
+
+keymap.set('n', '<leader>s', ':lua MiniSessions.select()<CR>', { desc = 'Select' })
+keymap.set('n', '<leader>sd', '<Cmd>lua MiniSessions.select("delete")<CR>', { desc = 'Delete' })
+keymap.set('n', '<leader>sn', '<Cmd>lua ' .. session_new .. '<CR>', { desc = 'New' })
+keymap.set('n', '<leader>sr', '<Cmd>lua MiniSessions.select("read")<CR>', { desc = 'Read' })
+keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Write current' })
+
+--------------------------------------------------------------------------------
 -- flash
+--------------------------------------------------------------------------------
 
-keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash jump" })
-keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash treesitter" })
-keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
-keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash Treesitter search" })
+local flash = require("flash")
 
+keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
+keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
+keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
+keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
+
+--------------------------------------------------------------------------------
 -- quicker
+--------------------------------------------------------------------------------
 
-keymap.set({ "n" }, "<leader>q", function() require("quicker").toggle() end, { desc = "Close quickfix" })
-keymap.set({ "n" }, ">", function() require("quicker").expand { before = 2, after = 2, add_to_existing = true } end,
-    { desc = "Expand quickfix context" })
-keymap.set({ "n" }, "<", function() require("quicker").collapse() end, { desc = "Collapse quickfix context" })
+local quicker = require("quicker")
 
+keymap.set({ "n" }, "<leader>q", function() quicker.toggle() end, { desc = "Close quickfix" })
+keymap.set(
+    { "n" },
+    ">",
+    function() quicker.expand { before = 2, after = 2, add_to_existing = true } end,
+    { desc = "Expand quickfix context" }
+)
+keymap.set(
+    { "n" },
+    "<",
+    function() quicker.collapse() end,
+    { desc = "Collapse quickfix context" }
+)
+
+--------------------------------------------------------------------------------
 -- glance
+--------------------------------------------------------------------------------
 
 -- keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
 -- keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
 -- keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
 -- keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
-
-
--- mini.sessions
-
-keymap.set('n', '<leader>S', ':lua MiniSessions.select()<CR>', { desc = 'Mini sessions select' })

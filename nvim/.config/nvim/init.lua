@@ -15,3 +15,4 @@ cmd("hi DiagnosticUnderlineError gui=undercurl")
 cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
 option.background = "light"
+cmd.colorscheme "vscode"

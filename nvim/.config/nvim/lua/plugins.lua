@@ -11,6 +11,7 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.animate" },
     { src = "https://github.com/echasnovski/mini.statusline" },
     { src = "https://github.com/echasnovski/mini.sessions" },
+    { src = "https://github.com/echasnovski/mini.clue" },
 
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
@@ -52,16 +53,6 @@ vim.pack.add({
     { src = "https://github.com/hrsh7th/nvim-cmp" },
 
     ----------------------------------------------------------------------------
-    -- git
-    ----------------------------------------------------------------------------
-
-    { src = "https://github.com/lewis6991/gitsigns.nvim" },
-
-    { src = "https://github.com/nvim-lua/plenary.nvim" },  -- neogit dependency
-    { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
-    { src = "https://github.com/NeogitOrg/neogit" },
-
-    ----------------------------------------------------------------------------
     -- move
     ----------------------------------------------------------------------------
 
@@ -72,6 +63,22 @@ vim.pack.add({
     { src = "https://github.com/ahkohd/buffer-sticks.nvim" },
     -- { src = "https://github.com/hedyhli/outline.nvim" },
     { src = "https://github.com/simrat39/symbols-outline.nvim" },
+
+    ----------------------------------------------------------------------------
+    -- git
+    ----------------------------------------------------------------------------
+
+    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+
+    { src = "https://github.com/nvim-lua/plenary.nvim" },  -- neogit dependency
+    { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
+    { src = "https://github.com/NeogitOrg/neogit" },
+
+    ----------------------------------------------------------------------------
+    -- color scheme
+    ----------------------------------------------------------------------------
+
+    { src = "https://github.com/Mofiqul/vscode.nvim" },
 })
 
 --------------------------------------------------------------------------------
@@ -132,7 +139,9 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        -- Accept currently selected item. Set `select` to `false` to only
+        --   confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -151,10 +160,34 @@ require("auto-save").setup({})
 require("mini.bufremove").setup({})
 require("mini.animate").setup({})
 require("mini.statusline").setup({})
+require("mini.clue").setup({
+    -- Register `<Leader>` as trigger
+    triggers = {
+        { mode = 'n', keys = '<Leader>' },
+        { mode = 'x', keys = '<Leader>' },
+    },
+
+    -- Add descriptions for mapping groups
+    clues = {
+        { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
+        { mode = 'n', keys = '<Leader>f', desc = '+Files' },
+        { mode = 'n', keys = '<Leader>g', desc = '+Git' },
+        { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
+        { mode = 'n', keys = '<Leader>s', desc = '+Sessions' },
+    },
+})
 require("mini.sessions").setup({
     autoread = true,
     autowrite = true, -- default
 })
 require("barbecue").setup({
     theme = "default"
+})
+
+--------------------------------------------------------------------------------
+-- color scheme
+--------------------------------------------------------------------------------
+
+require('vscode').setup({
+    italic_comments = true,
 })
