@@ -16,8 +16,9 @@ keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
 
-keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
-keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+-- fixme: conflicting with native merge line "J"
+-- keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+-- keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 --------------------------------------------------------------------------------
 -- [b] for buffer
@@ -115,18 +116,10 @@ keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc =
 local quicker = require("quicker")
 
 keymap.set({ "n" }, "<leader>q", function() quicker.toggle() end, { desc = "Close quickfix" })
-keymap.set(
-    { "n" },
-    ">",
-    function() quicker.expand { before = 2, after = 2, add_to_existing = true } end,
-    { desc = "Expand quickfix context" }
-)
-keymap.set(
-    { "n" },
-    "<",
-    function() quicker.collapse() end,
-    { desc = "Collapse quickfix context" }
-)
+
+-- fixme: conflicting with native indentation mappings
+-- keymap.set( { "n" }, ">", function() quicker.expand { before = 2, after = 2, add_to_existing = true } end, { desc = "Expand quickfix context" })
+-- keymap.set( { "n" }, "<", function() quicker.collapse() end, { desc = "Collapse quickfix context" })
 
 --------------------------------------------------------------------------------
 -- glance
