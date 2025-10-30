@@ -56,8 +56,6 @@ keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "
 -- [l] for lsp
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<leader>P", "<cmd>PhpactorContextMenu<CR>", { desc = "Phpactor context menu" })
-
 keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Source definition" })
 keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
@@ -84,6 +82,14 @@ keymap.set(
 -- CTRL-S modes: Insert : vim.lsp.buf.signature_help()
 -- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range()
 -- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range()
+
+--------------------------------------------------------------------------------
+-- [p] for php
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>pm", "<cmd>PhpactorContextMenu<CR>", { desc = "Context menu" })
+keymap.set("n", "<leader>pcm", "<cmd>PhpactorMoveFile<CR>", { desc = "Move file" })
+keymap.set("n", "<leader>pcn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new" })
 
 --------------------------------------------------------------------------------
 -- [s] for session
@@ -132,10 +138,6 @@ keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc =
 local quicker = require("quicker")
 
 keymap.set({ "n" }, "<leader>q", function() quicker.toggle() end, { desc = "Close quickfix" })
-
--- fixme: conflicting with native indentation mappings
--- keymap.set( { "n" }, ">", function() quicker.expand { before = 2, after = 2, add_to_existing = true } end, { desc = "Expand quickfix context" })
--- keymap.set( { "n" }, "<", function() quicker.collapse() end, { desc = "Collapse quickfix context" })
 
 --------------------------------------------------------------------------------
 -- glance
