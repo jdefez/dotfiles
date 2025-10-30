@@ -23,6 +23,9 @@ local lazy_config = require "configs.lazy"
 
 -- NOTE: load plugins
 
+-- WARN: temp fix for lspconfig deprecation
+vim.deprecate = function() end
+
 require("lazy").setup({
   {
     "NvChad/NvChad",
@@ -34,27 +37,6 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
---
--- NOTE: dap view
---
-
--- local dap, dv = require("dap"), require("dap-view")
---
--- dap.listeners.before.attach["dap-view-config"] = function()
---     dv.open()
--- end
---
--- dap.listeners.before.launch["dap-view-config"] = function()
---     dv.open()
--- end
---
--- dap.listeners.before.event_terminated["dap-view-config"] = function()
---     dv.close()
--- end
---
--- dap.listeners.before.event_exited["dap-view-config"] = function()
---     dv.close()
--- end
 --
 -- NOTE: load theme
 --
@@ -69,7 +51,3 @@ vim.schedule(function()
   require "mappings"
 end)
 
--- vim.api.nvim_set_hl(0, "DiffAdd", { fg = "none", bg = "palegreen", bold = true })
--- vim.api.nvim_set_hl(0, "DiffDelete", { fg = "none", bg = "tomato", bold = true })
--- vim.api.nvim_set_hl(0, "DiffChange", { fg = "none", bg = "lightblue", bold = true })
--- vim.api.nvim_set_hl(0, "DiffText", { fg = "none", bg = "lightpink", bold = true })

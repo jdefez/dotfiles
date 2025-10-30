@@ -6,6 +6,7 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "stimulus_ls",
+  -- "laravel_ls",
   "phpactor",
   "lemminx",
   "yamlls",

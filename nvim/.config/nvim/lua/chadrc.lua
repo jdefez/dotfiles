@@ -22,7 +22,7 @@ M.term = {
 }
 
 M.base46 = {
-  theme = "nightfox",
+  theme = "github_light",
 
   hl_override = {
     Comment = { italic = true },

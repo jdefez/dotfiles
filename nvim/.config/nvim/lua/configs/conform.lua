@@ -1,6 +1,6 @@
 local options = {
   formatters_by_ft = {
-    blade = { "duster" },
+    blade = { "blade-formatter" },
     yaml = { "yamllint" },
     json = { "fixjson" },
     lua = { "stylua" },

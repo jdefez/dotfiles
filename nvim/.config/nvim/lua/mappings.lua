@@ -3,7 +3,6 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
--- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "Y", "yy$")
 
@@ -13,17 +12,14 @@ nomap("n", "<M-h>")
 nomap("n", "<M-i>")
 nomap("n", "<M-v>")
 
---
+nomap("n", "<C-n>")
+map("n", "<leader>fe", "<cmd>NvimTreeToggle<cr>", { desc = "Nvim Tree Toggle" })
+
+----------------------------------------------------------------------------------------
 -- nvim-tree
---
+----------------------------------------------------------------------------------------
 
 map("n", "<leader>tf", ":NvimTreeFindFile!<cr>", { desc = "NvimTree find file" })
-
---
--- Git conflict
---
-
--- map("n", "<leader>c", ":GitConflictListQf!<cr>", { desc = "Conflict list open" })
 
 local function nvim_tree_on_attach(bufnr)
   local api = require "nvim-tree.api"
@@ -38,40 +34,15 @@ local function nvim_tree_on_attach(bufnr)
     }
   end
 
-  --
+  ----------------------------------------------------------------------------------------
   -- default mappings
-  --
+  ----------------------------------------------------------------------------------------
 
   api.config.mappings.default_on_attach(bufnr)
 
-  --
-  -- LSP
-  --
-  -- Reference:
-  --  - https://vonheikemen.github.io/devlog/tools/neovim-lsp-client-guide/
-  --  - https://neovim.io/doc/user/news-0.11.html
-  --
-  -- In normal mode:
-  --  - grn renames all references of the symbol under the cursor.
-  --  - gra shows a list of code actions available in the line under the cursor.
-  --  - grr lists all the references of the symbol under the cursor.
-  --  - gri lists all the implementations for the symbol under the cursor.
-  --  - gO lists all symbols in the current buffer.
-  --
-  -- In insert mode:
-  --  - <Ctrl-s> displays the function signature of the symbol under the cursor.
-
-  -- map("n", "<leader>ca", function()
-  --   require("tiny-code-action").code_action()
-  -- end, { noremap = true, silent = true })
-
-  -- map("n", "<leader>ca", function()
-  --   vim.lsp.buf.code_action { async = true }
-  -- end, { desc = "Code action" })
-
-  --
+  ----------------------------------------------------------------------------------------
   -- nvimtree
-  --
+  ----------------------------------------------------------------------------------------
 
   map("n", "?", api.tree.toggle_help, opts "Help")
 
@@ -82,25 +53,16 @@ require("nvim-tree").setup {
   on_attach = nvim_tree_on_attach,
 }
 
---
--- Treewalker
---
-
-map("n", "<C-]>", ":Treewalker Down<CR>", { desc = "Treewalker down" })
-map("n", "<C-[>", ":Treewalker Up<CR>", { desc = "Treewalker up" })
-map("n", "<S-h>", ":Treewalker Left<CR>", { desc = "Treewalker in" })
-map("n", "<S-l>", ":Treewalker Right<CR>", { desc = "Treewalker out" })
-
---
+----------------------------------------------------------------------------------------
 -- Telescope
---
+----------------------------------------------------------------------------------------
 
 map("n", "<leader>fW", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
 map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", { desc = "telescope grep current word" })
 
---
+----------------------------------------------------------------------------------------
 -- Gitsigns
---
+----------------------------------------------------------------------------------------
 
 require("gitsigns").setup {
   on_attach = function(bufnr)
