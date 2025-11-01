@@ -14,5 +14,22 @@ cmd("hi statusline guibg=NONE")
 cmd("hi DiagnosticUnderlineError gui=undercurl")
 cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
-option.background = "light"
-cmd.colorscheme "vscode"
+--------------------------------------------------------------------------------
+-- color scheme
+--------------------------------------------------------------------------------
+
+require('rose-pine').setup({
+    variant = "auto",      -- auto, main, moon, or dawn
+    dark_variant = "auto", -- main, moon, or dawn
+    dim_inactive_windows = false,
+    extend_background_behind_borders = true,
+})
+
+-- cmd.colorscheme "rose-pine-main"
+-- cmd.colorscheme "rose-pine-moon"
+cmd.colorscheme "rose-pine-dawn"
+
+-- require('vscode').setup({
+--     italic_comments = true,
+-- })
+-- option.background = "light"

@@ -32,7 +32,7 @@ vim.pack.add({
 
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" }, -- after nvim-treesitter
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter-refactor" }, -- after nvim-treesitter
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter-refactor" },    -- after nvim-treesitter
 
     ----------------------------------------------------------------------------
     -- edit
@@ -79,7 +79,8 @@ vim.pack.add({
     -- color scheme
     ----------------------------------------------------------------------------
 
-    { src = "https://github.com/Mofiqul/vscode.nvim" },
+    -- { src = "https://github.com/Mofiqul/vscode.nvim" },
+    { src = "https://github.com/rose-pine/neovim",                           name = "rose-pine" },
 })
 
 --------------------------------------------------------------------------------
@@ -184,12 +185,4 @@ require("mini.sessions").setup({
 })
 require("barbecue").setup({
     theme = "default"
-})
-
---------------------------------------------------------------------------------
--- color scheme
---------------------------------------------------------------------------------
-
-require('vscode').setup({
-    italic_comments = true,
 })
