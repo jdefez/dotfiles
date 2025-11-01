@@ -147,18 +147,6 @@ pest() {
   fi
 }
 
-puc() {
-  clear && php ./vendor/bin/phpunit --coverage-text
-}
-
-puf() {
-  if [ -n "$1" ]; then
-    clear && php ./vendor/bin/phpunit --filter="$1"
-  else
-    clear && php ./vendor/bin/phpunit
-  fi
-}
-
 # build new laravel project
 
 lan () {
