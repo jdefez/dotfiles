@@ -32,7 +32,10 @@ require('rose-pine').setup({
 
 -- cmd.colorscheme "rose-pine-main"
 -- cmd.colorscheme "rose-pine-moon"
+-- option.background = "light"
+
 cmd.colorscheme "rose-pine-dawn"
+option.background = "light"
 
 -- require('vscode').setup({
 --     italic_comments = true,

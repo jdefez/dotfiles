@@ -1,10 +1,8 @@
 local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
-keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
-keymap.set("n", "<leader>R", ":update<CR> :source<CR>", { desc = "Update and source" })
+-- keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
-keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
 keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
 
 --------------------------------------------------------------------------------
@@ -26,8 +24,9 @@ keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
 
 keymap.set("n", "<leader>bd", '<cmd>lua MiniBufremove.delete()<CR>', { desc = "Delete buffer" })
 keymap.set("n", "<leader>bD", '<Cmd>lua MiniBufremove.delete(0, true)<CR>', { desc = "Delete! buffer" })
-keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
 keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Buffer sticks: hide" })
+keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
+keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
 
 --------------------------------------------------------------------------------
 -- [f] for file
@@ -35,41 +34,43 @@ keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Bu
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
 keymap.set("n", "<leader>fb", "<cmd>Pick buffers<CR>", { desc = "Find buffers" })
+keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
+keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
+keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
+keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
+keymap.set('n', '<leader>fs', ':lua MiniSessions.select()<CR>', { desc = 'Find session' })
 keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
 keymap.set("n", "<leader>fW", '<cmd>Pick grep pattern="<cword>"<CR>', { desc = "Grep word" })
-keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
-keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
-keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
-keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
 
 --------------------------------------------------------------------------------
 -- [g] for git
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<leader>go", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
-keymap.set("n", "<leader>gO", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
 keymap.set("n", "<leader>gC", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
 keymap.set("n", "<leader>gh", '<cmd>Pick git_hunks path="%" scope=staged<CR>', { desc = "Pick buffer hunks" })
 keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "Pick all hunks" })
+keymap.set("n", "<leader>go", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
+keymap.set("n", "<leader>gO", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
 
 --------------------------------------------------------------------------------
 -- [l] for lsp
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Source definition" })
-keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
-keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
-keymap.set("n", "<Leader>lh", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
-keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
-keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
-keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
--- keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
 keymap.set(
     { 'n', 'x' },
     '<leader>la',
     function() require("fastaction").code_action() end,
     { desc = "Display code actions", buffer = bufnr }
 )
+keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Source definition" })
+keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
+keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
+keymap.set("n", "<Leader>lh", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
+keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
+keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
+keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
+-- keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
 
 -- lsp default keymaping
 
@@ -97,12 +98,19 @@ keymap.set("n", "<leader>pmn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new"
 keymap.set("n", "<leader>pmc", "<cmd>PhpactorCopyFile<CR>", { desc = "Class copy" })
 
 --------------------------------------------------------------------------------
+-- [q] for quickfix
+--------------------------------------------------------------------------------
+
+local quicker = require("quicker")
+
+keymap.set({ "n" }, "<leader>qt", function() quicker.toggle() end, { desc = "Toggle quickfix" })
+
+--------------------------------------------------------------------------------
 -- [s] for session
 --------------------------------------------------------------------------------
 
 local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
 
-keymap.set('n', '<leader>s', ':lua MiniSessions.select()<CR>', { desc = 'Select' })
 keymap.set('n', '<leader>sd', '<Cmd>lua MiniSessions.select("delete")<CR>', { desc = 'Delete' })
 keymap.set('n', '<leader>sn', '<Cmd>lua ' .. session_new .. '<CR>', { desc = 'New' })
 keymap.set('n', '<leader>sr', '<Cmd>lua MiniSessions.select("read")<CR>', { desc = 'Read' })
@@ -134,14 +142,6 @@ keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash 
 keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
 keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
 keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
-
---------------------------------------------------------------------------------
--- quicker
---------------------------------------------------------------------------------
-
-local quicker = require("quicker")
-
-keymap.set({ "n" }, "<leader>q", function() quicker.toggle() end, { desc = "Close quickfix" })
 
 --------------------------------------------------------------------------------
 -- glance
