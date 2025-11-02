@@ -21,7 +21,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.diagnostic.config({
     underline = true,
-    signs = true,
     virtual_text = false,
     virtual_line = false,
     float = {
@@ -30,8 +29,16 @@ vim.diagnostic.config({
         border = 'rounded',
         focusable = false,
     },
-    update_in_insert = false, -- default to false
-    severity_sort = false,     -- default to false
+    update_in_insert = false,
+    severity_sort = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '💥',
+            [vim.diagnostic.severity.WARN] = '⚠️',
+            [vim.diagnostic.severity.INFO] = '💡',
+            [vim.diagnostic.severity.HINT] = '🤘',
+        },
+    },
 })
 
 

@@ -23,6 +23,10 @@ require('rose-pine').setup({
     dark_variant = "auto", -- main, moon, or dawn
     dim_inactive_windows = false,
     extend_background_behind_borders = true,
+    highlight_groups = {
+        CurSearch = { fg = "base", bg = "leaf", inherit = false },
+        Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
+    },
 })
 
 -- cmd.colorscheme "rose-pine-main"

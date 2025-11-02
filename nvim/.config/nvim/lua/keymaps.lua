@@ -60,10 +60,10 @@ keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = 
 keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
 keymap.set("n", "<Leader>lh", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
-keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
 keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
+-- keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
 keymap.set(
     { 'n', 'x' },
     '<leader>la',
@@ -87,14 +87,21 @@ keymap.set(
 -- [p] for php
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<leader>pm", "<cmd>PhpactorContextMenu<CR>", { desc = "Context menu" })
-keymap.set("n", "<leader>pcm", "<cmd>PhpactorMoveFile<CR>", { desc = "Move file" })
-keymap.set("n", "<leader>pcn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new" })
+-- TODO: using phpactor template feature. See: 
+--  - https://phpactor.readthedocs.io/en/master/reference/refactorings.html#class-new
+--  - and https://phpactor.readthedocs.io/en/master/reference/templates.html
+
+keymap.set({ "n", "v" }, "<leader>pm", "<cmd>PhpactorContextMenu<CR>", { desc = "Context menu" })
+keymap.set("n", "<leader>pmm", "<cmd>PhpactorMoveFile<CR>", { desc = "Move file" })
+keymap.set("n", "<leader>pmn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new" })
+keymap.set("n", "<leader>pmc", "<cmd>PhpactorCopyFile<CR>", { desc = "Class copy" })
 
 --------------------------------------------------------------------------------
 -- [s] for session
 --------------------------------------------------------------------------------
 
+
+-- TODO: change working directory (cwd) after session read triggered ?
 
 local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
 
@@ -108,11 +115,11 @@ keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Wri
 -- treesitter
 --------------------------------------------------------------------------------
 
-local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+-- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
 -- vim way: ; goes to the direction you were moving.
-keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+-- keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+-- keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
 -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
 -- keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)

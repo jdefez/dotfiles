@@ -47,11 +47,11 @@ vim.pack.add({
     ----------------------------------------------------------------------------
 
     { src = "https://github.com/supermaven-inc/supermaven-nvim" }, -- supertab dependency
-    { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
-    { src = "https://github.com/hrsh7th/cmp-buffer" },
-    { src = "https://github.com/hrsh7th/cmp-path" },
-    { src = "https://github.com/hrsh7th/cmp-cmdline" },
-    { src = "https://github.com/hrsh7th/nvim-cmp" },
+    -- { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+    -- { src = "https://github.com/hrsh7th/cmp-buffer" },
+    -- { src = "https://github.com/hrsh7th/cmp-path" },
+    -- { src = "https://github.com/hrsh7th/cmp-cmdline" },
+    -- { src = "https://github.com/hrsh7th/nvim-cmp" },
 
     ----------------------------------------------------------------------------
     -- move
@@ -63,7 +63,7 @@ vim.pack.add({
     { src = "https://github.com/stevearc/quicker.nvim" },
     { src = "https://github.com/ahkohd/buffer-sticks.nvim" },
     -- { src = "https://github.com/hedyhli/outline.nvim" },
-    { src = "https://github.com/simrat39/symbols-outline.nvim" },
+    -- { src = "https://github.com/simrat39/symbols-outline.nvim" },
 
     ----------------------------------------------------------------------------
     -- git
@@ -80,7 +80,7 @@ vim.pack.add({
     ----------------------------------------------------------------------------
 
     -- { src = "https://github.com/Mofiqul/vscode.nvim" },
-    { src = "https://github.com/rose-pine/neovim",                           name = "rose-pine" },
+    { src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 })
 
 --------------------------------------------------------------------------------
@@ -107,7 +107,7 @@ require("buffer-sticks").setup({
     },
 })
 -- require("outline").setup({})
-require("symbols-outline").setup()
+-- require("symbols-outline").setup()
 
 --------------------------------------------------------------------------------
 -- git
@@ -130,28 +130,6 @@ require("mini.indentscope").setup({})
 --------------------------------------------------------------------------------
 
 require("supermaven-nvim").setup({})
-local cmp = require('cmp')
-cmp.setup({
-    window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        -- Accept currently selected item. Set `select` to `false` to only
-        --   confirm explicitly selected items.
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    }),
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'supermaven-nvim' },
-    }, {
-        { name = 'buffer' },
-    })
-})
 
 --------------------------------------------------------------------------------
 -- ui
@@ -176,12 +154,13 @@ require("mini.clue").setup({
         { mode = 'n', keys = '<Leader>g', desc = '+Git' },
         { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
         { mode = 'n', keys = '<Leader>p', desc = '+Php' },
+        -- { mode = 'n', keys = '<Leader>t', desc = '+Treesitter' },
         { mode = 'n', keys = '<Leader>s', desc = '+Sessions' },
     },
 })
 require("mini.sessions").setup({
-    autoread = true,
-    autowrite = true, -- default
+    autoread = false,
+    autowrite = true,
 })
 require("barbecue").setup({
     theme = "default"
