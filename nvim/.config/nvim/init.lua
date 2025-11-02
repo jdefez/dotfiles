@@ -21,7 +21,7 @@ cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 require('rose-pine').setup({
     variant = "auto",      -- auto, main, moon, or dawn
     dark_variant = "auto", -- main, moon, or dawn
-    dim_inactive_windows = false,
+    dim_inactive_windows = true,
     extend_background_behind_borders = true,
     highlight_groups = {
         VirtColumn = { fg = "love" },

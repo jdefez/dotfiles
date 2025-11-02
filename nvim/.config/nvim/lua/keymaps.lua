@@ -100,9 +100,6 @@ keymap.set("n", "<leader>pmc", "<cmd>PhpactorCopyFile<CR>", { desc = "Class copy
 -- [s] for session
 --------------------------------------------------------------------------------
 
-
--- TODO: change working directory (cwd) after session read triggered ?
-
 local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
 
 keymap.set('n', '<leader>s', ':lua MiniSessions.select()<CR>', { desc = 'Select' })
