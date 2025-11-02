@@ -1,21 +1,18 @@
 local option = vim.opt
 local cmd = vim.cmd
 
--- mini.pick mappings : https://nvim-mini.org/mini.nvim/doc/mini-pick.html#minipick.config-defaults
+--------------------------------------------------------------------------------
+-- Load configs
+--------------------------------------------------------------------------------
 
 require('configs')
 require('plugins')
 require('lsp')
 require('treesitter')
 require('keymaps')
-require("mason").setup({})
-
-cmd("hi statusline guibg=NONE")
-cmd("hi DiagnosticUnderlineError gui=undercurl")
-cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
 --------------------------------------------------------------------------------
--- color scheme
+-- Color scheme
 --------------------------------------------------------------------------------
 
 require('rose-pine').setup({
@@ -37,7 +34,6 @@ require('rose-pine').setup({
 cmd.colorscheme "rose-pine-dawn"
 option.background = "light"
 
--- require('vscode').setup({
---     italic_comments = true,
--- })
--- option.background = "light"
+cmd("hi statusline guibg=NONE")
+cmd("hi DiagnosticUnderlineError gui=undercurl")
+cmd("hi DiagnosticUnderlineWarn gui=undercurl")

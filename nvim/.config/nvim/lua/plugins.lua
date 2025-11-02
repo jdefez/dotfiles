@@ -212,3 +212,4 @@ require("mini.sessions").setup({
 require("barbecue").setup({
     theme = "default"
 })
+require("mason").setup({})
