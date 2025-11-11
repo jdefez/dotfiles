@@ -4,6 +4,7 @@ keymap.set('n', 'Y', 'yy$')
 -- keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
+-- keymap.set("n", "<leader>W", "*``cgn", {desc = "Replace current word"})
 
 --------------------------------------------------------------------------------
 --- Move
@@ -24,23 +25,30 @@ keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
 
 keymap.set("n", "<leader>bd", '<cmd>lua MiniBufremove.delete()<CR>', { desc = "Delete buffer" })
 keymap.set("n", "<leader>bD", '<Cmd>lua MiniBufremove.delete(0, true)<CR>', { desc = "Delete! buffer" })
+keymap.set("n", "<leader>bf", "<cmd>Pick buffers<CR>", { desc = "Find buffers" })
 keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Buffer sticks: hide" })
 keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
+keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
+
+--------------------------------------------------------------------------------
+-- [c] for cursor
+--------------------------------------------------------------------------------
+
+-- TODO: configure multicursor mappings cf. https://github.com/jake-stewart/multicursor.nvim
 
 --------------------------------------------------------------------------------
 -- [f] for file
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>fb", "<cmd>Pick buffers<CR>", { desc = "Find buffers" })
 keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
 keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
 keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
 keymap.set('n', '<leader>fs', ':lua MiniSessions.select()<CR>', { desc = 'Find session' })
 keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
-keymap.set("n", "<leader>fW", '<cmd>Pick grep pattern="<cword>"<CR>', { desc = "Grep word" })
+keymap.set("n", "<leader>fW", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "Grep word" })
 
 --------------------------------------------------------------------------------
 -- [g] for git
@@ -88,14 +96,10 @@ keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { des
 -- [p] for php
 --------------------------------------------------------------------------------
 
--- TODO: using phpactor template feature. See: 
---  - https://phpactor.readthedocs.io/en/master/reference/refactorings.html#class-new
---  - and https://phpactor.readthedocs.io/en/master/reference/templates.html
-
 keymap.set({ "n", "v" }, "<leader>pm", "<cmd>PhpactorContextMenu<CR>", { desc = "Context menu" })
-keymap.set("n", "<leader>pmm", "<cmd>PhpactorMoveFile<CR>", { desc = "Move file" })
-keymap.set("n", "<leader>pmn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new" })
-keymap.set("n", "<leader>pmc", "<cmd>PhpactorCopyFile<CR>", { desc = "Class copy" })
+keymap.set("n", "<leader>pcc", "<cmd>PhpactorCopyFile<CR>", { desc = "Class copy" })
+keymap.set("n", "<leader>pcn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new" })
+keymap.set("n", "<leader>pcm", "<cmd>PhpactorMoveFile<CR>", { desc = "Move file" })
 
 --------------------------------------------------------------------------------
 -- [q] for quickfix

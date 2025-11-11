@@ -14,6 +14,7 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.clue" },
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
+    { src = "https://github.com/echasnovski/mini.starter" },
 
     ----------------------------------------------------------------------------
     -- lsp
@@ -40,6 +41,7 @@ vim.pack.add({
     { src = "https://github.com/kylechui/nvim-surround" },
     { src = "https://github.com/echasnovski/mini.pairs" },
     { src = "https://github.com/echasnovski/mini.indentscope" },
+    { src = "https://github.com/jake-stewart/multicursor.nvim" },
 
     ----------------------------------------------------------------------------
     -- completion
@@ -178,6 +180,7 @@ require("mini.clue").setup({
         -- { mode = 'n', keys = '<Leader>t', desc = '+Treesitter' },
     },
 })
+require("mini.starter").setup({})
 require("mini.sessions").setup({
     autoread = false,
     autowrite = true,
@@ -209,7 +212,9 @@ require("mini.sessions").setup({
         },
     }
 })
+
 require("barbecue").setup({
     theme = "default"
 })
 require("mason").setup({})
+require("multicursor-nvim").setup({})
