@@ -42,6 +42,7 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.pairs" },
     { src = "https://github.com/echasnovski/mini.indentscope" },
     { src = "https://github.com/jake-stewart/multicursor.nvim" },
+    { src = "https://github.com/folke/todo-comments.nvim" },
 
     ----------------------------------------------------------------------------
     -- completion
@@ -218,3 +219,4 @@ require("barbecue").setup({
 })
 require("mason").setup({})
 require("multicursor-nvim").setup({})
+require("todo-comments").setup({})

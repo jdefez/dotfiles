@@ -40,6 +40,10 @@
     "quicker.nvim": [],
     "rose-pine": [],
     "supermaven-nvim": [],
+    "todo-comments.nvim": {
+      "rev": "31e3c38",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
     "vim-visual-multi": {
       "rev": "a6975e7",
       "src": "https://github.com/mg979/vim-visual-multi"

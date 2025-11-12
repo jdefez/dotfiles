@@ -121,22 +121,6 @@ keymap.set('n', '<leader>sr', '<Cmd>lua MiniSessions.select("read")<CR>', { desc
 keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Write current' })
 
 --------------------------------------------------------------------------------
--- treesitter
---------------------------------------------------------------------------------
-
--- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-
--- vim way: ; goes to the direction you were moving.
--- keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
--- keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-
--- Optionally, make builtin f, F, t, T also repeatable with ; and ,
--- keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
--- keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
--- keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
--- keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
-
---------------------------------------------------------------------------------
 -- flash
 --------------------------------------------------------------------------------
 
@@ -155,3 +139,10 @@ keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc =
 -- keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
 -- keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
 -- keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
+
+--------------------------------------------------------------------------------
+-- todo
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>t", ':TodoLocList<CR>', { desc = "Todo loc list" })
+
