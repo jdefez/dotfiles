@@ -1,0 +1,49 @@
+{
+  "plugins": {
+    "auto-save.nvim": [],
+    "barbecue.nvim": [],
+    "buffer-sticks.nvim": [],
+    "diffview.nvim": [],
+    "fastaction.nvim": [],
+    "flash.nvim": [],
+    "gitsigns.nvim": [],
+    "mason.nvim": [],
+    "mini.animate": [],
+    "mini.bufremove": [],
+    "mini.clue": [],
+    "mini.extra": [],
+    "mini.indentscope": [],
+    "mini.pairs": [],
+    "mini.pick": [],
+    "mini.sessions": [],
+    "mini.starter": [],
+    "mini.statusline": [],
+    "multicursor.nvim": {
+      "rev": "0c6ceae",
+      "src": "https://github.com/jake-stewart/multicursor.nvim"
+    },
+    "neogit": [],
+    "nvim-lsp-endhints": {
+      "rev": "d4ea1bf",
+      "src": "https://github.com/chrisgrieser/nvim-lsp-endhints"
+    },
+    "nvim-lspconfig": [],
+    "nvim-navic": [],
+    "nvim-surround": [],
+    "nvim-treesitter": [],
+    "nvim-treesitter-refactor": [],
+    "nvim-treesitter-textobjects": [],
+    "nvim-web-devicons": [],
+    "oil.nvim": [],
+    "phpactor": [],
+    "plenary.nvim": [],
+    "quicker.nvim": [],
+    "rose-pine": [],
+    "supermaven-nvim": [],
+    "vim-visual-multi": {
+      "rev": "a6975e7",
+      "src": "https://github.com/mg979/vim-visual-multi"
+    },
+    "virtcolumn.nvim": []
+  }
+}
