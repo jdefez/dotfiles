@@ -26,6 +26,8 @@ local lazy_config = require "configs.lazy"
 -- WARN: temp fix for lspconfig deprecation
 vim.deprecate = function() end
 
+vim.opt.background = "light"
+
 require("lazy").setup({
   {
     "NvChad/NvChad",
