@@ -1,10 +1,8 @@
 local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
--- keymap.set("n", "<C-s>", ":write<CR>", { desc = "Save" })
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
--- keymap.set("n", "<leader>W", "*``cgn", {desc = "Replace current word"})
 
 --------------------------------------------------------------------------------
 --- Move
@@ -74,23 +72,20 @@ keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = 
 keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
-keymap.set("n", "<Leader>lh", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
+keymap.set("n", "<Leader>lk", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
 keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
+
 -- keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
-
--- lsp default keymaping
-
--- "gra" modes: Normal + Visual : vim.lsp.buf.code_action()
--- "gri" modes: Normal : vim.lsp.buf.implementation()
--- "grn" modes: Normal : vim.lsp.buf.rename()
--- "grr" modes: Normal : vim.lsp.buf.references()
--- "grt" modes: Normal : vim.lsp.buf.type_definition()
--- "gO" modes: Normal : vim.lsp.buf.document_symbol()
--- CTRL-S modes: Insert : vim.lsp.buf.signature_help()
--- "an" modes: Visual : outer incremental selections : vim.lsp.buf.selection_range()
--- "in" modes: Visual : inner incremental selections, vim.lsp.buf.selection_range()
+-- keymap.set("n", "<Leader>lh", function()
+--     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+--     if vim.lsp.inlay_hint.is_enabled() then
+--         print("Inlay hints enabled")
+--     else
+--         print("Inlay hints disabled")
+--     end
+-- end, { desc = "Toggle inlay hints" })
 
 --------------------------------------------------------------------------------
 -- [p] for php
@@ -145,4 +140,3 @@ keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc =
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>t", ':TodoLocList<CR>', { desc = "Todo loc list" })
-
