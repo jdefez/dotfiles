@@ -34,6 +34,14 @@
     "nvim-treesitter-refactor": [],
     "nvim-treesitter-textobjects": [],
     "nvim-web-devicons": [],
+    "oil-git.nvim": {
+      "rev": "d1f27a5",
+      "src": "https://github.com/benomahony/oil-git.nvim"
+    },
+    "oil-lsp-diagnostics.nvim": {
+      "rev": "e04e3c3",
+      "src": "https://github.com/JezerM/oil-lsp-diagnostics.nvim"
+    },
     "oil.nvim": [],
     "phpactor": [],
     "plenary.nvim": [],

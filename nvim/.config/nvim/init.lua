@@ -24,6 +24,11 @@ require('rose-pine').setup({
         VirtColumn = { fg = "love" },
         CurSearch = { fg = "base", bg = "leaf", inherit = false },
         Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
+        OilGitAdded = { fg = "foam" },
+        OilGitModified = { fg = "rose" },
+        OilGitRenamed = { fg = "pine" },
+        OilGitUntracked = { fg = "subtle" },
+        OilGitIgnored = { fg = "muted" }
     },
     groups = {
         border = "muted",
