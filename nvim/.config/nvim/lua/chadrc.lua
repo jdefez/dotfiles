@@ -21,6 +21,14 @@ M.term = {
   },
 }
 
+M.ui = {
+  cmp = {
+    icons = true,
+    lspkind_text = true,
+    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+  },
+}
+
 M.base46 = {
   theme = "rosepine-dawn",
 

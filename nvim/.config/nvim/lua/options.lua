@@ -21,6 +21,6 @@ o.foldlevelstart = 99
 -- virtcolumn
 --
 
-o.colorcolumn = "88"
+o.colorcolumn = "80"
 g.virtcolumn_char = "▕" -- char to display the line
 g.virtcolumn_priority = 10 -- priority of extmark
