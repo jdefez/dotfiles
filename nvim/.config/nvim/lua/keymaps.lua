@@ -4,6 +4,26 @@ keymap.set('n', 'Y', 'yy$')
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
 
+require("mini.clue").setup({
+    -- Register `<Leader>` as trigger
+    triggers = {
+        { mode = 'n', keys = '<Leader>' },
+        { mode = 'x', keys = '<Leader>' },
+    },
+
+    -- Add descriptions for mapping groups
+    clues = {
+        { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
+        { mode = 'n', keys = '<Leader>f', desc = '+Files' },
+        { mode = 'n', keys = '<Leader>g', desc = '+Git' },
+        { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
+        { mode = 'n', keys = '<Leader>p', desc = '+Php' },
+        { mode = 'n', keys = '<Leader>q', desc = '+Quickfix' },
+        { mode = 'n', keys = '<Leader>s', desc = '+Sessions' },
+        -- { mode = 'n', keys = '<Leader>t', desc = '+Treesitter' },
+    },
+})
+
 --------------------------------------------------------------------------------
 --- Move
 --------------------------------------------------------------------------------
@@ -40,7 +60,11 @@ keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and so
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>fe", "<cmd>Oil<CR>", { desc = "Oil explore" })
+keymap.set("n", "<leader>fe", function()
+    vim.cmd("vsplit")
+    vim.cmd('vertical resize ' .. math.floor(vim.o.columns * 0.3))
+    require("oil").open()
+end, { desc = "Oil explore" })
 keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
 keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })

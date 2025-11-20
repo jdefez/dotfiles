@@ -1,3 +1,13 @@
+--------------------------------------------------------------------------------
+-- treesitter
+--------------------------------------------------------------------------------
+
+vim.pack.add({
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" }, -- after nvim-treesitter
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter-refactor" },    -- after nvim-treesitter
+})
+
 require "nvim-treesitter.configs".setup({
     ensure_installed = {
         "bash",
