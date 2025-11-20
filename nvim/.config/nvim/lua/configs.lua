@@ -19,8 +19,6 @@ option.termguicolors = true
 option.ignorecase = true
 option.fillchars = { eob = " " }
 
--- option.listchars = "tab: ,multispace:|   ,eol:󰌑"
--- option.list = true
 option.cursorline = true
 option.scrolloff = 8
 option.inccommand = "nosplit"
