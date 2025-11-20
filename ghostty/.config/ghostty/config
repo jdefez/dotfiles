@@ -1,4 +1,5 @@
 theme = "Rose Pine Dawn"
+
 font-family="Monaspace Neon NF"
 font-size=9
 font-feature="ss01"
@@ -6,12 +7,23 @@ font-feature="ss02"
 font-feature="ss03"
 font-feature="ss04"
 font-feature="ss09"
+
 adjust-cell-height=30%
 
+# ------------------------------------------------------------------------------
+# keybindings
+# ------------------------------------------------------------------------------
+
+# Fullscreen enter/leave
 keybind = shift+enter=text:\x1b\r
 
 keybind = ctrl+shift+l=new_split:right
 keybind = ctrl+shift+h=new_split:left
 keybind = ctrl+shift+j=new_split:down
 keybind = ctrl+shift+k=new_split:up
+
 keybind = ctrl+shift+w=close_surface
+keybind = ctrl+shift+arrow_left=goto_split:left
+keybind = ctrl+shift+arrow_right=goto_split:right
+keybind = ctrl+shift+arrow_up=goto_split:up
+keybind = ctrl+shift+arrow_down=goto_split:down
