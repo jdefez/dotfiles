@@ -60,11 +60,7 @@ keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and so
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>fe", function()
-    vim.cmd("vsplit")
-    vim.cmd('vertical resize ' .. math.floor(vim.o.columns * 0.3))
-    require("oil").open()
-end, { desc = "Oil explore" })
+keymap.set("n", "<leader>fe", function() require("oil").open() end, { desc = "Oil explore" })
 keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
 keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
