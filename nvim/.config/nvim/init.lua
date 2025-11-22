@@ -15,7 +15,7 @@ require('plugins/git')
 require('plugins/edit')
 require('plugins/move')
 require('plugins/treesitter')
-require('plugins/color-scheme')
+require('plugins/colorscheme')
 
 require('lsp')
 

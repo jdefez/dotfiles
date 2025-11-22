@@ -5,6 +5,8 @@
 local option = vim.opt
 local cmd = vim.cmd
 
+option.background = "light"
+
 vim.pack.add({
     {
         src = "https://github.com/rose-pine/neovim",
@@ -59,7 +61,6 @@ require('rose-pine').setup({
     },
 })
 
-option.background = "light"
 cmd.colorscheme "rose-pine"
 
 cmd("hi statusline guibg=NONE")
