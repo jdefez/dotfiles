@@ -1,6 +1,9 @@
+--------------------------------------------------------------------------------
+-- lsp configs
+--------------------------------------------------------------------------------
+
 vim.lsp.enable({
     "jsonls",
-    -- "laravel_ls",
     "lemminx", -- xml
     "lua_ls",
     "pest_ls",
@@ -16,8 +19,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
-
--- vim.lsp.set_log_level('debug')
 
 vim.diagnostic.config({
     underline = true,
@@ -40,6 +41,5 @@ vim.diagnostic.config({
         },
     },
 })
-
 
 vim.cmd("set completeopt+=noselect")
