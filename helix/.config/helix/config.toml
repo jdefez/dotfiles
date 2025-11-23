@@ -1,0 +1,81 @@
+theme = "ayu_light"
+
+[editor]
+end-of-line-diagnostics = "hint"
+bufferline = "multiple"
+rulers = [80]
+color-modes = true
+default-yank-register = '+'
+
+[editor.inline-diagnostics]
+cursor-line = "error" # show warnings and errors on the cursorline inline
+other-lines = "disable"
+
+[editor.statusline]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "spacer",
+  "position-percentage",
+  "position"
+]
+center = [
+  "diagnostics",
+  "spinner"
+]
+right = [
+  "separator",
+  "file-name",
+  "file-modification-indicator",
+  "file-encoding",
+  "file-line-ending",
+  "file-type"
+]
+separator = "│"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
+
+[editor.lsp]
+display-messages = true
+display-progress-messages = true
+
+[editor.cursor-shape]
+normal = "underline"
+insert = "underline"
+select = "underline"
+
+[editor.auto-save]
+after-delay.enable = true
+after.delay-timeout = 3000
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+[keys.normal]
+esc = ["collapse_selection", "normal_mode"]
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
+# "A-," = "goto_previous_buffer"
+# "A-." = "goto_next_buffer"
+# "A-w" = ":buffer-close"
+# "A-/" = "repeat_last_motion"
+
+[keys.select]
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
+
+[keys.insert]
+esc = ["collapse_selection", "normal_mode"]
+S-tab = "move_parent_node_start"
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
