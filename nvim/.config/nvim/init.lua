@@ -2,6 +2,7 @@
 -- TODO:
 --------------------------------------------------------------------------------
 -- Install and try this package: https://github.com/ccaglak/phptools.nvim
+-- Add sessions and sessions configs for git, phpactor and zsh
 
 --------------------------------------------------------------------------------
 -- modules

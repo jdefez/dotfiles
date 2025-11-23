@@ -56,6 +56,12 @@ keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and so
 
 local mc = require("multicursor-nvim")
 
+-- TODO: add multicursor-operator
+-- Pressing `<leader>miwap` will create a cursor in every match of the
+-- string captured by `iw` inside range `ap`.
+-- This action is highly customizable, see `:h multicursor-operator`.
+-- set({"n", "x"}, "<leader>m", mc.operator)
+
 -- Add or skip cursor above/below the main cursor.
 
 keymap.set({ "n", "x" }, "<up>", function() mc.lineAddCursor(-1) end, { desc = "Add up" })
