@@ -41,5 +41,3 @@ vim.diagnostic.config({
         },
     },
 })
-
-vim.cmd("set completeopt+=noselect")

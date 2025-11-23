@@ -14,6 +14,7 @@ require("mini.clue").setup({
     -- Add descriptions for mapping groups
     clues = {
         { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
+        { mode = 'n', keys = '<Leader>c', desc = '+Cursors' },
         { mode = 'n', keys = '<Leader>f', desc = '+Files' },
         { mode = 'n', keys = '<Leader>g', desc = '+Git' },
         { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
@@ -53,7 +54,68 @@ keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and so
 -- [c] for cursor
 --------------------------------------------------------------------------------
 
--- TODO: configure multicursor mappings cf. https://github.com/jake-stewart/multicursor.nvim
+local mc = require("multicursor-nvim")
+
+-- Add or skip cursor above/below the main cursor.
+
+keymap.set({ "n", "x" }, "<up>", function() mc.lineAddCursor(-1) end, { desc = "Add up" })
+keymap.set({ "n", "x" }, "<down>", function() mc.lineAddCursor(1) end, { desc = "Add down" })
+keymap.set({ "n", "x" }, "<s-up>", function() mc.lineSkipCursor(-1) end, { desc = "Skip up" })
+keymap.set({ "n", "x" }, "<s-down>", function() mc.lineSkipCursor(1) end, { desc = "Skip down" })
+
+-- Add or skip adding a new cursor by matching word/selection
+
+keymap.set({ "n", "x" }, "<leader>cj", function() mc.matchAddCursor(1) end, { desc = "Add & match next" })
+keymap.set({ "n", "x" }, "<leader>ck", function() mc.matchAddCursor(-1) end, { desc = "Add & match previous" })
+keymap.set({ "n", "x" }, "<leader>cJ", function() mc.matchSkipCursor(1) end, { desc = "Skip & match next" })
+keymap.set({ "n", "x" }, "<leader>cK", function() mc.matchSkipCursor(-1) end, { desc = "Skip & match previous" })
+
+-- match new cursors within visual selections by regex.
+
+keymap.set("x", "M", mc.matchCursors)
+
+-- Add a cursor and jump to the next/previous search result.
+
+keymap.set("n", "<leader>c/", function() mc.searchAddCursor(1) end, { desc = "Add & search next" })
+keymap.set("n", "<leader>c#", function() mc.searchAddCursor(-1) end, { desc = "Add & search previous" })
+
+-- Jump to the next/previous search result without adding a cursor.
+
+keymap.set("n", "<leader>cs/", function() mc.searchSkipCursor(1) end, { desc = "Skip & search next" })
+keymap.set("n", "<leader>cs#", function() mc.searchSkipCursor(-1) end, { desc = "Skip & search previous" })
+
+-- Pressing `gaip` will add a cursor on each line of a paragraph.
+
+keymap.set("n", "ga", mc.addCursorOperator)
+
+-- Append/insert for each line of visual selections. Similar to block selection insertion.
+
+keymap.set("x", "<leader>cI", mc.insertVisual, { desc = "Insert visual selection" })
+keymap.set("x", "<leader>cA", mc.appendVisual, { desc = "Append visual selection" })
+
+-- Disable and enable cursors.
+keymap.set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle cursors" })
+
+-- Mappings defined in a keymap layer only apply when there are multiple 
+-- cursors. This lets you have overlapping mappings.
+
+mc.addKeymapLayer(function(layerSet)
+    -- Select a different cursor as the main one.
+    layerSet({ "n", "x" }, "<left>", mc.prevCursor, { desc = "Rotate to previous cursor" })
+    layerSet({ "n", "x" }, "<right>", mc.nextCursor, { desc = "Rotate to next cursor" })
+
+    -- Delete the main cursor.
+    layerSet({ "n", "x" }, "<leader>cx", mc.deleteCursor, { desc = "Delete cursor" })
+
+    -- Enable and clear cursors using escape.
+    layerSet("n", "<esc>", function()
+        if not mc.cursorsEnabled() then
+            mc.enableCursors()
+        else
+            mc.clearCursors()
+        end
+    end, { desc = "Enable/clear cursors" })
+end)
 
 --------------------------------------------------------------------------------
 -- [f] for file
@@ -97,16 +159,6 @@ keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = '
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
 
--- keymap.set("n", "<leader>lo", "<cmd>SymbolsOutline<CR>", { desc = "Toggle outline" })
--- keymap.set("n", "<Leader>lh", function()
---     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
---     if vim.lsp.inlay_hint.is_enabled() then
---         print("Inlay hints enabled")
---     else
---         print("Inlay hints disabled")
---     end
--- end, { desc = "Toggle inlay hints" })
-
 --------------------------------------------------------------------------------
 -- [p] for php
 --------------------------------------------------------------------------------
@@ -145,15 +197,6 @@ keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash 
 keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
 keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
 keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
-
---------------------------------------------------------------------------------
--- glance
---------------------------------------------------------------------------------
-
--- keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { desc = "Glance definitions" })
--- keymap.set("n", "gR", "<cmd>Glance references<CR>", { desc = "Glance references" })
--- keymap.set("n", "gY", "<cmd>Glance type_definitions<CR>", { desc = "Glance type definitions" })
--- keymap.set("n", "gM", "<cmd>Glance implementations<CR>", { desc = "Glance implementations" })
 
 --------------------------------------------------------------------------------
 -- todo

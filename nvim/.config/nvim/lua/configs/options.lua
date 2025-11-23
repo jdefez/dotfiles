@@ -28,6 +28,9 @@ option.inccommand = "nosplit"
 option.splitbelow = true
 option.splitright = true
 
+option.completeopt = { "menu", "menuone", "noselect" }
+option.complete = { ".", "w", "b", "u" }
+
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.wo.foldlevel = 10
@@ -35,3 +38,4 @@ vim.wo.foldminlines = 0
 vim.wo.foldnestmax = 10
 
 vim.cmd.filetype("plugin indent on")
+
