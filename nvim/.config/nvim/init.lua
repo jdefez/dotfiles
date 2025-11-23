@@ -1,4 +1,22 @@
 --------------------------------------------------------------------------------
+-- modules
+--------------------------------------------------------------------------------
+
+require('modules.session_helper').configure({
+    -- NOTE: additional configurations for dofiles project sessions
+    project_directories = {
+        {
+            session_name = "neovim",
+            dir = vim.fn.expand('~/dotfiles/nvim/.config/nvim')
+        },
+        {
+            session_name = "ghostty",
+            dir = vim.fn.expand('~/dotfiles/ghostty/.config/ghostty')
+        },
+    }
+})
+
+--------------------------------------------------------------------------------
 -- configs
 --------------------------------------------------------------------------------
 
