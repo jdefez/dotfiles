@@ -4,14 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal Neovim configuration using Lua and the built-in `vim.pack` package manager (Nvim 0.10+). The configuration is designed for PHP development with a focus on minimal dependencies and native Neovim features.
+This is a personal Neovim configuration using Lua and the built-in `vim.pack` package manager (Nvim 0.10+).
+The configuration is designed for PHP development with a focus on minimal dependencies and native Neovim features.
 
 ## Package Management
 
-This configuration uses Neovim's native package manager instead of external plugin managers like Lazy or Packer.
+This configuration uses Neovim's native package manager (`vim.pack`) instead of external plugin managers like Lazy or Packer. This requires Neovim 0.10+.
 
 ### Commands
 
+Defined in `lua/commands/pack.lua`:
 - **Update packages**: `:PackUpdate` - Updates all packages (add `!` to force)
 - **Update specific package**: `:PackUpdate <package-name>`
 - **Delete package**: `:PackDelete <package-name>`
@@ -26,7 +28,9 @@ vim.pack.add({
 })
 ```
 
-The package lock file `nvim-pack-lock.json` tracks installed plugin versions. After adding a new plugin, run `:PackUpdate` to install it.
+After declaring plugins, immediately run `:PackUpdate` to install them. The package lock file `nvim-pack-lock.json` tracks installed plugin versions.
+
+**IMPORTANT**: Plugin setup code (e.g., `require('plugin').setup({})`) must be placed in the same file where `vim.pack.add()` declares the plugin. Each plugin file is responsible for both declaration and configuration.
 
 ## Architecture
 
@@ -34,39 +38,50 @@ The package lock file `nvim-pack-lock.json` tracks installed plugin versions. Af
 
 ```
 init.lua                   -- Entry point, loads all modules
+nvim-pack-lock.json        -- Package version lock file
 lua/
 ├── modules/               -- Custom modules
 │   └── session_helper.lua -- Session and directory management
 ├── configs/               -- Configuration files
 │   ├── options.lua        -- Neovim options
 │   └── lsp.lua            -- LSP server configuration
-├── plugins/               -- Plugin declarations and setup
-│   ├── lsp.lua
-│   ├── git.lua
-│   ├── ui.lua
-│   ├── edit.lua
-│   ├── move.lua
-│   ├── treesitter.lua
-│   └── colorscheme.lua
+├── plugins/               -- Plugin declarations AND setup
+│   ├── plenary.lua        -- Dependency loaded first
+│   ├── icons.lua          -- Icon sets
+│   ├── ui.lua             -- UI plugins (mini.*, barbecue, auto-save)
+│   ├── lsp.lua            -- LSP and completion
+│   ├── git.lua            -- Git plugins
+│   ├── edit.lua           -- Editing enhancements
+│   ├── move.lua           -- Navigation and movement
+│   ├── treesitter.lua     -- Treesitter config
+│   └── colorscheme.lua    -- Color scheme
 ├── commands/              -- Custom commands
 │   └── pack.lua           -- Package management commands
-└── keymaps.lua            -- All keybindings
+└── keymaps.lua            -- All keybindings (loaded last)
 ```
 
 ### Initialization Flow
 
-1. `init.lua` configures the session helper for dotfiles project management
-2. Loads configs (options, LSP settings)
-3. Loads all plugins (plenary first as it's a dependency)
-4. Loads custom commands (pack management)
-5. Loads keymaps last
+Loading order in `init.lua` (order matters):
+1. Configure the `session_helper` module with dotfiles-specific project directories
+2. Load configs: `configs/options` and `configs/lsp`
+3. Load all plugins in order (plenary first as it's a dependency for other plugins)
+4. Load custom commands: `commands/pack`
+5. Load keymaps last: `keymaps.lua`
 
 ### Session Management
 
-The custom `session_helper` module provides special handling for dotfiles:
+The custom `session_helper` module (`lua/modules/session_helper.lua`) provides intelligent directory switching:
 
-- When loading a session in the dotfiles repo, it automatically changes to the appropriate subdirectory (neovim, ghostty, git, phpactor)
-- This is configured in `init.lua` via `project_directories` mapping session names to directories
+**For dotfiles repository**: When loading a session, it automatically changes to the correct subdirectory based on session name:
+- Session "neovim" → `~/dotfiles/nvim/.config/nvim`
+- Session "ghostty" → `~/dotfiles/ghostty/.config/ghostty`
+- Session "git" → `~/dotfiles/git/`
+- Session "phpactor" → `~/dotfiles/phpactor/.config/phpactor`
+
+**For other projects**: Automatically finds and changes to the git root directory.
+
+This is hooked into `mini.sessions` via the `hooks.post.read` callback in `lua/plugins/ui.lua:34`.
 
 ## LSP Configuration
 
@@ -77,7 +92,7 @@ Servers are enabled in `lua/configs/lsp.lua` using `vim.lsp.enable()`:
 - `lemminx` (XML)
 - `lua_ls` (Lua)
 - `pest_ls` (PHP Pest testing)
-- `phpactor` (PHP)
+- `phpactor` (PHP - special configuration)
 - `yamlls` (YAML)
 
 ### Installing LSP Servers
@@ -87,27 +102,44 @@ Use Mason to install language servers:
 :Mason
 ```
 
-Phpactor is special-cased with custom installation configuration in `lua/plugins/lsp.lua`.
+**Phpactor special case**: Configured in `lua/plugins/lsp.lua` with custom installation settings.
+The plugin is installed to `stdpath("data")/mason/packages/phpactor/` and uses `phpactor.phar`.
+LSPConfig integration is disabled (`lspconfig.enabled = false`) in favor of direct configuration.
 
 ### LSP Features
 
-- Native LSP completion enabled on attach with autotrigger
-- Diagnostics configured with emoji signs and rounded borders
-- Virtual text disabled (use `<leader>lD` to show diagnostics in float)
+- Native LSP completion enabled on attach with autotrigger (configured in `lua/configs/lsp.lua:14-21`)
+- Diagnostics use emoji signs: 💥 (error), ⚠️ (warn), 💡 (info), 🤘 (hint)
+- Virtual text disabled - use `<leader>lD` to show diagnostics in float
+- Floating windows use rounded borders
 
 ## Keymap Groups
 
-Leader key is `<space>`. All keymaps are defined in `lua/keymaps.lua`:
+Leader key is `<space>`. All keymaps are defined in `lua/keymaps.lua`.
 
-- `<leader>b` - Buffer operations
-- `<leader>c` - Multicursor operations
-- `<leader>f` - File/Find operations (uses mini.pick)
-- `<leader>g` - Git operations (Neogit, Diffview, Gitsigns)
-- `<leader>l` - LSP operations
-- `<leader>p` - PHP/Phpactor operations
-- `<leader>q` - Quickfix operations
-- `<leader>s` - Session operations
-- `<leader>t` - Todo comments
+**Keymap discovery**: Uses `mini.clue` configured at the top of `keymaps.lua` to show available keymaps when you press `<leader>`.
+
+### Leader Key Groups
+
+- `<leader>b` - Buffer operations (delete, find, new, update & source)
+- `<leader>c` - Multicursor operations (add, skip, match, search cursors)
+- `<leader>f` - File/Find operations (uses mini.pick for files, grep, help, sessions)
+- `<leader>g` - Git operations (Neogit, Diffview, hunks)
+- `<leader>l` - LSP operations (definition, diagnostics, format, hover, references, symbols)
+- `<leader>p` - PHP/Phpactor operations (context menu)
+- `<leader>q` - Quickfix operations (toggle with quicker.nvim)
+- `<leader>s` - Session operations (mini.sessions: delete, new, read, write)
+- `<leader>t` - Todo comments (`:TodoLocList`)
+
+### Special Keymaps
+
+- `jk` in insert mode → ESC
+- `<esc>` → Clear search highlights
+- `s` / `S` → Flash jump / Flash treesitter (fast motion)
+- Arrow keys (up/down) → Add multicursor above/below
+- Shift+Arrow keys → Skip multicursor
+- `<C-h/j/k/l>` → Navigate between splits
+- `ga` → Add cursor operator (e.g., `gaip` adds cursor to each paragraph line)
 
 ## Key Plugins
 
@@ -148,25 +180,31 @@ Leader key is `<space>`. All keymaps are defined in `lua/keymaps.lua`:
 
 ## Development Workflow
 
-### Editing Configuration
+### Editing Configuration Files
 
 1. Make changes to Lua files
-2. Use `<leader>br` to update and source the current buffer
+2. Use `<leader>br` to update (save) and source the current buffer
 3. For full reload, restart Neovim or `:source init.lua`
 
-### Testing Plugin Changes
+### Adding a New Plugin
 
-After modifying plugin configurations:
-1. Make changes in `lua/plugins/*.lua`
-2. Run `:PackUpdate` if adding new plugins
-3. Restart Neovim to apply changes
+1. Identify the appropriate plugin file in `lua/plugins/` (ui, lsp, git, edit, move, etc.)
+2. Add the plugin declaration with `vim.pack.add({{ src = "https://github.com/..." }})`
+3. Add the plugin's setup code (e.g., `require('plugin').setup({})`) in the same file
+4. Run `:PackUpdate` to install the plugin
+5. Restart Neovim to fully load the plugin
+6. Add keymaps in `lua/keymaps.lua` if needed
+
+### Modifying Keymaps
+
+All keymaps are centralized in `lua/keymaps.lua`. After editing, use `<leader>br` to reload, or restart Neovim.
 
 ### Common File Locations
 
-- Keybindings: `lua/keymaps.lua`
-- Options: `lua/configs/options.lua`
-- LSP servers: `lua/configs/lsp.lua`
-- Plugin additions: Find the appropriate file in `lua/plugins/`
+- **All keybindings**: `lua/keymaps.lua`
+- **Neovim options**: `lua/configs/options.lua`
+- **LSP server list**: `lua/configs/lsp.lua` (uses `vim.lsp.enable()`)
+- **Plugin declarations**: `lua/plugins/*.lua` (choose appropriate category file)
 
 ## Notes
 

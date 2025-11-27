@@ -4,7 +4,6 @@
 
 vim.pack.add({
     { src = "https://github.com/echasnovski/mini.extra" },
-    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/xiyaowong/virtcolumn.nvim" },
     { src = "https://github.com/okuuva/auto-save.nvim" },
     { src = "https://github.com/echasnovski/mini.bufremove" },
