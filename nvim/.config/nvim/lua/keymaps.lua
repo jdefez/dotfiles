@@ -169,10 +169,9 @@ keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { des
 -- [p] for php
 --------------------------------------------------------------------------------
 
-keymap.set({ "n", "v" }, "<leader>pm", "<cmd>PhpactorContextMenu<CR>", { desc = "Context menu" })
-keymap.set("n", "<leader>pcc", "<cmd>PhpactorCopyFile<CR>", { desc = "Class copy" })
-keymap.set("n", "<leader>pcn", "<cmd>PhpactorClassNew<CR>", { desc = "Class new" })
-keymap.set("n", "<leader>pcm", "<cmd>PhpactorMoveFile<CR>", { desc = "Move file" })
+keymap.set({ "n", "v" }, "<leader>pm", function()
+    require('phpactor').rpc('context_menu', {})
+end, { desc = "Phpactor context menu" })
 
 --------------------------------------------------------------------------------
 -- [q] for quickfix

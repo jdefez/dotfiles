@@ -42,6 +42,7 @@ require('configs/lsp')
 -- plugins
 --------------------------------------------------------------------------------
 
+require('plugins/plenary')
 require('plugins/ui')
 require('plugins/lsp')
 require('plugins/git')

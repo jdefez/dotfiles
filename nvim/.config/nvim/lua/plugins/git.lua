@@ -4,7 +4,6 @@
 
 vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
-    { src = "https://github.com/nvim-lua/plenary.nvim" },  -- neogit dependency
     { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
     { src = "https://github.com/NeogitOrg/neogit" },
 })
