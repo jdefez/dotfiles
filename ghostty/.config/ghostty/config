@@ -1,4 +1,4 @@
-theme = "nightfox"
+theme = "Rose Pine Dawn"
 
 font-size = 11
 adjust-underline-position = 3
@@ -10,3 +10,4 @@ font-feature = "ss04"
 font-feature = "ss09"
 adjust-cell-height = 30%
 bold-is-bright = true
+keybind = shift+enter=text:\x1b\r
