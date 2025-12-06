@@ -49,6 +49,7 @@ keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Bu
 keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
 keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
+keymap.set("n", "<leader>bo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 
 --------------------------------------------------------------------------------
 -- [c] for cursor
@@ -133,8 +134,8 @@ keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
 keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
 keymap.set('n', '<leader>fs', ':lua MiniSessions.select()<CR>', { desc = 'Find session' })
-keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
-keymap.set("n", "<leader>fW", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "Grep word" })
+keymap.set("n", "<leader>fW", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
+keymap.set("n", "<leader>fw", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "Grep word" })
 
 --------------------------------------------------------------------------------
 -- [g] for git

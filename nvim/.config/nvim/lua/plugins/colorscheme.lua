@@ -5,14 +5,18 @@
 local option = vim.opt
 local cmd = vim.cmd
 
-option.background = "light"
+cmd("hi statusline guibg=NONE")
+cmd("hi DiagnosticUnderlineError gui=undercurl")
+cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
 vim.pack.add({
     {
         src = "https://github.com/rose-pine/neovim",
         name = "rose-pine"
-    }
+    },
 })
+
+-- option.background = "light"
 
 require('rose-pine').setup({
     -- variant = "auto",      -- auto, main, moon, or dawn
@@ -62,7 +66,3 @@ require('rose-pine').setup({
 })
 
 cmd.colorscheme "rose-pine"
-
-cmd("hi statusline guibg=NONE")
-cmd("hi DiagnosticUnderlineError gui=undercurl")
-cmd("hi DiagnosticUnderlineWarn gui=undercurl")

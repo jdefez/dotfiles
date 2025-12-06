@@ -124,6 +124,10 @@
       "rev": "07f80ad645895af849a597d1cac897059d89b686",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "outline.nvim": {
+      "rev": "6b62f73a6bf317531d15a7ae1b724e85485d8148",
+      "src": "https://github.com/hedyhli/outline.nvim"
+    },
     "phpactor.nvim": {
       "rev": "ad86c2fa27446789f6eaab8e1eba0d5e12553770",
       "src": "https://github.com/gbprod/phpactor.nvim"

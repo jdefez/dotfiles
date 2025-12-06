@@ -19,7 +19,11 @@ vim.pack.add({
 require('mini.extra').setup()
 require("auto-save").setup({})
 require("mini.bufremove").setup({})
-require("mini.animate").setup({})
+require("mini.animate").setup({
+    cursor = {
+        enable = false
+    }
+})
 require("mini.statusline").setup({})
 require("mini.starter").setup({})
 require("barbecue").setup({
