@@ -14,6 +14,8 @@ vim.pack.add({
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
     { src = "https://github.com/echasnovski/mini.starter" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+    { src = "https://github.com/backdround/global-note.nvim"},
 })
 
 require('mini.extra').setup()
@@ -29,7 +31,9 @@ require("mini.starter").setup({})
 require("barbecue").setup({
     theme = "default"
 })
-
+require("global-note").setup({
+    -- TODO: add global note config
+})
 require("mini.sessions").setup({
     autoread = false,
     autowrite = true,
@@ -38,4 +42,7 @@ require("mini.sessions").setup({
             read = require('modules.session_helper').find_root_dir,
         },
     }
+})
+require('render-markdown').setup({
+    completions = { lsp = { enabled = true } },
 })

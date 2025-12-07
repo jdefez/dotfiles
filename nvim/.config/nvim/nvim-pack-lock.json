@@ -28,6 +28,10 @@
       "rev": "f780609807eca1f783a36a8a31c30a48fbe150c5",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "global-note.nvim": {
+      "rev": "1e0d4bba425d971ed3ce40d182c574a25507115c",
+      "src": "https://github.com/backdround/global-note.nvim"
+    },
     "mason.nvim": {
       "rev": "7dc4facca9702f95353d5a1f87daf23d78e31c2a",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -139,6 +143,10 @@
     "quicker.nvim": {
       "rev": "12a2291869a326424b1cbee937f4f80334433012",
       "src": "https://github.com/stevearc/quicker.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "b2b135347e299ffbf7f4123fb7811899b0c9f4b8",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rose-pine": {
       "rev": "72a04c4065345b51b56aed4859ea1d884f734097",

@@ -1,16 +1,21 @@
+-------------------------------------------------------------------------------
+-- Find and move to root directory within a dotfile repository
+-------------------------------------------------------------------------------
+
 local M = {}
 
 -- Default configuration
+
 M.project_directories = {}
 
 -- Configure the module with custom settings
-M.configure = function(opts)
+function M.configure(opts)
     opts = opts or {}
     M.project_directories = opts.project_directories or M.project_directories
 end
 
 -- Find directory in project_directories table by session_name
-local function find_in_table(needle, haystack)
+function M.find_in_table(needle, haystack)
     for _, value in ipairs(haystack) do
         if value.session_name == needle then
             return value.dir
@@ -20,13 +25,15 @@ local function find_in_table(needle, haystack)
 end
 
 -- Change to a directory
-local function change_to_directory(path)
+
+function M.change_to_directory(path)
     print('Changing directory to ' .. path)
     vim.cmd('cd ' .. vim.fn.fnameescape(path))
 end
 
 -- Find git root directory
-local function find_git_root(buf_dir)
+
+function M.find_git_root(buf_dir)
     local git_dir = vim.fs.find('.git', {
         path = buf_dir,
         upward = true,
@@ -39,7 +46,7 @@ local function find_git_root(buf_dir)
 end
 
 -- Main function to find and change to root directory
-M.find_root_dir = function(session_data)
+function M.find_root_dir(session_data)
     local bufnr = vim.api.nvim_get_current_buf()
     local bufname = vim.api.nvim_buf_get_name(bufnr)
 
@@ -49,7 +56,7 @@ M.find_root_dir = function(session_data)
     end
 
     local buf_dir = vim.fn.fnamemodify(bufname, ':h')
-    local root_dir = find_git_root(buf_dir)
+    local root_dir = M.find_git_root(buf_dir)
 
     if not root_dir then
         print('No .git directory found, keeping current directory')
@@ -60,14 +67,14 @@ M.find_root_dir = function(session_data)
 
     -- Special handling for dotfiles directory
     if dir_name == 'dotfiles' then
-        local path = find_in_table(session_data.name, M.project_directories)
+        local path = M.find_in_table(session_data.name, M.project_directories)
         if path then
-            change_to_directory(path)
+            M.change_to_directory(path)
             return
         end
     end
 
-    change_to_directory(root_dir)
+    M.change_to_directory(root_dir)
 end
 
 return M

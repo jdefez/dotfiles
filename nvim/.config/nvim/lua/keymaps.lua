@@ -103,7 +103,7 @@ keymap.set("x", "<leader>cA", mc.appendVisual, { desc = "Append visual selection
 -- Disable and enable cursors.
 keymap.set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle cursors" })
 
--- Mappings defined in a keymap layer only apply when there are multiple 
+-- Mappings defined in a keymap layer only apply when there are multiple
 -- cursors. This lets you have overlapping mappings.
 
 mc.addKeymapLayer(function(layerSet)
@@ -132,8 +132,8 @@ keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
 keymap.set("n", "<leader>fe", function() require("oil").open() end, { desc = "Oil explore" })
 keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
+keymap.set("n", "<leader>fn", function() require("global-note").toggle_note() end, { desc = "Toggle global note" })
 keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
-keymap.set('n', '<leader>fs', ':lua MiniSessions.select()<CR>', { desc = 'Find session' })
 keymap.set("n", "<leader>fW", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
 keymap.set("n", "<leader>fw", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "Grep word" })
 
@@ -161,6 +161,14 @@ keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = 
 keymap.set("n", "<Leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
+-- keymap.set(
+--     "n", "<Leader>lh",
+--     function()
+--         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+--         print('inlay hints ' .. (vim.lsp.inlay_hint.is_enabled() and 'enabled' or 'disabled'))
+--     end,
+--     { desc = "Toggle inlay hints" }
+-- )
 keymap.set("n", "<Leader>lk", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
 keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })

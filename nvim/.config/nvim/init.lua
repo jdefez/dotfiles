@@ -44,12 +44,12 @@ require('configs/lsp')
 
 require('plugins/plenary')
 require('plugins/icons')
-require('plugins/ui')
+require('plugins/treesitter')
 require('plugins/lsp')
+require('plugins/ui')
 require('plugins/git')
 require('plugins/edit')
 require('plugins/move')
-require('plugins/treesitter')
 require('plugins/colorscheme')
 
 --------------------------------------------------------------------------------

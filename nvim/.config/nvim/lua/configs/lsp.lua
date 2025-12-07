@@ -17,6 +17,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
+        -- Enable inlay hints if supported by the language server
+        -- if client:supports_method("textDocument/inlayHint") then
+        --     vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+        -- end
     end,
 })
 
