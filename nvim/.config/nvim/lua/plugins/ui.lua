@@ -10,6 +10,7 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.animate" },
     { src = "https://github.com/echasnovski/mini.statusline" },
     { src = "https://github.com/echasnovski/mini.sessions" },
+    { src = "https://github.com/nvim-mini/mini.cmdline" },
     { src = "https://github.com/echasnovski/mini.clue" },
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
@@ -46,3 +47,4 @@ require("mini.sessions").setup({
 require('render-markdown').setup({
     completions = { lsp = { enabled = true } },
 })
+require("mini.cmdline").setup({})

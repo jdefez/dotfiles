@@ -1,16 +1,16 @@
 --------------------------------------------------------------------------------
 -- TODO:
 --------------------------------------------------------------------------------
+-- Create a command to copy file path to clipboard
 -- Install and try this package: https://github.com/ccaglak/phptools.nvim
--- Add sessions and sessions configs for git, phpactor and zsh
--- try phpactor lua plugin : https://github.com/gbprod/phpactor.nvim/tree/main
+-- Add sessions and sessions configs: zsh
 
 --------------------------------------------------------------------------------
 -- modules
 --------------------------------------------------------------------------------
 
+-- NOTE: additional configurations for dofiles project sessions
 require('modules.session_helper').configure({
-    -- NOTE: additional configurations for dofiles project sessions
     project_directories = {
         {
             session_name = "neovim",
