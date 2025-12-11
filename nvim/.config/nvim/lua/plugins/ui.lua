@@ -16,7 +16,7 @@ vim.pack.add({
     { src = "https://github.com/utilyre/barbecue.nvim" },
     { src = "https://github.com/echasnovski/mini.starter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
-    { src = "https://github.com/backdround/global-note.nvim"},
+    { src = "https://github.com/backdround/global-note.nvim" },
 })
 
 require('mini.extra').setup()

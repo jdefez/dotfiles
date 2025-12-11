@@ -2,6 +2,8 @@
 -- TODO:
 --------------------------------------------------------------------------------
 -- Create a command to copy file path to clipboard
+--  - https://neovim.io/doc/user/api.html#nvim_buf_get_name() `vim.api.nvim_buf_get_name(0)`
+--
 -- Install and try this package: https://github.com/ccaglak/phptools.nvim
 -- Add sessions and sessions configs: zsh
 
