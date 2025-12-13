@@ -1,11 +1,10 @@
 --------------------------------------------------------------------------------
 -- TODO:
 --------------------------------------------------------------------------------
--- Create a command to copy file path to clipboard
---  - https://neovim.io/doc/user/api.html#nvim_buf_get_name() `vim.api.nvim_buf_get_name(0)`
---
--- Install and try this package: https://github.com/ccaglak/phptools.nvim
--- Add sessions and sessions configs: zsh
+-- Install and try this packages: 
+--  - https://github.com/ccaglak/phptools.nvim
+--  - sonarQube server: https://github.com/sonarsource/sonarlint.nvim
+-- Add sessions and sessions configs for: zsh
 
 --------------------------------------------------------------------------------
 -- modules
@@ -37,30 +36,20 @@ require('modules.session_helper').configure({
 -- configs
 --------------------------------------------------------------------------------
 
-require('configs/options')
-require('configs/lsp')
+require('configs.options')
+require('configs.lsp')
 
 --------------------------------------------------------------------------------
 -- plugins
 --------------------------------------------------------------------------------
 
-require('plugins/plenary')
-require('plugins/icons')
-require('plugins/treesitter')
-require('plugins/lsp')
-require('plugins/ui')
-require('plugins/git')
-require('plugins/edit')
-require('plugins/move')
-require('plugins/colorscheme')
+require('plugins')
 
 --------------------------------------------------------------------------------
 -- commands
 --------------------------------------------------------------------------------
 
-require('commands/pack')
-require('commands/copy-path')
-require('commands/playground')
+require('commands')
 
 --------------------------------------------------------------------------------
 -- keymaps

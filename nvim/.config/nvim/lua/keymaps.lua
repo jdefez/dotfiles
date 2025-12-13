@@ -50,6 +50,8 @@ keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buff
 keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("n", "<leader>bo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
+keymap.set("n", "<leader>bp", '<cmd>Copypath filename<CR>', { desc = "Copy filename" })
+keymap.set("n", "<leader>bP", '<cmd>Copypath relative<CR>', { desc = "Copy relative path" })
 
 --------------------------------------------------------------------------------
 -- [c] for cursor
