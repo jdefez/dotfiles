@@ -29,6 +29,10 @@ require('modules.session_helper').configure({
             session_name = "phpactor",
             dir = vim.fn.expand('~/dotfiles/phpactor/.config/phpactor')
         },
+        {
+            session_name = "fish",
+            dir = vim.fn.expand('~/dotfiles/fish/.config/fish')
+        },
     }
 })
 
