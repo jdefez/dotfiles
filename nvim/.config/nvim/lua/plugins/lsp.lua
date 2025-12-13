@@ -29,6 +29,7 @@ require("phpactor").setup({
 })
 
 -- Configure lua_ls for Neovim development
+
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {

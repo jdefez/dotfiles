@@ -59,7 +59,8 @@ require('plugins/colorscheme')
 --------------------------------------------------------------------------------
 
 require('commands/pack')
--- require('commands/playground')
+require('commands/copy-path')
+require('commands/playground')
 
 --------------------------------------------------------------------------------
 -- keymaps
