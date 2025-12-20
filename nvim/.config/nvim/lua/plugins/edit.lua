@@ -4,8 +4,8 @@
 
 vim.pack.add({
     { src = "https://github.com/kylechui/nvim-surround" },
-    { src = "https://github.com/echasnovski/mini.pairs" },
-    { src = "https://github.com/echasnovski/mini.indentscope" },
+    { src = "https://github.com/nvim-mini/mini.pairs" },
+    { src = "https://github.com/nvim-mini/mini.indentscope" },
     { src = "https://github.com/jake-stewart/multicursor.nvim" },
     { src = "https://github.com/folke/todo-comments.nvim" },
     { src = "https://github.com/supermaven-inc/supermaven-nvim" },

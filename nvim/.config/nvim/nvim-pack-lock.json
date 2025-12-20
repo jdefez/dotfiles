@@ -37,48 +37,48 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.animate": {
-      "rev": "8ce6df739aa9d14c876bace722af28c3d09e9971",
-      "src": "https://github.com/echasnovski/mini.animate"
+      "rev": "0365de8b69331c25d0d0d7573407a7dc7719e578",
+      "src": "https://github.com/nvim-mini/mini.animate"
     },
     "mini.bufremove": {
-      "rev": "1b5d7e7bc81cd02476bdd964c3d850c48eb91a07",
-      "src": "https://github.com/echasnovski/mini.bufremove"
+      "rev": "10857aa39160c127694151828914df3131ba83b6",
+      "src": "https://github.com/nvim-mini/mini.bufremove"
     },
     "mini.clue": {
-      "rev": "6a42206a734befeb697da27afdf05f55ac2303fc",
-      "src": "https://github.com/echasnovski/mini.clue"
+      "rev": "d96fef9db8fcb38c058f2edb2eeb69cb8b2d462a",
+      "src": "https://github.com/nvim-mini/mini.clue"
     },
     "mini.cmdline": {
       "rev": "59a297e160f25a7b49a35182b200a5259db6a9b7",
       "src": "https://github.com/nvim-mini/mini.cmdline"
     },
     "mini.extra": {
-      "rev": "188422c54ee770f14a634d9511e71e3b1e3686e2",
-      "src": "https://github.com/echasnovski/mini.extra"
+      "rev": "31f82562238a4fadd30997757ead6c7f1770e7ea",
+      "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.indentscope": {
-      "rev": "e9fa0714fc753e1e737940577904e553ee340903",
-      "src": "https://github.com/echasnovski/mini.indentscope"
+      "rev": "0308f949f31769e509696af5d5f91cebb2159c69",
+      "src": "https://github.com/nvim-mini/mini.indentscope"
     },
     "mini.pairs": {
-      "rev": "b9aada8c0e59f2b938e98fbf4eae0799eba96ad9",
-      "src": "https://github.com/echasnovski/mini.pairs"
+      "rev": "d5a29b6254dad07757832db505ea5aeab9aad43a",
+      "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "mini.pick": {
-      "rev": "36635165862b445d91c9ba7ae6d3ac37f50c99bf",
-      "src": "https://github.com/echasnovski/mini.pick"
+      "rev": "6b7974543b17cf2e294993fc3d8545a342258232",
+      "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.sessions": {
-      "rev": "4ed3a6176e9f66915e4bf1ca66850e8c8073cfc2",
-      "src": "https://github.com/echasnovski/mini.sessions"
+      "rev": "6b69f4cf206ed8560669446a0310937d88e1c871",
+      "src": "https://github.com/nvim-mini/mini.sessions"
     },
     "mini.starter": {
       "rev": "8ee6ce6a4c9be47682516908557cc062c4d595a2",
-      "src": "https://github.com/echasnovski/mini.starter"
+      "src": "https://github.com/nvim-mini/mini.starter"
     },
     "mini.statusline": {
-      "rev": "faa39777ca729c6dafe86041207ba8db9321cb29",
-      "src": "https://github.com/echasnovski/mini.statusline"
+      "rev": "3e96596ebe51b899874d8174409cdc4f3c749d9a",
+      "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "multicursor.nvim": {
       "rev": "0c6ceae",
@@ -159,10 +159,6 @@
     "supermaven-nvim": {
       "rev": "07d20fce48a5629686aefb0a7cd4b25e33947d50",
       "src": "https://github.com/supermaven-inc/supermaven-nvim"
-    },
-    "supertab.nvim": {
-      "rev": "a02ad9ae4c2767706c52382bde0279b967359366",
-      "src": "https://github.com/hisbaan/supertab.nvim"
     },
     "todo-comments.nvim": {
       "rev": "31e3c38",

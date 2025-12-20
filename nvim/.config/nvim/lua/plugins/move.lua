@@ -5,7 +5,7 @@
 vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/benomahony/oil-git.nvim" }, -- depends on oil
-    { src = "https://github.com/echasnovski/mini.pick" },
+    { src = "https://github.com/nvim-mini/mini.pick" },
     { src = "https://github.com/folke/flash.nvim" },
     { src = "https://github.com/stevearc/quicker.nvim" },
     { src = "https://github.com/ahkohd/buffer-sticks.nvim" },

@@ -3,18 +3,18 @@
 --------------------------------------------------------------------------------
 
 vim.pack.add({
-    { src = "https://github.com/echasnovski/mini.extra" },
+    { src = "https://github.com/nvim-mini/mini.extra" },
     { src = "https://github.com/xiyaowong/virtcolumn.nvim" },
     { src = "https://github.com/okuuva/auto-save.nvim" },
-    { src = "https://github.com/echasnovski/mini.bufremove" },
-    { src = "https://github.com/echasnovski/mini.animate" },
-    { src = "https://github.com/echasnovski/mini.statusline" },
-    { src = "https://github.com/echasnovski/mini.sessions" },
+    { src = "https://github.com/nvim-mini/mini.bufremove" },
+    { src = "https://github.com/nvim-mini/mini.animate" },
+    { src = "https://github.com/nvim-mini/mini.statusline" },
+    { src = "https://github.com/nvim-mini/mini.sessions" },
     { src = "https://github.com/nvim-mini/mini.cmdline" },
-    { src = "https://github.com/echasnovski/mini.clue" },
+    { src = "https://github.com/nvim-mini/mini.clue" },
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
-    { src = "https://github.com/echasnovski/mini.starter" },
+    { src = "https://github.com/nvim-mini/mini.starter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/backdround/global-note.nvim" },
 })
