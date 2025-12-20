@@ -53,13 +53,5 @@ vim.lsp.config('lua_ls', {
     },
 })
 
--- initialize lsp config
-
-vim.lsp.enable({
-    "jsonls",
-    "lemminx", -- xml
-    "lua_ls",
-    "pest_ls",
-    "phpactor",
-    "yamlls",
-})
+-- LSP servers are enabled in configs/lsp.lua
+-- Server-specific configurations use vim.lsp.config() above

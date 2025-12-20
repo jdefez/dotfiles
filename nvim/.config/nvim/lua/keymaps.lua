@@ -157,7 +157,13 @@ keymap.set({ 'n', 'x' }, '<leader>la', function()
     require("fastaction").code_action()
 end, { desc = "Display code actions", buffer = bufnr })
 keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Source definition" })
-keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
+keymap.set("n", "<leader>lf", function()
+    if vim.bo.filetype == 'php' then
+        require('modules.pint').format()
+    else
+        vim.lsp.buf.format()
+    end
+end, { desc = "Format buffer" })
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
 keymap.set("n", "<Leader>lw", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 -- keymap.set(

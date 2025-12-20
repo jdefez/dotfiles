@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- TODO:
 --------------------------------------------------------------------------------
--- Install and try this packages: 
+-- Install and try this packages:
 --  - https://github.com/ccaglak/phptools.nvim
 --  - sonarQube server: https://github.com/sonarsource/sonarlint.nvim
 -- Add sessions and sessions configs for: zsh
