@@ -131,8 +131,6 @@ cdpath=(~/Code)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-
 compdef '_files -W ${vim_sessions}' vs
 
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
@@ -166,6 +164,7 @@ alias luamake=/home/jean/lua-language-server/3rd/luamake/luamake
 # alias config='/usr/bin/git --git-dir=/home/jean/.dotfiles/ --work-tree=/home/jean'
 alias vimdiff='nvim -d'
 
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
