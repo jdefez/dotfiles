@@ -30,7 +30,7 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = "rosepine-dawn",
+  theme = "flexoki-light",
 
   hl_override = {
     Comment = { italic = true },

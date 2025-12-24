@@ -198,6 +198,9 @@ export PATH=/usr/local/opt/php@8.1/bin/php:usr/local/sbin:~/.composer/vendor/bin
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export PATH="/usr/local/go/bin/:$PATH"
+export GOPATH="$HOME/go"
+
 # Herd injected PHP binary.
 export PATH="/Users/ayctor/Library/Application Support/Herd/bin/":$PATH
 
@@ -209,6 +212,14 @@ export NVM_DIR="/Users/ayctor/Library/Application Support/Herd/config/nvm"
 
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/config/php/84/"
-
-# Herd injected PHP 8.3 configuration.
+#
+# # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/config/php/83/"
+#
+# # Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/config/php/82/"
+#
+# # Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/config/php/81/"
+
+export PATH="$HOME/.local/bin:$PATH"

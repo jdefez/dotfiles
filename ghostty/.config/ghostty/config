@@ -1,4 +1,6 @@
-theme = "Rose Pine Dawn"
+command = /opt/homebrew/bin/fish
+
+theme = "Flexoki Light"
 
 font-size = 11
 adjust-underline-position = 3
