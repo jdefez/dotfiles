@@ -16,8 +16,6 @@ vim.pack.add({
     },
 })
 
--- option.background = "light"
-
 require('rose-pine').setup({
     -- variant = "auto",      -- auto, main, moon, or dawn
     -- dark_variant = "dawn", -- main, moon, or dawn

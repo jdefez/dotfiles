@@ -13,7 +13,11 @@ vim.pack.add({
 })
 require("oil").setup()
 require("mini.pick").setup()
-require("flash").setup({})
+require("flash").setup({
+    modes = {
+        char = { enabled = false },
+    }
+})
 require("quicker").setup({})
 require("buffer-sticks").setup({
     filter = {

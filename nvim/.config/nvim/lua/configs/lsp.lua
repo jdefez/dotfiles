@@ -34,7 +34,7 @@ vim.diagnostic.config({
     virtual_text = false,
     virtual_line = false,
     float = {
-        source = 'always',
+        source = true,
         show_header = true,
         border = 'rounded',
         focusable = false,

@@ -32,9 +32,7 @@ require("mini.starter").setup({})
 require("barbecue").setup({
     theme = "default"
 })
-require("global-note").setup({
-    -- TODO: add global note config
-})
+require("global-note").setup({})
 require("mini.sessions").setup({
     autoread = false,
     autowrite = true,

@@ -2,7 +2,7 @@ local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
-keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>", { desc = "Esc" })
+keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>")
 
 require("mini.clue").setup({
     -- Register `<Leader>` as trigger
@@ -207,11 +207,26 @@ keymap.set('n', '<leader>sr', '<Cmd>lua MiniSessions.select("read")<CR>', { desc
 keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Write current' })
 
 --------------------------------------------------------------------------------
+-- [t] for terminal
+--------------------------------------------------------------------------------
+
+keymap.set('t', '<Esc>', "<C-\\><C-n>")
+
+keymap.set("n", "<leader>tv", function()
+    vim.cmd("vsplit | terminal")
+end, { desc = "Vertical terminal" })
+
+keymap.set("n", "<leader>th", function()
+    vim.cmd("split | terminal")
+end, { desc = "Horizontal terminal" })
+
+--------------------------------------------------------------------------------
 -- flash
 --------------------------------------------------------------------------------
 
 local flash = require("flash")
 
+keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
 keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
 keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
 keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
@@ -221,4 +236,4 @@ keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc =
 -- todo
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<leader>t", ':TodoLocList<CR>', { desc = "Todo loc list" })
+-- keymap.set("n", "<leader>t", ':TodoLocList<CR>', { desc = "Todo loc list" })
