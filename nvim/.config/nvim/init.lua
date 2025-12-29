@@ -1,14 +1,18 @@
 --------------------------------------------------------------------------------
 -- TODO:
 --------------------------------------------------------------------------------
--- Install and try this packages:
---  - sonarQube server: https://github.com/sonarsource/sonarlint.nvim
+-- Install and try:
+--  - SonarQube server: https://github.com/sonarsource/sonarlint.nvim
+-- Terminal buffers to be improved:
+--  - Create a module to manage terminal buffers
+--  - Add a command to close the current terminal buffer
 
 --------------------------------------------------------------------------------
--- modules
+-- Modules
 --------------------------------------------------------------------------------
 
--- NOTE: additional configurations for dofiles project sessions
+-- NOTE: provides with pathes for dofiles project sessions
+
 require('modules.session_helper').configure({
     project_directories = {
         {
@@ -35,26 +39,26 @@ require('modules.session_helper').configure({
 })
 
 --------------------------------------------------------------------------------
--- configs
+-- Configs
 --------------------------------------------------------------------------------
 
 require('configs.options')
 require('configs.lsp')
 
 --------------------------------------------------------------------------------
--- plugins
+-- Plugins
 --------------------------------------------------------------------------------
 
 require('plugins')
 
 --------------------------------------------------------------------------------
--- commands
+-- Commands
 --------------------------------------------------------------------------------
 
 require('commands')
 
 --------------------------------------------------------------------------------
--- keymaps
+-- Keymaps
 --------------------------------------------------------------------------------
 
 require('keymaps')

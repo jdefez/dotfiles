@@ -21,7 +21,7 @@ require("mini.clue").setup({
         { mode = 'n', keys = '<Leader>p', desc = '+Php' },
         { mode = 'n', keys = '<Leader>q', desc = '+Quickfix' },
         { mode = 'n', keys = '<Leader>s', desc = '+Sessions' },
-        -- { mode = 'n', keys = '<Leader>t', desc = '+Treesitter' },
+        { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
     },
 })
 
@@ -49,7 +49,6 @@ keymap.set("n", "<leader>bh", function() BufferSticks.toggle() end, { desc = "Bu
 keymap.set("n", "<leader>bj", function() BufferSticks.jump() end, { desc = "Buffer sticks: jump" })
 keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
-keymap.set("n", "<leader>bo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 keymap.set("n", "<leader>bp", '<cmd>Copypath filename<CR>', { desc = "Copy filename" })
 keymap.set("n", "<leader>bP", '<cmd>Copypath relative<CR>', { desc = "Copy relative path" })
 
@@ -131,10 +130,23 @@ end)
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>fe", function() require("oil").open() end, { desc = "Oil explore" })
+keymap.set("n", "<leader>fe", function() require("fyler").toggle({ kind = 'split_right_most' }) end,
+    { desc = "File explorer" })
 keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
 keymap.set("n", "<leader>fn", function() require("global-note").toggle_note() end, { desc = "Toggle global note" })
+
+keymap.set(
+    "n",
+    "<leader>fo",
+    function()
+        local fyler = require("fyler")
+        fyler.toggle({ kind = 'split_right_most' })
+        fyler.focus(vim.fn.expand('%:p'))
+    end,
+    { desc = "Focus file" }
+)
+
 keymap.set("n", "<leader>fr", "<cmd>Pick resume<CR>", { desc = "Mini pick resume" })
 keymap.set("n", "<leader>fW", "<cmd>Pick grep_live<CR>", { desc = "Grep live" })
 keymap.set("n", "<leader>fw", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "Grep word" })
@@ -165,19 +177,12 @@ keymap.set("n", "<leader>lf", function()
     end
 end, { desc = "Format buffer" })
 keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
-keymap.set("n", "<Leader>lw", vim.diagnostic.open_float, { desc = "Show diagnostic" })
--- keymap.set(
---     "n", "<Leader>lh",
---     function()
---         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
---         print('inlay hints ' .. (vim.lsp.inlay_hint.is_enabled() and 'enabled' or 'disabled'))
---     end,
---     { desc = "Toggle inlay hints" }
--- )
 keymap.set("n", "<Leader>lk", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
+keymap.set("n", "<leader>lo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
+keymap.set("n", "<Leader>lw", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 
 --------------------------------------------------------------------------------
 -- [p] for php
@@ -211,14 +216,8 @@ keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Wri
 --------------------------------------------------------------------------------
 
 keymap.set('t', '<Esc>', "<C-\\><C-n>")
-
-keymap.set("n", "<leader>tv", function()
-    vim.cmd("vsplit | terminal")
-end, { desc = "Vertical terminal" })
-
-keymap.set("n", "<leader>th", function()
-    vim.cmd("split | terminal")
-end, { desc = "Horizontal terminal" })
+keymap.set("n", "<leader>tv", function() vim.cmd("vsplit | terminal") end, { desc = "Vertical terminal" })
+keymap.set("n", "<leader>th", function() vim.cmd("split | terminal") end, { desc = "Horizontal terminal" })
 
 --------------------------------------------------------------------------------
 -- flash

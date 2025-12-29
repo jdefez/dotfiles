@@ -26,6 +26,6 @@ vim.api.nvim_create_user_command('Copypath',
         complete = function()
             return { 'filename', 'relative', 'absolute' }
         end,
-        desc = 'Playing with user commands',
+        desc = 'Copy buffer path to the clipboard (absolute, relative or filename)',
     }
 )

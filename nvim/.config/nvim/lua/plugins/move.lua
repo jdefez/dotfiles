@@ -3,15 +3,17 @@
 --------------------------------------------------------------------------------
 
 vim.pack.add({
-    { src = "https://github.com/stevearc/oil.nvim" },
-    { src = "https://github.com/benomahony/oil-git.nvim" }, -- depends on oil
+    {
+        src = "https://github.com/A7Lavinraj/fyler.nvim",
+        branch = "stable"
+    },
     { src = "https://github.com/nvim-mini/mini.pick" },
     { src = "https://github.com/folke/flash.nvim" },
     { src = "https://github.com/stevearc/quicker.nvim" },
     { src = "https://github.com/ahkohd/buffer-sticks.nvim" },
     { src = "https://github.com/hedyhli/outline.nvim" },
 })
-require("oil").setup()
+require("fyler").setup()
 require("mini.pick").setup()
 require("flash").setup({
     modes = {
