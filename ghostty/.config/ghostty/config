@@ -2,7 +2,7 @@ command = /opt/homebrew/bin/fish
 
 theme = "Flexoki Light"
 
-font-size = 11
+font-size = 11.3
 adjust-underline-position = 3
 font-family = "Monaspace Krypton NF"
 font-feature = "ss01"
