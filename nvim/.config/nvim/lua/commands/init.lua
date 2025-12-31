@@ -4,4 +4,4 @@
 
 require('commands/pack')
 require('commands/copy-path')
-require('commands/playground')
+require('commands/term')
