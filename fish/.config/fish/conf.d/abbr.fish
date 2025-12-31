@@ -2,8 +2,8 @@
 # general aliases
 # ------------------------------------------------------------------------------
 
-abbr -a --position anywhere --command cat -- bat
-abbr -a -- ls ls -la
+abbr -a cat bat
+abbr -a ls ls -la
 
 # ------------------------------------------------------------------------------
 # Git aliases
@@ -17,18 +17,18 @@ abbr -a --position anywhere --command git -- pu push
 # Nvim aliases
 # ------------------------------------------------------------------------------
 
-abbr -a -- nv nvim
-abbr -a -- vi nvim
+abbr -a nv nvim
+abbr -a vi nvim
 
 # ------------------------------------------------------------------------------
 # Php aliases
 # ------------------------------------------------------------------------------
 
-abbr -a -- psa ./vendor/bin/phpstan
-abbr -a -- rec ./vendor/bin/rector
-abbr -a -- pst ./vendor/bin/pest
-abbr -a -- pi ./vendor/bin/pint
+abbr -a psa ./vendor/bin/phpstan
+abbr -a rec ./vendor/bin/rector
+abbr -a pst ./vendor/bin/pest
+abbr -a pi ./vendor/bin/pint
 
-abbr -a -- cmp composer
+abbr -a cmp composer
 abbr -a --position anywhere --command composer -- up update
 abbr -a --position anywhere --command composer -- in install
