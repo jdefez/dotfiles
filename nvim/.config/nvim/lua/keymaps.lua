@@ -216,8 +216,8 @@ keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Wri
 --------------------------------------------------------------------------------
 
 keymap.set('t', '<Esc>', "<C-\\><C-n>")
-keymap.set("n", "<leader>tv", function() vim.cmd("vsplit | terminal") end, { desc = "Vertical terminal" })
-keymap.set("n", "<leader>th", function() vim.cmd("split | terminal") end, { desc = "Horizontal terminal" })
+keymap.set("n", "<leader>tv", '<cmd>Term vertical<CR>', { desc = "Vertical terminal" })
+keymap.set("n", "<leader>th", '<cmd>Term horizontal<CR>', { desc = "Horizontal terminal" })
 
 --------------------------------------------------------------------------------
 -- flash

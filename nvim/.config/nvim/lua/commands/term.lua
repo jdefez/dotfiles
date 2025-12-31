@@ -4,12 +4,13 @@
 
 -- NOTE:
 -- Opens a terminal in an individual split (horizontally or vertically).
+-- In normal mode. `q` closes the terminal buffer.
 -- If the terminal buffer is already open, it will be reused
 
 -- TODO:
--- - add a command to close the terminal buffer
 -- - handle both a command argument and an optional split argument
 
+-- @return integer|nil
 local find_terminal_buffer = function()
     local bufs = vim.api.nvim_list_bufs()
 
@@ -24,6 +25,7 @@ local find_terminal_buffer = function()
     return nil
 end
 
+-- @return table
 local filter_options = function(ArgLead)
     return vim.tbl_filter(function(opt)
         return vim.startswith(opt, ArgLead)
@@ -42,13 +44,14 @@ vim.api.nvim_create_user_command(
 
         if term_buff_id == nil then
             vim.cmd(split .. ' | terminal')
+            term_buff_id = vim.api.nvim_get_current_buf()
         else
             vim.api.nvim_open_win(term_buff_id, true, {
                 vertical = split == 'vsplit',
             })
         end
 
-        -- add a local binding to close the terminal buffer.
+        vim.api.nvim_buf_set_keymap(term_buff_id, 'n', 'q', ':q<CR>', { noremap = true, silent = true })
     end,
     {
         desc = 'Open a terminal buffer',
