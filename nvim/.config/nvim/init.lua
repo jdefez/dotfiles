@@ -3,9 +3,7 @@
 --------------------------------------------------------------------------------
 -- Install and try:
 --  - SonarQube server: https://github.com/sonarsource/sonarlint.nvim
--- Terminal buffers to be improved:
---  - Create a module to manage terminal buffers
---  - Add a command to close the current terminal buffer
+--  - Treesitter text objects (branch: main)
 
 --------------------------------------------------------------------------------
 -- Modules
