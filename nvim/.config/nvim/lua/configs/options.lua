@@ -3,6 +3,7 @@
 --------------------------------------------------------------------------------
 
 local option = vim.opt
+local window = vim.wo
 
 vim.g.mapleader = " "
 
@@ -20,22 +21,18 @@ option.clipboard = "unnamedplus"
 option.termguicolors = true
 option.ignorecase = true
 option.fillchars = { eob = " " }
-
 option.cursorline = true
 option.scrolloff = 8
 option.inccommand = "nosplit"
-
 option.splitbelow = true
 option.splitright = true
-
 option.completeopt = { "menu", "menuone", "noselect" }
 option.complete = { ".", "w", "b", "u" }
 
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo.foldlevel = 10
-vim.wo.foldminlines = 0
-vim.wo.foldnestmax = 10
+window.foldmethod = 'expr'
+window.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.o.foldlevel = 99      -- start with all folds open
+vim.o.foldlevelstart = 99 -- same, for new buffers
+vim.o.foldenable = true   -- enable folding
 
 vim.cmd.filetype("plugin indent on")
-
