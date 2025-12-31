@@ -34,10 +34,6 @@ keymap.set("n", "<C-l>", "<c-w>l", { desc = "To right split" })
 keymap.set("n", "<C-k>", "<c-w>k", { desc = "To top split" })
 keymap.set("n", "<C-j>", "<c-w>j", { desc = "To bottom split" })
 
--- fixme: conflicting with native merge line "J"
--- keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
--- keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
-
 --------------------------------------------------------------------------------
 -- [b] for buffer
 --------------------------------------------------------------------------------
@@ -230,9 +226,3 @@ keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash 
 keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
 keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
 keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
-
---------------------------------------------------------------------------------
--- todo
---------------------------------------------------------------------------------
-
--- keymap.set("n", "<leader>t", ':TodoLocList<CR>', { desc = "Todo loc list" })
