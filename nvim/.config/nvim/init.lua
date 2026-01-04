@@ -5,6 +5,8 @@
 --  - SonarQube server: https://github.com/sonarsource/sonarlint.nvim
 --  - Treesitter text objects (branch: main)
 
+-- NOTE: neovim 0.12 path = /usr/local/bin/nvim-macos-arm64/bin/nvim
+
 --------------------------------------------------------------------------------
 -- Modules
 --------------------------------------------------------------------------------
