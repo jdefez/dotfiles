@@ -1,55 +1,62 @@
---
--- NOTE:
---  - To be tested: https://github.com/hat0uma/csvview.nvim
---  - To be tested: https://github.com/zbirenbaum/copilot.lua
---  - To be tested: https://github.com/folke/persistence.nvim (through a dashboard integration)
+--------------------------------------------------------------------------------
+-- TODO:
+--------------------------------------------------------------------------------
+-- Install and try:
+--  - SonarQube server: https://github.com/sonarsource/sonarlint.nvim
+--  - Treesitter text objects (branch: main)
 
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
-vim.g.mapleader = " "
+--------------------------------------------------------------------------------
+-- Modules
+--------------------------------------------------------------------------------
 
--- bootstrap lazy and all plugins
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+-- NOTE: provides with pathes for dofiles project sessions
 
-if not vim.uv.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
-end
+require('modules.session_helper').configure({
+    project_directories = {
+        {
+            session_name = "neovim",
+            dir = vim.fn.expand('~/dotfiles/nvim/.config/nvim')
+        },
+        {
+            session_name = "ghostty",
+            dir = vim.fn.expand('~/dotfiles/ghostty/.config/ghostty')
+        },
+        {
+            session_name = "git",
+            dir = vim.fn.expand('~/dotfiles/git/')
+        },
+        {
+            session_name = "phpactor",
+            dir = vim.fn.expand('~/dotfiles/phpactor/.config/phpactor')
+        },
+        {
+            session_name = "fish",
+            dir = vim.fn.expand('~/dotfiles/fish/.config/fish')
+        },
+    }
+})
 
-vim.opt.rtp:prepend(lazypath)
+--------------------------------------------------------------------------------
+-- Configs
+--------------------------------------------------------------------------------
 
-local lazy_config = require "configs.lazy"
+require('configs.options')
+require('configs.lsp')
 
--- require "configs.neovim-project"
+--------------------------------------------------------------------------------
+-- Plugins
+--------------------------------------------------------------------------------
 
--- NOTE: load plugins
+require('plugins')
 
--- WARN: temp fix for lspconfig deprecation
-vim.deprecate = function() end
+--------------------------------------------------------------------------------
+-- Commands
+--------------------------------------------------------------------------------
 
-vim.opt.background = "light"
+require('commands')
 
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
+--------------------------------------------------------------------------------
+-- Keymaps
+--------------------------------------------------------------------------------
 
-  { import = "plugins" },
-}, lazy_config)
-
---
--- NOTE: load theme
---
-
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
-
-require "options"
-require "nvchad.autocmds"
-
-vim.schedule(function()
-  require "mappings"
-end)
-
+require('keymaps')

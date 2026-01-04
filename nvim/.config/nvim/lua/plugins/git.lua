@@ -1,49 +1,30 @@
-return {
-  {
-    "sindrets/diffview.nvim",
-    lazy = false,
-    opts = {
-      view = {
-        merge_tool = {
-          layout = "diff3_mixed",
-        },
-      },
-    },
-  },
-  {
-    "NeogitOrg/neogit",
-    opts = {},
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-    },
-    keys = {
-      { "<leader>G", "<cmd>Neogit kind=vsplit<CR>", desc = "Neogit open" },
-    },
-  },
-  -- {
-  --   "akinsho/git-conflict.nvim",
-  --   version = "*",
-  --   lazy = false,
-  --   config = true,
-  --   -- default mappings
-  --   -- co — choose ours
-  --   -- ct — choose theirs
-  --   -- cb — choose both
-  --   -- c0 — choose none
-  --   -- ]x — move to previous conflict
-  --   -- [x — move to next conflict
-  --   init = function()
-  --     vim.api.nvim_create_autocmd({ "User" }, {
-  --       pattern = { "GitConflictDetected" },
-  --       callback = function(ev)
-  --         print("Conflict detected in " .. vim.fn.expand "<afile>")
-  --         vim.keymap.set("n", "cww", function()
-  --           engage.conflict_buster()
-  --           create_buffer_local_mappings()
-  --         end)
-  --       end,
-  --     })
-  --   end,
-  -- },
-}
+--------------------------------------------------------------------------------
+-- git
+--------------------------------------------------------------------------------
+
+vim.pack.add({
+    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+    { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
+    { src = "https://github.com/NeogitOrg/neogit" },
+})
+
+require("neogit").setup({})
+require("gitsigns").setup({
+    on_attach = function(bufnr)
+        local gitsigns = require('gitsigns')
+
+        local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+        end
+
+        -- Actions
+        map('n', '<leader>gs', gitsigns.stage_hunk, { desc = 'Stage hunk' })
+        map('n', '<leader>gu', gitsigns.reset_hunk, { desc = 'Reset hunk' })
+        map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
+        map('n', '<leader>gi', gitsigns.preview_hunk_inline, { desc = 'Preview hunk inline' })
+        map('n', '<leader>gQ', function() gitsigns.setqflist('all') end, { desc = 'Set quickfix' })
+        map('n', '<leader>gb', gitsigns.toggle_current_line_blame, { desc = 'Toggle blame' })
+    end
+})
