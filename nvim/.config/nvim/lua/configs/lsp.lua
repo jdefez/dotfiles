@@ -2,7 +2,6 @@
 -- lsp configs
 --------------------------------------------------------------------------------
 
--- Configure lua_ls BEFORE enabling
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
