@@ -3,12 +3,14 @@
 --------------------------------------------------------------------------------
 
 vim.pack.add({
+    { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/gbprod/phpactor.nvim" },
-    { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
+    -- { src = "https://github.com/iamkarasik/sonarqube.nvim" },
 })
 
+-- require("sonarqube").setup({})
 require("lspconfig")
 require("mason").setup({})
 require("fastaction").setup({})
@@ -28,30 +30,5 @@ require("phpactor").setup({
     },
 })
 
--- Configure lua_ls for Neovim development
-
-vim.lsp.config('lua_ls', {
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-            },
-            diagnostics = {
-                globals = { 'vim' },
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
-            telemetry = {
-                enable = false,
-            },
-            completion = {
-                callSnippet = "Replace"
-            },
-        },
-    },
-})
-
 -- LSP servers are enabled in configs/lsp.lua
--- Server-specific configurations use vim.lsp.config() above
+-- Server-specific configurations (like lua_ls) are in configs/lsp.lua

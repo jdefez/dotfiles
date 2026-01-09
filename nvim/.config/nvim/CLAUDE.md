@@ -97,7 +97,7 @@ This is hooked into `mini.sessions` via the `hooks.post.read` callback in `lua/p
 
 ### Enabled LSP Servers
 
-Servers are enabled using `vim.lsp.enable()` in both `lua/configs/lsp.lua` and `lua/plugins/lsp.lua`:
+Servers are enabled using `vim.lsp.enable()` in `lua/configs/lsp.lua`:
 - `jsonls` (JSON)
 - `lemminx` (XML)
 - `lua_ls` (Lua - with special Neovim development configuration)
@@ -118,7 +118,7 @@ installation settings. The plugin is installed to
 integration is disabled (`lspconfig.enabled = false`) in favor of direct
 configuration.
 
-**Lua_ls special case**: Configured in `lua/plugins/lsp.lua` using `vim.lsp.config()` with Neovim development settings including workspace library paths and LuaJIT runtime configuration.
+**Lua_ls special case**: Configured in `lua/configs/lsp.lua` using `vim.lsp.config()` with Neovim development settings including workspace library paths and LuaJIT runtime configuration. The configuration is set BEFORE `vim.lsp.enable()` to ensure proper initialization order.
 
 ### LSP Features
 
@@ -293,8 +293,8 @@ All keymaps are centralized in `lua/keymaps.lua`. After editing, use `<leader>br
 
 - **All keybindings**: `lua/keymaps.lua`
 - **Neovim options**: `lua/configs/options.lua`
-- **LSP server list**: `lua/configs/lsp.lua` and `lua/plugins/lsp.lua`
-- **LSP server configs**: `lua/plugins/lsp.lua` (uses `vim.lsp.config()` for server-specific settings)
+- **LSP server list and configs**: `lua/configs/lsp.lua` (uses `vim.lsp.config()` for server-specific settings, then `vim.lsp.enable()`)
+- **LSP plugins**: `lua/plugins/lsp.lua` (Mason, lspconfig, phpactor, fastaction)
 - **Plugin declarations**: `lua/plugins/*.lua` (choose appropriate category file)
 - **Custom commands**: `lua/commands/*.lua`
 
