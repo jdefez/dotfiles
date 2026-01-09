@@ -53,6 +53,8 @@ vim.api.nvim_create_user_command(
             })
         end
 
+        vim.cmd('set colorcolumn=0')
+
         vim.api.nvim_buf_set_keymap(term_buff_id, 'n', 't',
             ':q<CR>',
             { noremap = true, silent = true })

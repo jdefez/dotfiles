@@ -28,30 +28,3 @@ require("phpactor").setup({
     },
 })
 
--- Configure lua_ls for Neovim development
-
-vim.lsp.config('lua_ls', {
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-            },
-            diagnostics = {
-                globals = { 'vim' },
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
-            telemetry = {
-                enable = false,
-            },
-            completion = {
-                callSnippet = "Replace"
-            },
-        },
-    },
-})
-
--- LSP servers are enabled in configs/lsp.lua
--- Server-specific configurations use vim.lsp.config() above
