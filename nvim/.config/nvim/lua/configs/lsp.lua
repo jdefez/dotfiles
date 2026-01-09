@@ -27,10 +27,11 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.lsp.enable({
+    "stimulus_ls",
     "jsonls",
     "lemminx", -- xml
     "lua_ls",
-    "pest_ls",
+    "sonarqube",
     "phpactor",
     "yamlls",
 })

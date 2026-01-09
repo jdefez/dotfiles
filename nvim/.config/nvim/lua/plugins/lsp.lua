@@ -7,13 +7,13 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/gbprod/phpactor.nvim" },
     { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
-    -- { src = "https://github.com/iamkarasik/sonarqube.nvim" },
+    { src = "https://github.com/iamkarasik/sonarqube.nvim" },
 })
 
--- require("sonarqube").setup({})
 require("lspconfig")
 require("mason").setup({})
 require("fastaction").setup({})
+
 require("phpactor").setup({
     install = {
         path = vim.fn.stdpath("data") .. "/mason/packages/",
@@ -30,5 +30,56 @@ require("phpactor").setup({
     },
 })
 
--- LSP servers are enabled in configs/lsp.lua
--- Server-specific configurations (like lua_ls) are in configs/lsp.lua
+local extension_path = vim.fn.stdpath("data") .. "/mason/packages/sonarlint-language-server/extension"
+require("sonarqube").setup({
+    lsp = {
+        cmd = {
+            vim.fn.exepath("java"),
+            "-jar",
+            extension_path .. "/server/sonarlint-ls.jar",
+            "-stdio",
+            "-analyzers",
+            extension_path .. "/analyzers/sonargo.jar",
+            extension_path .. "/analyzers/sonarhtml.jar",
+            extension_path .. "/analyzers/sonariac.jar",
+            extension_path .. "/analyzers/sonarjava.jar",
+            extension_path .. "/analyzers/sonarjavasymbolicexecution.jar",
+            extension_path .. "/analyzers/sonarjs.jar",
+            extension_path .. "/analyzers/sonarphp.jar",
+            extension_path .. "/analyzers/sonarpython.jar",
+            extension_path .. "/analyzers/sonartext.jar",
+            extension_path .. "/analyzers/sonarxml.jar",
+        },
+    },
+    html = {
+        enabled = true,
+    },
+    javascript = {
+        enabled = true,
+        clientNodePath = vim.fn.exepath("node")
+    },
+    php = {
+        enabled = true,
+    },
+    text = {
+        enabled = true,
+    },
+    xml = {
+        enabled = true,
+    },
+    csharp = {
+        enabled = false,
+    },
+    go = {
+        enabled = false
+    },
+    iac = {
+        enabled = false,
+    },
+    java = {
+        enabled = false,
+    },
+    python = {
+        enabled = false,
+    },
+})
