@@ -8,6 +8,13 @@ vim.pack.add({
     { src = "https://github.com/NeogitOrg/neogit" },
 })
 
+require("diffview").setup({
+    view = {
+        merge_tool = {
+            layout = "diff3_mixed",
+        },
+    },
+})
 require("neogit").setup({})
 require("gitsigns").setup({
     on_attach = function(bufnr)
