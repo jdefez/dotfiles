@@ -21,6 +21,8 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 
 abbr -a -- cat bat
+abbr -a -- ll lsd --tree --depth=1
+abbr -a -- ls ls -lah
 
 # ------------------------------------------------------------------------------
 # git aliases
