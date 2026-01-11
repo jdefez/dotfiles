@@ -30,7 +30,7 @@ vim.lsp.enable({
     "jsonls",
     "lemminx", -- xml
     "lua_ls",
-    "sonarqube",
+    -- "sonarqube",
     "phpactor",
     "yamlls",
 })

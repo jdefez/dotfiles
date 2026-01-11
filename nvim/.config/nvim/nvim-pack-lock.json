@@ -12,9 +12,9 @@
       "rev": "acfedcc953d24776a45759dec53934789a83bc93",
       "src": "https://github.com/ahkohd/buffer-sticks.nvim"
     },
-    "diffview.nvim": {
-      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
-      "src": "https://github.com/sindrets/diffview.nvim"
+    "codediff.nvim": {
+      "rev": "f21847c61725070a8cedcb8adefe4cdb14f4c037",
+      "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "fastaction.nvim": {
       "rev": "b147d91727cb35be4f722f17e7d4ed5b4a5801d8",
@@ -95,6 +95,10 @@
     "neogit": {
       "rev": "abc6d39138827b8d7a1da8868a07edc707596cda",
       "src": "https://github.com/NeogitOrg/neogit"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-lspconfig": {
       "rev": "107c2458cdc780c4ed2c2b5e1b7800cd019010bd",

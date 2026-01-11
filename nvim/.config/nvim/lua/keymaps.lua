@@ -151,11 +151,10 @@ keymap.set("n", "<leader>fw", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "
 -- [g] for git
 --------------------------------------------------------------------------------
 
-keymap.set("n", "<leader>gC", "<cmd>DiffviewClose<CR>", { desc = "Diffvew close" })
+keymap.set("n", "<leader>gd", "<cmd>CodeDiff<CR>", { desc = "Toggle code diff" })
 keymap.set("n", "<leader>gh", '<cmd>Pick git_hunks path="%" scope=staged<CR>', { desc = "Pick buffer hunks" })
 keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "Pick all hunks" })
 keymap.set("n", "<leader>go", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
-keymap.set("n", "<leader>gO", "<cmd>DiffviewOpen<CR>", { desc = "Diffvew open" })
 
 --------------------------------------------------------------------------------
 -- [l] for lsp
@@ -212,8 +211,8 @@ keymap.set('n', '<leader>sw', '<Cmd>lua MiniSessions.write()<CR>', { desc = 'Wri
 --------------------------------------------------------------------------------
 
 keymap.set('t', '<Esc>', "<C-\\><C-n>")
-keymap.set("n", "<leader>tv", '<cmd>Term vertical<CR>', { desc = "Vertical terminal" })
-keymap.set("n", "<leader>th", '<cmd>Term horizontal<CR>', { desc = "Horizontal terminal" })
+keymap.set("n", "<leader>tl", '<cmd>Term vertical<CR>', { desc = "Vertical terminal" })
+keymap.set("n", "<leader>tj", '<cmd>Term horizontal<CR>', { desc = "Horizontal terminal" })
 
 --------------------------------------------------------------------------------
 -- flash
