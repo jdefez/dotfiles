@@ -3,8 +3,8 @@
 # ------------------------------------------------------------------------------
 
 abbr -a cat bat
-abbr -a ll lsd --sort=extension
-abbr -a ls ls -la
+abbr -a ll lsd --sort=extension --tree --depth=1
+abbr -a ls ls -lah
 
 # ------------------------------------------------------------------------------
 # Git aliases
