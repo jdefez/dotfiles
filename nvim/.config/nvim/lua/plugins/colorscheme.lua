@@ -2,7 +2,7 @@
 -- Color scheme
 --------------------------------------------------------------------------------
 
-local option = vim.opt
+-- local option = vim.opt
 local cmd = vim.cmd
 
 cmd("hi statusline guibg=NONE")
