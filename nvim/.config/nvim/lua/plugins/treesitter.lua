@@ -35,4 +35,18 @@ require('nvim-treesitter.configs').setup({
         "yaml",
         "vue",
     },
+    highlight = {
+        enable = true,
+        disable = {},
+        additional_vim_regex_highlighting = false,
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            node_decremental = "grm",
+            scope_incremental = "grc",
+        },
+    },
 })

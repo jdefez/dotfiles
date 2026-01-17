@@ -126,15 +126,14 @@ end)
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>ff", "<cmd>Pick files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>fe", function() require("fyler").toggle({ kind = 'split_right_most' }) end,
+keymap.set("n", "<leader>fe",
+    function() require("fyler").toggle({ kind = 'split_right_most' }) end,
     { desc = "File explorer" })
 keymap.set("n", "<leader>fh", "<cmd>Pick help<CR>", { desc = "Find help" })
 keymap.set("n", "<leader>fl", '<cmd>Pick buf_lines scope="current"<CR>', { desc = "Grep file lines" })
 keymap.set("n", "<leader>fn", function() require("global-note").toggle_note() end, { desc = "Toggle global note" })
 
-keymap.set(
-    "n",
-    "<leader>fo",
+keymap.set("n", "<leader>fo",
     function()
         local fyler = require("fyler")
         fyler.toggle({ kind = 'split_right_most' })
@@ -163,7 +162,7 @@ keymap.set("n", "<leader>go", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit op
 keymap.set({ 'n', 'x' }, '<leader>la', function()
     require("fastaction").code_action()
 end, { desc = "Display code actions", buffer = bufnr })
-keymap.set("n", "<Leader>ld", '<Cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Source definition" })
+keymap.set("n", "<Leader>ld", function() vim.lsp.buf.definition() end, { desc = "Source definition" })
 keymap.set("n", "<leader>lf", function()
     if vim.bo.filetype == 'php' then
         require('modules.pint').format()
@@ -171,13 +170,14 @@ keymap.set("n", "<leader>lf", function()
         vim.lsp.buf.format()
     end
 end, { desc = "Format buffer" })
-keymap.set("n", "<Leader>li", '<Cmd>lua vim.lsp.buf.implementation()<CR>', { desc = "Implementations" })
-keymap.set("n", "<Leader>lk", '<Cmd>lua vim.lsp.buf.hover()<CR>', { desc = "Hover" })
+keymap.set("n", "<Leader>li", function() vim.lsp.buf.implementation() end, { desc = "Implementations" })
+keymap.set("n", "<Leader>lk", function() vim.lsp.buf.hover() end, { desc = "Hover" })
+keymap.set("n", "<leader>ll", function() vim.diagnostic.setloclist() end, { desc = "List diagnostics" })
 keymap.set("n", "<leader>lo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References' })
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
-keymap.set("n", "<Leader>lw", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+keymap.set("n", "<Leader>lw", function() vim.diagnostic.open_float() end, { desc = "Show diagnostic" })
 
 --------------------------------------------------------------------------------
 -- [p] for php

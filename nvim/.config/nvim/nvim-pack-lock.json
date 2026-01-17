@@ -144,6 +144,10 @@
       "rev": "72a04c4065345b51b56aed4859ea1d884f734097",
       "src": "https://github.com/rose-pine/neovim"
     },
+    "sonarqube.nvim": {
+      "rev": "811bf8f46e0aa5ed9c9b5783aaf6f87640df553a",
+      "src": "https://github.com/iamkarasik/sonarqube.nvim"
+    },
     "supermaven-nvim": {
       "rev": "07d20fce48a5629686aefb0a7cd4b25e33947d50",
       "src": "https://github.com/supermaven-inc/supermaven-nvim"

@@ -6,7 +6,6 @@ vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     -- { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
     { src = "https://github.com/NeogitOrg/neogit" },
-    -- testing codediff
     { src = "https://github.com/MunifTanjim/nui.nvim" }, -- codediff dependency
     { src = "https://github.com/esmuellert/codediff.nvim"},
 })
