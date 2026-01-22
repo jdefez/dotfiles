@@ -6,8 +6,8 @@ vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     -- { src = "https://github.com/sindrets/diffview.nvim" }, -- neogit dependency
     { src = "https://github.com/NeogitOrg/neogit" },
-    { src = "https://github.com/MunifTanjim/nui.nvim"}, -- codediff dependency
-    { src = "https://github.com/esmuellert/codediff.nvim"},
+    { src = "https://github.com/MunifTanjim/nui.nvim" }, -- codediff dependency
+    { src = "https://github.com/esmuellert/codediff.nvim" },
 })
 
 -- require("diffview").setup({
@@ -17,7 +17,12 @@ vim.pack.add({
 --         },
 --     },
 -- })
-require("codediff").setup({})
+
+require("codediff").setup({
+    explorer = {
+        position = "right",
+    },
+})
 require("neogit").setup({})
 require("gitsigns").setup({
     on_attach = function(bufnr)

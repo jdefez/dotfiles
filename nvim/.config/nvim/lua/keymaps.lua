@@ -152,6 +152,7 @@ keymap.set("n", "<leader>fw", "<cmd>Pick grep pattern='<cword>'<CR>", { desc = "
 --------------------------------------------------------------------------------
 
 keymap.set("n", "<leader>gd", "<cmd>CodeDiff<CR>", { desc = "Toggle code diff" })
+keymap.set("n", "<leader>gc", "<cmd>CodeDiff HEAD<CR>", { desc = "Code diff HEAD" })
 keymap.set("n", "<leader>gh", '<cmd>Pick git_hunks path="%" scope=staged<CR>', { desc = "Pick buffer hunks" })
 keymap.set("n", "<leader>gH", '<cmd>Pick git_hunks scope=staged<CR>', { desc = "Pick all hunks" })
 keymap.set("n", "<leader>go", "<cmd>Neogit kind=vsplit<CR>", { desc = "Neogit open" })
