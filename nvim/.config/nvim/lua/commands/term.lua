@@ -53,6 +53,9 @@ vim.api.nvim_create_user_command(
             })
         end
 
+        vim.api.nvim_win_set_cursor(0, { 1, 0 })
+        vim.api.nvim_feedkeys('i', 'n', false)
+
         vim.cmd('setlocal colorcolumn=""')
 
         -- key bindings
