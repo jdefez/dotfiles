@@ -179,6 +179,7 @@ keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = '
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
 keymap.set("n", "<Leader>lw", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+-- vim.keymap.set({ 'n' }, '<C-k>', function() require('lsp_signature').toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
 
 --------------------------------------------------------------------------------
 -- [p] for php
@@ -222,7 +223,7 @@ keymap.set("n", "<leader>tj", '<cmd>Term horizontal<CR>', { desc = "Horizontal t
 local flash = require("flash")
 
 keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
-keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
-keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
+-- NOTE: desabled conflicts with surround
+-- keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
 keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
-keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
+-- keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })

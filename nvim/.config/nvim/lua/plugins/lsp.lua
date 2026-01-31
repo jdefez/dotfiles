@@ -8,6 +8,7 @@ vim.pack.add({
     { src = "https://github.com/gbprod/phpactor.nvim" },
     { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
     { src = "https://github.com/iamkarasik/sonarqube.nvim" },
+    { src = "https://github.com/ray-x/lsp_signature.nvim" },
 })
 
 require("lspconfig")
@@ -82,4 +83,10 @@ require("sonarqube").setup({
     python = {
         enabled = false,
     },
+})
+require("lsp_signature").setup({
+    bind = true,
+    handler_opts = {
+        border = "rounded"
+    }
 })
