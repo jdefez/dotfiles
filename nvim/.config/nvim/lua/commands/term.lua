@@ -56,15 +56,31 @@ vim.api.nvim_create_user_command(
         vim.api.nvim_win_set_cursor(0, { 1, 0 })
         vim.api.nvim_feedkeys('i', 'n', false)
 
-        vim.cmd('set colorcolumn=0')
+        vim.cmd('setlocal colorcolumn=""')
 
+        -- Toggle terminal
         vim.api.nvim_buf_set_keymap(term_buff_id, 'n', 't',
-            ':q<CR>',
-            { noremap = true, silent = true })
+            [[:q<CR>]],
+            { noremap = true, silent = true, desc = 'Toggle terminal' })
+        vim.api.nvim_buf_set_keymap(term_buff_id, 't', '<C-t>',
+            [[<C-\><C-n>:q<CR>]],
+            { noremap = true, silent = true, desc = 'Toggle terminal' })
 
-        vim.api.nvim_buf_set_keymap(term_buff_id, 'n', 'q',
-            ':bdelete!<CR>',
-            { noremap = true, silent = true })
+        -- Esc and jump
+        vim.api.nvim_buf_set_keymap(term_buff_id, 't', '<C-h>',
+            [[<C-\><C-n><C-h><c-w>h]],
+            { noremap = true, silent = true, desc = 'Toggle terminal' })
+        vim.api.nvim_buf_set_keymap(term_buff_id, 't', '<C-k>',
+            [[<C-\><C-n><C-h><c-w>k]],
+            { noremap = true, silent = true, desc = 'Toggle terminal' })
+
+        -- Close terminal
+        vim.api.nvim_buf_set_keymap(term_buff_id, 'n', 'x',
+            [[:bdelete!<CR>]],
+            { noremap = true, silent = true, desc = 'Close terminal' })
+        vim.api.nvim_buf_set_keymap(term_buff_id, 't', '<C-x>',
+            [[<C-\><C-n>:bdelete!<CR>]],
+            { noremap = true, silent = true, desc = 'Close terminal' })
     end,
     {
         desc = 'Open a terminal buffer',
