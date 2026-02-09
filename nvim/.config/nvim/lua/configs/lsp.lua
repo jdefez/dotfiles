@@ -26,11 +26,10 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.lsp.enable({
-    "stimulus_ls",
+    -- "stimulus_ls", -- html + blade
     "jsonls",
     "lemminx", -- xml
     "lua_ls",
-    -- "sonarqube",
     "phpactor",
     "yamlls",
 })
@@ -47,9 +46,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
-        if client:supports_method("textDocument/inlayHint") then
-            vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
-        end
+        -- if client:supports_method("textDocument/inlayHint") then
+        --     vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+        -- end
     end,
 })
 
