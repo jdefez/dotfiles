@@ -1,5 +1,3 @@
--- tests/test_collection_spec.lua
-
 describe("collection module tests", function()
     local collect = require("modules.collection").collect
 
@@ -16,14 +14,42 @@ describe("collection module tests", function()
 
     it("push", function()
         local animals = collect()
-        assert.are.equal(true, animals:is_empty())
 
+        assert.are.equal(true, animals:is_empty())
         assert.are.equal(false, animals:push('dog', 'cat'):is_empty())
         assert.are.equal(2, animals:count())
     end)
 
+    it("put", function()
+        local animals = collect({ foo = 'bar' })
+
+        animals:put('biz', 'boom')
+
+        assert.are.equal('boom', animals:get('biz'))
+        assert.are.equal('bar', animals:get('foo'))
+    end)
+
+    it("merge", function()
+        local animals = collect({ 'bar' })
+        local dogs = collect({ 'doggy' })
+
+        assert.are.equal(2, animals:merge(dogs):count())
+    end)
+
+    it("shift", function()
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+        assert.are.equal('dog', animals:shift())
+        assert.are.equal(3, animals:count())
+    end)
+
+    it("pop", function()
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+        assert.are.equal('bird', animals:pop())
+        assert.are.equal(3, animals:count())
+    end)
+
     it("each", function()
-        local birds = collect({'bat', 'bird', 'bee'})
+        local birds = collect({ 'bat', 'bird', 'bee' })
 
         local loops = 0
         birds:each(function(item)
@@ -32,6 +58,15 @@ describe("collection module tests", function()
         end)
 
         assert.are.equal(3, loops)
+    end)
+
+    it("filter", function()
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+        local dogs = animals:filter(function(value)
+            return value == 'dog'
+        end)
+
+        assert.are.equal(1, dogs:count())
     end)
 
     it("is_empty", function()
@@ -44,5 +79,30 @@ describe("collection module tests", function()
         local animals = collect({ 'fish', 'dog', 'cat' })
 
         assert.are.equal(true, animals:is_not_empty())
+    end)
+
+    it("contains a value", function()
+        local animals = collect({ 'dog', 'cat', 'mouse' })
+
+        assert.are.equal(true, animals:contains('dog'))
+        assert.are.equal(false, animals:contains('bird'))
+    end)
+
+    it("contains with a predicate function", function()
+        local animals = collect({ 'dog', 'cat', 'mouse' })
+
+        assert.are.equal(true, animals:contains(function(value)
+            return value == 'cat'
+        end))
+        assert.are.equal(false, animals:contains(function(value)
+            return value == 'bird'
+        end))
+    end)
+
+    it("contains a key-value pair", function()
+        local animals = collect({ name = 'dog', type = 'mammal' })
+
+        assert.are.equal(true, animals:contains('name', 'dog'))
+        assert.are.equal(false, animals:contains('name', 'cat'))
     end)
 end)

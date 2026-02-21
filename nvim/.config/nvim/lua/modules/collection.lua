@@ -2,14 +2,11 @@
 -- Collection module
 --------------------------------------------------------------------------------
 -- TODO: implements methods:
--- - contains
--- - filter
 -- - every
 -- - some
--- - shift
--- - unshift
--- - pop ??
 -- - merge
+-- - first
+-- - last
 -- - sort
 
 local Collection = {}
@@ -22,11 +19,12 @@ function Collection:new(tbl)
     return obj
 end
 
----@description Create a new collection from a table
+---@description helper function to create a new collection from a table
 Collection.collect = function(tbl)
     return Collection:new(tbl)
 end
 
+---@description Add one or more items to the collection
 ---@return self
 function Collection:push(...)
     local items = { ... }
@@ -37,14 +35,79 @@ function Collection:push(...)
     return self
 end
 
----@param fn function to apply to each item
+function Collection:put(key, value)
+    self.table[key] = value
+
+    return self
+end
+
+function Collection:get(key)
+    return self.table[key]
+end
+
+---@description Merge the collection with another one
+---@param collection
 ---@return self
-function Collection:each(fn)
-    for _, item in ipairs(self.table) do
-        fn(item)
+function Collection:merge(collection)
+    for key, value in pairs(collection.table) do
+        if type(key) == 'number' then
+            self:push(value)
+        else
+            self:put(key, value)
+        end
     end
 
     return self
+end
+
+---@description Remove and return the first item from the collection
+---@return any
+function Collection:shift()
+    return table.remove(self.table, 1)
+end
+
+---@description Remove and return the last item from the collection
+---@return any
+function Collection:pop()
+    return table.remove(self.table, #self.table)
+end
+
+---@description Return the first item from the collection
+---@return any
+function Collection:first()
+    return self.table[1]
+end
+
+---@description Return the last item from the collection
+---@return any
+function Collection:last()
+    return self.table[#self.table]
+end
+
+---@description Iterate over the collection
+---@param fn function(value: any, key: any)
+---@return self
+function Collection:each(fn)
+    for key, value in ipairs(self.table) do
+        fn(value, key)
+    end
+
+    return self
+end
+
+---@description Filter the collection
+---@param fn function(value: any, key: any)
+---@return self
+function Collection:filter(fn)
+    local new_collection = Collection:new()
+
+    for key, value in ipairs(self.table) do
+        if fn(value, key) then
+            new_collection:push(value)
+        end
+    end
+
+    return new_collection
 end
 
 function Collection:count()
@@ -57,6 +120,26 @@ end
 
 function Collection:is_not_empty()
     return self:count() > 0
+end
+
+---@description Determine if the collection contains a value
+---@param key string|function
+---@param value any
+---@return boolean
+function Collection:contains(key, value)
+    if value == nil then
+        for k, v in pairs(self.table) do
+            if type(key) == 'function' and key(v, k) then
+                return true
+            elseif v == key then
+                return true
+            end
+        end
+    elseif (type(key) == 'string' and value ~= nil) then
+        return self:get(key) == value
+    end
+
+    return false
 end
 
 return Collection
