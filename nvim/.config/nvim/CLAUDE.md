@@ -268,6 +268,20 @@ Leader key is `<space>`. All keymaps are defined in `lua/keymaps.lua`.
 - **quicker.nvim** - Enhanced quickfix (`<leader>qt`)
 - **todo-comments.nvim** - Highlight and search TODO comments
 
+## Testing
+
+Tests live in `tests/` and use the [busted](https://lunarmodules.github.io/busted/) framework via plenary.nvim.
+
+### Running Tests
+
+Run a specific test file using nvim in headless mode:
+
+```bash
+nvim --headless -c "PlenaryBustedFile tests/test_collection.spec.lua"
+```
+
+Test files follow the naming convention `test_<module>.spec.lua`.
+
 ## Development Workflow
 
 ### Editing Configuration Files
