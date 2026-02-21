@@ -221,7 +221,7 @@ keymap.set("n", "<leader>tj", '<cmd>Term horizontal<CR>', { desc = "Horizontal t
 local flash = require("flash")
 
 keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
-keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
-keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
+-- NOTE: desabled conflicts with surround
+-- keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
 keymap.set("o", "r", function() flash.remote() end, { desc = "Remote Flash" })
-keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
+-- keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash Treesitter search" })
