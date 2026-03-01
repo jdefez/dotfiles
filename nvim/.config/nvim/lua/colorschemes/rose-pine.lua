@@ -1,13 +1,9 @@
 --------------------------------------------------------------------------------
--- Color scheme
+-- Color scheme: rose-pine
 --------------------------------------------------------------------------------
 
 local option = vim.opt
 local cmd = vim.cmd
-
-cmd("hi statusline guibg=NONE")
-cmd("hi DiagnosticUnderlineError gui=undercurl")
-cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
 vim.pack.add({
     {

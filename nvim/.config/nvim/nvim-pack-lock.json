@@ -28,6 +28,10 @@
       "rev": "e5fc1ae5f5fd3da059ef7f06cf18aae0545f03b5",
       "src": "https://github.com/A7Lavinraj/fyler.nvim"
     },
+    "github-nvim-theme": {
+      "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
+      "src": "https://github.com/projekt0n/github-nvim-theme"
+    },
     "gitsigns.nvim": {
       "rev": "f780609807eca1f783a36a8a31c30a48fbe150c5",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -35,6 +39,10 @@
     "global-note.nvim": {
       "rev": "1e0d4bba425d971ed3ce40d182c574a25507115c",
       "src": "https://github.com/backdround/global-note.nvim"
+    },
+    "koda.nvim": {
+      "rev": "4fe384484afc06140cefe046acb881119c284400",
+      "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "mason.nvim": {
       "rev": "7dc4facca9702f95353d5a1f87daf23d78e31c2a",
@@ -88,6 +96,10 @@
       "rev": "3e96596ebe51b899874d8174409cdc4f3c749d9a",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
+    "monochrome.nvim": {
+      "rev": "2de78d9688ea4a177bcd9be554ab9192337d35ff",
+      "src": "https://github.com/kdheepak/monochrome.nvim"
+    },
     "multicursor.nvim": {
       "rev": "0c6ceae",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
@@ -120,6 +132,10 @@
       "rev": "f6b0920f452bfd7595ee9a9efe5e1ae78e0e2997",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "one-nvim": {
+      "rev": "faf6fb3f98fccbe009c3466f657a8fff84a5f956",
+      "src": "https://github.com/Th3Whit3Wolf/one-nvim"
+    },
     "outline.nvim": {
       "rev": "6b62f73a6bf317531d15a7ae1b724e85485d8148",
       "src": "https://github.com/hedyhli/outline.nvim"
@@ -143,6 +159,10 @@
     "rose-pine": {
       "rev": "72a04c4065345b51b56aed4859ea1d884f734097",
       "src": "https://github.com/rose-pine/neovim"
+    },
+    "selenized.nvim": {
+      "rev": "8663bf6b222d911e04a9f1b391c3b1ccd22adb69",
+      "src": "https://github.com/calind/selenized.nvim"
     },
     "sonarqube.nvim": {
       "rev": "811bf8f46e0aa5ed9c9b5783aaf6f87640df553a",
