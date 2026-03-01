@@ -1,13 +1,6 @@
 --------------------------------------------------------------------------------
 -- Collection module
 --------------------------------------------------------------------------------
--- TODO: implements methods:
--- - every
--- - some
--- - merge
--- - first
--- - last
--- - sort
 
 local Collection = {}
 Collection.__index = Collection
@@ -140,6 +133,30 @@ function Collection:contains(key, value)
     end
 
     return false
+end
+
+---@description Determine if some collection item matches the given predicate
+---@param fn function(value: any, key: any)
+---@return boolean
+function Collection:some(fn)
+    for key, value in ipairs(self.table) do
+        if fn(value, key) then
+            return true
+        end
+    end
+    return false
+end
+
+---@description Determine if all collection items match the given predicate
+---@param fn function(value: any, key: any)
+---@return boolean
+function Collection:every(fn)
+    for key, value in ipairs(self.table) do
+        if not fn(value, key) then
+            return false
+        end
+    end
+    return true
 end
 
 return Collection

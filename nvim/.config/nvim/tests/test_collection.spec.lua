@@ -105,4 +105,20 @@ describe("collection module tests", function()
         assert.are.equal(true, animals:contains('name', 'dog'))
         assert.are.equal(false, animals:contains('name', 'cat'))
     end)
+
+    it("some", function()
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+
+        assert.are.equal(true, animals:some(function(value)
+            return value == 'bird'
+        end))
+    end)
+
+    it("every", function()
+        local birds = collect({ 'bat', 'bird', 'bee' })
+
+        assert.are.equal(true, birds:every(function(value)
+            return value:sub(1, 1) == 'b'
+        end))
+    end)
 end)
