@@ -16,6 +16,10 @@
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
       "src": "https://github.com/sindrets/diffview.nvim"
     },
+    "doom-one.nvim": {
+      "rev": "beae92173315c7282f6897e666cfd67fbf0f3ac9",
+      "src": "https://github.com/NTBBloodbath/doom-one.nvim"
+    },
     "fastaction.nvim": {
       "rev": "b147d91727cb35be4f722f17e7d4ed5b4a5801d8",
       "src": "https://github.com/Chaitanyabsprip/fastaction.nvim"
@@ -35,6 +39,10 @@
     "global-note.nvim": {
       "rev": "1e0d4bba425d971ed3ce40d182c574a25507115c",
       "src": "https://github.com/backdround/global-note.nvim"
+    },
+    "lsp-document-highlight.nvim": {
+      "rev": "8d49ad5b8b06ad496ff26e45879aaff37f2a210c",
+      "src": "https://github.com/akioweh/lsp-document-highlight.nvim"
     },
     "lsp_signature.nvim": {
       "rev": "7d3bb0a641f516f1c7fd2e47852580dadbd7a430",
@@ -143,6 +151,10 @@
     "rose-pine": {
       "rev": "72a04c4065345b51b56aed4859ea1d884f734097",
       "src": "https://github.com/rose-pine/neovim"
+    },
+    "shades-of-purple.nvim": {
+      "rev": "d403d33f14b0233f9ccc5371668cfea7ed125ce4",
+      "src": "https://github.com/necrogoru/shades-of-purple.nvim"
     },
     "sonarqube.nvim": {
       "rev": "811bf8f46e0aa5ed9c9b5783aaf6f87640df553a",

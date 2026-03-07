@@ -180,6 +180,8 @@ keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { de
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
 keymap.set("n", "<Leader>lw", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 -- vim.keymap.set({ 'n' }, '<C-k>', function() require('lsp_signature').toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
+keymap.set("n", "[[", function() require("lsp-document-highlight").jump(-vim.v.count1, true) end, { desc = "Jump to next highlight" })
+keymap.set("n", "]]", function() require("lsp-document-highlight").jump(vim.v.count1, true) end, { desc = "Jump to previous highlight" })
 
 --------------------------------------------------------------------------------
 -- [p] for php

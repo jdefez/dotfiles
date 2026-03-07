@@ -9,6 +9,7 @@ vim.pack.add({
     { src = "https://github.com/Chaitanyabsprip/fastaction.nvim" },
     { src = "https://github.com/iamkarasik/sonarqube.nvim" },
     { src = "https://github.com/ray-x/lsp_signature.nvim" },
+    { src = "https://github.com/akioweh/lsp-document-highlight.nvim" },
 })
 
 require("lspconfig")
@@ -90,3 +91,5 @@ require("lsp_signature").setup({
         border = "rounded"
     }
 })
+
+require("lsp-document-highlight").setup({})
