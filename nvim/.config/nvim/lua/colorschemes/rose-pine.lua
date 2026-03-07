@@ -4,6 +4,7 @@
 
 -- local option = vim.opt
 local cmd = vim.cmd
+local opt = vim.opt
 
 cmd("hi statusline guibg=NONE")
 cmd("hi DiagnosticUnderlineError gui=undercurl")
@@ -64,3 +65,5 @@ require('rose-pine').setup({
 })
 
 cmd.colorscheme "rose-pine"
+opt.background = "light"
+
