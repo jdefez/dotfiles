@@ -1,6 +1,8 @@
 command = /opt/homebrew/bin/fish
 
-theme = "Rose Pine Dawn"
+# theme = "Rose Pine Moon"
+# theme = "Rose Pine Dawn"
+theme = "Adventure Time"
 
 font-size = 11
 adjust-underline-position = 3
