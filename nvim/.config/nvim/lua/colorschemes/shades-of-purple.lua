@@ -12,6 +12,7 @@ vim.pack.add({
 
 local colors = require("shades-of-purple.colors")
 
+-- NOTE: must be declared here
 cmd.colorscheme "shades-of-purple"
 
 collect({

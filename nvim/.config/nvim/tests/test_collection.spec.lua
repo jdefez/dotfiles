@@ -121,4 +121,13 @@ describe("collection module tests", function()
             return value:sub(1, 1) == 'b'
         end))
     end)
+
+    it("diff", function()
+        local animals = collect({ 'bird', 'cat', 'moose' })
+        local dogs = collect({ 'dog', 'cat', 'moose' })
+
+        local diff = animals:diff(dogs)
+        assert.are.equal(1, diff:count())
+        assert.are.equal('bird', diff:first())
+    end)
 end)

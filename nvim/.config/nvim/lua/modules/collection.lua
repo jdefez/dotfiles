@@ -5,6 +5,7 @@
 local Collection = {}
 Collection.__index = Collection
 
+---@class Collection
 function Collection:new(tbl)
     local obj = setmetatable({}, self)
     obj.table = tbl or {}
@@ -157,6 +158,21 @@ function Collection:every(fn)
         end
     end
     return true
+end
+
+---@description Return the difference between two collections
+---@param collection Collection
+---@return Collection
+function Collection:diff(collection)
+    local found = Collection:new()
+
+    for _, value in ipairs(self.table) do
+        if not collection:contains(value) then
+            found:push(value)
+        end
+    end
+
+    return found
 end
 
 return Collection
