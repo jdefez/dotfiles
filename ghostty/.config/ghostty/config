@@ -1,9 +1,10 @@
 command = /usr/bin/fish
 
-theme = "Rose Pine Dawn"
+# theme = "Rose Pine Dawn"
+theme = "Adventure Time"
 
 font-family="Monaspace Krypton NF"
-font-size=9
+font-size=8
 font-feature="ss01"
 font-feature="ss02"
 font-feature="ss03"
