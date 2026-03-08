@@ -12,12 +12,10 @@ vim.pack.add({
 
 local colors = require("shades-of-purple.colors")
 
+cmd.colorscheme "shades-of-purple"
+
 collect({
-    { hi = "VirtColumn", opts = { fg = colors.yellow } }
+    { hi = "VirtColumn", opts = { fg = colors.purple } },
 }):each(function(value)
     api.nvim_set_hl(0, value.hi, value.opts)
 end)
-
--- api.nvim_set_hl(0, "VirtColumn", { fg = "#FF9D00" })
-
-cmd.colorscheme "shades-of-purple"
