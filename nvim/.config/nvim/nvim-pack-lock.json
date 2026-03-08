@@ -164,6 +164,10 @@
       "rev": "8663bf6b222d911e04a9f1b391c3b1ccd22adb69",
       "src": "https://github.com/calind/selenized.nvim"
     },
+    "shades-of-purple.nvim": {
+      "rev": "d403d33f14b0233f9ccc5371668cfea7ed125ce4",
+      "src": "https://github.com/necrogoru/shades-of-purple.nvim"
+    },
     "sonarqube.nvim": {
       "rev": "811bf8f46e0aa5ed9c9b5783aaf6f87640df553a",
       "src": "https://github.com/iamkarasik/sonarqube.nvim"
