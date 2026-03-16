@@ -36,6 +36,7 @@ require("global-note").setup({})
 require("mini.sessions").setup({
     autoread = false,
     autowrite = true,
+    force = { read = false, write = true, delete = true },
     hooks = {
         post = {
             read = require('modules.session_helper').find_root_dir,
