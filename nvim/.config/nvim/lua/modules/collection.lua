@@ -9,13 +9,22 @@ Collection.__index = Collection
 function Collection:new(tbl)
     local obj = setmetatable({}, self)
     obj.table = tbl or {}
-
     return obj
 end
 
 ---@description helper function to create a new collection from a table
 Collection.collect = function(tbl)
     return Collection:new(tbl)
+end
+
+---@description helper function to determine if a table is an array
+function Collection:isArray(t)
+    local i = 0
+    for _ in pairs(t) do
+        i = i + 1
+        if t[i] == nil then return false end
+    end
+    return true
 end
 
 ---@description Add one or more items to the collection
@@ -25,22 +34,55 @@ function Collection:push(...)
     for _, item in ipairs(items) do
         table.insert(self.table, item)
     end
-
     return self
 end
 
+---@description Add one item to the collection
+---@param key string|number
+---@param value any
+---@return self
 function Collection:put(key, value)
     self.table[key] = value
-
     return self
 end
 
+---@description Get the value of a key
+---@param key string|number
+---@return any
 function Collection:get(key)
     return self.table[key]
 end
 
+---@description Get the keys of the collection
+---@return table
+function Collection:keys()
+    local keys = {}
+    for key, _ in pairs(self.table) do
+        table.insert(keys, key)
+    end
+    return keys
+end
+
+---@description Get the values of the collection
+---@return table
+function Collection:values()
+    local values = {}
+    if self:isArray(self.table) then
+        for _, value in ipairs(self.table) do
+            table.insert(values, value)
+        end
+        return values
+    end
+
+    for _, value in pairs(self.table) do
+        table.insert(values, value)
+    end
+
+    return values
+end
+
 ---@description Merge the collection with another one
----@param collection
+---@param collection Collection
 ---@return self
 function Collection:merge(collection)
     for key, value in pairs(collection.table) do
@@ -50,7 +92,6 @@ function Collection:merge(collection)
             self:put(key, value)
         end
     end
-
     return self
 end
 
@@ -85,7 +126,6 @@ function Collection:each(fn)
     for key, value in ipairs(self.table) do
         fn(value, key)
     end
-
     return self
 end
 
@@ -94,18 +134,20 @@ end
 ---@return self
 function Collection:filter(fn)
     local new_collection = Collection:new()
-
     for key, value in ipairs(self.table) do
         if fn(value, key) then
             new_collection:push(value)
         end
     end
-
     return new_collection
 end
 
 function Collection:count()
-    return #self.table
+    if self:isArray(self.table) then
+        return #self.table
+    end
+
+    return Collection:new(self:values()):count()
 end
 
 function Collection:is_empty()
@@ -132,7 +174,6 @@ function Collection:contains(key, value)
     elseif (type(key) == 'string' and value ~= nil) then
         return self:get(key) == value
     end
-
     return false
 end
 
@@ -165,13 +206,11 @@ end
 ---@return Collection
 function Collection:diff(collection)
     local found = Collection:new()
-
     for _, value in ipairs(self.table) do
         if not collection:contains(value) then
             found:push(value)
         end
     end
-
     return found
 end
 

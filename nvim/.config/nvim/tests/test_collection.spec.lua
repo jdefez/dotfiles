@@ -21,12 +21,13 @@ describe("collection module tests", function()
     end)
 
     it("put", function()
-        local animals = collect({ foo = 'bar' })
+        local animals = collect({ foo = 'bar', zoom = 'boo' })
 
         animals:put('biz', 'boom')
 
         assert.are.equal('boom', animals:get('biz'))
         assert.are.equal('bar', animals:get('foo'))
+        assert.are.equal('boo', animals:get('zoom'))
     end)
 
     it("merge", function()
@@ -129,5 +130,57 @@ describe("collection module tests", function()
         local diff = animals:diff(dogs)
         assert.are.equal(1, diff:count())
         assert.are.equal('bird', diff:first())
+    end)
+
+    it("keys of an array", function()
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+        local keys = animals:keys()
+        assert.are.equal(4, #keys)
+
+        local expected = { 1, 2, 3, 4 }
+        for index, key in ipairs(keys) do
+            assert.are.equal(true, type(key) == 'number')
+            assert.are.equal(expected[index], key)
+        end
+    end)
+
+    it("keys of an associative array", function()
+        local asociative = collect({ foo = 'bar', baz = 'boom' })
+        local keys = asociative:values()
+        assert.are.equal(2, #keys)
+        -- TODO: check keys members
+    end)
+
+    it("values of an array", function()
+        -- array like test
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+        local values = animals:values()
+        assert.are.equal(4, #values)
+        for index, value in ipairs(values) do
+            assert.are.equal(true, type(value) == 'string')
+            assert.are.equal(value, animals:get(index))
+        end
+    end)
+
+    it("values of an associative array", function()
+        -- associative test
+        local asociative = collect({ foo = 'bar', baz = 'boom' })
+        local values = asociative:values()
+
+        assert.are.equal(2, #values)
+
+        local expected = { 'bar', 'boom' }
+        for index, value in ipairs(values) do
+            assert.are.equal(true, type(value) == 'string')
+            assert.are.equal(expected[index], value)
+        end
+    end)
+
+    it("count", function()
+        local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
+        assert.are.equal(4, animals:count())
+
+        local associative = collect({ foo = 'bar', baz = 'boom' })
+        assert.are.equal(2, associative:count())
     end)
 end)
