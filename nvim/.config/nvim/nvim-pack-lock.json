@@ -136,6 +136,10 @@
       "rev": "6b62f73a6bf317531d15a7ae1b724e85485d8148",
       "src": "https://github.com/hedyhli/outline.nvim"
     },
+    "pastel.nvim": {
+      "rev": "50d549374bafaa127e7d545160ea22da612751d1",
+      "src": "https://github.com/ankushbhagats/pastel.nvim"
+    },
     "phpactor.nvim": {
       "rev": "ad86c2fa27446789f6eaab8e1eba0d5e12553770",
       "src": "https://github.com/gbprod/phpactor.nvim"
