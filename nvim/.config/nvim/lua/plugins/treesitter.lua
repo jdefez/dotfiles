@@ -6,7 +6,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter').setup({
     ignore_install = {},
     auto_install = true,
     sync_install = false,
@@ -32,17 +32,4 @@ require('nvim-treesitter.configs').setup({
         "yaml",
         "vue",
     },
-    -- highlight = {
-    --     enable = true,
-    --     additional_vim_regex_highlighting = false,
-    -- },
-    -- incremental_selection = {
-    --     enable = true,
-    --     keymaps = {
-    --         init_selection = "gnn",
-    --         mode_incremental = "grn",
-    --         node_decremental = "grm",
-    --         scope_incremental = "grc",
-    --     },
-    -- },
 })
