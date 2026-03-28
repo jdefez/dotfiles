@@ -60,3 +60,5 @@ require('rose-pine').setup({
 })
 
 cmd.colorscheme "rose-pine"
+vim.opt.background = "light"
+
