@@ -201,17 +201,52 @@ function Collection:every(fn)
     return true
 end
 
----@description Return the difference between two collections
----@param collection Collection
+---@description find values in the collection that are not present in the given table or collection.
+---@param collection Collection | table
 ---@return Collection
 function Collection:diff(collection)
     local found = Collection:new()
-    for _, value in ipairs(self.table) do
+
+    if type(collection) == 'table' then
+        collection = Collection:new(collection)
+    end
+
+    self:each(function(value)
         if not collection:contains(value) then
             found:push(value)
         end
-    end
+    end)
+
     return found
 end
+
+---@description list values from the collection that are not present in the given table or collection.
+---@param collection Collection | table
+---@return Collection
+function Collection:intersect(collection)
+    local found = Collection:new()
+
+    if type(collection) == 'table' then
+        collection = Collection:new(collection)
+    end
+
+    self:each(function(value)
+        if collection:contains(value) then
+            found:push(value)
+        end
+    end)
+
+    return found
+end
+
+-- TODO: add more methods
+-- function Collection:except()
+-- end
+-- function Collection:forget()
+-- end
+-- function Collection:has()
+-- end
+-- function Collection:only()
+-- end
 
 return Collection

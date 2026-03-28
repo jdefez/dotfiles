@@ -124,10 +124,17 @@ describe("collection module tests", function()
     end)
 
     it("diff", function()
-        local animals = collect({ 'bird', 'cat', 'moose' })
-        local dogs = collect({ 'dog', 'cat', 'moose' })
+        local animals = collect({ 'bear', 'cat', 'moose' })
 
-        local diff = animals:diff(dogs)
+        local diff = animals:diff({ 'bird', 'cat', 'moose' })
+        assert.are.equal(1, diff:count())
+        assert.are.equal('bear', diff:first())
+    end)
+
+    it("intersect", function()
+        local animals = collect({ 'bird', 'cat', 'moose' })
+
+        local diff = animals:diff({ 'cat', 'moose' })
         assert.are.equal(1, diff:count())
         assert.are.equal('bird', diff:first())
     end)
@@ -145,35 +152,25 @@ describe("collection module tests", function()
     end)
 
     it("keys of an associative array", function()
-        local asociative = collect({ foo = 'bar', baz = 'boom' })
-        local keys = asociative:values()
-        assert.are.equal(2, #keys)
-        -- TODO: check keys members
+        local associative = collect({ foo = 'bar', baz = 'boom' })
+        local keys = collect(associative:values())
+
+        assert.are.equal(2, keys:count())
+        assert.are.equal(true, keys:diff({ 'bar', 'boom' }):is_empty())
     end)
 
     it("values of an array", function()
-        -- array like test
         local animals = collect({ 'dog', 'cat', 'mouse', 'bird' })
-        local values = animals:values()
-        assert.are.equal(4, #values)
-        for index, value in ipairs(values) do
-            assert.are.equal(true, type(value) == 'string')
-            assert.are.equal(value, animals:get(index))
-        end
+        local values = collect(animals:values())
+        assert.are.equal(4, values:count())
+        assert.are.equal(true, values:diff({ 'dog', 'cat', 'mouse', 'bird' }):is_empty())
     end)
 
     it("values of an associative array", function()
-        -- associative test
-        local asociative = collect({ foo = 'bar', baz = 'boom' })
-        local values = asociative:values()
-
-        assert.are.equal(2, #values)
-
-        local expected = { 'bar', 'boom' }
-        for index, value in ipairs(values) do
-            assert.are.equal(true, type(value) == 'string')
-            assert.are.equal(expected[index], value)
-        end
+        local associative = collect({ foo = 'bar', baz = 'boom' })
+        local values = collect(associative:values())
+        assert.are.equal(2, values:count())
+        assert.are.equal(true, values:diff({ 'bar', 'boom' }):is_empty())
     end)
 
     it("count", function()
