@@ -1,5 +1,8 @@
 # sources
+ ## incremental selection
+ - https://www.reddit.com/r/neovim/comments/1s9q0pi/incremental_selection_in_neovim_012/
 
+ ## ui2
  - https://www.reddit.com/r/neovim/comments/1sa95g4/no_more_press_enter_with_ui2_with_example/
  - https://github.com/ThorstenRhau/neovim/blob/66dcad81af30fd68c0b69ed91d46896519afaa73/lua/config/options.lua#L86-L133
 
