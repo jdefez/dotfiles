@@ -19,6 +19,9 @@ vim.pack.add({
     { src = "https://github.com/backdround/global-note.nvim" },
 })
 
+-- Activates undotree module (not a plugin)
+vim.cmd("packadd nvim.undotree")
+
 require('mini.extra').setup()
 require("auto-save").setup({})
 require("mini.bufremove").setup({})
