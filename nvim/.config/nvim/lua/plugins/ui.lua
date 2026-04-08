@@ -18,7 +18,7 @@ vim.pack.add({
     { src = "https://github.com/backdround/global-note.nvim" },
 })
 
---------------------------------------------------------------------------------
+require('vim._core.ui2').enable()
 require('mini.extra').setup()
 require("auto-save").setup({})
 require("mini.bufremove").setup({})

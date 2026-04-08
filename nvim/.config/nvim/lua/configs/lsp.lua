@@ -54,24 +54,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+local severity = vim.diagnostic.severity
 vim.diagnostic.config({
     underline = true,
     virtual_text = false,
     virtual_line = false,
+    update_in_insert = false,
+    severity_sort = false,
     float = {
         source = true,
         show_header = true,
         border = 'rounded',
         focusable = false,
     },
-    update_in_insert = false,
-    severity_sort = false,
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = '💥',
-            [vim.diagnostic.severity.WARN] = '⚠️',
-            [vim.diagnostic.severity.INFO] = '💡',
-            [vim.diagnostic.severity.HINT] = '🤘',
+            [severity.ERROR] = '💥',
+            [severity.WARN] = '⚠️',
+            [severity.INFO] = '💡',
+            [severity.HINT] = '🤘',
         },
     },
 })

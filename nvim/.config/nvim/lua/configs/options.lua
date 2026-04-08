@@ -17,6 +17,7 @@ option.expandtab = true
 option.shiftwidth = 4
 option.tabstop = 4
 option.winborder = "rounded"
+option.pumborder = 'rounded'
 option.clipboard = "unnamedplus"
 option.termguicolors = true
 option.ignorecase = true
@@ -26,8 +27,10 @@ option.scrolloff = 8
 option.inccommand = "nosplit"
 option.splitbelow = true
 option.splitright = true
-option.completeopt = { "menu", "menuone", "noselect" }
+option.completeopt = { "menu", "menuone", "noselect", "nearest" }
 option.complete = { ".", "w", "b", "u" }
+option.autocomplete = true
+
 
 window.foldmethod = 'expr'
 window.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
