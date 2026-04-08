@@ -170,6 +170,7 @@ keymap.set("n", "<leader>lf", function()
         vim.lsp.buf.format()
     end
 end, { desc = "Format buffer" })
+keymap.set("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle inlay hints" })
 keymap.set("n", "<Leader>li", function() vim.lsp.buf.implementation() end, { desc = "Implementations" })
 keymap.set("n", "<Leader>lk", function() vim.lsp.buf.hover() end, { desc = "Hover" })
 keymap.set("n", "<leader>ll", function() vim.diagnostic.setloclist() end, { desc = "List diagnostics" })
@@ -178,6 +179,7 @@ keymap.set("n", '<leader>lr', '<Cmd>Pick lsp scope="references"<CR>', { desc = '
 keymap.set("n", '<leader>ls', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
 keymap.set("n", '<leader>lS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
 keymap.set("n", "<Leader>lw", function() vim.diagnostic.open_float() end, { desc = "Show diagnostic" })
+keymap.set("n", "<Leader>lW", function() vim.diagnostic.setqflist() end, { desc = "Set diagnostic to quickfix" })
 
 --------------------------------------------------------------------------------
 -- [p] for php
