@@ -14,7 +14,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.clue" },
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
-    { src = "https://github.com/nvim-mini/mini.starter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/backdround/global-note.nvim" },
 })
@@ -28,7 +27,6 @@ require("mini.animate").setup({
     }
 })
 require("mini.statusline").setup({})
-require("mini.starter").setup({})
 require("barbecue").setup({
     theme = "default"
 })
