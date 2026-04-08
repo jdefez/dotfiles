@@ -1,2 +1,5 @@
 code_transform.class_new.variants:
     action: action
+language_server_worse_reflection.inlay_hints.enable: true
+language_server_worse_reflection.inlay_hints.params: true
+language_server_worse_reflection.inlay_hints.types: false
