@@ -47,7 +47,7 @@ keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("n", "<leader>bp", '<cmd>Copypath filename<CR>', { desc = "Copy filename" })
 keymap.set("n", "<leader>bP", '<cmd>Copypath relative<CR>', { desc = "Copy relative path" })
-keymap.set("n", "<leader>bt", ':Undotree<CR>', { desc = "Open undotree" })
+-- keymap.set("n", "<leader>bt", ':Undotree<CR>', { desc = "Open undotree" })
 
 --------------------------------------------------------------------------------
 -- [c] for cursor

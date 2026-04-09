@@ -14,13 +14,15 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.clue" },
     { src = "https://github.com/SmiteshP/nvim-navic" }, -- barbecue dependency
     { src = "https://github.com/utilyre/barbecue.nvim" },
-    { src = "https://github.com/nvim-mini/mini.starter" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/backdround/global-note.nvim" },
 })
 
+-- Activates ui2
+require('vim._core.ui2').enable()
+
 -- Activates undotree module (not a plugin)
-vim.cmd("packadd nvim.undotree")
+-- vim.cmd("packadd nvim.undotree")
 
 require('mini.extra').setup()
 require("auto-save").setup({})
@@ -31,7 +33,6 @@ require("mini.animate").setup({
     }
 })
 require("mini.statusline").setup({})
-require("mini.starter").setup({})
 require("barbecue").setup({
     theme = "default"
 })
