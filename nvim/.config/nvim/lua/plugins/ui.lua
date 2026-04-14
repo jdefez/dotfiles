@@ -18,10 +18,11 @@ vim.pack.add({
     { src = "https://github.com/backdround/global-note.nvim" },
 })
 
--- Activates ui2
+-- Activates _ui2 module
+-- @see https://www.reddit.com/r/neovim/comments/1sfmgkb/how_does_the_new_ui2_message_cmdline_replacement/
 require('vim._core.ui2').enable()
 
--- Activates undotree module (not a plugin)
+-- Activates undotree module
 -- vim.cmd("packadd nvim.undotree")
 
 require('mini.extra').setup()
