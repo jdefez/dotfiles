@@ -14,7 +14,11 @@ vim.pack.add({
     { src = "https://github.com/hedyhli/outline.nvim" },
 })
 require("fyler").setup({
-    follow_current_file = false,
+    views = {
+        finder = {
+            follow_current_file = false,
+        }
+    }
 })
 require("mini.pick").setup()
 require("flash").setup({

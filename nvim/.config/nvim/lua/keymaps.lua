@@ -139,7 +139,7 @@ keymap.set(
     function()
         local fyler = require("fyler")
         fyler.toggle({ kind = 'split_right_most' })
-        fyler.focus(vim.fn.expand('%:p'))
+        fyler.navigate(vim.fn.expand('%:p'))
     end,
     { desc = "Focus file" }
 )
