@@ -26,3 +26,6 @@ export HERD_PHP_81_INI_SCAN_DIR="/Users/ayctor/Library/Application Support/Herd/
 
 set -xg EDITOR nvim
 set -g CDPATH . ~ ~/.config ~/Code
+
+# Added by codebase-memory-mcp install
+export PATH="/Users/ayctor/.local/bin:$PATH"
