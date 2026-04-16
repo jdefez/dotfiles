@@ -21,7 +21,7 @@
       "src": "https://github.com/NTBBloodbath/doom-one.nvim"
     },
     "doric-themes.nvim": {
-      "rev": "2461d9563cb876c99f4920a98ef4894d9b92797e",
+      "rev": "830f334dee04fe469850b38ff7113b3dddb7c2bc",
       "src": "https://github.com/aymenhafeez/doric-themes.nvim"
     },
     "fastaction.nvim": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.animate": {
-      "rev": "0f2117aa519ec238846223d581272a9205fef7c2",
+      "rev": "72e04cf86ccbcd50efb53c2b87397386195bc3a7",
       "src": "https://github.com/nvim-mini/mini.animate"
     },
     "mini.bufremove": {
@@ -65,7 +65,7 @@
       "src": "https://github.com/nvim-mini/mini.bufremove"
     },
     "mini.clue": {
-      "rev": "f8a11789cf34a7bae396dc0f828d06cdb5066793",
+      "rev": "43bd6cf1c3ccdea46d403c32dbc4629fa6afa09d",
       "src": "https://github.com/nvim-mini/mini.clue"
     },
     "mini.cmdline": {
@@ -77,7 +77,7 @@
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.icons": {
-      "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
+      "rev": "bac6317300e205335df425296570d84322730067",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.indentscope": {
@@ -113,7 +113,7 @@
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-lspconfig": {
-      "rev": "8a9378a822719346a0288fa004dab302ca3c0a8f",
+      "rev": "b80f82f59544f0770981b5a6c7d129ca276dab36",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
