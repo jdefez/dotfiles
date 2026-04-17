@@ -11,6 +11,7 @@ cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
 -- require('colorschemes.shades-of-purple')
 -- require('colorschemes.doric-themes')
-require('colorschemes.rose-pine')
+-- require('colorschemes.rose-pine')
+require('colorschemes.mfd')
 -- require('colorschemes.pastel')
 -- require('colorschemes.doom-one')

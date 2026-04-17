@@ -56,6 +56,10 @@
       "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mfd.nvim": {
+      "rev": "5d6067159e1b1116a12f34827a353572dbf3bdb9",
+      "src": "https://github.com/kungfusheep/mfd.nvim"
+    },
     "mini.animate": {
       "rev": "72e04cf86ccbcd50efb53c2b87397386195bc3a7",
       "src": "https://github.com/nvim-mini/mini.animate"
@@ -93,7 +97,7 @@
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.sessions": {
-      "rev": "2e419949f6846871b3b87bcd7c418b0d1f0ad68a",
+      "rev": "c96a1d1284b37ba2431092981a9d58f8c71a4fc3",
       "src": "https://github.com/nvim-mini/mini.sessions"
     },
     "mini.starter": {
@@ -113,7 +117,7 @@
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-lspconfig": {
-      "rev": "b80f82f59544f0770981b5a6c7d129ca276dab36",
+      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
