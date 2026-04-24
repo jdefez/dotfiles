@@ -27,9 +27,9 @@ option.scrolloff = 8
 option.inccommand = "nosplit"
 option.splitbelow = true
 option.splitright = true
-option.completeopt = { "menu", "menuone", "noselect", "nearest" }
-option.complete = { ".", "w", "b", "u" }
 option.autocomplete = true
+option.completeopt = { "menu", "menuone", "noselect", "nearest", "preview", "fuzzy" }
+option.complete = { ".", "w", "b", "u" }
 
 
 window.foldmethod = 'expr'
