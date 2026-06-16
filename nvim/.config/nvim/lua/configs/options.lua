@@ -28,6 +28,7 @@ option.splitbelow = true
 option.splitright = true
 option.completeopt = { "menu", "menuone", "noselect" }
 option.complete = { ".", "w", "b", "u" }
+option.autoread = true
 
 window.foldmethod = 'expr'
 window.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

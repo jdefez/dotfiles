@@ -2,6 +2,8 @@
 -- lsp
 --------------------------------------------------------------------------------
 
+-- TODO: try this one: https://github.com/error311/wayfinder.nvim
+
 vim.pack.add({
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },

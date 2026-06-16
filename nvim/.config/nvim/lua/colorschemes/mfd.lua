@@ -13,7 +13,7 @@ vim.pack.add({
 -- mfd-mono
 -- mfd-scarlet
 -- mfd-paper
--- mfd-hud	
+-- mfd-hud
 -- mfd-nvg
 -- mfd-gbl-light
 -- mfd-gbl-dark
@@ -27,8 +27,8 @@ vim.pack.add({
 
 require('mfd').setup({
     accessibility_contrast = 0, -- 0 (default) to 10 (max WCAG compliance)
-    no_italic = false,         -- disable italic highlighting (default: false)
-    bright_comments = true,   -- legacy: equivalent to accessibility_contrast = 4
+    no_italic = false,          -- disable italic highlighting (default: false)
+    bright_comments = true,     -- legacy: equivalent to accessibility_contrast = 4
 })
 
 vim.cmd.colorscheme('mfd-paper')
