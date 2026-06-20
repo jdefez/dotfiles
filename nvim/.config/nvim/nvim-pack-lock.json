@@ -13,7 +13,7 @@
       "src": "https://github.com/ahkohd/buffer-sticks.nvim"
     },
     "codediff.nvim": {
-      "rev": "8afc229d38dc13ce71b2ffbb860084b2c726e061",
+      "rev": "7608f3b436ce1f84a4888f75e53079caa981a2e9",
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "fastaction.nvim": {
@@ -25,11 +25,11 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "fyler.nvim": {
-      "rev": "e87911e6c21d099225063f5aa672e00f6dbb5976",
+      "rev": "6374c9c94b3d485906a40d43afecbf596a7d1b9a",
       "src": "https://github.com/A7Lavinraj/fyler.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
+      "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "global-note.nvim": {
@@ -37,55 +37,59 @@
       "src": "https://github.com/backdround/global-note.nvim"
     },
     "kanagawa.nvim": {
-      "rev": "8ad3b4cdcc804b332c32db8f9743667e1bb82b99",
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
+    "lua-collection": {
+      "rev": "491475f09c9737916dc9de798f309b1f70c65b40",
+      "src": "https://github.com/jdefez/lua-collection"
+    },
     "mason.nvim": {
-      "rev": "12ddd182d9efbdc848b540f16484a583d52da0fb",
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.animate": {
-      "rev": "72e04cf86ccbcd50efb53c2b87397386195bc3a7",
+      "rev": "1c243baec3a308ea3552fbbd2f5d24ed804bf17d",
       "src": "https://github.com/nvim-mini/mini.animate"
     },
     "mini.bufremove": {
-      "rev": "8603490905fdfa31943cf2ede7ef4475e3dbac9a",
+      "rev": "4cfbb201b2760da79ca6e1a00e9f67cbc99cbb8f",
       "src": "https://github.com/nvim-mini/mini.bufremove"
     },
     "mini.clue": {
-      "rev": "43bd6cf1c3ccdea46d403c32dbc4629fa6afa09d",
+      "rev": "62e9e38c3dc4b7d429f1b6e28d96f96cdff71132",
       "src": "https://github.com/nvim-mini/mini.clue"
     },
     "mini.cmdline": {
-      "rev": "abae396a175779dcbfe1500231f9bb48cda557c1",
+      "rev": "8e3fe6ee41a960226bc0dc663120363a40bc18bd",
       "src": "https://github.com/nvim-mini/mini.cmdline"
     },
     "mini.extra": {
-      "rev": "bc4e872500fd6d2ce252604e0ffa100f64f02280",
+      "rev": "e5ecf197f8954d002cb9e85b3715851e2c8d3cd5",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.icons": {
-      "rev": "bac6317300e205335df425296570d84322730067",
+      "rev": "e56797f90192d81f1fda02e662fc3e8e3d775027",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.indentscope": {
-      "rev": "e0601f75aa5137a5a13bb92a988c9a300f5bd3de",
+      "rev": "d3f955f09b1a05d25d5a7740338fba2baaee41a3",
       "src": "https://github.com/nvim-mini/mini.indentscope"
     },
     "mini.pairs": {
-      "rev": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9",
+      "rev": "4a014143fcb4e9df26198ccb3ecff3b9e77a048c",
       "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "mini.pick": {
-      "rev": "437d44eb57312f23e6b931704694fc294922cd88",
+      "rev": "8c1f75f8ddd8c9f75d07ed2ab5718d2c3cb65a66",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.sessions": {
-      "rev": "c96a1d1284b37ba2431092981a9d58f8c71a4fc3",
+      "rev": "7cb2945ccc11323b7ca19796eb42618493e1dc12",
       "src": "https://github.com/nvim-mini/mini.sessions"
     },
     "mini.statusline": {
-      "rev": "b456bfe845e475e9cec065b7a9a1ef657ad2f41b",
+      "rev": "b5547f44560dae3ccd81f914256fa6f705837022",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "multicursor.nvim": {
@@ -93,7 +97,7 @@
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
     "neogit": {
-      "rev": "2d94da0032e201865a5b65a6bc008dd6fce8f52e",
+      "rev": "828dd073e6ad180fdb5c1603c7ad7f68a384c40b",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nui.nvim": {
@@ -101,11 +105,11 @@
       "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim": {
-      "rev": "9d22ec7b126d75274a4525840501bf8da55c75f1",
+      "rev": "7365b8dede43a82ed1df741275b75333422e5402",
       "src": "https://github.com/ember-theme/nvim"
     },
     "nvim-lspconfig": {
-      "rev": "81878de76c0de4ce289513734ad80c31ec7871b8",
+      "rev": "bfcc0171a43f22afa61d927ffe9fcb6cb85dc99e",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -113,7 +117,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-surround": {
-      "rev": "9291040de8cd8a4439eb64c441e8d5d2bf884a5a",
+      "rev": "8b47db616ef658b8fc27e61db2896aa2f40134de",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-treesitter": {
@@ -122,7 +126,7 @@
       "version": "'main'"
     },
     "nvim-web-devicons": {
-      "rev": "c72328a5494b4502947a022fe69c0c47e53b6aa6",
+      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "one-nvim": {
@@ -130,7 +134,7 @@
       "src": "https://github.com/Th3Whit3Wolf/one-nvim"
     },
     "outline.nvim": {
-      "rev": "c293eb56db880a0539bf9d85b4a27816960b863e",
+      "rev": "2a132953b944561d45b52e4541ebfff71934a742",
       "src": "https://github.com/hedyhli/outline.nvim"
     },
     "phpactor.nvim": {
@@ -142,15 +146,15 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "quicker.nvim": {
-      "rev": "063cc44da1eef8681bbd653b29d3bc961780886a",
+      "rev": "4a6883cb13fe097a20a046eb55f6dffd239276e3",
       "src": "https://github.com/stevearc/quicker.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "d67113f11384c0dad96fced2f7b91f1fc811e97f",
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rose-pine": {
-      "rev": "9504524e5ed0e326534698f637f9d038ba4cd0ee",
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
       "src": "https://github.com/rose-pine/neovim"
     },
     "shades-of-purple.nvim": {

@@ -13,7 +13,17 @@ vim.pack.add({
     { src = "https://github.com/ahkohd/buffer-sticks.nvim" },
     { src = "https://github.com/hedyhli/outline.nvim" },
 })
-require("fyler").setup()
+require("fyler").setup({
+    integrations = { icon = 'mini_icons' },
+    extensions = {
+        git = { enabled = true }
+    },
+    ui = {
+        hidden_items = {
+            switches = {}
+        }
+    }
+})
 require("mini.pick").setup()
 require("flash").setup({
     modes = {
