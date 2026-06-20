@@ -6,8 +6,8 @@ cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 
 -- require('colorschemes.shades-of-purple')
 -- require('colorschemes.monokai-pro')
--- require('colorschemes.rose-pine')
-require('colorschemes.kanagawa')
+require('colorschemes.rose-pine')
+-- require('colorschemes.kanagawa')
 
 -- require('colorschemes.ember-theme')
 -- require('colorschemes.monochrome')

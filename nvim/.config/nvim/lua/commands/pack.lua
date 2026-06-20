@@ -1,15 +1,16 @@
+local collect = require('collection').collect
+
 local function complete_packages(ArgLead)
-    local packages = vim.iter(vim.pack.get())
+    local packages = collect(vim.pack.get())
         :map(function(pack) return pack.spec.name end)
-        :totable()
 
     if ArgLead ~= "" then
-        packages = vim.tbl_filter(function(item)
+        packages = packages:filter(function(item)
             return vim.startswith(item, ArgLead)
-        end, packages)
+        end)
     end
 
-    return packages
+    return packages:values()
 end
 
 vim.api.nvim_create_user_command(
