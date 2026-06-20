@@ -10,6 +10,7 @@ set -gx fish_user_paths \
     /home/jean/.local/bin \
     /home/jean/.claude \
     /home/jean/.cargo/bin \
+    /home/jean/.luarocks/bin \
     /usr/bin
 
 fzf --fish | source
