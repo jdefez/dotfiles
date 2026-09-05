@@ -28,7 +28,7 @@ option.inccommand = "nosplit"
 option.splitbelow = true
 option.splitright = true
 option.autocomplete = true
-option.completeopt = { "menu", "menuone", "noselect", "nearest", "preview", "fuzzy" }
+option.completeopt = { "menu", "menuone", "noselect", "nearest", "preview", "fuzzy", "preselect" }
 option.complete = { ".", "w", "b", "u" }
 
 
