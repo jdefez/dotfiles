@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Manage neovim packages
+--------------------------------------------------------------------------------
+
 local collect = require('collection').collect
 
 local function complete_packages(ArgLead)

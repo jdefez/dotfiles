@@ -2,7 +2,8 @@ local keymap = vim.keymap
 
 keymap.set('n', 'Y', 'yy$')
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
-keymap.set({ "n", "i", "v" }, "<esc>", "<ESC><cmd>:nohl<CR>")
+-- clears search highlight and multicursors
+keymap.set({ "n", "i", "v" }, "<esc>", "<cmd>:nohl<CR><cmd>:edit!<CR><ESC>")
 
 require("mini.clue").setup({
     -- Register `<Leader>` as trigger
@@ -47,79 +48,6 @@ keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("n", "<leader>bp", '<cmd>Copypath filename<CR>', { desc = "Copy filename" })
 keymap.set("n", "<leader>bP", '<cmd>Copypath relative<CR>', { desc = "Copy relative path" })
-
---------------------------------------------------------------------------------
--- [c] for cursor
---------------------------------------------------------------------------------
-
-local mc = require("multicursor-nvim")
-
--- TODO: add multicursor-operator
--- Pressing `<leader>miwap` will create a cursor in every match of the
--- string captured by `iw` inside range `ap`.
--- This action is highly customizable, see `:h multicursor-operator`.
--- set({"n", "x"}, "<leader>m", mc.operator)
-
--- Add or skip cursor above/below the main cursor.
-
-keymap.set({ "n", "x" }, "<up>", function() mc.lineAddCursor(-1) end, { desc = "Add up" })
-keymap.set({ "n", "x" }, "<down>", function() mc.lineAddCursor(1) end, { desc = "Add down" })
-keymap.set({ "n", "x" }, "<s-up>", function() mc.lineSkipCursor(-1) end, { desc = "Skip up" })
-keymap.set({ "n", "x" }, "<s-down>", function() mc.lineSkipCursor(1) end, { desc = "Skip down" })
-
--- Add or skip adding a new cursor by matching word/selection
-
-keymap.set({ "n", "x" }, "<leader>cj", function() mc.matchAddCursor(1) end, { desc = "Add & match next" })
-keymap.set({ "n", "x" }, "<leader>ck", function() mc.matchAddCursor(-1) end, { desc = "Add & match previous" })
-keymap.set({ "n", "x" }, "<leader>cJ", function() mc.matchSkipCursor(1) end, { desc = "Skip & match next" })
-keymap.set({ "n", "x" }, "<leader>cK", function() mc.matchSkipCursor(-1) end, { desc = "Skip & match previous" })
-
--- match new cursors within visual selections by regex.
-
-keymap.set("x", "M", mc.matchCursors)
-
--- Add a cursor and jump to the next/previous search result.
-
-keymap.set("n", "<leader>c/", function() mc.searchAddCursor(1) end, { desc = "Add & search next" })
-keymap.set("n", "<leader>c#", function() mc.searchAddCursor(-1) end, { desc = "Add & search previous" })
-
--- Jump to the next/previous search result without adding a cursor.
-
-keymap.set("n", "<leader>cs/", function() mc.searchSkipCursor(1) end, { desc = "Skip & search next" })
-keymap.set("n", "<leader>cs#", function() mc.searchSkipCursor(-1) end, { desc = "Skip & search previous" })
-
--- Pressing `gaip` will add a cursor on each line of a paragraph.
-
-keymap.set("n", "ga", mc.addCursorOperator)
-
--- Append/insert for each line of visual selections. Similar to block selection insertion.
-
-keymap.set("x", "<leader>cI", mc.insertVisual, { desc = "Insert visual selection" })
-keymap.set("x", "<leader>cA", mc.appendVisual, { desc = "Append visual selection" })
-
--- Disable and enable cursors.
-keymap.set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle cursors" })
-
--- Mappings defined in a keymap layer only apply when there are multiple
--- cursors. This lets you have overlapping mappings.
-
-mc.addKeymapLayer(function(layerSet)
-    -- Select a different cursor as the main one.
-    layerSet({ "n", "x" }, "<left>", mc.prevCursor, { desc = "Rotate to previous cursor" })
-    layerSet({ "n", "x" }, "<right>", mc.nextCursor, { desc = "Rotate to next cursor" })
-
-    -- Delete the main cursor.
-    layerSet({ "n", "x" }, "<leader>cx", mc.deleteCursor, { desc = "Delete cursor" })
-
-    -- Enable and clear cursors using escape.
-    layerSet("n", "<esc>", function()
-        if not mc.cursorsEnabled() then
-            mc.enableCursors()
-        else
-            mc.clearCursors()
-        end
-    end, { desc = "Enable/clear cursors" })
-end)
 
 --------------------------------------------------------------------------------
 -- [f] for file
@@ -170,7 +98,8 @@ keymap.set("n", "<leader>lf", function()
         vim.lsp.buf.format()
     end
 end, { desc = "Format buffer" })
-keymap.set("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle inlay hints" })
+keymap.set("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+    { desc = "Toggle inlay hints" })
 keymap.set("n", "<Leader>li", function() vim.lsp.buf.implementation() end, { desc = "Implementations" })
 keymap.set("n", "<Leader>lk", function() vim.lsp.buf.hover() end, { desc = "Hover" })
 keymap.set("n", "<leader>ll", function() vim.diagnostic.setloclist() end, { desc = "List diagnostics" })
