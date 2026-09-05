@@ -27,10 +27,11 @@ option.scrolloff = 8
 option.inccommand = "nosplit"
 option.splitbelow = true
 option.splitright = true
+
 option.autocomplete = true
 option.completeopt = { "menu", "menuone", "noselect", "nearest", "preview", "fuzzy", "preselect" }
 option.complete = { ".", "w", "b", "u" }
-
+option.autoread = true
 
 window.foldmethod = 'expr'
 window.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
