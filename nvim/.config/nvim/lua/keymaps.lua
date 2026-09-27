@@ -3,12 +3,9 @@ local keymap = vim.keymap
 keymap.set('n', 'Y', 'yy$')
 keymap.set("i", "jk", "<ESC>", { desc = "Escape" })
 
+local multicursor = require("modules.multicursor")
+
 -- leave current mode, then clear search highlight and multicursors.
--- NOTE: clearing multicursors via a *fed keystroke* (e.g. <C-l>) is unreliable
--- while cursors are active (replay engine bug, neovim/neovim#41959). Calling
--- nvim_buf_clear_namespace() directly as a plain function call sidesteps that,
--- matching what core's own default <C-l> mapping does internally.
-local mcursor_ns = vim.api.nvim_create_namespace("nvim.multicursor")
 keymap.set({ "n", "i", "v" }, "<esc>", function()
     -- feed a genuine, unmapped <Esc> first so multicursor's native per-cursor
     -- exit-insert/visual logic runs (a *mapped* RHS only affects the primary
@@ -16,7 +13,7 @@ keymap.set({ "n", "i", "v" }, "<esc>", function()
     vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "n", false)
     vim.schedule(function()
         vim.cmd("nohlsearch")
-        vim.api.nvim_buf_clear_namespace(0, mcursor_ns, 0, -1)
+        multicursor.clear()
     end)
 end, { desc = "Leave mode, clear search highlight and multicursors" })
 
@@ -63,6 +60,13 @@ keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "New buffer" })
 keymap.set("n", "<leader>br", ":update<CR> :source<CR>", { desc = "Update and source" })
 keymap.set("n", "<leader>bp", '<cmd>Copypath filename<CR>', { desc = "Copy filename" })
 keymap.set("n", "<leader>bP", '<cmd>Copypath relative<CR>', { desc = "Copy relative path" })
+
+--------------------------------------------------------------------------------
+-- [c] for multicursor
+--------------------------------------------------------------------------------
+
+keymap.set("n", "<leader>cc", multicursor.clear, { desc = "Clear cursors" })
+keymap.set("x", "M", multicursor.match, { desc = "Match cursors by pattern" })
 
 --------------------------------------------------------------------------------
 -- [f] for file
