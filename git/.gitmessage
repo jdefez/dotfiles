@@ -8,6 +8,7 @@
 # test(what): adding missing tests or fixing failing existing tests
 # build(what): changes that affect the build system or external dependencies (webpack, npm, ..etc)
 # ci(what): changes to our CI configuration files and scripts (example scopes: config.yml, CircleCI, ..etc)
+# chore(what): changes that don't modify src or test files
 
 # Problem
 ########72 characters##################################################
